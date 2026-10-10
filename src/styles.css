@@ -241,3 +241,4 @@ body.ws .page h1.heading { margin: 20px 0 12px; }
 
 body.ws .wfs-page { position: relative; z-index: 10; margin-top: 77px; background: transparent; }
 body.ws .wfs { white-space: normal; line-height: 20px; min-height: 0; }
+@media (max-width: 900px) { body.ws .wfs-page { margin-top: 118px; } }

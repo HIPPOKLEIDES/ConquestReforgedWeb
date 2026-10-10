@@ -11,12 +11,13 @@ const BASE = 'https://www.conquestreforged.com';
 const text = async (u) => { const r = await fetch(u); if (!r.ok) throw new Error(u + ' ' + r.status); return r.text(); };
 let css = '';
 const scripts = new Map();
-const queue = ['conquest-pack', 'conquest-bedrock', '404'];
+const queue = ['conquest-pack', 'conquest-bedrock', '404', 'info', 'faq', 'downloads'];
 const seen = new Set(queue);
 for (let qi = 0; qi < queue.length; qi++) {
   const route = queue[qi];
   const slug = route.replace(/\//g, '__');
   let h = route === '404' ? await (await fetch(`${BASE}/this-page-does-not-exist`)).text() : await text(`${BASE}/${route}`);
+  h = h.replace(/<img src="http:\/\/i\.imgur\.com\/ATB7t3B\.gif"[^>]*>/, '<video src="/assets/ATB7t3B.mp4" aria-label="Creative inventory selection wheel" autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen" style="display:block;max-width:100%;margin:14px 0;pointer-events:none"></video>');
   for (const m of h.matchAll(/href="\/((?:conquest|biomespecific-blocks|biomespecifics-1-18)\/[\w-]+|catalog)"/g)) if (!seen.has(m[1])) { seen.add(m[1]); queue.push(m[1]); }
   // images whose file names contain parentheses: download them under safe names
   for (const m of [...h.matchAll(/https:\/\/cdn\.prod\.website-files\.com\/[^"\s,]*\([^"\s,]*/g)]) {

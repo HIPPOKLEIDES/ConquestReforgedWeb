@@ -153,12 +153,12 @@ const wsChrome = (() => {
 const FIX_CSS = `<style id="cr-fix">header{z-index:60!important}@media(min-width:901px){footer a[href="/team"],footer a[href="/faq"],footer a[href="/guides"]{position:absolute!important;top:13px;transform:translateX(-50%);margin:0!important;text-align:center}footer a[href="/team"]{left:calc(50% - 328px)}footer a[href="/faq"]{left:calc(50% - 161.5px)}footer a[href="/guides"]{left:calc(50% + .5px)}footer a[href*="patreon.com"]{position:absolute!important;top:13px;left:calc(50% + 308.5px);margin:0!important}form.crsearch{left:calc(50% + 150px)!important}}footer a.cr-cur{text-shadow:0 0 21px #d6ff00}</style>`;
 const FIX_JS = `<script>(function(){function m(){var p=location.pathname.replace(/[/]$/,'')||'/';document.querySelectorAll('footer a').forEach(function(a){var h=a.getAttribute('href')||'';if(h.charAt(0)==='/'&&(p===h||p.indexOf(h+'/')===0))a.classList.add('cr-cur')})}m();addEventListener('load',function(){m();setTimeout(m,1500)})})();</script>`;
 
-function layout({ title, description, body, urlPath, home = false, ogImage }) {
-  const full = title === site.name ? title : `${title} | ${site.name}`;
+function layout({ title, description, body, urlPath, home = false, ogImage, rawTitle = '', htmlAttrs = '' }) {
+  const full = rawTitle || (title === site.name ? title : `${title} | ${site.name}`);
   const canonical = site.url + (urlPath === '/' ? '' : urlPath);
   if (wsChrome) {
     return `<!doctype html>
-<html lang="en">
+<html lang="en"${htmlAttrs}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -467,6 +467,30 @@ function buildTeam() {
   emit('/team', layout({ title: 'The Conquest Reforged team', description: 'Meet our team of hardworking and chill individuals always open to making Conquest Reforged even better tomorrow.', urlPath: '/team', body: wfPage(inner) }));
 }
 
+
+// Info, FAQ and Downloads: original Webflow content (with Webflow's slider / before-after scripts) inside our chrome
+const CHROME_CLONES = ['info', 'faq', 'downloads'];
+function buildChromeClones() {
+  const dir = path.join(SRC, 'clone');
+  const sf = path.join(dir, 'scripts.json');
+  if (!fs.existsSync(sf)) return;
+  const scripts = JSON.parse(fs.readFileSync(sf, 'utf8'));
+  for (const slug of CHROME_CLONES) {
+    const f = path.join(dir, slug + '.body.html');
+    if (!fs.existsSync(f)) continue;
+    const meta = JSON.parse(fs.readFileSync(path.join(dir, slug + '.meta.json'), 'utf8'));
+    let body = fs.readFileSync(f, 'utf8');
+    const i = body.indexOf('<div class="content"'), j = body.indexOf('<div class="footer"');
+    let region = body.slice(i, j).replace(/<script[\s\S]*?<\/script>/g, '');
+    const tail = [...body.slice(j).matchAll(/<script[^>]*?(?:\ssrc="([^"]+)")?[^>]*>([\s\S]*?)<\/script>/g)]
+      .filter((m) => !(m[1] && /twitter|googletag|gtm/.test(m[1])))
+      .map((m) => (m[1] ? (scripts[m[1]] ? `<script src="/assets/${scripts[m[1]]}"></script>` : '') : `<script>${m[2]}</script>`))
+      .filter((s) => s && !/dataLayer|google_tags|gtag/.test(s)).join('');
+    region = region.replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/');
+    emit('/' + slug, layout({ title: meta.title, rawTitle: meta.title, description: meta.description, urlPath: '/' + slug, htmlAttrs: ` data-wf-page="${meta.wfPage}" data-wf-site="${meta.wfSite}"`, body: `<div class="wfs wfs-page">${region}</div>${tail}` }));
+  }
+}
+
 // Pack pages are faithful clones of the original Webflow pages (own design, own stylesheet): see clone-packs.mjs
 function buildClones() {
   const dir = path.join(SRC, 'clone');
@@ -477,7 +501,7 @@ function buildClones() {
     return exists('assets/' + name) ? '/assets/' + name : u;
   }));
   for (const [u, name] of Object.entries(scripts)) emitRaw('assets/' + name, fs.readFileSync(path.join(dir, name)));
-  for (const f0 of fs.readdirSync(dir).filter((n) => n.endsWith('.body.html'))) {
+  for (const f0 of fs.readdirSync(dir).filter((n) => n.endsWith('.body.html') && !CHROME_CLONES.includes(n.replace('.body.html', '')))) {
     const slug = f0.replace('.body.html', '').replace(/__/g, '/');
     const f = path.join(dir, f0);
     if (!fs.existsSync(f)) continue;
@@ -503,6 +527,7 @@ buildMarkdownPage('info.md', '/info');
 buildMarkdownPage('downloads.md', '/downloads');
 buildMarkdownPage('faq.md', '/faq');
 buildClones();
+buildChromeClones();
 buildNews(posts);
 buildShowcases();
 buildServers();
@@ -538,11 +563,13 @@ emitRaw('_headers', `/assets/*\n  Cache-Control: public, max-age=31536000, immut
 // src/webstudio/. Its files are copied over dist/, so any page it contains replaces ours.
 const WS = path.join(SRC, 'webstudio');
 const wsPages = [];
+const wsSkip = (p) => CHROME_CLONES.includes(path.relative(WS, p).split(path.sep)[0]);
 if (fs.existsSync(WS)) {
-  fs.cpSync(WS, DIST, { recursive: true });
+  fs.cpSync(WS, DIST, { recursive: true, filter: (src) => !wsSkip(src) });
   (function walk(d) {
     for (const e of fs.readdirSync(d, { withFileTypes: true })) {
       const p = path.join(d, e.name);
+      if (wsSkip(p)) continue;
       if (e.isDirectory()) walk(p);
       else if (e.name === 'index.html') wsPages.push('/' + path.relative(WS, d).split(path.sep).join('/'));
     }
@@ -553,6 +580,7 @@ if (fs.existsSync(WS)) {
   (function walk(d) {
     for (const e of fs.readdirSync(d, { withFileTypes: true })) {
       const p = path.join(d, e.name);
+      if (wsSkip(p)) continue;
       if (e.isDirectory()) { walk(p); continue; }
       if (e.name !== 'index.html') continue;
       const out = path.join(DIST, path.relative(WS, p));
