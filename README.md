@@ -3,10 +3,13 @@
 Static site, no dependencies (Node 18+). Content lives in files; `node build.mjs` writes `dist/`.
 
 ## Deploy (Cloudflare Pages, free)
-1. Push this folder to a GitHub repo.
-2. Cloudflare → Workers & Pages → Create → Pages → connect the repo.
-3. Build command `node build.mjs`, output directory `dist`.
-4. Add custom domain conquestreforged.com (move DNS to Cloudflare or add a CNAME).
+Repo: https://github.com/HIPPOKLEIDES/ConquestReforgedWeb (branch `main`).
+1. Cloudflare → Workers & Pages → Create → Pages → Connect to Git → pick the repo.
+2. Framework preset: None. Build command `node build.mjs`, build output directory `dist`.
+3. Environment variable `NODE_VERSION` = `22`.
+4. Deploy. The site is then live at `<project>.pages.dev` for review.
+5. Later, once everything is ported: add custom domain conquestreforged.com (move DNS to Cloudflare or
+   add a CNAME). Do not change DNS before then; Webflow keeps serving the live domain until you do.
 
 ## Before cancelling Webflow
 Images/fonts/video are still hotlinked from Webflow's CDN. Run `node fetch-assets.mjs` once
