@@ -273,7 +273,8 @@ const catColor = (slug) => (site.newsCategories.find((c) => c.slug === slug) || 
 // YouTube embeds in news bodies use the original Webflow rich-text video markup
 const richVideo = (html) => html.replace(/<div class="embed"><iframe src="([^"]+)"[^>]*><\/iframe><\/div>/g, (m, src) => `<figure style="padding-bottom:33.723653395784545%" class="w-richtext-align-center w-richtext-figure-type-video"><div><iframe src="${src}" scrolling="no" frameborder="0" allowfullscreen="true"></iframe></div></figure>`);
 const tweet = (p) => `<div class="html-embed-5 w-embed w-script"><div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Check out the latest article ${esc(p.title)} at Conquestreforged.com/news " data-via="ConReforged" data-hashtags="weareconquest" data-show-count="false">Tweet</a></div></div>`;
-const rssLink = `<a href="/news/rss.xml" class="link-block-11 w-inline-block"><img src="/assets/66f4431cbfd7c7873b961641_rss_button.webp" width="30" height="30" alt="rss feed" class="image-49"></a>`;
+const TWITTER_JS = '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
+const rssLink = `<a href="/news/rss.xml" class="link-block-11 w-inline-block"><img src="${site.wfIcons.rss}" width="30" height="30" alt="rss feed" class="image-49"></a>`;
 function newsItem(p) {
   const a = authors[p.author] || {};
   const col = catColor(p.categorySlug);
@@ -283,7 +284,7 @@ function newsTabs(active) {
   return `<div class="div-block-150"><a href="/news" class="button-10 w-button${active === 'all' ? ' w--current' : ''}">All News</a><div class="collection-list-wrapper-10 w-dyn-list"><div role="list" class="collection-list-9 w-dyn-items">${site.newsCategories.map((c) => `<div role="listitem" class="collection-item-11 w-dyn-item"><a style="color:${c.color}" href="/news-category/${c.slug}" class="button-9 w-button${active === c.slug ? ' w--current' : ''}">${esc(c.label)}</a></div>`).join('')}</div></div></div>`;
 }
 function newsList(heading, active, slice, pager) {
-  return wfPage(`<div class="div-block-8 w-clearfix"><div class="div-block-10 w-clearfix"><h1 class="heading"><strong class="bold-text-2">${esc(heading)}</strong></h1><div class="div-block-13">${newsTabs(active)}</div><div class="collection-list-wrapper w-dyn-list"><div role="list" class="w-clearfix w-dyn-items">${slice.map(newsItem).join('')}</div>${pager}</div></div></div>`);
+  return wfPage(`<div class="div-block-8 w-clearfix"><div class="div-block-10 w-clearfix"><h1 class="heading"><strong class="bold-text-2">${esc(heading)}</strong></h1><div class="div-block-13">${newsTabs(active)}</div><div class="collection-list-wrapper w-dyn-list"><div role="list" class="w-clearfix w-dyn-items">${slice.map(newsItem).join('')}</div>${pager}</div></div></div>${TWITTER_JS}`);
 }
 const wfPager = (n, pages, base) => pages > 1 ? `<div role="navigation" aria-label="List" class="w-pagination-wrapper">${n > 1 ? `<a href="${n === 2 ? base : `${base}/page/${n - 1}`}" aria-label="Previous Page" class="w-pagination-previous"><svg class="w-pagination-previous-icon" height="12px" width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" transform="translate(0, 1)"><path fill="none" stroke="currentColor" fill-rule="evenodd" d="M8 10L4 6l4-4"></path></svg><div class="w-inline-block">Previous</div></a>` : ''}${n < pages ? `<a href="${base}/page/${n + 1}" aria-label="Next Page" class="w-pagination-next"><div class="w-inline-block">Next</div><svg class="w-pagination-next-icon" height="12px" width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" transform="translate(0, 1)"><path fill="none" stroke="currentColor" fill-rule="evenodd" d="M4 2l4 4-4 4"></path></svg></a>` : ''}</div>` : '';
 
@@ -296,7 +297,7 @@ function buildNews(posts) {
   }
   posts.forEach((p) => {
     const urlPath = `/news/${p.slug}`;
-    const body = wfPage(`<div class="div-block-8 w-clearfix"><h1 id="Headline" class="heading">${esc(p.title)}</h1><div class="div-block-12-copy"><div class="div-block-165"><div class="div-block-164"><div style="background-color:${catColor(p.categorySlug)}" class="text-block-2-copy w-clearfix">  </div><div class="text-block-2 w-clearfix"> written by </div><a href="/news" class="link-block-19 w-inline-block"><div class="text-block-2 w-clearfix">${esc(p.author || '')}</div></a><div class="text-block-2 w-clearfix"> on </div><div class="text-block-2 w-clearfix">${fmtDate(p.date)}</div></div><div class="div-block-166"></div><div><div class="rich-text-block-10 w-richtext">${richVideo(p.html)}</div><div class="div-block-95">${tweet(p)}${rssLink}</div><a href="#Headline" class="button-12 w-button">Back to top</a></div></div></div></div>`);
+    const body = wfPage(`<div class="div-block-8 w-clearfix"><h1 id="Headline" class="heading">${esc(p.title)}</h1><div class="div-block-12-copy"><div class="div-block-165"><div class="div-block-164"><div style="background-color:${catColor(p.categorySlug)}" class="text-block-2-copy w-clearfix">  </div><div class="text-block-2 w-clearfix"> written by </div><a href="/news" class="link-block-19 w-inline-block"><div class="text-block-2 w-clearfix">${esc(p.author || '')}</div></a><div class="text-block-2 w-clearfix"> on </div><div class="text-block-2 w-clearfix">${fmtDate(p.date)}</div></div><div class="div-block-166"></div><div><div class="rich-text-block-10 w-richtext">${richVideo(p.html)}</div><div class="div-block-95">${tweet(p)}${rssLink}</div><a href="#Headline" class="button-12 w-button">Back to top</a></div></div></div></div>${TWITTER_JS}`);
     emit(urlPath, layout({ title: p.title, description: p.excerpt, urlPath, body }));
   });
   for (const c of site.newsCategories) {
@@ -468,6 +469,11 @@ function buildTeam() {
 }
 
 
+
+// Before/after sliders (info + bedrock pages): the divider follows the cursor anywhere on the page
+const BA_JS = `<script>(function(){document.querySelectorAll('[data-cr-ba]').forEach(function(box){var q=function(s){return box.querySelector(s)},ai=q('.after-img-div-inner'),ao=q('.after-img-div-outer'),bi=q('.before-img-div-inner'),bf=q('.before-img-div');var p=.5,t=.5,run=0;function set(){ai.style.transform='translate3d('+(-100*p)+'%,0,0)';ao.style.transform='translate3d('+(100*p)+'%,0,0)';bi.style.transform='translate3d('+(100*(1-p))+'%,0,0)';bf.style.transform='translate3d('+(-100*(1-p))+'%,0,0)'}function tick(){p+=(t-p)*.18;if(Math.abs(t-p)<.001){p=t;run=0}else requestAnimationFrame(tick);set()}set();addEventListener('pointermove',function(e){var r=box.getBoundingClientRect();if(!r.width)return;t=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width));if(!run){run=1;requestAnimationFrame(tick)}})})})();</script>`;
+const baSwap = (html) => html.replace(/<div data-w-id="[^"]+" class="div-block-170">/g, '<div data-cr-ba class="div-block-170">');
+
 // Info, FAQ and Downloads: original Webflow content (with Webflow's slider / before-after scripts) inside our chrome
 const CHROME_CLONES = ['info', 'faq', 'downloads'];
 function buildChromeClones() {
@@ -486,8 +492,8 @@ function buildChromeClones() {
       .filter((m) => !(m[1] && /twitter|googletag|gtm/.test(m[1])))
       .map((m) => (m[1] ? (scripts[m[1]] ? `<script src="/assets/${scripts[m[1]]}"></script>` : '') : `<script>${m[2]}</script>`))
       .filter((s) => s && !/dataLayer|google_tags|gtag/.test(s)).join('');
-    region = region.replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/');
-    emit('/' + slug, layout({ title: meta.title, rawTitle: meta.title, description: meta.description, urlPath: '/' + slug, htmlAttrs: ` data-wf-page="${meta.wfPage}" data-wf-site="${meta.wfSite}"`, body: `<div class="wfs wfs-page">${region}</div>${tail}` }));
+    region = baSwap(region.replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/'));
+    emit('/' + slug, layout({ title: meta.title, rawTitle: meta.title, description: meta.description, urlPath: '/' + slug, htmlAttrs: ` data-wf-page="${meta.wfPage}" data-wf-site="${meta.wfSite}"`, body: `<div class="wfs wfs-page">${region}</div>${tail}${BA_JS}` }));
   }
 }
 
@@ -508,7 +514,8 @@ function buildClones() {
     const meta = JSON.parse(fs.readFileSync(path.join(dir, f0.replace('.body.html', '.meta.json')), 'utf8'));
     let body = fs.readFileSync(f, 'utf8');
     body = body.replace(/<script[^>]*\ssrc="([^"]+)"[^>]*>(?:<\/script>)?/g, (m, u) => (scripts[u] ? `<script src="/assets/${scripts[u]}"></script>` : m));
-    body = body.replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/');
+    body = baSwap(body.replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/'));
+    body = body.includes('</body>') ? body.replace('</body>', BA_JS + '</body>') : body + BA_JS;
     const out = `<!DOCTYPE html><html data-wf-page="${meta.wfPage}" data-wf-site="${meta.wfSite}" lang="en"><head><meta charset="utf-8"><title>${esc(meta.title)}</title><meta name="description" content="${esc(meta.description)}"><meta property="og:title" content="${esc(meta.title)}"><meta property="og:description" content="${esc(meta.description)}"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/pack-webflow.css"><script>!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link rel="icon" href="${site.logo}"><style>.truncate{white-space:nowrap;text-overflow:ellipsis}</style></head>${body}</html>`;
     if (slug === '404') emitRaw('404.html', out); else emit('/' + slug, out);
   }
