@@ -5,7 +5,8 @@ Static site, no dependencies (Node 18+). Content lives in files; `node build.mjs
 ## Deploy (Cloudflare Pages, free)
 Repo: https://github.com/HIPPOKLEIDES/ConquestReforgedWeb (branch `main`).
 1. Cloudflare → Workers & Pages → Create → Pages → Connect to Git → pick the repo.
-2. Framework preset: None. Build command `node build.mjs`, build output directory `dist`.
+2. Project name `conquestreforgedweb`. Build command `node build.mjs`. Deploy command `npx wrangler deploy`
+   (reads `wrangler.jsonc`, which serves `dist/` as static assets). Leave Path empty.
 3. Environment variable `NODE_VERSION` = `22`.
 4. Deploy. The site is then live at `<project>.pages.dev` for review.
 5. Later, once everything is ported: add custom domain conquestreforged.com (move DNS to Cloudflare or
