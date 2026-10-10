@@ -20,6 +20,8 @@ title: Medvedsky Hrad
 
 <p>The Faith would play a major role in the life of the castle inhabitants. Knight brothers were celibate and would regularly attend the chapel throughout the day and before having their meals. Knights would live in common, sleep in large rooms and all eat in the refectory. The authority of the order would&#x27;ve been split between Grand Master, who was elected by the brotherhood; Marshal, who would lead the Order into battle under the command of Grand master; Grand Chamberlain, who would supply the knights with food, clothing; Accouterments would manage servants; Treasurer, who would receive and pay all the money that goes through the hands of the Order; Grand Hospitalier, who would manage hospitals belonged to the order.</p>
 
+<p>‍</p>
+
 <p>You can visit this build on the Darwin Reforged server using the &#x27;/warp slav&#x27; command.</p>
 
 <div><img alt="" src="/assets/66f6cfbda628b930dc950bfb_66f6cfb38083bb286bbbc6ff_showcase_medvssky_text_twitter.webp" loading="lazy"/></div><p>The Creators on Twitter</p>
@@ -29,3 +31,7 @@ title: Medvedsky Hrad
 <p><a href="https://twitter.com/SovietProl">https://twitter.com/SovietProl</a></p>
 
 <p><a href="https://twitter.com/patrixcraft">https://twitter.com/patrixcraft</a></p>
+
+<p>‍</p>
+
+<p>‍</p>

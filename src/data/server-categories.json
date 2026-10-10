@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "1-20-1-fabric",
+    "label": "1.20.1-fabric"
+  },
+  {
+    "slug": "1-12-2",
+    "label": "1.12.2"
+  },
+  {
+    "slug": "plots",
+    "label": "Plots"
+  },
+  {
+    "slug": "worldbuilding",
+    "label": "Worldbuilding"
+  },
+  {
+    "slug": "creative",
+    "label": "Creative"
+  },
+  {
+    "slug": "survival",
+    "label": "Survival"
+  },
+  {
+    "slug": "roleplay",
+    "label": "Roleplay"
+  },
+  {
+    "slug": "whitelisted",
+    "label": "Whitelisted"
+  },
+  {
+    "slug": "freebuild",
+    "label": "Freebuild"
+  }
+]

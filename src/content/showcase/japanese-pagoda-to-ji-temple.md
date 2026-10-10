@@ -6,6 +6,8 @@ title: Japanese Pagoda (Tō-ji-Temple)
 
 <p>The build makes an interesting use of the various wooden beam blocks and general variants introduced by Conquest Reforged&#x27;s 1.15 version, while also showcasing a great example for more stylized vegetation.</p>
 
+<p>‍</p>
+
 <p>Artists: </p>
 
 <p><a href="https://twitter.com/ClippyMagic?s=20">@ClippyMagic</a></p>

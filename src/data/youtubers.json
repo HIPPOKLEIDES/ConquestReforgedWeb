@@ -5,6 +5,7 @@
     "lang": "English",
     "yt": "https://www.youtube.com/channel/UCoqngW24Nl6yS-u99vE4E1Q",
     "slug": "ardacraft",
+    "featured": 3,
     "embed": {
       "type": "youtube",
       "id": "km3FI5pTf0w"
@@ -17,6 +18,7 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/guitarfreak_21",
     "slug": "guitarfreak-21",
+    "featured": 0,
     "embed": {
       "type": "twitch",
       "id": "guitarfreak_21"
@@ -29,6 +31,7 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/xelandriax",
     "slug": "xelandriax",
+    "featured": 0,
     "embed": {
       "type": "twitch",
       "id": "xelandriax"
@@ -41,6 +44,7 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/fire_frenzy",
     "slug": "fire-frenzy",
+    "featured": 0,
     "embed": {
       "type": "twitch",
       "id": "fire_frenzy"
@@ -53,6 +57,7 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/calamityjane64",
     "slug": "calamityjane64",
+    "featured": 0,
     "embed": {
       "type": "twitch",
       "id": "calamityjane64"
@@ -66,6 +71,7 @@
     "yt": "https://www.youtube.com/channel/UCCZRCrKIkfbrotChe_Ca9-g",
     "tw": "https://www.twitch.tv/jesterwish",
     "slug": "jesterwish",
+    "featured": 4,
     "embed": {
       "type": "youtube-list",
       "id": "PLQDX9MrIlXgeC3SVnVNnCCCk_tz7e2JpY"
@@ -78,6 +84,7 @@
     "lang": "English",
     "yt": "https://www.youtube.com/user/TalSet333",
     "slug": "talset333",
+    "featured": 0,
     "embed": {
       "type": "youtube",
       "id": "8t73aF4Qj80"
@@ -91,6 +98,7 @@
     "yt": "https://www.youtube.com/user/viggomanminecraft",
     "tw": "https://www.twitch.tv/viggomanplays",
     "slug": "viggoman-plays",
+    "featured": 0,
     "embed": {
       "type": "youtube-list",
       "id": "UUIr7BwNo7_juraXDtnEoEkQ"
@@ -103,6 +111,7 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/creativerealms",
     "slug": "creativerealms",
+    "featured": 0,
     "embed": {
       "type": "youtube-list",
       "id": "PL9SjIQgy0mKvyd7jTWgfSl7FGN1CcV6jT"
@@ -115,6 +124,7 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/iliketogetrekt",
     "slug": "iliketogetrekt",
+    "featured": 1,
     "embed": {
       "type": "twitch",
       "id": "iliketogetrekt"
@@ -127,6 +137,7 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/filthy_coin",
     "slug": "filthy-coin",
+    "featured": 2,
     "embed": {
       "type": "twitch",
       "id": "filthy_coin"
@@ -139,6 +150,7 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/Dractuss",
     "slug": "dractuss",
+    "featured": 0,
     "embed": {
       "type": "twitch",
       "id": "Dractuss"
@@ -151,6 +163,7 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/monsterfish_/",
     "slug": "monsterfish",
+    "featured": 0,
     "embed": {
       "type": "twitch",
       "id": "monsterfish_"
@@ -163,6 +176,7 @@
     "lang": "English",
     "yt": "https://www.youtube.com/watch?v=J8GyJwHS7UU&ab_channel=Fixxitt412",
     "slug": "fixxitt412",
+    "featured": 0,
     "embed": {
       "type": "youtube",
       "id": "J8GyJwHS7UU"
@@ -175,6 +189,7 @@
     "lang": "English",
     "yt": "https://www.youtube.com/channel/UCH864glJ9MijPXpMhD3ncUg",
     "slug": "middle-earth-explored",
+    "featured": 0,
     "embed": {
       "type": "youtube",
       "id": "xnmLkJU8nAU"
@@ -188,6 +203,7 @@
     "yt": "https://www.youtube.com/c/HFranz/featured",
     "tw": "https://www.twitch.tv/hfranzontwitch",
     "slug": "hfranz",
+    "featured": 0,
     "embed": {
       "type": "youtube",
       "id": "Cr_MAJlrofw"
@@ -200,6 +216,7 @@
     "lang": "English",
     "yt": "https://www.youtube.com/channel/UC6uZpmXBpt8oKZMQeAY3olw",
     "slug": "lowresbones",
+    "featured": 0,
     "embed": {
       "type": "youtube",
       "id": "dA43zCbiNVI"
@@ -213,6 +230,7 @@
     "yt": "https://www.youtube.com/user/DukonMC",
     "tw": "https://www.twitch.tv/dukonred1",
     "slug": "dukonred1",
+    "featured": 0,
     "embed": {
       "type": "youtube",
       "id": "BwTQyyYgwsk"
@@ -225,6 +243,7 @@
     "lang": "Japanese",
     "yt": "https://www.youtube.com/channel/UCF9NKy22WTMcC4s_GHnW9_g",
     "slug": "rinty-craft",
+    "featured": 0,
     "embed": {
       "type": "youtube",
       "id": "oT5kRfDcQW4"
@@ -237,6 +256,7 @@
     "lang": "French",
     "yt": "https://www.youtube.com/user/Antroz59Mc",
     "slug": "antroz59mc",
+    "featured": 0,
     "embed": {
       "type": "youtube-list",
       "id": "UUskxamdvSzbJfoXsI28MRQA"
@@ -250,6 +270,7 @@
     "yt": "https://www.youtube.com/channel/UCYTRwQiZ9zsYWFVckILipPQ",
     "tw": "https://www.twitch.tv/king0light",
     "slug": "king0light",
+    "featured": 0,
     "embed": {
       "type": "youtube",
       "id": "jeCk3Nym3Yc"
@@ -262,6 +283,7 @@
     "lang": "Polish",
     "yt": "https://www.youtube.com/channel/UCHDba9O-onVcPZemG-Yf3VA/videos",
     "slug": "history-crafters",
+    "featured": 0,
     "embed": {
       "type": "youtube",
       "id": "8jbS8wO9zJ0"
@@ -274,6 +296,7 @@
     "lang": "English",
     "yt": "https://www.youtube.com/channel/UCiXoEiHJDWlBoxroG13Sjtg/featured",
     "slug": "triliton",
+    "featured": 0,
     "embed": {
       "type": "youtube",
       "id": "ro-q_oByc3M"
@@ -286,6 +309,7 @@
     "lang": "English",
     "yt": "https://www.youtube.com/user/TeamLyrah",
     "slug": "teamlyrah",
+    "featured": 0,
     "embed": {
       "type": "youtube",
       "id": "SrNKfa40IEo"
@@ -298,6 +322,7 @@
     "lang": "English",
     "yt": "https://www.youtube.com/channel/UC7nw22Q3m_Hkk3d_N0QNvVQ",
     "slug": "chingom",
+    "featured": 0,
     "embed": {
       "type": "youtube-list",
       "id": "PLrPSkHAB25mtoKwaU88Y1ZBnnym_rw5Jg"
@@ -310,6 +335,7 @@
     "lang": "French",
     "yt": "https://www.youtube.com/channel/UCWUEKx3_RLA3vdGtB9Xn47g",
     "slug": "boitameu",
+    "featured": 0,
     "embed": {
       "type": "youtube",
       "id": "07ews8NrAxM"
@@ -323,6 +349,7 @@
     "yt": "https://www.youtube.com/channel/UCmwpVPFu5MfZHORDpL5eggA",
     "tw": "https://www.twitch.tv/legendaryporpoise",
     "slug": "legendaryporpoise",
+    "featured": 0,
     "embed": {
       "type": "youtube",
       "id": "lTlaKVGVgEs"

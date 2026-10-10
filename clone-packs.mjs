@@ -11,12 +11,12 @@ const BASE = 'https://www.conquestreforged.com';
 const text = async (u) => { const r = await fetch(u); if (!r.ok) throw new Error(u + ' ' + r.status); return r.text(); };
 let css = '';
 const scripts = new Map();
-const queue = ['conquest-pack', 'conquest-bedrock'];
+const queue = ['conquest-pack', 'conquest-bedrock', '404'];
 const seen = new Set(queue);
 for (let qi = 0; qi < queue.length; qi++) {
   const route = queue[qi];
   const slug = route.replace(/\//g, '__');
-  let h = await text(`${BASE}/${route}`);
+  let h = route === '404' ? await (await fetch(`${BASE}/this-page-does-not-exist`)).text() : await text(`${BASE}/${route}`);
   for (const m of h.matchAll(/href="\/((?:conquest|biomespecific-blocks|biomespecifics-1-18)\/[\w-]+|catalog)"/g)) if (!seen.has(m[1])) { seen.add(m[1]); queue.push(m[1]); }
   // images whose file names contain parentheses: download them under safe names
   for (const m of [...h.matchAll(/https:\/\/cdn\.prod\.website-files\.com\/[^"\s,]*\([^"\s,]*/g)]) {

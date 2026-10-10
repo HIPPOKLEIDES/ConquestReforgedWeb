@@ -53,8 +53,8 @@ const decode = (s) => s.replace(/&#x27;/g, "'").replace(/&quot;/g, '"').replace(
 const strip = (s) => decode(s.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
 const richInner = (div) => div.replace(/^<div[^>]*>/, '').replace(/<\/div>$/, '').trim();
 const cleanRich = (h) =>
-  h.replace(/‍/g, '').replace(/<(\/?)figure[^>]*>/g, '').replace(/<figcaption[\s\S]*?<\/figcaption>/g, '')
-    .replace(/ (?:class|style|id|data-[\w-]+)="[^"]*"/g, '').replace(/<p>\s*<\/p>/g, '')
+  h.replace(/<(\/?)figure[^>]*>/g, '').replace(/<figcaption[\s\S]*?<\/figcaption>/g, '')
+    .replace(/ (?:class|style|id|data-[\w-]+)="[^"]*"/g, '')
     .replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/');
 // links to /servers/<slug> pages that don't exist (dead on the old site too) become plain text
 const knownServers = new Set(readJSON('data', 'servers.json').map((x) => x.slug));
@@ -96,36 +96,50 @@ write('data/showcase-categories.json', JSON.stringify(catList, null, 2) + '\n');
 write('data/showcases.json', JSON.stringify(showcases, null, 2) + '\n');
 
 // ---------- servers ----------
-const servers = readJSON('data', 'servers.json');
-const hostLabel = (u) => {
-  const h = new URL(u).hostname.replace(/^www\./, '');
-  if (/discord/.test(h)) return 'Discord';
-  if (/twitter|x\.com/.test(h)) return 'Twitter';
-  if (/planetminecraft/.test(h)) return 'Planet Minecraft';
-  if (/modrinth/.test(h)) return 'Modrinth';
-  if (/youtube/.test(h)) return 'YouTube';
-  return h;
-};
+const servers = [];
+{
+  const lp = await get('/serverslist/servers');
+  const lreg = region(lp);
+  const catList = [...lreg.matchAll(/href="\/server-categories\/([\w-]+)" class="button-3 w-button">([^<]+)</g)].map((m) => ({ slug: m[1], label: m[2].trim() }));
+  write('data/server-categories.json', JSON.stringify(catList, null, 2) + '\n');
+  for (const chunk of lreg.split('role="listitem" class="collection-item-2-copy').slice(1)) {
+    const g = (r) => (chunk.match(r) || [])[1];
+    const slug = g(/href="\/servers\/([\w-]+)"/);
+    servers.push({
+      slug,
+      name: strip(g(/class="heading-5 name[^"]*">([^<]*)/) || ''),
+      tags: strip(g(/class="text-block-17">([^<]*)/) || '').split(' | ').filter(Boolean),
+      bg: g(/background-image:url\(&quot;(https:[^&]+)&quot;/) || '',
+    });
+  }
+}
 for (const s of servers) {
   try {
     const reg = region(await get(`/servers/${s.slug}`));
-    const rich = cleanRich(richInner(block(reg, 'w-richtext')));
-    const ip = strip((reg.match(/class="heading ip link">([^<]*)</) || [])[1] || '');
-    const logo = (reg.match(/background-image:url\(&quot;(https:\/\/cdn\.prod\.website-files\.com\/[^&]+)&quot;\)/) || reg.match(/<img[^>]+src="(https:\/\/cdn\.prod\.website-files\.com\/[^"]+)"/) || [])[1] || '';
-    const links = [...new Set([...reg.matchAll(/<a [^>]*href="(https?:\/\/[^"]+)"/g)].map((m) => m[1]))]
-      .filter((u) => !/conquestreforged\.com|reddit\.com\/r\/ConquestReforged|patreon\.com\/ConquestReforged/i.test(u));
-    const meta = [`title: ${s.name}`, ip && `ip: ${ip}`, logo && `logo: ${logo}`, `links: ${links.map((u) => `${hostLabel(u)}|${u}`).join(' ;; ')}`].filter(Boolean).join('\n');
-    write(`content/servers/${s.slug}.md`, `---\n${meta}\n---\n\n${rich.split(/(?<=<\/(?:p|h\d|ul|ol)>)/).map((x) => x.trim()).filter(Boolean).join('\n\n')}\n`);
-    console.log('server', s.slug, ip, links.length + ' links', rich.length + ' chars');
+    const rich = dropDeadLinks(cleanRich(richInner(block(reg, 'rich-text-block-5'))));
+    s.ip = strip((reg.match(/class="heading ip link">([^<]*)</) || [])[1] || '');
+    s.logo = (reg.match(/<img alt="" src="(https:[^"]+)" class="serverlogo"/) || [])[1] || '';
+    const site = reg.match(/<a href="([^"]+)" class="link link-2 button-11 w-button">([^<]*)</);
+    if (site) { s.site = site[1]; s.siteLabel = strip(site[2]); }
+    const soc = (cls) => { const m = reg.match(new RegExp(`<a href="([^"]*)" class="link-block-18 slinks w-inline-block( w-condition-invisible)?"><img src="[^"]*${cls}[^"]*"`)); return m && !m[2] ? m[1] : ''; };
+    s.discord = soc('discord'); s.twitter = soc('twitter');
+    const extra = block(reg, 'rich-text-block-9');
+    s.extra = /w-condition-invisible|w-dyn-bind-empty/.test(extra.slice(0, 200)) ? '' : cleanRich(richInner(extra));
+    s.cta = s.slug === 'main';
+    write(`content/servers/${s.slug}.md`, `---\ntitle: ${s.name}\n---\n\n${rich}\n`);
+    console.log('server', s.slug, s.ip, rich.length + ' chars');
   } catch (e) { console.warn('server FAILED', s.slug, e.message); }
 }
+write('data/servers.json', JSON.stringify(servers, null, 2) + '\n');
 
 // ---------- creators ----------
 const slugify = (n) => n.toLowerCase().replace(/_/g, '-').replace(/[^a-z0-9-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
 const creators = readJSON('data', 'youtubers.json');
 const list = await get('/serverslist/youtube-channels');
+const featuredNames = ([...region(list).split('collection-list-wrapper-7')[0].matchAll(/class="paragraph-6">([^<]*)</g)].map((m) => strip(m[1]).toLowerCase()));
 const known = new Set([...list.matchAll(/href="\/youtube-channels\/([^"]+)"/g)].map((m) => m[1]));
 for (const c of creators) {
+  c.featured = featuredNames.indexOf(c.name.trim().toLowerCase()) + 1;
   c.slug = c.slug || (known.has(slugify(c.name)) ? slugify(c.name) : [...known].find((k) => k.replace(/-/g, '') === slugify(c.name).replace(/-/g, '')) || slugify(c.name));
   try {
     const reg = region(await get(`/youtube-channels/${c.slug}`));

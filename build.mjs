@@ -346,57 +346,54 @@ function buildShowcases() {
 // ---------- servers ----------
 function buildServers() {
   const items = readJSON('data', 'servers.json');
-  const tags = [...new Set(items.flatMap((i) => i.tags))];
-  const details = {};
+  const cats = readJSON('data', 'server-categories.json');
+  const ic = site.wfIcons;
+  const card = (s) => {
+    const link = s.cta ? `<a href="/servers/${s.slug}" class="link-block-5 w-inline-block w-condition-invisible">` : `<a href="/servers/${s.slug}" class="link-block-5 w-inline-block">`;
+    return `<div role="listitem" class="collection-item-2-copy w-clearfix w-dyn-item w-col w-col-6">${link}<div class="div-block-30"><div class="div-block-31"><div class="div-block-50"><h1 title="Name of the server" class="heading-5 name${s.cta ? ' w-condition-invisible' : ''}">${esc(s.name)}</h1><div title="categories" class="text-block-17">${esc(s.tags.join(' | '))}</div></div><img alt="" src="${s.logo}" class="image-17"></div><div style="background-image:url(&quot;${s.bg}&quot;)" class="div-block-49"></div></div></a>${s.cta ? `<div class="div-block-48"><img src="${site.fallbackThumb}" alt="" class="image-32"><div class="text-block-16">Want your <strong>Conquest Reforged</strong> server featured? <br>Contact the <a href="/team">team </a>to get it added!</div></div>` : ''}</div>`;
+  };
+  const page = (active, list) => wfPage(`<div class="div-block-8 w-clearfix"><div class="div-block-64"><h1 class="heading"><strong class="bold-text-2">Servers</strong></h1></div><div class="div-block-13"></div><aside class="collection-list-wrapper-6 w-dyn-list"><div role="list" class="collection-list-4 w-dyn-items"><div role="listitem" class="collection-item-6 w-dyn-item"><a href="/serverslist/servers" class="button-3 xxx w-button${active === 'all' ? ' w--current' : ''}">All Servers</a></div>${cats.map((c) => `<div role="listitem" class="collection-item-6 w-dyn-item"><a href="/server-categories/${c.slug}" class="button-3 w-button${active === c.slug ? ' w--current' : ''}">${esc(c.label)}</a></div>`).join('')}</div></aside><div class="collection-list-wrapper-2 w-dyn-list"><div role="list" class="collection-list w-dyn-items w-row">${list.map(card).join('')}</div></div></div>`);
+  emit('/serverslist/servers', layout({ title: 'Servers', description: 'Bored of single player? Check out these awesome servers and share your creativity and fun with the rest of our fantastic community!', urlPath: '/serverslist/servers', body: page('all', items) }));
+  for (const c of cats) {
+    const list = items.filter((s) => s.tags.some((t) => t.toLowerCase() === c.label.toLowerCase()));
+    emit(`/server-categories/${c.slug}`, layout({ title: c.label, description: `Conquest Reforged servers: ${c.label}`, urlPath: `/server-categories/${c.slug}`, body: page(c.slug, list) }));
+  }
   for (const s of items) {
     if (!exists('content', 'servers', s.slug + '.md')) continue;
-    const { meta, body } = parseDoc(readText('content', 'servers', s.slug + '.md'));
-    details[s.slug] = { meta, body };
-  }
-  const cards = items.map((s) => {
-    const d = details[s.slug];
-    const inner = `<img class="thumb fallback" src="${(d && d.meta.logo) || s.image || site.fallbackThumb}" alt="" loading="lazy"><div class="body"><h3>${esc(s.name)}</h3><p>${esc(s.tags.join(' | '))}</p></div>`;
-    return d ? `<a class="card" href="/servers/${s.slug}" data-tags="${esc(s.tags.join('|'))}">${inner}</a>` : `<div class="card" data-tags="${esc(s.tags.join('|'))}">${inner}${s.url ? `<div class="links"><a class="pill" href="${s.url}" rel="noopener" target="_blank">Visit</a></div>` : ''}</div>`;
-  });
-  cards.push(`<a class="card cta-card" href="/team"><img src="${site.fallbackThumb}" alt=""><h3>This could be you</h3><p>Want your <b>Conquest Reforged</b> server featured? Contact the team to get it added!</p></a>`);
-  const filters = `<div class="filters" role="group" aria-label="Filter servers"><button type="button" aria-pressed="true" data-tag="">All Servers</button>${tags.map((t) => `<button type="button" aria-pressed="false" data-tag="${esc(t)}">${esc(t)}</button>`).join('')}</div>`;
-  const script = `<script>
-(function(){var b=document.querySelectorAll('.filters button'),c=document.querySelectorAll('.grid .card[data-tags]');
-b.forEach(function(x){x.addEventListener('click',function(){var t=x.dataset.tag;b.forEach(function(y){y.setAttribute('aria-pressed',y===x)});
-c.forEach(function(card){card.style.display=(!t||card.dataset.tags.split('|').indexOf(t)>-1)?'':'none'})})})})();
-</script>`;
-  emit('/serverslist/servers', layout({ title: 'Servers', description: 'Bored of single player? Check out these awesome servers and share your creativity and fun with the rest of our fantastic community!', urlPath: '/serverslist/servers', body: page('Servers', `${filters}<div class="grid">${cards.join('\n')}</div>${script}`) }));
-  for (const s of items) {
-    const d = details[s.slug];
-    if (!d) continue;
-    const links = (d.meta.links || '').split(' ;; ').filter(Boolean).map((l) => l.split('|')).map(([label, url]) => `<a class="btn" href="${esc(url)}" rel="noopener" target="_blank">${esc(label)}</a>`).join('');
-    const others = items.filter((o) => o.slug !== s.slug && details[o.slug]).map((o) => `<a href="/servers/${o.slug}">${esc(o.name)}</a>`).join(' · ');
-    const inner = `${d.meta.logo ? `<img src="${d.meta.logo}" alt="${esc(s.name)}" style="max-width:260px">` : ''}${d.meta.ip ? `<p><strong>IP:</strong> ${esc(d.meta.ip)}</p>` : ''}${md(d.body)}${links ? `<div class="btn-row">${links}</div>` : ''}<p class="muted">${esc(s.tags.join(' | '))}</p>${others ? `<p>Other servers: ${others}</p>` : ''}<p><a href="/serverslist/servers">← All servers</a></p>`;
-    emit(`/servers/${s.slug}`, layout({ title: s.name, description: `${s.name}, a server using Conquest Reforged`, urlPath: `/servers/${s.slug}`, ogImage: d.meta.logo, body: page(s.name, inner) }));
+    const { body } = parseDoc(readText('content', 'servers', s.slug + '.md'));
+    const others = items.filter((o) => o.slug !== s.slug).slice(0, 4);
+    const soc = (href, img) => href ? `<a href="${esc(href)}" class="link-block-18 slinks w-inline-block"><img src="${img}" alt="" class="image-66"></a>` : '';
+    const inner = `<div class="div-block-8 w-clearfix"><div class="div-block-10 w-clearfix"><div class="div-block-51"><h1 class="heading servers">${esc(s.name)}</h1><div class="div-block-28 w-clearfix"><h1 class="heading ipx">IP:</h1><h1 class="heading ip link">${esc(s.ip || '')}</h1></div></div><div class="div-block-13"></div><div class="div-block-23"><div style="background-image:url(&quot;${s.bg}&quot;)" class="div-block-82"></div><div class="div-block-84 w-clearfix"><div class="div-block-32"><img alt="" src="${s.logo}" class="serverlogo"></div></div></div><div class="div-block-28"></div><div class="div-block-157 w-clearfix"><div class="rich-text-block-5 w-richtext">${body}</div></div>${s.site ? `<a href="${esc(s.site)}" class="link link-2 button-11 w-button">${esc(s.siteLabel || s.site)}</a>` : ''}<div class="div-block-52 w-clearfix">${soc(s.discord, ic.discord)}${soc(s.twitter, ic.twitter)}${s.extra ? `<div class="rich-text-block-9 slinks w-richtext">${s.extra}</div>` : ''}<a href="#" class="button-4 w-button">${esc(s.tags.join(' | '))}</a></div><div class="text-block-18">Random Servers</div><div class="collection-list-wrapper-3 w-dyn-list"><div role="list" class="collection-list-5 w-dyn-items w-row">${others.map((o) => `<div role="listitem" class="collection-item-3 w-dyn-item w-col w-col-3"><a href="/servers/${o.slug}" class="link-block-8 w-inline-block"><div class="div-block-35"><div style="background-image:url(&quot;${o.bg}&quot;)" class="div-block-36"></div></div><div class="text-block-12">${esc(o.name)}</div></a></div>`).join('')}</div></div></div></div>`;
+    emit(`/servers/${s.slug}`, layout({ title: s.name, description: `${s.name}, a server using Conquest Reforged`, urlPath: `/servers/${s.slug}`, ogImage: s.logo, body: wfPage(inner) }));
   }
 }
 
 // ---------- video creators ----------
 function buildYoutubers() {
   const items = readJSON('data', 'youtubers.json');
-  const card = (c) => {
-    const inner = `<div class="body"><h3>${esc(c.name)}</h3><p>Content: ${esc(c.content)}<br>Language: ${esc(c.lang)}</p></div>`;
-    const pills = `<div class="links">${c.yt ? `<a class="pill yt" href="${esc(c.yt)}" rel="noopener" target="_blank">YouTube</a>` : ''}${c.tw ? `<a class="pill tw" href="${esc(c.tw)}" rel="noopener" target="_blank">Twitch</a>` : ''}</div>`;
-    return `<div class="card">${c.slug ? `<a href="/youtube-channels/${c.slug}" style="color:inherit">${inner}</a>` : inner}${pills}</div>`;
+  const ic = site.wfIcons;
+  const player = (c, cls, pad) => {
+    const e = c.embed;
+    if (!e) return '';
+    const yt = (src, w, h) => `<div style="padding-top:${pad}%" class="${cls} w-video w-embed"><iframe class="embedly-embed" src="${src}" width="${w}" height="${h}" scrolling="no" title="${esc(c.name)}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true" loading="lazy"></iframe></div>`;
+    // Twitch only embeds on the domain named in `parent`, so the page fills it in from its own address
+    if (e.type === 'twitch') return `<div style="padding-top:56.612903225806456%" class="${cls} w-video w-embed"><iframe class="embedly-embed" data-twitch="${esc(e.id)}" width="620" height="351" scrolling="no" title="Twitch.tv embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></div>`;
+    return e.type === 'youtube-list' ? yt(`https://www.youtube-nocookie.com/embed/videoseries?list=${esc(e.id)}`, 854, 480) : yt(`https://www.youtube-nocookie.com/embed/${esc(e.id)}`, 854, 480);
   };
-  const inner = `<div class="grid">${items.map(card).join('\n')}</div><div class="voice"><p>Your channel is not featured or you know one that isn't? Contact the <a href="/team">team</a> to get it added!</p></div>`;
-  emit('/serverslist/youtube-channels', layout({ title: 'Content Creators', description: 'Find content creators who use Conquest Reforged here!', urlPath: '/serverslist/youtube-channels', body: page('Video Creators', inner) }));
+  const TWITCH = `<script>document.querySelectorAll('iframe[data-twitch]').forEach(function(f){f.src='https://player.twitch.tv/?channel='+f.dataset.twitch+'&muted=true&autoplay=false&parent='+location.hostname})</script>`;
+  const padOf = (c) => (c.embed && c.embed.type === 'twitch' ? '56.612903225806456' : '56.20608899297424');
+  const featured = items.filter((c) => c.featured).sort((a, b) => a.featured - b.featured);
+  const feat = (c) => `<div role="listitem" class="collection-item-8 w-dyn-item w-col w-col-6"><div class="div-block-101"><a href="${esc(c.yt || '#')}" target="_blank" class="link-block-13 w-inline-block w-clearfix"><p class="paragraph-6">${esc(c.name)}</p></a>${c.tw ? `<a href="${esc(c.tw)}" target="_blank" class="streamers w-inline-block"><img src="${ic.twitch}" width="25" alt="" class="image-50"></a>` : ''}</div>${player(c, 'video-3', padOf(c))}</div>`;
+  const row = (c) => `<div role="listitem" class="collection-item-7 w-dyn-item"><a href="/youtube-channels/${c.slug}" class="link-block-12 w-inline-block"><div class="div-block-99 w-clearfix"><p class="paragraph-6">${esc(c.name)}</p></div><div class="div-block-96"><div class="div-block-98"><p class="paragraph-5">Content:</p><p class="paragraph-7">${esc(c.content)}</p></div><div class="div-block-97"><p class="paragraph-5">Language:</p><p class="paragraph-7">${esc(c.lang)}</p></div></div></a>${c.yt ? `<a href="${esc(c.yt)}" target="_blank" class="tubers w-inline-block"><img src="${ic.youtube}" width="25" alt=""></a>` : ''}${c.tw ? `<a href="${esc(c.tw)}" target="_blank" class="streamers w-inline-block"><img src="${ic.twitch}" width="25" alt=""></a>` : ''}</div>`;
+  const inner = `<div class="div-block-8 w-clearfix"><h1 class="heading">Video Creators</h1><div class="div-block-13"></div><h1 class="heading-12">Featured</h1><div class="div-block-100"><div class="collection-list-wrapper-8 w-dyn-list"><div role="list" class="collection-list-7 w-dyn-items w-row">${featured.map(feat).join('')}</div></div></div><div class="div-block-13"></div><div class="collection-list-wrapper-7 w-dyn-list"><div role="list" class="collection-list-6 w-dyn-items">${items.map((c) => row(c)).join('')}</div></div></div>${TWITCH}`;
+  emit('/serverslist/youtube-channels', layout({ title: 'Content Creators', description: 'Find content creators who use Conquest Reforged here!', urlPath: '/serverslist/youtube-channels', body: wfPage(inner) }));
   for (const c of items) {
     if (!c.slug) continue;
-    const e = c.embed;
-    const yt = (src) => `<div class="embed"><iframe src="${src}" title="${esc(c.name)} video" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>`;
-    // Twitch only embeds on the domain named in `parent`, so the page fills it in from its own address
-    const player = !e ? '' : e.type === 'twitch'
-      ? `<div class="embed"><iframe data-twitch="${esc(e.id)}" title="${esc(c.name)} on Twitch" allowfullscreen></iframe></div><script>document.querySelectorAll('iframe[data-twitch]').forEach(function(f){f.src='https://player.twitch.tv/?channel='+f.dataset.twitch+'&muted=true&parent='+location.hostname})</script>`
-      : e.type === 'youtube-list' ? yt(`https://www.youtube-nocookie.com/embed/videoseries?list=${esc(e.id)}`) : yt(`https://www.youtube-nocookie.com/embed/${esc(e.id)}`);
-    const where = [c.yt && `their Videos on <a href="${esc(c.yt)}" rel="noopener" target="_blank">YouTube</a>`, c.tw && `their Streams on <a href="${esc(c.tw)}" rel="noopener" target="_blank">Twitch</a>`].filter(Boolean).join(' and ');
-    const body = `<h2>Meet ${esc(c.name)}</h2>${player}<p>${esc(c.name)} makes Content using Conquest in ${esc(c.lang)}.${where ? ` You can find out more about ${where}.` : ''}</p>${c.status ? `<p>${esc(c.status)}</p>` : ''}<p>Hope you guys find some good entertainment over there and support the creators whatever way you can if you enjoy what they do.</p><div class="btn-row">${c.yt ? `<a class="btn" href="${esc(c.yt)}" rel="noopener" target="_blank">YouTube</a>` : ''}${c.tw ? `<a class="btn" href="${esc(c.tw)}" rel="noopener" target="_blank">Twitch</a>` : ''}</div><p><a href="/serverslist/youtube-channels">← All creators</a></p>`;
-    emit(`/youtube-channels/${c.slug}`, layout({ title: c.name, description: `${c.name} makes content using Conquest Reforged`, urlPath: `/youtube-channels/${c.slug}`, body: page('Video Creators', body) }));
+    const yt = c.yt ? `<p class="paragraph-13"> You can find out more about their Videos on </p><a href="${esc(c.yt)}" class="w-inline-block"><p class="paragraph-13">Youtube${c.tw ? '' : '.'}</p></a>` : '';
+    const tw = c.tw ? `<p class="paragraph-13">${c.yt ? ' and on their Streams on ' : ' You can find out more about their Streams on '}</p><a href="${esc(c.tw)}" class="w-inline-block"><p class="paragraph-13">Twitch.</p></a>` : '';
+    const status = c.status ? `<p class="paragraph-13">${esc(c.status).replace(/^The Creator is (\w+)/, 'The Creator is <strong>$1 </strong>')}</p>` : '';
+    const body = `<div class="div-block-8 w-clearfix"><div class="div-block-10 w-clearfix"><div class="div-block-86-copy"><h1 class="heading-copy">Meet</h1><a href="${esc(c.yt || c.tw || '#')}" class="link-block-20-copy w-inline-block"><h1 class="heading-copy">${esc(c.name)}</h1></a></div><div class="div-block-13">${player(c, 'video-4', padOf(c))}<div class="div-block-163 w-clearfix"><div class="div-block-40"><p class="paragraph-12">${esc(c.name)}</p><p class="paragraph-13">makes Content using Conquest in</p><p class="paragraph-12">${esc(c.lang)}</p><p class="paragraph-13-copy">.</p>${yt}${tw}${status}<p class="paragraph-13-copy">Hope you guys find some good entertainment over there and support the creators whatever way you can if you enjoy what they do.</p></div></div></div></div></div>${TWITCH}`;
+    emit(`/youtube-channels/${c.slug}`, layout({ title: c.name, description: `${c.name} makes content using Conquest Reforged`, urlPath: `/youtube-channels/${c.slug}`, body: wfPage(body) }));
   }
 }
 
@@ -427,54 +424,47 @@ function buildGuides() {
 function buildSearch() {
   const docs = [];
   for (const u of generated) {
-    if (u.endsWith('.html')) continue;
+    if (u.endsWith('.html') || u === '/search') continue;
     const file = path.join(DIST, u === '/' ? 'index.html' : path.join(u.slice(1), 'index.html'));
     if (!fs.existsSync(file)) continue;
     const html = fs.readFileSync(file, 'utf8');
-    const main = (html.match(/<main class="page">([\s\S]*?)<\/main>/) || [])[1];
+    const main = (html.match(/<main class="page">([\s\S]*?)<\/main>/) || html.match(/<div class="wfs wfs-page">([\s\S]*?)<footer/) || [])[1];
     if (!main) continue;
     const title = stripTags((html.match(/<title>([^<]*)<\/title>/) || [])[1] || u).replace(/ \| Conquest Reforged$/, '');
-    docs.push({ u, t: title, x: stripTags(main.replace(/<script[\s\S]*?<\/script>/g, ' ')).replace(/\s+/g, ' ').trim().slice(0, 4000) });
+    docs.push({ u, t: title, x: stripTags(main.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ')).replace(/\s+/g, ' ').trim().slice(0, 4000) });
   }
   emitRaw('search-index.json', JSON.stringify(docs));
   const script = `<script>
 (function(){
-var q=(new URLSearchParams(location.search).get('q')||'').trim(),box=document.getElementById('q'),out=document.getElementById('results');
-box.value=q;if(!q){out.innerHTML='<p class="muted">Type something to search news, guides, servers, creators and showcases.</p>';return}
-var terms=q.toLowerCase().split(/\s+/).filter(Boolean);
+var P=new URLSearchParams(location.search),q=(P.get('query')||P.get('q')||'').trim(),box=document.getElementById('search'),out=document.querySelector('.search-result-items');
+box.value=q;if(!q){return}
+var terms=q.toLowerCase().split(/\\s+/).filter(Boolean);
+function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
 fetch('/search-index.json').then(function(r){return r.json()}).then(function(docs){
  var hits=docs.map(function(d){var t=d.t.toLowerCase(),x=d.x.toLowerCase(),s=0;
   for(var i=0;i<terms.length;i++){var a=t.split(terms[i]).length-1,b=x.split(terms[i]).length-1;if(!a&&!b){s=0;break}s+=a*5+b}
   return {d:d,s:s}}).filter(function(h){return h.s>0}).sort(function(a,b){return b.s-a.s}).slice(0,30);
- if(!hits.length){out.innerHTML='<p>No results for <b></b>.</p>';out.querySelector('b').textContent=q;return}
+ if(!hits.length){out.innerHTML='<p>No results for <b>'+esc(q)+'</b>.</p>';return}
  out.innerHTML=hits.map(function(h){var x=h.d.x,i=x.toLowerCase().indexOf(terms[0]),st=Math.max(0,i-60),sn=x.slice(st,st+180);
-  var el=document.createElement('div');el.className='post-card';var a=document.createElement('h3');var l=document.createElement('a');l.href=h.d.u;l.textContent=h.d.t;a.appendChild(l);var p=document.createElement('p');p.textContent=(st>0?'… ':'')+sn+(x.length>st+180?' …':'');el.appendChild(a);el.appendChild(p);return el.outerHTML}).join('');
+  return '<div class="search-result-item"><div style="background-image:url(&quot;${site.logo}&quot;)" class="div-block-161"></div><div class="div-block-162"><a href="'+h.d.u+'" class="link-9">'+esc(h.d.t)+'</a><div class="text-block-33">www.conquestreforged.com'+h.d.u+'</div><p class="paragraph-11"><span>'+esc((st>0?'… ':'')+sn)+'</span><span>…</span></p></div></div>'}).join('');
 });
 })();
 </script>`;
-  const form = `<form action="/search" method="get" role="search" style="display:flex;gap:10px;margin:0 0 18px"><input id="q" name="q" type="search" placeholder="search…" style="flex:1;font:inherit;font-size:20px;padding:6px 12px;border:1px solid #999;border-radius:10px"><button class="btn" type="submit">Search</button></form><div id="results"></div>`;
-  emit('/search', layout({ title: 'Search', description: 'Search the Conquest Reforged site', urlPath: '/search', body: page('Search', form + script) }));
+  const inner = `<div class="div-block-8"><div class="container-2 w-container"><h1>Search results</h1><form action="/search" class="search-3 w-form"><input class="search-input-3 w-input" autofocus="true" maxlength="256" name="query" placeholder="Search…" type="search" id="search"><input type="submit" class="search-button-3 w-button" value=""></form><div class="search-result-wrapper"><div class="search-result-items"></div></div></div></div>${script}`;
+  emit('/search', layout({ title: 'Search', description: 'Search the Conquest Reforged site', urlPath: '/search', body: wfPage(inner) }));
 }
 
 // ---------- team / contact ----------
 function buildTeam() {
   const team = readJSON('data', 'team.json');
+  const ic = site.wfIcons;
   const member = (m) => {
-    const links = [m.twitter && `<a href="${m.twitter}" rel="noopener" target="_blank">Twitter</a>`, m.twitch && `<a href="${m.twitch}" rel="noopener" target="_blank">Twitch</a>`, m.pmc && `<a href="${m.pmc}" rel="noopener" target="_blank">PMC</a>`].filter(Boolean).join('');
-    return `<div class="member"><img src="${m.avatar}" alt="${esc(m.name)}" loading="lazy"><div><h3>${esc(m.name)}</h3><p class="role">${esc(m.role)}</p><p class="quote">${esc(m.quote)}</p><p class="disc">Discord: ${esc(m.discord)}</p>${links ? `<p class="ln">${links}</p>` : ''}</div></div>`;
+    const links = `${m.twitter ? `<a href="${esc(m.twitter)}" target="_blank" class="link-block-6 w-inline-block w-clearfix"><img src="${ic.twitterBtn}" alt="twitter" class="image-27"></a>` : ''}${m.twitch ? `<a href="${esc(m.twitch)}" target="_blank" class="link-block-7 w-inline-block w-clearfix"><img src="${ic.twitch}" alt="" class="image-28"></a>` : ''}${m.pmc ? `<a href="${esc(m.pmc)}" target="_blank" class="button-5 w-button">PMC</a>` : ''}`;
+    return `<div role="listitem" class="collection-item-5 w-clearfix w-dyn-item"><div class="div-block-39"><div class="div-block-176 w-clearfix"><img width="150" height="150" alt="${esc(m.name)}" src="${m.avatar}" class="image-26"></div></div><div class="div-block-89"><div class="div-block-88"><h1 class="heading-6">${esc(m.name)}</h1></div><div class="div-block-42"><div class="div-block-53"><div class="text-block-19">Discord ID:</div><p class="paragraph-4">${esc(m.discord)}</p></div><div class="div-block-85"><div class="text-block-13">${esc(m.role)}</div></div><div class="rich-text-block-6 w-richtext"><p>${esc(m.quote)}</p></div></div></div><div class="div-block-41"><div class="div-block-87 w-clearfix">${links}</div></div></div>`;
   };
-  const intro = md(`**Technical support and answers to general inquiries** can be found on our [Discord server’s](https://discord.gg/ZagrZvn) **#support** channel.
-
-For **sharing your builds** with us, you can tweet **@ConReforged** and use the [#WeAreConquest](https://twitter.com/hashtag/WeAreConquest) [#WeAreReforged](https://twitter.com/hashtag/WeAreReforged) hashtags. Our [Discord server](https://discord.gg/ZagrZvn) also has **#promotion** and **#builds** channels, which we check often.
-
-For more **private inquiries**, send us an email at [conquestreforged@gmail.com](mailto:conquestreforged@gmail.com).`);
-  const inner = `${intro}<h2>Meet the TEAM</h2><div class="team-grid">${team.map(member).join('\n')}</div><p>Do you have programming experience and interest in the project? Helping hands are always welcome. Just contact us via <a href="https://discord.gg/ZagrZvn" rel="noopener" target="_blank">Discord</a>.</p>${md('::discord')}`;
-  emit('/team', layout({ title: 'The Conquest Reforged team', description: 'Meet our team of hardworking and chill individuals always open to making Conquest Reforged even better tomorrow.', urlPath: '/team', body: page('Contact', inner) }));
-}
-
-// ---------- 404 ----------
-function build404() {
-  emitRaw('404.html', layout({ title: 'Page not found', description: 'Page not found', urlPath: '/404', body: page('Page not found', '<p>That page wandered off. Try the <a href="/">home page</a>, the <a href="/news">news</a>, or the <a href="/downloads">downloads</a>.</p>') }));
+  const intro = `<p><strong>Technical support and answers to general inquiries</strong> can be found on our <a href="https://discord.gg/ZagrZvn"><strong>Discord server’s</strong></a> <strong>#support</strong> channel</p><p>For <strong>sharing your builds</strong> with us, you can tweet <strong>@ConReforged</strong> and use the  #<a href="https://twitter.com/hashtag/WeAreConquest?src=hash">WeAreConquest</a> <a href="https://twitter.com/hashtag/WeAreReforged?src=hash">#WeAreReforged</a><strong> </strong>hashtags. Our <a href="https://discord.gg/ZagrZvn"><strong>Discord server</strong></a> also has <strong>#promotion </strong>and <strong>#builds </strong>channels, which we check often.<br></p><p>For more <strong>private inquiries</strong>, send us an email at <a href="mailto:conquestreforged@gmail.com"><strong>conquestreforged@gmail.com</strong></a></p><p>‍</p>`;
+  const inner = `<div class="div-block-8 w-clearfix"><div class="div-block-10 link w-clearfix"><h1 class="heading"><strong class="bold-text-2">Contact</strong></h1><div class="div-block-13"></div><div class="div-block-55"><div class="div-block-175 w-clearfix"><div class="rich-text-block-7 w-richtext">${intro}</div><div class="div-block-10-copy w-clearfix"><div class="div-block-86 w-clearfix"><h1 class="heading-copy"><strong class="bold-text-2">Meet the TEAM<br></strong></h1><div class="div-block-13"></div></div><div class="div-block-40"><div class="collection-list-wrapper-5 w-dyn-list"><div role="list" class="collection-list-3 w-dyn-items">${team.map((m) => member(m)).join('')}<div role="listitem" class="collection-item-5 w-clearfix w-dyn-item"><div class="div-block-41"><div class="div-block-87 w-clearfix"><a href="#" target="_blank" class="link-block-7 w-inline-block w-clearfix"></a></div></div><div class="div-block-48"><img src="${site.fallbackThumb}" alt="" class="image-32"><div class="text-block-16">Do you have programming experience and interest in the project? Helping hands are always welcome. Just contact us via <a href="/team">discord</a>.</div></div></div></div></div></div></div></div><div class="div-block-56 w-clearfix"><div class="html-embed-3 w-embed w-iframe"><iframe src="${esc(site.discordWidget)}" width="100%" height="65" allowtransparency="true" frameborder="0"></iframe></div><div class="div-block-13"></div><div class="html-embed-2 w-embed w-script"><a class="twitter-timeline" href="https://twitter.com/ConReforged?ref_src=twsrc%5Etfw" data-tweet-limit="6" data-chrome="nofooter transparent noborders">Tweets by ConReforged</a> </div></div></div></div></div><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`;
+  emit('/team', layout({ title: 'The Conquest Reforged team', description: 'Meet our team of hardworking and chill individuals always open to making Conquest Reforged even better tomorrow.', urlPath: '/team', body: wfPage(inner) }));
 }
 
 // Pack pages are faithful clones of the original Webflow pages (own design, own stylesheet): see clone-packs.mjs
@@ -495,7 +485,8 @@ function buildClones() {
     let body = fs.readFileSync(f, 'utf8');
     body = body.replace(/<script[^>]*\ssrc="([^"]+)"[^>]*>(?:<\/script>)?/g, (m, u) => (scripts[u] ? `<script src="/assets/${scripts[u]}"></script>` : m));
     body = body.replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/');
-    emit('/' + slug, `<!DOCTYPE html><html data-wf-page="${meta.wfPage}" data-wf-site="${meta.wfSite}" lang="en"><head><meta charset="utf-8"><title>${esc(meta.title)}</title><meta name="description" content="${esc(meta.description)}"><meta property="og:title" content="${esc(meta.title)}"><meta property="og:description" content="${esc(meta.description)}"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/pack-webflow.css"><script>!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link rel="icon" href="${site.logo}"><style>.truncate{white-space:nowrap;text-overflow:ellipsis}</style></head>${body}</html>`);
+    const out = `<!DOCTYPE html><html data-wf-page="${meta.wfPage}" data-wf-site="${meta.wfSite}" lang="en"><head><meta charset="utf-8"><title>${esc(meta.title)}</title><meta name="description" content="${esc(meta.description)}"><meta property="og:title" content="${esc(meta.title)}"><meta property="og:description" content="${esc(meta.description)}"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/pack-webflow.css"><script>!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link rel="icon" href="${site.logo}"><style>.truncate{white-space:nowrap;text-overflow:ellipsis}</style></head>${body}</html>`;
+    if (slug === '404') emitRaw('404.html', out); else emit('/' + slug, out);
   }
 }
 
@@ -518,7 +509,6 @@ buildServers();
 buildYoutubers();
 buildGuides();
 buildTeam();
-build404();
 buildSearch();
 
 emitRaw('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${site.url}/sitemap.xml\n`);

@@ -6,7 +6,16 @@
       "Worldbuilding",
       "Plots",
       "Creative"
-    ]
+    ],
+    "bg": "/assets/657f67dc4b55058b0a992fe4_edoras.webp",
+    "ip": "mc.ardacraft.me",
+    "logo": "/assets/657f67ac4d930f80c7566e5e_ArdaCraft_Logo_New.webp",
+    "site": "https://ardacraft.me",
+    "siteLabel": "https://ardacraft.me",
+    "discord": "https://discord.com/invite/fykFabG",
+    "twitter": "https://twitter.com/ArdaCraft_",
+    "extra": "<p><a href=\"https://www.planetminecraft.com/server/ardacraft-3119330/\">www.planetminecraft.com/...</a></p>",
+    "cta": false
   },
   {
     "slug": "wildeprojekt",
@@ -14,14 +23,32 @@
     "tags": [
       "Creative",
       "Plots"
-    ]
+    ],
+    "bg": "/assets/6a7c99cb0abaa2f3e7dd5d50_wildepng.webp",
+    "ip": "included in the modpack",
+    "logo": "",
+    "site": "https://wildeprojekt.org/modpack",
+    "siteLabel": "https://wildeprojekt.org/modpack",
+    "discord": "https://wildeprojekt.org/discord",
+    "twitter": "",
+    "extra": "<p><a href=\"https://www.instagram.com/wildeprojekt/\">Instagram </a>| <a href=\"https://www.patreon.com/cw/wildeprojekt\">Patreon</a></p><p>‍</p>",
+    "cta": false
   },
   {
     "slug": "conquest-of-hunterra",
     "name": "CONQUEST OF HUNTERRA",
     "tags": [
       "Survival"
-    ]
+    ],
+    "bg": "/assets/6813f576cf25174678168fdd_2.jpg",
+    "ip": "included in the modpack",
+    "logo": "",
+    "site": "https://www.planetminecraft.com/server/conquest-of-hunterra-modded-roleplay-1-20-1-whitelist/",
+    "siteLabel": "https://www.planetminecraft.com/server/conquest-of-hunterra-modded-roleplay-1-20-1-whitelist/",
+    "discord": "https://discord.gg/7beNMhMZSa",
+    "twitter": "",
+    "extra": "<p>https://modrinth.com/modpack/conquest-of-hunterra-modpack</p>",
+    "cta": false
   },
   {
     "slug": "bleak-isles",
@@ -30,6 +57,31 @@
       "Factions",
       "Survival",
       "RPG"
-    ]
+    ],
+    "bg": "/assets/68f10876a24bae191898a596_c453cffdd202a22287d7a9a02200680ac147ab73.webp",
+    "ip": "IP available via Modpack",
+    "logo": "/assets/68f1086b2bfc2189c1762835_LOGO_Bleak.webp",
+    "site": "https://modrinth.com/modpack/bleak-isles",
+    "siteLabel": "https://modrinth.com/modpack/bleak-isles",
+    "discord": "",
+    "twitter": "",
+    "extra": "",
+    "cta": false
+  },
+  {
+    "slug": "main",
+    "name": "submit",
+    "tags": [
+      "This could be you"
+    ],
+    "bg": "/assets/66f356f27fad90a8f70d7444_submit_server_img.webp",
+    "ip": "Your IP could be here.",
+    "logo": "/assets/66f3571c17acabd402cafc66_submit_server_logo.webp",
+    "site": "http://YourWebsitecouldbehere.com",
+    "siteLabel": "http://YourWebsitecouldbehere.com",
+    "discord": "",
+    "twitter": "",
+    "extra": "",
+    "cta": true
   }
 ]

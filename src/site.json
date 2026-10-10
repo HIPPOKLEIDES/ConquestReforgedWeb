@@ -150,5 +150,12 @@
       "title": "Help regarding modding in general, customizing the mod or other setup related things like worldpainter and other 3rd party tools.",
       "icon": "/assets/66f44f8b767af0c9444d8550_guide_technical.webp"
     }
-  ]
+  ],
+  "wfIcons": {
+    "discord": "/assets/5f37d1c2a570651b2ae15688_discord.avif",
+    "twitter": "/assets/5f37d988d49160ea91c63e5d_twitter.avif",
+    "twitch": "/assets/66f447361a986e463a69fba3_twitch_button.webp",
+    "youtube": "/assets/66f4476c5f9c8a717ff4ae5c_youtuber_button.webp",
+    "twitterBtn": "/assets/66f44cbebe1e00beab2f7ad5_twitter_button.webp"
+  }
 }

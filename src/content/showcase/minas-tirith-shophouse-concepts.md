@@ -6,7 +6,9 @@ title: Minas Tirith Shophouse Concepts
 
 <p><em>&quot;In this concept we&#x27;ve portrayed a row of middle class houses in the fictional city of Minas Tirith from Tolkien&#x27;s Lord of the Rings. The houses are primarily residential, though the central house also has as a lavender shop downstairs. Being fictional and without much lore indicating the exact visual aesthetic to go for, we had a fair amount of freedom to take it wherever we wanted. However we decided on using a mixture of ancient cultures to influence the style somewhat, notably being the Romans and Byzantines. The vibrant polychrome intermixed with the neutral tones of the old stone, low pitched roofs, and neatly decorated frescoes helped us achieve a more ancient look that the author was undoubtedly inspired by.&quot;</em></p>
 
-<p><em></em>Not only have the trio pioneered a beautiful style fit for fantasy, but also they&#x27;ve provided inspiration perfectly suited for Greco-Roman builders and enthusiasts. As modern scholars have revealed to us that Rome, Greece, and Byzantium were in fact more full of color and painted details than pop-culture portrays them, this build uniquely breaks common misconceptions and makes for a lively and immersive experience.</p>
+<p><em>‍</em>Not only have the trio pioneered a beautiful style fit for fantasy, but also they&#x27;ve provided inspiration perfectly suited for Greco-Roman builders and enthusiasts. As modern scholars have revealed to us that Rome, Greece, and Byzantium were in fact more full of color and painted details than pop-culture portrays them, this build uniquely breaks common misconceptions and makes for a lively and immersive experience.</p>
+
+<p>‍</p>
 
 <p>Artists: </p>
 

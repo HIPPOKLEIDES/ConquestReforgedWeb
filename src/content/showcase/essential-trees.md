@@ -24,4 +24,6 @@ title: Essential Trees
 
 <p>The creators welcome questions and requests. You can contact them at <strong>@hfranz_official</strong> and <strong>@Argent_01</strong> via Twitter (where you can also see pack updates) , or <strong>hfranzyt</strong> and <strong>argent0002 </strong>via Discord!</p>
 
+<p>‍</p>
+
 <p>Overall, as the creators of Conquest Reforged, we believe Haydn and Argent couldn&#x27;t have done better with their packs. For any amateur or professional terraformer, these are a must have, and well worth the price. You&#x27;ll save many hours, and your maps will look better than ever!</p>
