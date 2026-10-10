@@ -509,7 +509,7 @@ function buildClones() {
   }));
   for (const [u, name] of Object.entries(scripts)) emitRaw('assets/' + name, fs.readFileSync(path.join(dir, name)));
   const emitClonePage = (slug, meta, body0) => {
-    let body = body0.replace(/<script[^>]*\ssrc="([^"]+)"[^>]*>(?:<\/script>)?/g, (m, u) => (scripts[u] ? `<script src="/assets/${scripts[u]}"></script>` : m));
+    let body = body0.replace(/<\/script</g, '</script><').replace(/<\/html>\s*$/, '').replace(/<script[^>]*\ssrc="([^"]+)"[^>]*>(?:<\/script>)?/g, (m, u) => (scripts[u] ? `<script src="/assets/${scripts[u]}"></script>` : m));
     body = baSwap(body.replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/'));
     body = body.includes('</body>') ? body.replace('</body>', BA_JS + '</body>') : body + BA_JS;
     const out = `<!DOCTYPE html><html data-wf-page="${meta.wfPage}" data-wf-site="${meta.wfSite}" lang="en"><head><meta charset="utf-8"><title>${esc(meta.title)}</title><meta name="description" content="${esc(meta.description)}"><meta property="og:title" content="${esc(meta.title)}"><meta property="og:description" content="${esc(meta.description)}"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/pack-webflow.css"><script>!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link rel="icon" href="${site.logo}"><style>.truncate{white-space:nowrap;text-overflow:ellipsis}</style>${(meta.headScripts || []).map((u) => `<script async src="${u}"></script>`).join('')}</head>${body}</html>`;
