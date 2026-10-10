@@ -2,5 +2,9 @@
  "title": "Conquest 1.7 Metadata",
  "description": "Official home of the original Conquest_ resourcepack. Here you can find all info regarding custom metadata conquest allows you to access in 1.7.",
  "wfPage": "64b3075471c946976607f460",
- "wfSite": "5a4a68ddf6b9a40001c2e07e"
+ "wfSite": "5a4a68ddf6b9a40001c2e07e",
+ "headScripts": [
+  "https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsnest@1/cmsnest.js",
+  "https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsload@1/cmsload.js"
+ ]
 }

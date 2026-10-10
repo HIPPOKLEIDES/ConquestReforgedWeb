@@ -45,6 +45,7 @@ for (let qi = 0; qi < queue.length; qi++) {
     description: (head.match(/name="description"/) ? head.match(/<meta content="([^"]*)" name="description"/) : [])?.[1] || '',
     wfPage: (head.match(/data-wf-page="([^"]+)"/) || [])[1],
     wfSite: (head.match(/data-wf-site="([^"]+)"/) || [])[1],
+    headScripts: [...head.matchAll(/<script async src="(https:\/\/cdn\.jsdelivr\.net[^"]+)"/g)].map((m) => m[1]),
   }, null, 1));
 }
 fs.writeFileSync(path.join(OUT, 'webflow.css'), css);

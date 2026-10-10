@@ -2,5 +2,9 @@
  "title": "Conquest 1.12",
  "description": "Official home of the original Conquest_ resourcepack. Here you can find all info regarding biomespecific textures conquest offers for many Blocks in 1.12.",
  "wfPage": "64b3075471c946976607f446",
- "wfSite": "5a4a68ddf6b9a40001c2e07e"
+ "wfSite": "5a4a68ddf6b9a40001c2e07e",
+ "headScripts": [
+  "https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsnest@1/cmsnest.js",
+  "https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsload@1/cmsload.js"
+ ]
 }
