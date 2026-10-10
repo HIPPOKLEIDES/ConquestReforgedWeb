@@ -242,3 +242,15 @@ body.ws .page h1.heading { margin: 20px 0 12px; }
 body.ws .wfs-page { position: relative; z-index: 10; margin-top: 77px; background: transparent; }
 body.ws .wfs { white-space: normal; line-height: 20px; min-height: 0; }
 @media (max-width: 900px) { body.ws .wfs-page { margin-top: 118px; } }
+
+/* Webflow hover interactions of the original cards (they were Webflow IX effects, so they are recreated here) */
+body.ws .wfs .div-block-177, body.ws .wfs .div-block-49-copy, body.ws .wfs .div-block-49-copy-copy,
+body.ws .wfs .div-block-49, body.ws .wfs .div-block-36 { transition: transform .2s ease, opacity .2s ease; }
+body.ws .wfs .collection-item-14:hover .div-block-177 { transform: scale(1.22); opacity: .8; }
+body.ws .wfs .collection-item-2:hover .div-block-49-copy { transform: scale(1.12); opacity: .9; }
+body.ws .wfs .collection-item-2-copy:hover .div-block-49-copy-copy,
+body.ws .wfs .link-block-21:hover .div-block-49-copy-copy { transform: scale(1.12); opacity: .5; }
+body.ws .wfs .link-block-5:hover .div-block-49 { transform: scale(1.12); opacity: .5; }
+body.ws .wfs .collection-item-3:hover .div-block-36 { transform: scale(1.06); opacity: .7; }
+body.ws .wfs .showcase-image { transition: opacity .2s ease; pointer-events: none; }
+body.ws .wfs .lightbox-link-3:hover .showcase-image { opacity: 1; }
