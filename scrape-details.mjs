@@ -56,6 +56,9 @@ const cleanRich = (h) =>
   h.replace(/‍/g, '').replace(/<(\/?)figure[^>]*>/g, '').replace(/<figcaption[\s\S]*?<\/figcaption>/g, '')
     .replace(/ (?:class|style|id|data-[\w-]+)="[^"]*"/g, '').replace(/<p>\s*<\/p>/g, '')
     .replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/');
+// links to /servers/<slug> pages that don't exist (dead on the old site too) become plain text
+const knownServers = new Set(readJSON('data', 'servers.json').map((x) => x.slug));
+const dropDeadLinks = (h) => h.replace(/<a href="\/servers\/([\w-]+)">([\s\S]*?)<\/a>/g, (m, slug, text) => (knownServers.has(slug) ? m : text));
 const ytId = (h) => [...h.matchAll(/youtube\.com%2Fembed%2F([\w-]+)/g)].map((m) => m[1]);
 
 // ---------- showcases ----------
@@ -65,7 +68,7 @@ for (const it of showcases) {
     const raw = await get(`/showcase/${it.slug}`);
     const reg = region(raw);
     const images = [...new Set([...region(raw, true).matchAll(/"url":\s*"(https:\/\/cdn\.prod\.website-files\.com\/[^"]+)"/g)].map((m) => m[1]))];
-    const rich = cleanRich(richInner(block(reg, 'w-richtext')));
+    const rich = dropDeadLinks(cleanRich(richInner(block(reg, 'w-richtext'))));
     const vids = ytId(reg);
     const parts = [];
     for (const v of vids) parts.push(`::youtube[${v}]`);
@@ -110,9 +113,19 @@ for (const c of creators) {
   c.slug = c.slug || (known.has(slugify(c.name)) ? slugify(c.name) : [...known].find((k) => k.replace(/-/g, '') === slugify(c.name).replace(/-/g, '')) || slugify(c.name));
   try {
     const reg = region(await get(`/youtube-channels/${c.slug}`));
-    const twitchChan = (reg.match(/twitch\.tv%2F([\w]+)/) || [])[1];
-    if (twitchChan) c.twitchChannel = twitchChan;
-    console.log('creator', c.slug, twitchChan || '');
+    const src = decode((reg.match(/<iframe class="embedly-embed" src="([^"]+)"/) || [])[1] || '');
+    const schema = (src.match(/schema=(\w+)/) || [])[1];
+    const inner = decodeURIComponent(src.match(/[?&]src=([^&]+)/)?.[1] || '');
+    delete c.twitchChannel; delete c.embed; delete c.status;
+    if (schema === 'twitch') c.embed = { type: 'twitch', id: (inner.match(/channel=([\w]+)/) || [])[1] };
+    else if (schema === 'youtube') {
+      const list = (decode(inner).match(/videoseries\?list=([\w-]+)/) || [])[1];
+      c.embed = list ? { type: 'youtube-list', id: list } : { type: 'youtube', id: (inner.match(/embed\/([\w-]+)/) || [])[1] };
+    }
+    // the one status paragraph that is not hidden by a Webflow condition
+    const st = [...reg.matchAll(/<p class="(paragraph-13[^"]*)">(The Creator is[\s\S]*?)<\/p>/g)].find((m) => !/w-condition-invisible/.test(m[1]));
+    if (st) c.status = st[2].replace(/<\/?strong>/g, '').replace(/\s+/g, ' ').replace(/inative/g, 'inactive').replace(/informaions/g, 'information').replace(/inactive or only/, 'inactive, or only').trim();
+    console.log('creator', c.slug, c.embed ? c.embed.type + ':' + c.embed.id : 'no embed', '|', (c.status || '').slice(0, 40));
   } catch (e) { console.warn('creator FAILED', c.slug, e.message); }
 }
 write('data/youtubers.json', JSON.stringify(creators, null, 2) + '\n');

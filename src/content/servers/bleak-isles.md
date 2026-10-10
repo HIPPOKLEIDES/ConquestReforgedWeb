@@ -1,7 +1,7 @@
 ---
 title: Bleak Isles
 ip: IP available via Modpack
-logo: /assets/68f10876a24bae191898a596_c453cffdd202a22287d7a9a02200680ac147ab73.webp
+logo: https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/68f10876a24bae191898a596_c453cffdd202a22287d7a9a02200680ac147ab73.webp
 links: Discord|https://discord.gg/D4vbqxp5z8 ;; Modrinth|https://modrinth.com/modpack/bleak-isles
 ---
 

@@ -354,9 +354,14 @@ function buildYoutubers() {
   emit('/serverslist/youtube-channels', layout({ title: 'Content Creators', description: 'Find content creators who use Conquest Reforged here!', urlPath: '/serverslist/youtube-channels', body: page('Video Creators', inner) }));
   for (const c of items) {
     if (!c.slug) continue;
-    const yt = c.yt ? ` on <a href="${esc(c.yt)}" rel="noopener" target="_blank">YouTube</a>` : '';
-    const tw = c.tw ? ` and their streams on <a href="${esc(c.tw)}" rel="noopener" target="_blank">Twitch</a>` : '';
-    const body = `<h2>Meet ${esc(c.name)}</h2><p>${esc(c.name)} makes content using ${esc(c.content)} in ${esc(c.lang)}.</p><p>You can find out more about their ${c.yt ? 'videos' + yt : ''}${c.yt && c.tw ? '' : ''}${c.tw ? (c.yt ? tw : 'streams on <a href="' + esc(c.tw) + '" rel="noopener" target="_blank">Twitch</a>') : ''}.</p><div class="btn-row">${c.yt ? `<a class="btn" href="${esc(c.yt)}" rel="noopener" target="_blank">YouTube</a>` : ''}${c.tw ? `<a class="btn" href="${esc(c.tw)}" rel="noopener" target="_blank">Twitch</a>` : ''}</div><p>Hope you find some good entertainment over there and support the creators in whatever way you can!</p><p><a href="/serverslist/youtube-channels">← All creators</a></p>`;
+    const e = c.embed;
+    const yt = (src) => `<div class="embed"><iframe src="${src}" title="${esc(c.name)} video" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>`;
+    // Twitch only embeds on the domain named in `parent`, so the page fills it in from its own address
+    const player = !e ? '' : e.type === 'twitch'
+      ? `<div class="embed"><iframe data-twitch="${esc(e.id)}" title="${esc(c.name)} on Twitch" allowfullscreen></iframe></div><script>document.querySelectorAll('iframe[data-twitch]').forEach(function(f){f.src='https://player.twitch.tv/?channel='+f.dataset.twitch+'&muted=true&parent='+location.hostname})</script>`
+      : e.type === 'youtube-list' ? yt(`https://www.youtube-nocookie.com/embed/videoseries?list=${esc(e.id)}`) : yt(`https://www.youtube-nocookie.com/embed/${esc(e.id)}`);
+    const where = [c.yt && `their Videos on <a href="${esc(c.yt)}" rel="noopener" target="_blank">YouTube</a>`, c.tw && `their Streams on <a href="${esc(c.tw)}" rel="noopener" target="_blank">Twitch</a>`].filter(Boolean).join(' and ');
+    const body = `<h2>Meet ${esc(c.name)}</h2>${player}<p>${esc(c.name)} makes Content using Conquest in ${esc(c.lang)}.${where ? ` You can find out more about ${where}.` : ''}</p>${c.status ? `<p>${esc(c.status)}</p>` : ''}<p>Hope you guys find some good entertainment over there and support the creators whatever way you can if you enjoy what they do.</p><div class="btn-row">${c.yt ? `<a class="btn" href="${esc(c.yt)}" rel="noopener" target="_blank">YouTube</a>` : ''}${c.tw ? `<a class="btn" href="${esc(c.tw)}" rel="noopener" target="_blank">Twitch</a>` : ''}</div><p><a href="/serverslist/youtube-channels">← All creators</a></p>`;
     emit(`/youtube-channels/${c.slug}`, layout({ title: c.name, description: `${c.name} makes content using Conquest Reforged`, urlPath: `/youtube-channels/${c.slug}`, body: page('Video Creators', body) }));
   }
 }

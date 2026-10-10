@@ -4,7 +4,12 @@
     "content": "Conquest Reforged Mod",
     "lang": "English",
     "yt": "https://www.youtube.com/channel/UCoqngW24Nl6yS-u99vE4E1Q",
-    "slug": "ardacraft"
+    "slug": "ardacraft",
+    "embed": {
+      "type": "youtube",
+      "id": "km3FI5pTf0w"
+    },
+    "status": "The Creator is actively producing content on a regular basis you can find information regarding production on their channels and social medias."
   },
   {
     "name": "guitarfreak_21",
@@ -12,7 +17,11 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/guitarfreak_21",
     "slug": "guitarfreak-21",
-    "twitchChannel": "guitarfreak_21"
+    "embed": {
+      "type": "twitch",
+      "id": "guitarfreak_21"
+    },
+    "status": "The Creator is actively producing content on a regular basis you can find information regarding production on their channels and social medias."
   },
   {
     "name": "xelandriax",
@@ -20,7 +29,11 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/xelandriax",
     "slug": "xelandriax",
-    "twitchChannel": "xelandriax"
+    "embed": {
+      "type": "twitch",
+      "id": "xelandriax"
+    },
+    "status": "The Creator is actively producing content on a regular basis you can find information regarding production on their channels and social medias."
   },
   {
     "name": "fire_frenzy",
@@ -28,7 +41,11 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/fire_frenzy",
     "slug": "fire-frenzy",
-    "twitchChannel": "fire_frenzy"
+    "embed": {
+      "type": "twitch",
+      "id": "fire_frenzy"
+    },
+    "status": "The Creator is actively producing content on a regular basis you can find information regarding production on their channels and social medias."
   },
   {
     "name": "calamityjane64",
@@ -36,7 +53,11 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/calamityjane64",
     "slug": "calamityjane64",
-    "twitchChannel": "calamityjane64"
+    "embed": {
+      "type": "twitch",
+      "id": "calamityjane64"
+    },
+    "status": "The Creator is actively producing content on a regular basis you can find information regarding production on their channels and social medias."
   },
   {
     "name": "JesterWish",
@@ -44,14 +65,24 @@
     "lang": "English",
     "yt": "https://www.youtube.com/channel/UCCZRCrKIkfbrotChe_Ca9-g",
     "tw": "https://www.twitch.tv/jesterwish",
-    "slug": "jesterwish"
+    "slug": "jesterwish",
+    "embed": {
+      "type": "youtube-list",
+      "id": "PLQDX9MrIlXgeC3SVnVNnCCCk_tz7e2JpY"
+    },
+    "status": "The Creator is active but produces content on a less regular basis. Check back now and then or follow their socialmedia to get updates when they do."
   },
   {
     "name": "TalSet333",
     "content": "Conquest Reforged Mod, Other Games",
     "lang": "English",
     "yt": "https://www.youtube.com/user/TalSet333",
-    "slug": "talset333"
+    "slug": "talset333",
+    "embed": {
+      "type": "youtube",
+      "id": "8t73aF4Qj80"
+    },
+    "status": "The Creator is active but produces content on a less regular basis. Check back now and then or follow their socialmedia to get updates when they do."
   },
   {
     "name": "Viggoman Plays",
@@ -59,14 +90,24 @@
     "lang": "English",
     "yt": "https://www.youtube.com/user/viggomanminecraft",
     "tw": "https://www.twitch.tv/viggomanplays",
-    "slug": "viggoman-plays"
+    "slug": "viggoman-plays",
+    "embed": {
+      "type": "youtube-list",
+      "id": "UUIr7BwNo7_juraXDtnEoEkQ"
+    },
+    "status": "The Creator is active but produces content on a less regular basis. Check back now and then or follow their socialmedia to get updates when they do."
   },
   {
     "name": "Creativerealms",
     "content": "Conquest Reforged Mod, Other Games",
     "lang": "English",
     "tw": "https://www.twitch.tv/creativerealms",
-    "slug": "creativerealms"
+    "slug": "creativerealms",
+    "embed": {
+      "type": "youtube-list",
+      "id": "PL9SjIQgy0mKvyd7jTWgfSl7FGN1CcV6jT"
+    },
+    "status": "The Creator is active but produces content on a less regular basis. Check back now and then or follow their socialmedia to get updates when they do."
   },
   {
     "name": "iliketogetrekt",
@@ -74,7 +115,11 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/iliketogetrekt",
     "slug": "iliketogetrekt",
-    "twitchChannel": "iliketogetrekt"
+    "embed": {
+      "type": "twitch",
+      "id": "iliketogetrekt"
+    },
+    "status": "The Creator is active but produces content on a less regular basis. Check back now and then or follow their socialmedia to get updates when they do."
   },
   {
     "name": "Filthy_Coin",
@@ -82,7 +127,11 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/filthy_coin",
     "slug": "filthy-coin",
-    "twitchChannel": "filthy_coin"
+    "embed": {
+      "type": "twitch",
+      "id": "filthy_coin"
+    },
+    "status": "The Creator is active but produces content on a less regular basis. Check back now and then or follow their socialmedia to get updates when they do."
   },
   {
     "name": "Dractuss",
@@ -90,7 +139,11 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/Dractuss",
     "slug": "dractuss",
-    "twitchChannel": "Dractuss"
+    "embed": {
+      "type": "twitch",
+      "id": "Dractuss"
+    },
+    "status": "The Creator is active but produces content on a less regular basis. Check back now and then or follow their socialmedia to get updates when they do."
   },
   {
     "name": "Monsterfish_",
@@ -98,21 +151,35 @@
     "lang": "English",
     "tw": "https://www.twitch.tv/monsterfish_/",
     "slug": "monsterfish",
-    "twitchChannel": "monsterfish_"
+    "embed": {
+      "type": "twitch",
+      "id": "monsterfish_"
+    },
+    "status": "The Creator is active but produces content on a less regular basis. Check back now and then or follow their socialmedia to get updates when they do."
   },
   {
     "name": "Fixxitt412",
     "content": "Conquest Resourcepack",
     "lang": "English",
     "yt": "https://www.youtube.com/watch?v=J8GyJwHS7UU&ab_channel=Fixxitt412",
-    "slug": "fixxitt412"
+    "slug": "fixxitt412",
+    "embed": {
+      "type": "youtube",
+      "id": "J8GyJwHS7UU"
+    },
+    "status": "The Creator is active but produces content on a less regular basis. Check back now and then or follow their socialmedia to get updates when they do."
   },
   {
     "name": "Middle-earth Explored",
     "content": "Conquest Reforged Mod",
     "lang": "English",
     "yt": "https://www.youtube.com/channel/UCH864glJ9MijPXpMhD3ncUg",
-    "slug": "middle-earth-explored"
+    "slug": "middle-earth-explored",
+    "embed": {
+      "type": "youtube",
+      "id": "xnmLkJU8nAU"
+    },
+    "status": "The Creator is active but produces content on a less regular basis. Check back now and then or follow their socialmedia to get updates when they do."
   },
   {
     "name": "HFranz",
@@ -120,14 +187,24 @@
     "lang": "English",
     "yt": "https://www.youtube.com/c/HFranz/featured",
     "tw": "https://www.twitch.tv/hfranzontwitch",
-    "slug": "hfranz"
+    "slug": "hfranz",
+    "embed": {
+      "type": "youtube",
+      "id": "Cr_MAJlrofw"
+    },
+    "status": "The Creator is active but produces content on a less regular basis. Check back now and then or follow their socialmedia to get updates when they do."
   },
   {
     "name": "lowresbones",
     "content": "Conquest Reforged Mod, Vanilla",
     "lang": "English",
     "yt": "https://www.youtube.com/channel/UC6uZpmXBpt8oKZMQeAY3olw",
-    "slug": "lowresbones"
+    "slug": "lowresbones",
+    "embed": {
+      "type": "youtube",
+      "id": "dA43zCbiNVI"
+    },
+    "status": "The Creator is active but produces content on a less regular basis. Check back now and then or follow their socialmedia to get updates when they do."
   },
   {
     "name": "Dukonred1",
@@ -135,21 +212,36 @@
     "lang": "English",
     "yt": "https://www.youtube.com/user/DukonMC",
     "tw": "https://www.twitch.tv/dukonred1",
-    "slug": "dukonred1"
+    "slug": "dukonred1",
+    "embed": {
+      "type": "youtube",
+      "id": "BwTQyyYgwsk"
+    },
+    "status": "The Creator is inactive but has videos backlogged that you can enjoy."
   },
   {
     "name": "Rinty-Craft",
     "content": "Conquest_ Resourcepack (mixed)",
     "lang": "Japanese",
     "yt": "https://www.youtube.com/channel/UCF9NKy22WTMcC4s_GHnW9_g",
-    "slug": "rinty-craft"
+    "slug": "rinty-craft",
+    "embed": {
+      "type": "youtube",
+      "id": "oT5kRfDcQW4"
+    },
+    "status": "The Creator is inactive but has videos backlogged that you can enjoy."
   },
   {
     "name": "Antroz59Mc",
     "content": "Conquest_ Resourcepack",
     "lang": "French",
     "yt": "https://www.youtube.com/user/Antroz59Mc",
-    "slug": "antroz59mc"
+    "slug": "antroz59mc",
+    "embed": {
+      "type": "youtube-list",
+      "id": "UUskxamdvSzbJfoXsI28MRQA"
+    },
+    "status": "The Creator is inactive but has videos backlogged that you can enjoy."
   },
   {
     "name": "king0light",
@@ -157,42 +249,72 @@
     "lang": "English",
     "yt": "https://www.youtube.com/channel/UCYTRwQiZ9zsYWFVckILipPQ",
     "tw": "https://www.twitch.tv/king0light",
-    "slug": "king0light"
+    "slug": "king0light",
+    "embed": {
+      "type": "youtube",
+      "id": "jeCk3Nym3Yc"
+    },
+    "status": "The Creator is inactive but has videos backlogged that you can enjoy."
   },
   {
     "name": "History Crafters",
     "content": "Conquest Reforged Mod, Vanilla Modded, Roleplay",
     "lang": "Polish",
     "yt": "https://www.youtube.com/channel/UCHDba9O-onVcPZemG-Yf3VA/videos",
-    "slug": "history-crafters"
+    "slug": "history-crafters",
+    "embed": {
+      "type": "youtube",
+      "id": "8jbS8wO9zJ0"
+    },
+    "status": "The Creator is inactive but has videos backlogged that you can enjoy."
   },
   {
     "name": "Triliton",
     "content": "Conquest Reforged Mod",
     "lang": "English",
     "yt": "https://www.youtube.com/channel/UCiXoEiHJDWlBoxroG13Sjtg/featured",
-    "slug": "triliton"
+    "slug": "triliton",
+    "embed": {
+      "type": "youtube",
+      "id": "ro-q_oByc3M"
+    },
+    "status": "The Creator is inactive but has videos backlogged that you can enjoy."
   },
   {
     "name": "TeamLyrah",
     "content": "Conquest_ Resourcepack",
     "lang": "English",
     "yt": "https://www.youtube.com/user/TeamLyrah",
-    "slug": "teamlyrah"
+    "slug": "teamlyrah",
+    "embed": {
+      "type": "youtube",
+      "id": "SrNKfa40IEo"
+    },
+    "status": "The Creator is inactive or only has very outdated content, in regards to Conquest, on their channel or produces content of a different theme now. To find Conquest related material there you might have to dig around a bit."
   },
   {
     "name": "Chingom_",
     "content": "Conquest Reforged Mod",
     "lang": "English",
     "yt": "https://www.youtube.com/channel/UC7nw22Q3m_Hkk3d_N0QNvVQ",
-    "slug": "chingom"
+    "slug": "chingom",
+    "embed": {
+      "type": "youtube-list",
+      "id": "PLrPSkHAB25mtoKwaU88Y1ZBnnym_rw5Jg"
+    },
+    "status": "The Creator is inactive or only has very outdated content, in regards to Conquest, on their channel or produces content of a different theme now. To find Conquest related material there you might have to dig around a bit."
   },
   {
     "name": "Boitameu",
     "content": "Conquest_ Resourcepack",
     "lang": "French",
     "yt": "https://www.youtube.com/channel/UCWUEKx3_RLA3vdGtB9Xn47g",
-    "slug": "boitameu"
+    "slug": "boitameu",
+    "embed": {
+      "type": "youtube",
+      "id": "07ews8NrAxM"
+    },
+    "status": "The Creator is inactive or only has very outdated content, in regards to Conquest, on their channel or produces content of a different theme now. To find Conquest related material there you might have to dig around a bit."
   },
   {
     "name": "LegendaryPorpoise",
@@ -200,6 +322,11 @@
     "lang": "English",
     "yt": "https://www.youtube.com/channel/UCmwpVPFu5MfZHORDpL5eggA",
     "tw": "https://www.twitch.tv/legendaryporpoise",
-    "slug": "legendaryporpoise"
+    "slug": "legendaryporpoise",
+    "embed": {
+      "type": "youtube",
+      "id": "lTlaKVGVgEs"
+    },
+    "status": "The Creator is inactive or only has very outdated content, in regards to Conquest, on their channel or produces content of a different theme now. To find Conquest related material there you might have to dig around a bit."
   }
 ]

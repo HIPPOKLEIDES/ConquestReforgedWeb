@@ -2,13 +2,13 @@
 title: Industrial Automobiles
 ---
 
-<p><img src="/assets/64b3155a7f59f187bff837b8_thumbnail.webp" alt="Industrial Automobiles" loading="lazy"></p>
+<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3155a7f59f187bff837b8_thumbnail.webp" alt="Industrial Automobiles" loading="lazy"></p>
 
-<p><img src="/assets/66f6c86340b41baf8863520b_showcase_industauto_2.webp" alt="Industrial Automobiles" loading="lazy"></p>
+<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6c86340b41baf8863520b_showcase_industauto_2.webp" alt="Industrial Automobiles" loading="lazy"></p>
 
-<p><img src="/assets/66f6c865491e413cb35aa33b_showcase_industauto_3.webp" alt="Industrial Automobiles" loading="lazy"></p>
+<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6c865491e413cb35aa33b_showcase_industauto_3.webp" alt="Industrial Automobiles" loading="lazy"></p>
 
-<p><img src="/assets/66f6c867c95428b029b25573_showcase_industauto_4.webp" alt="Industrial Automobiles" loading="lazy"></p>
+<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6c867c95428b029b25573_showcase_industauto_4.webp" alt="Industrial Automobiles" loading="lazy"></p>
 
 <p>A hulking eight-wheeled truck for heavy industry, a pleasant transport truck, and a light automobile, these three vehicles by xTechScammr push the limit in Conquest Reforged once again. For anyone interested in building modern builds, these will be a great source.</p>
 

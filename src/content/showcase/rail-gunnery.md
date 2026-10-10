@@ -2,13 +2,13 @@
 title: Rail Gunnery
 ---
 
-<p><img src="/assets/64b315087af835ff71fbfb35_thumbnail.webp" alt="Rail Gunnery" loading="lazy"></p>
+<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b315087af835ff71fbfb35_thumbnail.webp" alt="Rail Gunnery" loading="lazy"></p>
 
-<p><img src="/assets/66f6c7b4a8415383f5693756_showcase_railgunnery_2.webp" alt="Rail Gunnery" loading="lazy"></p>
+<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6c7b4a8415383f5693756_showcase_railgunnery_2.webp" alt="Rail Gunnery" loading="lazy"></p>
 
-<p><img src="/assets/66f6c7b614ebc229d2d6f33b_showcase_railgunnery_3.webp" alt="Rail Gunnery" loading="lazy"></p>
+<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6c7b614ebc229d2d6f33b_showcase_railgunnery_3.webp" alt="Rail Gunnery" loading="lazy"></p>
 
-<p><img src="/assets/66f6c7b803f17a49bdddd634_showcase_railgunnery_4.webp" alt="Rail Gunnery" loading="lazy"></p>
+<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6c7b803f17a49bdddd634_showcase_railgunnery_4.webp" alt="Rail Gunnery" loading="lazy"></p>
 
 <p>For those more interested in brutal modern warfare and apocalyptic battlefields, xTechScammr&#x27;s third collection of builds offers a look at the sort of gunnery and firepower Conquest Reforged&#x27; blocks can achieve. </p>
 

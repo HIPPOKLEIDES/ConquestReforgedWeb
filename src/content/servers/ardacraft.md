@@ -1,7 +1,7 @@
 ---
 title: ArdaCraft
 ip: mc.ardacraft.me
-logo: /assets/657f67dc4b55058b0a992fe4_edoras.webp
+logo: https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/657f67dc4b55058b0a992fe4_edoras.webp
 links: Modrinth|https://modrinth.com/modpack/ardacraft/ ;; ardacraft.me|https://ardacraft.me ;; Discord|https://discord.com/invite/fykFabG ;; Twitter|https://twitter.com/ArdaCraft_ ;; Planet Minecraft|https://www.planetminecraft.com/server/ardacraft-3119330/
 ---
 

@@ -89,3 +89,8 @@ Webstudio pages are a React app, which rebuilds HTML Embeds after loading and dr
 `build.mjs` parks those scripts (`type="text/plain"`) and re-runs them once the page settles, so carousels,
 the before/after slider and the nav highlight work on Webstudio pages. Generated pages run them normally.
 Embed scripts should be idempotent and only touch elements inside their own embed.
+
+## Embed code backups
+`webstudio-embeds/` holds the code pasted into Webstudio's HTML Embeds (nav-header.html for the shared header).
+Webstudio is the source of truth; these files are copies so the code can be restored or re-pasted
+(open the embed in Webstudio > Settings > Code, select all, paste).

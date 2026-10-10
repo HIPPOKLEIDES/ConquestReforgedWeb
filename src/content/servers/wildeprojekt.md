@@ -1,7 +1,7 @@
 ---
 title: Wildeprojekt
 ip: included in the modpack
-logo: /assets/6a7c99cb0abaa2f3e7dd5d50_wildepng.webp
+logo: https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/6a7c99cb0abaa2f3e7dd5d50_wildepng.webp
 links: wildeprojekt.org|https://wildeprojekt.org/modpack ;; wildeprojekt.org|https://wildeprojekt.org/discord ;; instagram.com|https://www.instagram.com/wildeprojekt/ ;; patreon.com|https://www.patreon.com/cw/wildeprojekt
 ---
 
