@@ -51,24 +51,6 @@
     "cta": false
   },
   {
-    "slug": "bleak-isles",
-    "name": "Bleak Isles",
-    "tags": [
-      "Factions",
-      "Survival",
-      "RPG"
-    ],
-    "bg": "/assets/68f10876a24bae191898a596_c453cffdd202a22287d7a9a02200680ac147ab73.webp",
-    "ip": "IP available via Modpack",
-    "logo": "/assets/68f1086b2bfc2189c1762835_LOGO_Bleak.webp",
-    "site": "https://modrinth.com/modpack/bleak-isles",
-    "siteLabel": "https://modrinth.com/modpack/bleak-isles",
-    "discord": "",
-    "twitter": "",
-    "extra": "",
-    "cta": false
-  },
-  {
     "slug": "main",
     "name": "submit",
     "tags": [
