@@ -109,3 +109,11 @@ Webstudio is the source of truth; these files are copies so the code can be rest
   `scrape-bodies.mjs` (news and guide bodies as the original rich-text HTML), `clone-packs.mjs`. Then `node fetch-assets.mjs`.
 - `FIX_CSS`/`FIX_JS` in `build.mjs` are small corrections applied on top of the Webstudio chrome (footer link spacing, search
   button position and z-index, current-page glow in the footer).
+
+## Reference pages built from data (Custom Armors, Shields, Items, Heads, Animals, Paintings, Elytras)
+Each page is `src/data/conquest/<page>.json` (the entries) plus `src/content/conquest/<page>.shell.html` (intro text and the page
+around the lists). To add an entry, append to the right list in the JSON:
+`{ "img": "/assets/name.webp", "name": "Display name", "note": "Leather/Iron/...", "note2": "[1.18]", "alias": "", "cmd": "" }`
+(`note2` is only used by Animals, `cmd` only by Heads, `alias` is the optional extra name above the main name on Armors).
+The list sections are the original Webflow lists (they look slightly different, e.g. on Custom Items); put a new entry at the end of
+the section it belongs to. `node scrape-conquest.mjs` was the one-off conversion; do not run it again.

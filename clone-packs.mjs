@@ -15,6 +15,7 @@ const queue = ['conquest-pack', 'conquest-bedrock', '404', 'info', 'faq', 'downl
 const seen = new Set(queue);
 for (let qi = 0; qi < queue.length; qi++) {
   const route = queue[qi];
+  if (/^conquest\/conquest-custom(armors|elytras|heads|items|mobs|paintings|shields)$/.test(route)) continue; // data-driven, see scrape-conquest.mjs
   const slug = route.replace(/\//g, '__');
   let h = route === '404' ? await (await fetch(`${BASE}/this-page-does-not-exist`)).text() : await text(`${BASE}/${route}`);
   h = h.replace(/<img src="http:\/\/i\.imgur\.com\/ATB7t3B\.gif"[^>]*>/, '<video src="/assets/ATB7t3B.mp4" aria-label="Creative inventory selection wheel" autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen" style="display:block;max-width:100%;margin:14px 0;pointer-events:none"></video>');

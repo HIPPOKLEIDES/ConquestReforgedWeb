@@ -1,0 +1,465 @@
+{
+ "meta": {
+  "title": "Conqest CustomArmors",
+  "description": "Official home of the original Conquest_ resourcepack. Here you can find all info regarding custom Armores and 3D helmets conquest allows you to access.",
+  "wfPage": "64b3075471c946976607f463",
+  "wfSite": "5a4a68ddf6b9a40001c2e07e",
+  "headScripts": []
+ },
+ "lists": [
+  {
+   "cfg": {
+    "listClass": "custom-shield-box",
+    "frame": "customshield-frame",
+    "inner": "collection-item-22",
+    "b215": true,
+    "grad": true,
+    "preview": "cusom-armors-preview",
+    "img": "customshields-icon",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f4a78399d9431dd89cfb1c_european_peasant.webp",
+     "name": "European Peasant",
+     "note": "Leather/Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a84c5932ee610cdb00bf_fur.webp",
+     "name": "Hunter",
+     "note": "Leather/Iron/Chainmail/ Golden/Diamond"
+    },
+    {
+     "img": "/assets/66f4a33e24d75560b66ad03e_magister.webp",
+     "name": "magister",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a34873de7434ff781e71_dragonburg.webp",
+     "name": "lord of dragonburg",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a350da02197fdca714c2_deinmaur.webp",
+     "name": "deinmaur guardian",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a35bcaa08549a4f63934_Invisible.webp",
+     "name": "Invisible",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a72199c93da102d7ab78_north.webp",
+     "name": "Northern",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a739979ed93d4da5fd1a_steel_lamellar_armor.webp",
+     "name": "Steel Lamellar Armor",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a74555946164c6c4b5e5_Savaran_cataphract_armor.webp",
+     "name": "Savaran Cataphract Armor",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a755f5595360eb3e1c82_polish_knight_plate.webp",
+     "name": "Polish Knight Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a76099d9431dd89ce5f8_padded_guard_uniform.webp",
+     "name": "Padded Guard Uniform",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a76c05a2237649660aa1_flicia_plate.webp",
+     "name": "Flicia Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a77624c17052e7591591_fancy_duke_plate.webp",
+     "name": "Fancy Duke Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a78f24c17052e7592827_red_samurai_armor.webp",
+     "name": "Red Samurai Armor",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a79ce02890de0c397a72_dark_samurai_armor.webp",
+     "name": "Dark Samurai Armor",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a7a3979ed93d4da66720_tourney.webp",
+     "name": "Tourney",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a7acfb9ca74b3dec9626_thief.webp",
+     "name": "Thief",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a7b65be7f49b61c30d10_steel.webp",
+     "name": "Steel Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a7bd79eac90d0d376831_skeletal.webp",
+     "name": "Skeletal",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a7c7617bfea232b61a1d_saracen.webp",
+     "name": "Saracen Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a7d199c93da102d87252_rose.webp",
+     "name": "Roseplate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a7d773de7434ff7c42e6_rootcloth.webp",
+     "name": "Rootmoss Cloth",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a7de7412766e9a3c18ed_rogue.webp",
+     "name": "Rogue",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a7e809346aa48fb131f8_orc.webp",
+     "name": "Orc",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a7f200e53822a377ac83_norman.webp",
+     "name": "Norman",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a7f9657006d2451848a2_mithril.webp",
+     "name": "Mithril Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a878e18652e7e29881ed_fancygambeson.webp",
+     "name": "Fancy Gambeson",
+     "alias": "Elven Crown",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a80b7b62776f0d278486_lord_of_westwick.webp",
+     "name": "Lord of Westwick",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a81424c17052e759b71b_lord.webp",
+     "name": "Lordish",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a81e99d9431dd89d843d_legionaer.webp",
+     "name": "Legionnaire Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a82979eac90d0d37c41a_knight.webp",
+     "name": "European High Knight",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a83324d75560b66f1176_high.webp",
+     "name": "High Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a839cf2de4558675cb61_heavyhigh.webp",
+     "name": "Heavy High Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a84399c93da102d8db25_greek.webp",
+     "name": "Greek Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a853e18652e7e29861ef_french_knight.webp",
+     "name": "French Knight",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a8605eda8eaf6f3e4b94_footspotted.webp",
+     "name": "Spotted Footsoldier Helmet",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a8670df31a39e87169f9_footheavy.webp",
+     "name": "Heavy Footsoldier",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a87025959640b9b2f01b_foot.webp",
+     "name": "Light Footsoldier",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a80200e53822a377b8b2_majestic.webp",
+     "name": "Majestic",
+     "alias": "Golden Crown",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a87fe02890de0c3a57a3_english_knight.webp",
+     "name": "English Knight",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a88800e53822a3784167_elven.webp",
+     "name": "Elven Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a8905d4f4b5c228ff29e_dwarf.webp",
+     "name": "Dwarven",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a89ee18652e7e298a031_dark_plate.webp",
+     "name": "Dark Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a8a5cf2de455867624aa_crusader.webp",
+     "name": "Crusader",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a8ad2fcd7500c7153ebb_cheap.webp",
+     "name": "Cheap Leather",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a8b699d9431dd89e0aef_chainmail.webp",
+     "name": "Basic Chainmail",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a8bf2ae906e0ae0cc0d7_bone.webp",
+     "name": "Bone Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a8c638813da4db766280_forst.webp",
+     "name": "Icy Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a8cd38813da4db766702_longbowarcher.webp",
+     "name": "Longbowarcher",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a8d638813da4db766db2_the_black_knight.webp",
+     "name": "The Black Knight",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    },
+    {
+     "img": "/assets/66f4a72df5595360eb3dedbc_sthadgard_plate.webp",
+     "name": "Sthadgard Plate",
+     "note": "Iron/Chainmail/ Golden/Diamond/ Netherite"
+    }
+   ]
+  },
+  {
+   "cfg": {
+    "listClass": "custom-shield-box",
+    "frame": "customshield-frame",
+    "inner": "collection-item-22",
+    "b215": true,
+    "grad": true,
+    "preview": "cusom-armors-preview",
+    "img": "customshields-icon",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f4a33324d75560b66ac792_arabian_helmet.webp",
+     "name": "arabian helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a5e599d9431dd89b9a72_viking.webp",
+     "name": "Fancy Viking Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a5f0f02a04c3d74b9653_hussar_helmet.webp",
+     "name": "Hussar Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a5f97412766e9a3a36c5_knight_helmet.webp",
+     "name": "Decorated Knight Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6065932ee610cd92e74_lamellar_helmet.webp",
+     "name": "Lamellar Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a60eda02197fdcaa0b3d_mongolian_helmet.webp",
+     "name": "Mongolian Spiked Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a61a79eac90d0d36184b_ottoman_helmet.webp",
+     "name": "Pointed Ottoman Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6255932ee610cd94362_phoenix_wing_helmet.webp",
+     "name": "Chinese Phoenix Wing Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a63df0e8058672eb1140_phrygian_helmet.webp",
+     "name": "Bearded Phrygian Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a645bcf0efb6849bbeed_plague_doctor_mask.webp",
+     "name": "Plague Doctor Mask",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a64e617bfea232b4d316_yellow_crested_jousting_helmet.webp",
+     "name": "Yellow Crested Jousting Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a655cf2de45586743758_blue_crested_jousting_helmet.webp",
+     "name": "Blue Crested Jousting Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a65db6ca07055243ce0a_green_crested_jousting_helmet.webp",
+     "name": "Green Crested Jousting Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6683efae965c64f8ef4_red_crested_jousting_helmet.webp",
+     "name": "Red Crested Jousting Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a67338813da4db744a26_ancalyban_praetorian_helmet.webp",
+     "name": "Ancalyban Praetorian Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6793f9a486d2fde0e2e_ancalyban_legionnaire_helmet.webp",
+     "name": "Ancalyban Legionnaire Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6813efae965c64fa4ea_savaran_cataphract_helmet.webp",
+     "name": "Savaran Cataphract Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6893efae965c64faaec_teutonic_knight_helmet.webp",
+     "name": "Teutonic Knight Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6913efae965c64fb04c_strawhat.webp",
+     "name": "Strawhat",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a69d4a8a6ae8d4731891_saracen_helmet.webp",
+     "name": "Saracen Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6a54a8a6ae8d4731dc7_horned_samurai_helmet.webp",
+     "name": "Horned Samurai Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6adcaa08549a4f95a77_samurai_helmet.webp",
+     "name": "Samurai Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6b6caa08549a4f95f5d_masked_samurai_helmet.webp",
+     "name": "Masked Samurai Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6bffb9ca74b3debc807_gladiator_helmet.webp",
+     "name": "Gladiator Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6c77b62776f0d267d6b_feather_headdress.webp",
+     "name": "Feather Headdress",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6d0b1b25d96aab84762_fancy_bronze_helmet.webp",
+     "name": "Fancy Bronze Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6d85932ee610cd9dcb3_jaguar_helmet.webp",
+     "name": "Jaguar Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6e3a605a3d03c840afb_eagle_helmet.webp",
+     "name": "Eagle Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6ec617bfea232b569f8_corinthian_helmet_2.webp",
+     "name": "Corinthian Officer Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a6f75c9c406c7574b9cc_corinthian_helmet.webp",
+     "name": "Corinthian Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a7055eda8eaf6f3d2d92_praetorian_helmet.webp",
+     "name": "Decorated Praetorian Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a70d5d4f4b5c228e85d6_centurion_helmet.webp",
+     "name": "Centurion Helmet",
+     "note": "Carved Pumpkin"
+    },
+    {
+     "img": "/assets/66f4a715c91d0d8feaaae70e_legionnaire_helmet.webp",
+     "name": "Simple Legionnaire Helmet",
+     "note": "Carved Pumpkin"
+    }
+   ]
+  }
+ ]
+}

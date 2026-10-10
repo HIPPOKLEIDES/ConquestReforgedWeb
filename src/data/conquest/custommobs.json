@@ -1,0 +1,620 @@
+{
+ "meta": {
+  "title": "Conqest CustomMobs",
+  "description": "Official home of the original Conquest_ resourcepack. Here you can find all info regarding custom Mob textures conquest allows you to access.",
+  "wfPage": "64b3075471c946976607f467",
+  "wfSite": "5a4a68ddf6b9a40001c2e07e",
+  "headScripts": []
+ },
+ "lists": [
+  {
+   "cfg": {
+    "listClass": "custom-shield-box",
+    "frame": "customshield-frame",
+    "inner": "collection-item-22",
+    "b215": true,
+    "grad": true,
+    "preview": "cusom-armors-preview",
+    "img": "customshields-icon-mobs",
+    "nameTag": "a",
+    "notes": "mob",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f4a931979ed93d4da7e99d_beaver.webp",
+     "name": "beaver",
+     "note": "wild axolotl"
+    },
+    {
+     "img": "/assets/66f4acd18b53a8e286e9f3f6_butterfly.webp",
+     "name": "Butterfly",
+     "note": "Bee ",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac47ec5645482c7c84a6_Ladybird.webp",
+     "name": "Ladybird",
+     "note": "Bee",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac1917a909f8c48252a4_moth.webp",
+     "name": "Moth",
+     "note": "Bee",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aa9be3ac8a36386d8470_bee.webp",
+     "name": "bee",
+     "note": "bee",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ace14e1037448894b22b_blobfish.webp",
+     "name": "Blobfish",
+     "note": "cod",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aa8afdb294a68c30f52b_cod.webp",
+     "name": "Cod",
+     "note": "Cod",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ad353a2eb947708e5740_Anomalocaris.webp",
+     "name": "Anomalocaris",
+     "note": "dolphin",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4acf82ae906e0ae10ded8_beluga.webp",
+     "name": "Beluga Whale",
+     "note": "dolphin",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4accb7710ca11e9d87aa6_comman_dolphin.webp",
+     "name": "common dolphin",
+     "note": "dolphin",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac9f987a71f209aae4b5_Dunkleosteus.webp",
+     "name": "Dunkleosteus",
+     "note": "dolphin",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac55630187ca0ce637fb_great_white_shark.webp",
+     "name": "great white shark",
+     "note": "dolphin",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac12e9e1ce2c7714c642_narwhale.webp",
+     "name": "narwhale",
+     "note": "dolphin",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac015a805ea32db8fa23_orca.webp",
+     "name": "killerwhale",
+     "note": "dolphin",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4abe9fdb294a68c32163b_pink_river_dolphin.webp",
+     "name": "pink river dolphin",
+     "note": "dolphin",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab917f75b0c91e489c11_sailfish.webp",
+     "name": "Sailfish",
+     "note": "dolphin",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab8217a909f8c481cd14_sawfish.webp",
+     "name": "sawfish",
+     "note": "dolphin",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab3fedcba5837882cefb_spotted_seal.webp",
+     "name": "spotted seal",
+     "note": "dolphin",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aae3efdfb829fb17c382_dolphin.webp",
+     "name": "bottlenose dolphin",
+     "note": "dolphin",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4abc9a2e5d2fa98b5cb97_racoon.webp",
+     "name": "Racoon",
+     "note": "fox",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4abbbec5645482c7bcb26_red_panda.webp",
+     "name": "red panda",
+     "note": "fox",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aa7fe3ac8a36386d5f06_foxfox.webp",
+     "name": "red fox",
+     "note": "fox",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4a911d2189db02b86dcf9_iguana.webp",
+     "name": "green iguana",
+     "note": "gold axolotl"
+    },
+    {
+     "img": "/assets/66f4ac200dde3d346be8b8ce_moose.webp",
+     "name": "Moose",
+     "note": "zombie horse",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4abfaea1fa8646851beeb_Orix.webp",
+     "name": "Orix",
+     "note": "Zombiehorse",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4abaf6da01e9c08217f94_reddeer.webp",
+     "name": "Red deer",
+     "note": "zombiehorse",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aba94dd500f9c01fa0a5_rendeer.webp",
+     "name": "rendeer",
+     "note": "Zombiehorse",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab086da01e9c0820e454_white_tailed_deer.webp",
+     "name": "white tailed deer",
+     "note": "Zombiehorse",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aa5550b360a9f7022007_zombiehorse.webp",
+     "name": "zombiefied Horse",
+     "note": "Zombiehorse",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4a91b00e53822a378cd7c_otter.webp",
+     "name": "otter",
+     "note": "wild axolotl"
+    },
+    {
+     "img": "/assets/66f4acdb5a805ea32db9a6a2_bluejay.webp",
+     "name": "Blue Jay",
+     "note": "parrot blue",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4abc14e1037448893a899_raven.webp",
+     "name": "raven",
+     "note": "parrot blue",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aaa45a805ea32db7c49b_parrot_blue.webp",
+     "name": "Palm cockatoo",
+     "note": "parrot blue",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4acc0d2189db02b8a4689_crow.webp",
+     "name": "Crow",
+     "note": "parrot gray",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4abf22152c80b753b8417_owl.webp",
+     "name": "owl",
+     "note": "parrot gray",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4abd817a909f8c48219a6_puffin.webp",
+     "name": "Puffin",
+     "note": "Parrot gray",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab70d2189db02b890c7a_seagull.webp",
+     "name": "seagull",
+     "note": "parrot gray",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab37454d65f0337528ff_sunbird.webp",
+     "name": "sun parakeet",
+     "note": "parrot green",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aac5fdb294a68c3125d8_parrot_blue_green.webp",
+     "name": "rainbow lorkeet",
+     "note": "parrot green ",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4abb5efdfb829fb1886db_Red_Throat.webp",
+     "name": "Red Throat",
+     "note": "parrot red blue",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aaf7ec5645482c7aba25_wyvern.webp",
+     "name": "wyvern",
+     "note": "parrot red blue",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aabf1558531e5e4e128d_rrot_red_blue.webp",
+     "name": "Red Blue Parrot",
+     "note": "parrot red blue",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab307d05b082d95b3c84_toocan.webp",
+     "name": "common toucan",
+     "note": "parrot yellow blue",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aaaebfc12ceb1fbca9a3_parrot_yellow_blue.webp",
+     "name": "blue gold macaw",
+     "note": "parrot yellow blue",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4acb28fbc5fb4163c5b71_dimorphodon.webp",
+     "name": "Dimorphodon",
+     "note": "phantom",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac8aa86af37b9dd62205_eagle.webp",
+     "name": "Bald Eagle",
+     "note": "phantom",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab11fdb294a68c3168b6_vulture.webp",
+     "name": "vulture",
+     "note": "phantom",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aa92987a71f209a8e26a_phantom.webp",
+     "name": "phantom",
+     "note": "phantom",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4a925c0e226cdc972ea47_pladypus.webp",
+     "name": "pladypus",
+     "note": "wild axolotl"
+    },
+    {
+     "img": "/assets/66f4b12b6da01e9c0827a16e_blackbear.webp",
+     "name": "Blackbear",
+     "note": "Polarbear"
+    },
+    {
+     "img": "/assets/66f4b125bfc12ceb1fc2d6c5_brownbear.webp",
+     "name": "Brownbear",
+     "note": "Polarbear"
+    },
+    {
+     "img": "/assets/66f4ac7951d72b9903b793cb_female_lion.webp",
+     "name": "Lioness",
+     "note": "Polarbear",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac4e51d72b9903b766ab_jaguar.webp",
+     "name": "Black leopard",
+     "note": "Polarbear",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac40a86af37b9dd5de2b_leopard.webp",
+     "name": "spotted leopard",
+     "note": "Polarbear",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac30c0e226cdc975fc18_male_lion.webp",
+     "name": "maned Lion",
+     "note": "Polarbear",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4abd151d72b9903b6f131_puma.webp",
+     "name": "Puma",
+     "note": "Polarbear",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab667710ca11e9d73194_siberian_tiger.webp",
+     "name": "Siberian Tiger",
+     "note": "Polarbear",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab51c0e226cdc9752a71_snowlepoard.webp",
+     "name": "snow leopard",
+     "note": "Polarbear",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aa5cbfc12ceb1fbc6b52_polarbear.webp",
+     "name": "Polarbear",
+     "note": "Polarbear",
+     "note2": "[1.13]"
+    },
+    {
+     "img": "/assets/66f4ab00987a71f209a96a58_white_tiger.webp",
+     "name": "White Tiger",
+     "note": "Polarbear",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac834e03d49cd86be11d_Estuary_stingray.webp",
+     "name": "Estuary stingray",
+     "note": "Pufferfish",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac0a54f01a1c9ff0639b_Ocellate_river_stingray.webp",
+     "name": "Ocellate river stingray",
+     "note": "Pufferfish",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aad98b53a8e286e81ebb_pufferfish.webp",
+     "name": "pufferfish",
+     "note": "pufferfish",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ad47efdfb829fb1a63a5_african_elephant.webp",
+     "name": "african Elephant",
+     "note": "ravager",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ad0a3a2eb947708e0552_asian_elephant.webp",
+     "name": "asian Elephant",
+     "note": "ravager",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aba0a2e5d2fa98b5ac13_rhino.webp",
+     "name": "Rhino",
+     "note": "ravager",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab2a6da01e9c08210216_t-rex.webp",
+     "name": "tyrannosaurus",
+     "note": "Ravager",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab216da01e9c0820fb93_triceratops.webp",
+     "name": "Triceratops",
+     "note": "Ravager",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aa49fdb294a68c30c2b7_ravager.webp",
+     "name": "mechanical beast",
+     "note": "Ravager",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4a90738813da4db769980_sea_iguana.webp",
+     "name": "Sea iguana",
+     "note": "gold axolotl"
+    },
+    {
+     "img": "/assets/66f4b101a2e5d2fa98bab792_rat.webp",
+     "name": "Rat",
+     "note": "Silverfish",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aaede3ac8a36386dde9a_silverfish.webp",
+     "name": "Silverfish",
+     "note": "Silverfish",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4b113a2e5d2fa98bac35a_gutpiercer.webp",
+     "name": "Gutpiercer",
+     "note": "Skeleton",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4b10c4ed9a5aab6bbd22e_gutslasher.webp",
+     "name": "Gutslasher",
+     "note": "NetherSkeleton",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aa321558531e5e4d7ac6_skeleton.webp",
+     "name": "skeleton",
+     "note": "skeleton",
+     "note2": "[1.13]"
+    },
+    {
+     "img": "/assets/66f4aa2945de65d9d0ef3d11_wither_skeleton.webp",
+     "name": "withered skeleton",
+     "note": "skeleton",
+     "note2": "[1.13]"
+    },
+    {
+     "img": "/assets/66f4b0ee4dd500f9c0251b44_watcher.webp",
+     "name": "Watcher",
+     "note": "Spider",
+     "note2": "[1.13]"
+    },
+    {
+     "img": "/assets/66f4ad1350b360a9f7054740_argiope_bruennichi.webp",
+     "name": "argiope bruennichi",
+     "note": "spider",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ad01630187ca0ce6dbe2_Banana_Spider.webp",
+     "name": "Banana Spider",
+     "note": "spider",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4acf14ed9a5aab6b7ceec_black_scorpion.webp",
+     "name": "black scorpion",
+     "note": "spider",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ace8a2e5d2fa98b6d201_black_widdow.webp",
+     "name": "black widdow",
+     "note": "spider",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac28454d65f03376a476_misulena.webp",
+     "name": "misulena",
+     "note": "spider",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab5dedcba5837882e453_sicarius_hahni.webp",
+     "name": "sicarius hahni",
+     "note": "spider",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aa6d4e10374488927007_spider.webp",
+     "name": "giant tarantula",
+     "note": "spider",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac3a3b1d1c61457c304b_light_scorpion.webp",
+     "name": "light scorpion",
+     "note": "cavespider",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4abe2ec5645482c7c0d13_poisinious_black_scorpion.webp",
+     "name": "Black Scorpion",
+     "note": "cavespider",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aa777710ca11e9d65da2_cavespider.webp",
+     "name": "poisonous spider",
+     "note": "cavespider",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ad2a2152c80b753cae54_arctic_cyaney.webp",
+     "name": "arctic cyaney",
+     "note": "Squid",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ad23c0e226cdc976f60d_arctic_octopus.webp",
+     "name": "arctic octopus",
+     "note": "squid",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4acc651d72b9903b7e721_common_octopus.webp",
+     "name": "common octopus",
+     "note": "squid",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac95454d65f033772f03_cuttlefish.webp",
+     "name": "cuttlefish",
+     "note": "squid",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac670dde3d346be8f1ae_giant_pacific_octopus.webp",
+     "name": "giant pacific octopus",
+     "note": "squid",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ac5bfdb294a68c327939_giant_squid.webp",
+     "name": "Collossal Squid",
+     "note": "squid",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab160dde3d346be7d06e_vampire_squid.webp",
+     "name": "vampire squid",
+     "note": "squid",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4aad151d72b9903b5e6f2_squid.webp",
+     "name": "kraken Squid",
+     "note": "squid",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4b14430eec2816018e180_basketman.webp",
+     "name": "Basketman",
+     "note": "Strider",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4b13d630187ca0ceade01_strider.webp",
+     "name": "Nether Strider",
+     "note": "Strider",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4b1354dd500f9c02556c0_fox.webp",
+     "name": "Fox",
+     "note": "wolf",
+     "note2": "[1.13]"
+    },
+    {
+     "img": "/assets/66f4ad3f2ae906e0ae114dfe_african_wilddog.webp",
+     "name": "african wilddog",
+     "note": "wolf",
+     "note2": "[1.18]"
+    },
+    {
+     "img": "/assets/66f4ab457d05b082d95b4bb5_spotted_hyena.webp",
+     "name": "hyena",
+     "note": "wolf",
+     "note2": "[1.18]"
+    }
+   ]
+  }
+ ]
+}

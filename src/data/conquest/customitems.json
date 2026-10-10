@@ -1,0 +1,2221 @@
+{
+ "meta": {
+  "title": "Conqest CustomItems",
+  "description": "Official home of the original Conquest_ resourcepack. Here you can find all info regarding custom items/weapons conquest allows you to access.",
+  "wfPage": "64b3075471c946976607f466",
+  "wfSite": "5a4a68ddf6b9a40001c2e07e",
+  "headScripts": []
+ },
+ "lists": [
+  {
+   "cfg": {
+    "listClass": "collection-list-20-copy",
+    "frame": "collection-item-21-copy",
+    "inner": "collection-item-22-copy",
+    "b215": false,
+    "grad": true,
+    "preview": "div-block-212",
+    "img": "image-88",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f590d267b0b405d8e23539_katar_steel.webp",
+     "name": "Assasin Katar",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f571819215e38247c7acdc_0assassin_poisondagger.webp",
+     "name": "Assassindagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f57072be14c5b1c2dea17a_bone_dagger.webp",
+     "name": "Bone Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f59062fe59288288541181_bronze_dagger.webp",
+     "name": "Bronze Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f590cae304b28e5524f0af_katar_bronze.webp",
+     "name": "Bronze Katar",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56cd493fe23afc933199f_dagger_copper.webp",
+     "name": "Copper Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55c81e613a481592bd32f_crimson_dagger.webp",
+     "name": "Crimson Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f590defa81bbe6afdb68fe_katar_iron.webp",
+     "name": "Cutting Katar",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55c76b68ac6d7dafc0008_0daedric_dagger.webp",
+     "name": "Daedric Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f591083c47f7cf5dce96f1_diamond_knife.webp",
+     "name": "Diamond Knife",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55d6a99b9155e02096efd_dragonbone_dagger.webp",
+     "name": "Dragonbone Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5907224039d0947310c15_dwarven_dagger.webp",
+     "name": "Dwarven Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55ce0e9bb4754199d384c_elven_dagger.webp",
+     "name": "Elven Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5916532b53e96863e38b8_fancy_golden_knife.webp",
+     "name": "Fancy Golden Knife",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55b4f568253addac1348c_glass_dagger.webp",
+     "name": "Glass Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55d196eeeb96466ca2d47_hunting_knive.webp",
+     "name": "Hunting Knife",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55d196eeeb96466ca2d47_hunting_knive.webp",
+     "name": "Hunting Knive",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f590e75994468327ccae88_jitte.webp",
+     "name": "Japanese Jitte",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56d2124c25952b228b698_oblivion.webp",
+     "name": "Oblivions Fate",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55a286b2af2e9684a48ba_old_dagger.webp",
+     "name": "Old Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f590ff054c08a74c50e5f3_piercing_sai.webp",
+     "name": "Piercing Sai",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f59089cfee8f3d2058f1cb_root_dagger.webp",
+     "name": "Root Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55d7a568253addac3a629_fancy_dagger.webp",
+     "name": "Royal Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5721e19d6c0e443ffe534_rusted_dagger.webp",
+     "name": "Rusted Dagger ",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f590f06ee6dc002a871d83_dagger_iron.webp",
+     "name": "Short Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56d7dbf2591386de33caf_knife.webp",
+     "name": "Simple Kitchen Knife",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f570171150557d74e174e3_stahlrim_dagger.webp",
+     "name": "Stahlrim Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56cdd24fc88f58a17f274_dagger_titan.webp",
+     "name": "Titan Dagger",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f572664750166258dfd352_dagger_warped.webp",
+     "name": "Warped Dagger ",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56cc654fb7e9462e1951c_haladle_knife.webp",
+     "name": "Haladle Knife",
+     "note": "Swords/Axes"
+    }
+   ]
+  },
+  {
+   "cfg": {
+    "listClass": "collection-list-20-copy",
+    "frame": "collection-item-21",
+    "inner": "collection-item-22-copy",
+    "b215": false,
+    "grad": false,
+    "preview": "div-block-212",
+    "img": "image-88",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f58f129b3634ecefa46155_bronze_sword.webp",
+     "name": "Bronze Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58ffede6892b101dd73f2_butterflysword.webp",
+     "name": "Butterflysword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58f05996cd1bdc41d6f51_jian_sword.webp",
+     "name": "Chinese Jian Sword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f59170177ef05fe265cbfc_cutlass.webp",
+     "name": "Cutlass",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5902cf5c0112906a13dc2_dwarven_sword.webp",
+     "name": "Dwarven Sword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58fd0c590429962807bf6_falcata.webp",
+     "name": "Falcata",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58fa4de6892b101dd2cdb_falx.webp",
+     "name": "Falx",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58f7203d4755316d3e015_fancy_shortsword.webp",
+     "name": "Fancy Shortsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55b3b917cf0ea16ef58cc_glass_sword.webp",
+     "name": "Glass Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55adefc55bdad87e6862b_sting_glowing.webp",
+     "name": "Glowing Sting",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58f2b193733df2e22571e_hooksword.webp",
+     "name": "Hooksword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f59140e304b28e55256ed8_hoplite_sword.webp",
+     "name": "Hoplite Sword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56ffd272075b14287ddf5_iron_shortsword.webp",
+     "name": "Iron Shortsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58f7ba3c42a12f3fbbcf7_khanda.webp",
+     "name": "Khanda",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5904b183260a371acb47f_khopesh.webp",
+     "name": "Khopesh",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5900985d66b656af8f0d9_kodachi.webp",
+     "name": "Kodachi",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5901367b0b405d8e1aabf_konda.webp",
+     "name": "Konda Sword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58ff513b25f4f0cb2d7a1_korean_sword.webp",
+     "name": "Korean Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56d0617dce91473bd0192_kris_of_schaffar.webp",
+     "name": "Kris of Schaffar",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58f3bfd3b54f8b5e624ad_machete.webp",
+     "name": "Machete",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56cef578097c0f0ecc3bb_mithril_sword.webp",
+     "name": "Mithril Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58f8f2cd89891935eb032_moro_kris_sword.webp",
+     "name": "Moro Kris Sword",
+     "note": "Swords/Axes]"
+    },
+    {
+     "img": "/assets/66f58f66cfee8f3d2057f16c_orc_sword.webp",
+     "name": "Orcish Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58f85770ab3b836ea6f14_panabas.webp",
+     "name": "Panabas",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58fb7001b2293843f1604_rapier.webp",
+     "name": "Rapier",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f59041c837fee419d96c88_gladius_iron.webp",
+     "name": "Roman Gladius",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5905b6ee6dc002a86a26d_rootcleaver.webp",
+     "name": "Root cleaver",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5901f0655eab4d050ee27_rootsword.webp",
+     "name": "Rootsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58f22400c5b5680988312_coolscimitar.webp",
+     "name": "Scimitar",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58f4a41a5900937d9d02c_sword_iron.webp",
+     "name": "Shortsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58fc2cc163431405bec1d_runeblade.webp",
+     "name": "Simple Runeblade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58faf415d13fdca5d1908_small_macuahuitl.webp",
+     "name": "Small Macuahuitl",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58f977320f436b9de7aeb_spartan_blade.webp",
+     "name": "Spartan Officer Sword",
+     "note": "Swords/Axe"
+    },
+    {
+     "img": "/assets/66f55b9d43c968a60ab88590_steel_sword.webp",
+     "name": "Steel Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55ae5bff97e2eefdbf0a6_sting.webp",
+     "name": "Sting of Bilbo",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5903829e87e88772f0e0c_viking_sword.webp",
+     "name": "Viking Sword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58ef80a60b96aa8569718_xenthium_blade.webp",
+     "name": "Xenthium Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f570a263e18fdd6ea5d31e_steel_crescent_large.webp",
+     "name": "Large Crescent Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f570aad0707a983bee56f2_steel_crescent.webp",
+     "name": "Small Crescent Blade",
+     "note": "Swords/Axes"
+    }
+   ]
+  },
+  {
+   "cfg": {
+    "listClass": "collection-list-20-copy",
+    "frame": "collection-item-21",
+    "inner": "collection-item-22-copy",
+    "b215": false,
+    "grad": false,
+    "preview": "div-block-212",
+    "img": "image-88",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f57155dbb4a0625317792e_assassin_poisonblade.webp",
+     "name": "Assassinblade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58e95fee9f09e52c7a90d_bastardsword.webp",
+     "name": "Bastardsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58de978a337e97811521f_large_macuahuitl.webp",
+     "name": "Big Macuahuitl",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56909b9fd713b230365f9_blackguard_claymore.webp",
+     "name": "Blackguard Claymore",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f57054dbb4a06253167eb4_bipolarblade_split.webp",
+     "name": "Blade of the Twisted",
+     "note": "Swords/Axes (bipolar set)"
+    },
+    {
+     "img": "/assets/66f5714d4750166258deabf3_blade_of_woe.webp",
+     "name": "Blade of Woe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5713f870a47aea349d1e0_blade_sword.webp",
+     "name": "Blade Sword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f570669f8f97bc48fdb8c5_bloodthorn.webp",
+     "name": "Bloodthorn Katana",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55af3628aa2c0edf8a9c6_boromirs_sword.webp",
+     "name": "Boromirs Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55a4528568d618d13200c_narsil_broken.webp",
+     "name": "Broken Narsil",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58d89ae1b7123ed915044_bronze_axe_sword.webp",
+     "name": "Bronze Axesword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5705e057fae6653860c56_bronze_claymore.webp",
+     "name": "Bronze Claymore",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58e66069d83be530c5c37_greatsword_bronze.webp",
+     "name": "Bronze Greatsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55c58fbc51625fa3dd339_chrysamere.webp",
+     "name": "Chrysamere",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58dcbe0e21aed87e85900_cleaver_of_the_dragongod.webp",
+     "name": "Cleaver of the Dragongod",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f57175be14c5b1c2df7d8b_0crimson_sword.webp",
+     "name": "Crimson Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58d7534ea0a21c7d4c6cb_crusaderblade.webp",
+     "name": "Crusader Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58eed163f4a8d07e5fad3_dao.webp",
+     "name": "Dao Sword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58e75df4ff8f1323f7c64_dark_blade.webp",
+     "name": "Dark Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58ed06706d78cf5ffb422_diamond_katana.webp",
+     "name": "Diamond Katana",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f57128a1f90664b1162a06_doombringer_sword.webp",
+     "name": "Doombringer Sword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55ceb05368deceb773147_dragonbone_greatsword.webp",
+     "name": "Dragonbone Greatsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58d5eac0a342226db770a_dwarven_greatsword.webp",
+     "name": "Dwarven Greatsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55cd43562a4b05beb9386_ebony_greatsword.webp",
+     "name": "Ebony Greatsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58e522918be13882a4266_excalibur.webp",
+     "name": "Excalibur",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58edc085733e7cfda7981_falchion.webp",
+     "name": "Falchion",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58dde0bc4d379976a80f3_large_fancy_macuahuitl.webp",
+     "name": "Feathered Macuahuitl",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55a938f30c861af442ef8_glamdring.webp",
+     "name": "Glamdring",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55b4718b4ddb9f168587d_glass_claymore.webp",
+     "name": "Glass Claymore",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55b011dd2e5b163de1c5a_glass_greatsword.webp",
+     "name": "Glass Greatsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55b2ffb62cf1f0c7f86fb_glass_longsword.webp",
+     "name": "Glass Longsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5722ea1f90664b1172b85_steel_great_tachi.webp",
+     "name": "Great Steel Tachi ",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56fe1d16f1d64723d5c65_hamburger_richtschwert.webp",
+     "name": "Hamburger Richtschwert",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56fe95ba26202846f763a_hand_and_a_half.webp",
+     "name": "Hand And A Half Sword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58e3429d5c77cc2464769_greatsword_steel.webp",
+     "name": "Heavy Greatsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/61bfab5ebb1f2fffdf24e509_ice_blade.gif",
+     "name": "Ice Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/654d8f0e12b439d02bda5318_output-onlinegiftools_28_.gif",
+     "name": "Iceblade of the Monarch",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56ff20ce899445554382a_ich_richte_richtschwert.webp",
+     "name": "Ich Richte Richtschwert",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58d672eabcd1b2449e760_iron_axe_sword.webp",
+     "name": "Iron Axesword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5911c74650fdbf93b94d4_kendo_sword.webp",
+     "name": "Kendo Sword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58e183611abda3dabcdd8_leafblade_claymore.webp",
+     "name": "Leafblade Claymore",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56d882d51d312b69c3a2b_marauder_falchion.webp",
+     "name": "Marauder Falchion",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55d4130140ac82ed90410_marauder_greatsword.webp",
+     "name": "Marauder Greatsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f57005136c065f744f0115_messer.webp",
+     "name": "Messer",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55a5705cc216a7af57309_narsil_reforged.webp",
+     "name": "Narsil",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55a4e5fbbd4a944b9f281_narsil_broken_shards.webp",
+     "name": "Narsil Shards",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55d575e79c60b1a9561de_nordic_twohander.webp",
+     "name": "Nordic Twohander",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f570d0272075b14288c6c4_nordic_sword.webp",
+     "name": "Northman Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5700d78eb3960dd29d496_obsidian_sword.webp",
+     "name": "Obsidian Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55c4fb34a2a62909eace6_onemansland_steel_sword.webp",
+     "name": "Onemansland Sword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58db325bcfd284024805a_orc_blade.webp",
+     "name": "Orcish Twohander",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58ea3dadda1bcfda254c0_primitive_stoneblade.webp",
+     "name": "Primitive Stoneblade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56d5de09cb3dd8756cd50_razortooth.webp",
+     "name": "Razortooth Cleaver",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5724eeec3bff202621874_rusted_sword.webp",
+     "name": "Rusted Blade ",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f570b3ed5996447def6937_shotel.webp",
+     "name": "Shotel Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56ce524c25952b2288a39_longsword.webp",
+     "name": "simple longsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56ce524c25952b2288a39_longsword.webp",
+     "name": "Simple Longsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5704b746c0b77304c53a8_bipolarblade_dark.webp",
+     "name": "Sin of the Night",
+     "note": "Swords/Axes (bipolar set)"
+    },
+    {
+     "img": "/assets/66f58ec4766dbeb8e632d210_slanted_sword.webp",
+     "name": "Slanted Katana",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55aa60b563b598e7fedcb_greatsword_iron_smooth.webp",
+     "name": "Smooth Iron Greatsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55aacb68ac6d7dafa1963_greatsword_steel_smooth.webp",
+     "name": "Smooth Steel Greatsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55b7f3a1c42b22acd54f7_stahlrim_sword.webp",
+     "name": "Stahlrim Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56fcb2d887b3b02f8a0ab_stahlrim_claymore.webp",
+     "name": "Stahlrim Claymore",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56ddd2741429f5cddd5e7_stahlrim_greatsword.webp",
+     "name": "Stahlrim Greatsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55ac6b7a22cefc09139b5_stahlrim_katana.webp",
+     "name": "Stahlrim Katana",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55b7548a751e1b8755fe7_stahlrim_longsword.webp",
+     "name": "Stahlrim Longsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55c33c6a2599255d44e8d_steel_claymore.webp",
+     "name": "Steel Claymore",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f57097a17582fe5487a1e2_steel_katana.webp",
+     "name": "Steel Katana",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55ba76c244287988cc51c_steel_longsword.webp",
+     "name": "Steel Longsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5708ba157b5b003c814d4_streicher_sword.webp",
+     "name": "Striders Sword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f571ab984b50b7480b2cba_bipolarblade_light.webp",
+     "name": "Suns Glory",
+     "note": "Swords/Axes (bipolar set)"
+    },
+    {
+     "img": "/assets/66f56fd528ca1c11ade85431_fire_sword_2.webp",
+     "name": "Sword of Fire",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58df932809110cfac6b92_katana.webp",
+     "name": "traditional katana",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5708087891eb9a4ffd502_uruk_hai_sword.webp",
+     "name": "Uruk Hai Blade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56cb203b09cc274636325_uruk_hai_headhunter.webp",
+     "name": "Uruk Hai Headhunterblade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58d9dc5236fd466ca06a8_large_viking_sword.webp",
+     "name": "Viking Longsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58e48e26f871d4a15a39f_greatsword_iron.webp",
+     "name": "Wavy Greatsword",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58d45489b985e43fcc568_nodachi.webp",
+     "name": "Nodachi",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58d518dcdafcc7556bba8_xenthium_warblade.webp",
+     "name": "Xenthium Warblade",
+     "note": "Swords/Axes"
+    }
+   ]
+  },
+  {
+   "cfg": {
+    "listClass": "collection-list-20-copy",
+    "frame": "collection-item-21",
+    "inner": "collection-item-22-copy",
+    "b215": false,
+    "grad": false,
+    "preview": "div-block-212",
+    "img": "image-88",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f58d22fdff4c0b8d3d08e0_hatchlet_iron.webp",
+     "name": "Bearded Hatchet",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5719f7ef563b1fbcf21b3_bone_hatchet.webp",
+     "name": "Bone Hatchet",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58d3dff484134c94c7d17_broadaxe.webp",
+     "name": "Broadaxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58cc490051d86813b9d9f_bronze_axe.webp",
+     "name": "Bronze Axe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5921d3e2baf105be31170_hatchet_bronze.webp",
+     "name": "Bronze Hatchet",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58d18dadda1bcfda0cdd9_hatchet_steel.webp",
+     "name": "Crowbeak Hatchet",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58ce0d80a2d3ce91bb9c3_diamond_hatchet.webp",
+     "name": "Diamond Hatchet",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58ceb6706d78cf5fde48c_gold_hatchet.webp",
+     "name": "Doubleheaded Hatchet",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58d0dfdff4c0b8d3cfa25_small_battleaxe.webp",
+     "name": "Small Battleaxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58c9d414146d36f956913_small_orcish_axe.webp",
+     "name": "Small Dark Axe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58cf8e0a7ea13f8a3c3f9_wood_hatchet.webp",
+     "name": "Spiked Hatchet",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58ca8ac0a342226dad81a_thorgrim_axe.webp",
+     "name": "Thorgrim Axe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58ccc1afb0de37b93e945_tomahawk.webp",
+     "name": "Tomahawk",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58c72e9890bc479977eff_bardiche.webp",
+     "name": "Bardiche",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58c84347824dcccf76c7d_battleaxe_steel.webp",
+     "name": "Bearded Battleaxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55a816b2af2e9684aa079_black_cleaver.webp",
+     "name": "Black Cleaver",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58c06f1e40d0895fe32af_battleaxe_bronze.webp",
+     "name": "Bronzeaxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5917bfe59288288550832_dagger_axe.webp",
+     "name": "Chinese Dagger Axe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58b2d8da69a1896e23dc0_cuauhololli.webp",
+     "name": "Cuauhololli",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55c89650b621ca26fc24a_daedric_greataxe.webp",
+     "name": "Daedric Greataxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58c54ee61781a9a8cf04c_orcish_axe.webp",
+     "name": "Dark Battleaxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55d612b95dc2f2c7aa888_dragonbone_greataxe.webp",
+     "name": "Dragonbone Greataxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55d350d64eab610b535cd_dwarven_axe.webp",
+     "name": "Dwarven Axe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55d240b563b598e8316f3_iron_greataxe.webp",
+     "name": "Dwarven Doubleheadedaxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55d350d64eab610b535cd_dwarven_axe.webp",
+     "name": "Dwarven Waraxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5711b4abbcfaa9d5a8a5c_gimlis_axe.webp",
+     "name": "Gimlis Axe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55d0e0792de6039e11157_gimlis_greataxe.webp",
+     "name": "Gimlis Greataxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55ccb6b2af2e9684cf300_0broadaxe.webp",
+     "name": "Heavy Broadaxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f571044750166258de5e04_krush_agash.webp",
+     "name": "Krush Agash",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f570f77cb716d677a6236f_krush_pach.webp",
+     "name": "Krush Pach",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f570e9cb3d2581faa23b33_krush_turok.webp",
+     "name": "Krush Turok",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58c62766dbeb8e6307846_battleaxe_iron.webp",
+     "name": "Large Axe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f57133721bae3e3768bfc7_bone_axe.webp",
+     "name": "Large Boneaxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55c090b563b598e81f415_viking_broadaxe.webp",
+     "name": "Large Viking Broadaxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f570dd828dca82afac04f3_leviatan.webp",
+     "name": "Leviatan of the Godslayer",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55b106b4e101b34c4f1e3_iron_axe.webp",
+     "name": "Light Bearded Axe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f570c43f559ee183db361a_north_axe.webp",
+     "name": "Northman Axe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f570bcf83a7455763707ed_rusted_axe.webp",
+     "name": "Rusted Axe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55c0008f8c4040e62a620_viking_bartaxe.webp",
+     "name": "Skullsplitter Axe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55a367dfce3a8f4e917c8_stahlrim_axe.webp",
+     "name": "Stahlrim Axe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55a1e583d79386d03202f_stahlrim_greataxe.webp",
+     "name": "Stahlrim Greataxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55b2149d98bb59ac3ce2e_steel_greataxe.webp",
+     "name": "Steel Greataxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58b09fdff4c0b8d3afc41_trollhunter_axe.webp",
+     "name": "Trollhunter Axe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58b1c6218d5d486367c02_twoheaded__waraxe.webp",
+     "name": "Twoheaded Waraxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58c14ff484134c94b3ff9_viking_axe.webp",
+     "name": "Viking Axe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56dc0e7816ab9e79a540b_necrotech_axe.webp",
+     "name": "Xenthium Waraxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55c29fe71f5ed95103dfc_viking_doubleaxe.webp",
+     "name": "Yggdrasils Curse",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f570f0ff2fdfdea20cba13_krush_tarach.webp",
+     "name": "Krush Tarach",
+     "note": "Swords/Axes"
+    }
+   ]
+  },
+  {
+   "cfg": {
+    "listClass": "collection-list-20-copy",
+    "frame": "collection-item-21",
+    "inner": "collection-item-22-copy",
+    "b215": false,
+    "grad": false,
+    "preview": "div-block-212",
+    "img": "image-88",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f59232df4fafe6af1e5f1c_ballheaded_warclub.webp",
+     "name": "Ballheaded Warclub",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/61bfb08f8367b2d50f17e44d_diamond_flail.gif",
+     "name": "Diamond Flail",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f589deff484134c949101e_diamond_warhammer.webp",
+     "name": "Diamond Warhammer",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/61bfb0bcc9edd62e1a52b82b_fancy_flail.gif",
+     "name": "Fancy Flail",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f584ce0dce695d2796cdfa_wooden_warclub.webp",
+     "name": "Fancy Wooden Warclub",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f589d56c74f2c74841947d_golden_hammer.webp",
+     "name": "Golden Warhammer",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f584a8d3a451b6ef0fabe5_mace_steel.webp",
+     "name": "Heavy Mace",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f589c90054eb720ed56bd4_steelmace.webp",
+     "name": "Imperial Mace",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56cfb7752b3db814a7795_nailed_club.webp",
+     "name": "Nailed Club",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/61bfb0781f4f187a11b97280_primitive_flail.gif",
+     "name": "Primitive Flail",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f584d80b665545de43931e_primitive_warhammer.webp",
+     "name": "Primitive Warhammer",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/61bfb0dac2683791041db6ef_single_flail.gif",
+     "name": "Simple Flail",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56d93c43ed42767ab9edc_wooden_club.webp",
+     "name": "Small Wooden Club",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58477e4a1180100649b90_mace_iron.webp",
+     "name": "Spiked Mace",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/61bfb0ead143caf2eb03b995_flail_spiky.gif",
+     "name": "Spiky Flail",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/61bfb0ccac6d0f684f3796ea_training_flail.gif",
+     "name": "Training Flail",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56d93c43ed42767ab9edc_wooden_club.webp",
+     "name": "Wooden Club",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55be0bc4b7f23384f669e_steel_mace.webp",
+     "name": "Acranoths Retribution",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f588d03b861aa52241f38a_bone_club.webp",
+     "name": "Boneclub",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55cbd271a68e2c7c6cd16_0bifurs_mace.webp",
+     "name": "Dwarven Mace",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5892a8516264bdc05e922_staff_iron.webp",
+     "name": "Fighting Staff",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5891c6d8e3c3c023fdf52_crowbeak.webp",
+     "name": "Heavy Crowbeak",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f588fafd9651728dabf32c_warhammer_iron.webp",
+     "name": "Heavy Warhammer",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5890ffd9651728dac0727_kanabo.webp",
+     "name": "Kanabo",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55bd5f2821b085b8ae7d5_polemace.webp",
+     "name": "Lacred Polemace",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f588f13b861aa5224208bb_large_wooden_club.webp",
+     "name": "Large Wooden Club",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f56db4f671e6b52f53da73_twohand_wooden_mace.webp",
+     "name": "Long Wooden Mace",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/654d8945b929e284fbe250a8_giant_flail.gif",
+     "name": "Mourning Star",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/61bfb240bb553290a11b9c15_pole_flail.gif",
+     "name": "Pole Flail",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f589073a7b51ff4f889717_warhammer_steel.webp",
+     "name": "Polehammer",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f588e7c8d692e17cb51388_spiked_club.webp",
+     "name": "Spiked Club",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5702166676aacc45f17c1_stahlrim_warhammer.webp",
+     "name": "Stahlrim Warhammer",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55bc6b68ac6d7dafb6489_twohand_mace.webp",
+     "name": "Twohand Mace",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f588db50cebfbe2a064bb3_staff_steel.webp",
+     "name": "Warstaff",
+     "note": "Swords/Axes"
+    }
+   ]
+  },
+  {
+   "cfg": {
+    "listClass": "collection-list-20-copy",
+    "frame": "collection-item-21",
+    "inner": "collection-item-22-copy",
+    "b215": false,
+    "grad": false,
+    "preview": "div-block-212",
+    "img": "image-88",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f58a72eb747117f1709f5d_bill.webp",
+     "name": "Billhook",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58a95832f765bc4bf5ff1_glaive_bronze.webp",
+     "name": "Bronze Glaive",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f58ae18da69a1896e1eab4_ceremonial_halberd.webp",
+     "name": "Ceremonial Halberd",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58a0364c16901b43043c2_ji_halberd.webp",
+     "name": "Chinese Ji Halberd",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58a561e19a62202e873c0_glaive_iron.webp",
+     "name": "Crowbeak Glaive",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f58aca9dc593b193de8211_diamond_halberd.webp",
+     "name": "Diamond Halberd",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58a3daac5b21eca3cbab2_glaive_steel_double.webp",
+     "name": "Double Glaive",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58a455fe806adbbf51a54_guan_dao.webp",
+     "name": "Guan Dao",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f58a8bb699c9d3894133a2_glaive_steel.webp",
+     "name": "Heavy Glaive",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f58ab1f1e40d0895fcdb96_heavy_halberd.webp",
+     "name": "Heavy Halberd",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55befbd7335e529557ad2_poleaxe.webp",
+     "name": "Heavy Poleaxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55c4124022952dbefb673_ravenbeak.webp",
+     "name": "Heavy Ravenbeak",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f576ffa0a5152533d68ede_jawbone_spear.webp",
+     "name": "Jawbone Spear",
+     "note": "Tridents/swords/axes"
+    },
+    {
+     "img": "/assets/66f58ad425bcfd284021da16_simple_halberd.webp",
+     "name": "Light Halberd",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5703ee498ad568b361b64_battlestaff.webp",
+     "name": "Long Spiked Battlestaff",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f57280992282c96925bb0a_monkspade.webp",
+     "name": "Monkspade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f572bb337479af059641f6_moonblade.webp",
+     "name": "Moonblade",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58a68a8a6beeeab13f457_dark_pike.webp",
+     "name": "Orcish Halberd",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58a16c7b0da2c5348991a_orcish_warscythe.webp",
+     "name": "Orcish Warscythe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58a30fdff4c0b8d3a0948_polearm_iron.webp",
+     "name": "Simple Polearm",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f591129581623f85380b8d_spiked_halberd.webp",
+     "name": "Spiked Halberd",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f571132f06b9820f400305_iron_poleaxe.webp",
+     "name": "Spiked Poleaxe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f57029dbb4a06253165c94_stahlrim_warscythe.webp",
+     "name": "Stahlrim Warscythe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55b9418b137c6a73452d9_steel_voulge.webp",
+     "name": "Steel Voulge",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58af1df4ff8f1323ba7c2_stone_halberd.webp",
+     "name": "Stone Halberd",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58a7eff484134c949a6fd_swiss_halberd_steel.webp",
+     "name": "Valtin Halberd",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58abb34ea0a21c7d20031_voulge.webp",
+     "name": "Voulge",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58a24f61376d2459a0c4a_warscythe_steel.webp",
+     "name": "Warscythe",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f589f7677748d5d6da2ec0_dagger_halberd.webp",
+     "name": "Chinese Dagger Halberd",
+     "note": "Swords/Axes"
+    }
+   ]
+  },
+  {
+   "cfg": {
+    "listClass": "collection-list-20-copy",
+    "frame": "collection-item-21",
+    "inner": "collection-item-22-copy",
+    "b215": false,
+    "grad": false,
+    "preview": "div-block-212",
+    "img": "image-88",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f587f104c59557c0f0d6a0_angelic_fork.webp",
+     "name": "Angelic Fork",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f5880ceb2cec1c646277ec_assegai.webp",
+     "name": "Assegai",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f587cf14ad03da8e980920_qiang_spear.webp",
+     "name": "Chinese Qiang Spear",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f55c8fbeb6f98f3dffbb3e_decorated_spear.webp",
+     "name": "Decorated Spear",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5888674a83a7de0e02d51_diamond_spear.webp",
+     "name": "Diamond Spear",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f58803360d6e2d58a2e532_dwarven_spear.webp",
+     "name": "Dwarven Spear",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f55b61b68ac6d7dafaf43a_steel_spear.webp",
+     "name": "Fancy Steel Pike",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f588a0eb2cec1c6462ee12_twisted_spear.webp",
+     "name": "Fancy Twisted Spear",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/61bbfc8bcb32e52c48d751fb_61a829cfe02a2ce24006cf65_firerod.gif",
+     "name": "Firerod",
+     "note": "Swords/Axes with fireaspect"
+    },
+    {
+     "img": "/assets/66f5887cbd6fa611a8da2c1d_harpoon_spear.webp",
+     "name": "Harpoon Spear",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f55cae6478140b1de2b515_spear.webp",
+     "name": "Light Spear",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f587d61179641f4d3e3f0e_military_fork.webp",
+     "name": "Military Fork",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f587e8360d6e2d58a2cf92_pitchfork.webp",
+     "name": "Pitchfork",
+     "note": "[Swords/Axes/Trident]"
+    },
+    {
+     "img": "/assets/66f5885502857a393a4c8919_spear_iron.webp",
+     "name": "Polelance",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f588314f39719d70d782cf_primitive_fishing_spear.webp",
+     "name": "Primitive Fishingspear",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f588bd8e3b3c10a915dec8_primitive_spear.webp",
+     "name": "Primitive Hunting Spear",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f588b2d5d4abd2c95d9cb0_javelin.webp",
+     "name": "Primitive Javelin",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f58815a24872c180e4e610_ranseur.webp",
+     "name": "Ranseur",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f58847a489a4fbd368ee5b_roman_pilum.webp",
+     "name": "Roman Pilum",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f588c705dee3cb24b9cb5a_sharp_pole.webp",
+     "name": "Sharpened Pole",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f5883cfa8e47f844dffbcc_spear_steel.webp",
+     "name": "Short Spear",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f587ddebb19ad4486f9749_trident.webp",
+     "name": "Simple Trident",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f570331c49b054b319f252_stahlrim_spear.webp",
+     "name": "Stahlrim Spear",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58873fa8e47f844e02628_stone_spear.webp",
+     "name": "Stonespear",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f5881c4d291723cd738ea2_tepoztopilli.webp",
+     "name": "Tepoztopilli",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f587c524b656f360008791_xenthium_spear.webp",
+     "name": "Xenthium Spear",
+     "note": "Swords/Axes/Trident"
+    },
+    {
+     "img": "/assets/66f568f2755b8d4e33a01ea4_jousting_lance_black.webp",
+     "name": "Black Jousting Lance",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f568eb4ed100b55cdb2e1a_jousting_lance_blue.webp",
+     "name": "Blue Jousting Lance",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f568e3755b8d4e33a0068c_jousting_lance_green.webp",
+     "name": "Green Jousting Lance",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f587b9ebb19ad4486f7e6b_jousting_lance.webp",
+     "name": "Jousting Lance",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f568fde52a92b5f3c2e052_krush_irmak.webp",
+     "name": "Krush Irmak",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f568d960c703960b6df120_jousting_lance_red.webp",
+     "name": "Red Jousting Lance",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f587b1092b7f3ef31574b8_sarissa.webp",
+     "name": "Sarissa",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f587aa09e0b5c2c3ff05b0_yari.webp",
+     "name": "Yari",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f568d253082597ba1d4a42_jousting_lance_yellow.webp",
+     "name": "Yellow Jousting Lance",
+     "note": "Swords/Axes"
+    }
+   ]
+  },
+  {
+   "cfg": {
+    "listClass": "collection-list-20-copy",
+    "frame": "collection-item-21",
+    "inner": "collection-item-22-copy",
+    "b215": false,
+    "grad": false,
+    "preview": "div-block-212",
+    "img": "image-88",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f56cbc08a90465c05e43bd_chakram.webp",
+     "name": "Bladed Chakram",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f5877511655fe4a719778c_blunderbuss.webp",
+     "name": "blunderbuss",
+     "note": "Crossbow"
+    },
+    {
+     "img": "/assets/66f57711027c38ff28e87e9f_bone_longbow.webp",
+     "name": "Bone Longbow",
+     "note": "Bow"
+    },
+    {
+     "img": "/assets/66f587a211655fe4a719a102_bullet.webp",
+     "name": "Bullets",
+     "note": "Arrow"
+    },
+    {
+     "img": "/assets/66f577358d500e6a5bdcc869_crimson_bow.webp",
+     "name": "Crimson Bow",
+     "note": "Bow"
+    },
+    {
+     "img": "/assets/66f577579a0aba04ae7ac75f_crimson_crossbow_standby.webp",
+     "name": "Crimson Crossbow",
+     "note": "Bow/Crossbow"
+    },
+    {
+     "img": "/assets/66f58763c2a713bf7298ac4e_bow_bronze.webp",
+     "name": "Curved Bow",
+     "note": "Bow"
+    },
+    {
+     "img": "/assets/66f587990eaf9a8080d24bfd_dart.webp",
+     "name": "dart",
+     "note": "Arrow"
+    },
+    {
+     "img": "/assets/66f5770888fce0c1e89e2697_demonic_embrace.webp",
+     "name": "Demonic Embrace",
+     "note": "Bow"
+    },
+    {
+     "img": "/assets/66f577ec4a07d8cff8436fab_dragon_staff_1.webp",
+     "name": "Dragon Soul",
+     "note": "Limited To Enchanted Bows with Flame"
+    },
+    {
+     "img": "/assets/66f58716f74e20a644785420_elven_longbow.webp",
+     "name": "Elven Longbow",
+     "note": "Bow"
+    },
+    {
+     "img": "/assets/66f5872e14ad03da8e976665_iron_longbow.webp",
+     "name": "English Longbow",
+     "note": "Bow"
+    },
+    {
+     "img": "/assets/66f5877f2aa1feb04f643b5e_flintlock.webp",
+     "name": "Flintlock Pistol",
+     "note": "Crossbow"
+    },
+    {
+     "img": "/assets/66f5873c4b300466bd82775d_crossbow_steel.webp",
+     "name": "Heavy Crossbow",
+     "note": "Bow/crossbow"
+    },
+    {
+     "img": "/assets/66f5874fca19ee1e6d3f8292_crossbow_bronze.webp",
+     "name": "Light Crossbow",
+     "note": "Bow/crossbow"
+    },
+    {
+     "img": "/assets/66f586b63b9af4b25493251b_musket_1.webp",
+     "name": "Light Musket",
+     "note": "Bow/Crossbow"
+    },
+    {
+     "img": "/assets/66f58746796a5f644775e7ab_crossbow_iron.webp",
+     "name": "Medium Crossbow",
+     "note": "Bow/crossbow"
+    },
+    {
+     "img": "/assets/66f5777a53bcd1e928b3481a_orthanc.webp",
+     "name": "Orthanc",
+     "note": "Limited To Enchanted Bows with infinity"
+    },
+    {
+     "img": "/assets/66f587071239216abf6f91e6_steel_longbow.webp",
+     "name": "reinforced longbow",
+     "note": "Bow"
+    },
+    {
+     "img": "/assets/66f5871e50654084b11c4417_root_longbow.webp",
+     "name": "Root Longbow",
+     "note": "Bow"
+    },
+    {
+     "img": "/assets/66f57771c945160d0dea98a5_serpentstaff_1.webp",
+     "name": "Serpentspine",
+     "note": "Limited To Enchanted Bows with power"
+    },
+    {
+     "img": "/assets/66f5876be864bb89efd060c5_bow_iron.webp",
+     "name": "Short Bow",
+     "note": "Bow"
+    },
+    {
+     "img": "/assets/66f587924f39719d70d6f2e4_shuriken.webp",
+     "name": "Shuriken",
+     "note": "Snowball"
+    },
+    {
+     "img": "/assets/66f5773ee52ad9a2991fc5c9_silver_bow.webp",
+     "name": "Silver Bow",
+     "note": "Bow"
+    },
+    {
+     "img": "/assets/66f5878966030f6d555720f0_blowgun.webp",
+     "name": "Simple Blowgun",
+     "note": "Bow"
+    },
+    {
+     "img": "/assets/66f57722b5a2d8a66bbf808a_wood_bow.webp",
+     "name": "Simple Bow",
+     "note": "Bow"
+    },
+    {
+     "img": "/assets/66f5875d37c77995ab03703f_bow_steel.webp",
+     "name": "Small Warbow",
+     "note": "Bow"
+    },
+    {
+     "img": "/assets/66f591fa3e2baf105be2f597_simple_chakram.webp",
+     "name": "smooth chakram",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f57788b5a2d8a66bbfda7f_chaos_staff.webp",
+     "name": "Staff of Chaos",
+     "note": "Limited To Enchanted Bows with punch"
+    },
+    {
+     "img": "/assets/66f586f8a24872c180e3da87_firestaff.webp",
+     "name": "Staff Of Flames",
+     "note": "Limited To Enchanted Bows with Flame"
+    },
+    {
+     "img": "/assets/66f577928d500e6a5bdd2851_apostel_staff.webp",
+     "name": "Staff of the Apostle",
+     "note": "Limited To Enchanted Bows with mending"
+    },
+    {
+     "img": "/assets/66f57766c852270dfafe6852_stahlrim_crossbow.webp",
+     "name": "Stahlgrim Crossbow",
+     "note": "Bow/Crossbow"
+    },
+    {
+     "img": "/assets/66f5774abc6f327bc2350bff_stahlrim_bow.webp",
+     "name": "Stahlrim Bow",
+     "note": "Bow/Crossbow"
+    },
+    {
+     "img": "/assets/66f5772ced5996447df5b513_windforce.webp",
+     "name": "Windforce",
+     "note": "Bow"
+    },
+    {
+     "img": "/assets/66f577c27d3b1f2a84606a30_forest_staff_1.webp",
+     "name": "Winding Soul",
+     "note": "Limited To Enchanted Bows with unbreaking"
+    },
+    {
+     "img": "/assets/66f586e94cd377df989a5829_xenthium_compound_bow.webp",
+     "name": "Xenthium Compound Bow",
+     "note": "Bow"
+    }
+   ]
+  },
+  {
+   "cfg": {
+    "listClass": "collection-list-20-copy",
+    "frame": "collection-item-21",
+    "inner": "collection-item-22-copy",
+    "b215": false,
+    "grad": false,
+    "preview": "div-block-212",
+    "img": "image-88",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f576d209a43ec0b48d0802_bone_pickaxe.webp",
+     "name": "Bone Pickaxe",
+     "note": "Pickaxe"
+    },
+    {
+     "img": "/assets/66f56d34a0675080b9b9308c_broken_bottle.webp",
+     "name": "Broken Bottle",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f585be9f6531e8b780dfda_bronze_hoe.webp",
+     "name": "Bronze Hoe",
+     "note": "Hoes"
+    },
+    {
+     "img": "/assets/66f59204fa81bbe6afdca3ce_bronze_ingot.webp",
+     "name": "Bronze Ingot",
+     "note": "Gold Ingot"
+    },
+    {
+     "img": "/assets/66f585a5c61aec9362bc7beb_bronze_pickaxe.webp",
+     "name": "Bronze Pickaxe",
+     "note": "Pickaxes"
+    },
+    {
+     "img": "/assets/66f585d3a489a4fbd36710a7_bronze_spade.webp",
+     "name": "Bronze Spade",
+     "note": "Shovels"
+    },
+    {
+     "img": "/assets/66f585e4360d6e2d58a12bb2_chisel.webp",
+     "name": "Chisel",
+     "note": "Pickaxes"
+    },
+    {
+     "img": "/assets/66f5866fe6d387934fe38975_goldcoin.webp",
+     "name": "Gold Coin",
+     "note": "Gold Nugget"
+    },
+    {
+     "img": "/assets/66f5860ae0f7374c5f2f9772_hammer.webp",
+     "name": "Hammer",
+     "note": "Pickaxes"
+    },
+    {
+     "img": "/assets/66f586013b9af4b254928623_saw.webp",
+     "name": "Handsaw",
+     "note": "Axes"
+    },
+    {
+     "img": "/assets/66f55c16f0a55aab72af2fd6_old_cleaver.webp",
+     "name": "Old Cleaver",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f576c4a5ce20538e52a664_rusted_shovel.webp",
+     "name": "Rrusted Shovel ",
+     "note": "Shovels"
+    },
+    {
+     "img": "/assets/66f5857a0dce695d27978f03_scepter_iron.webp",
+     "name": "Scepter Of Life",
+     "note": "Hoes"
+    },
+    {
+     "img": "/assets/66f5856ef4b6244da99de745_scepter_steel.webp",
+     "name": "Scepter Of The Dragonlord",
+     "note": "Hoes"
+    },
+    {
+     "img": "/assets/66f58668eb2cec1c64610fcf_needle.webp",
+     "name": "Sewing Needle",
+     "note": "Swords"
+    },
+    {
+     "img": "/assets/66f585f905dee3cb24b7725d_sickle.webp",
+     "name": "Sickle",
+     "note": "Hoes/Shears"
+    },
+    {
+     "img": "/assets/66f5867c0409146f01f096e4_silvercoin.webp",
+     "name": "Silver Coin",
+     "note": "Iron Nugget"
+    },
+    {
+     "img": "/assets/66f585b244a0d0c19b601774_steel_hoe.webp",
+     "name": "Steel Hoe",
+     "note": "Hoes"
+    },
+    {
+     "img": "/assets/66f58690233963edb6ee0b96_steel_ingot.webp",
+     "name": "Steel Ingot",
+     "note": "Iron Ingot"
+    },
+    {
+     "img": "/assets/66f5858ae4a1180100659c79_steel_pickaxe.webp",
+     "name": "Steel Pickaxe",
+     "note": "Pickaxes"
+    },
+    {
+     "img": "/assets/66f585c73b9af4b254924b85_steel_spade.webp",
+     "name": "Steel Spade",
+     "note": "Shovels"
+    },
+    {
+     "img": "/assets/66f58563a9b06776d8b1455e_tome_steel.webp",
+     "name": "Tome of Fire",
+     "note": "Book"
+    },
+    {
+     "img": "/assets/66f5855b4440e22933c51096_tome_iron.webp",
+     "name": "Tome of Manaflow",
+     "note": "Book"
+    },
+    {
+     "img": "/assets/66f585eed1544181234a0dd5_tongs.webp",
+     "name": "Tongs",
+     "note": "Shears"
+    },
+    {
+     "img": "/assets/66f55c9f61cbc75626ee5ed3_crimson_harvester.webp",
+     "name": "Crimson Harvester",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f55bb96c244287988cd19a_scythe.webp",
+     "name": "Farming Scythe",
+     "note": "Hoe"
+    },
+    {
+     "img": "/assets/66f58548edbefb44dc72a89c_sasumata.webp",
+     "name": "Sasumata",
+     "note": "Swords/Axes"
+    },
+    {
+     "img": "/assets/66f58552446526ff34feb874_shepherd_staff.webp",
+     "name": "Shepherd Staff",
+     "note": "Wooden Stick"
+    },
+    {
+     "img": "/assets/66f55a0fec2fc68767ef2b3c_spinalreaper.webp",
+     "name": "Spinalreaper",
+     "note": "Swords/Axes"
+    }
+   ]
+  },
+  {
+   "cfg": {
+    "listClass": "collection-list-20-copy",
+    "frame": "collection-item-21",
+    "inner": "collection-item-22-copy",
+    "b215": false,
+    "grad": false,
+    "preview": "div-block-212",
+    "img": "image-88",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f5799d89b3d12b5797327f_baguette.webp",
+     "name": "Baguette",
+     "note": "bread"
+    },
+    {
+     "img": "/assets/66f5922782220cd021f70cb6_barley.webp",
+     "name": "Barley",
+     "note": "Wheat"
+    },
+    {
+     "img": "/assets/66f5853c62d91e3d6c199612_basic_pizza.webp",
+     "name": "Basic Pizza",
+     "note": "Pumpkin Pie"
+    },
+    {
+     "img": "/assets/66f58534337eaacec3b6262d_beans_seed.webp",
+     "name": "Beans Seed",
+     "note": "Carrot"
+    },
+    {
+     "img": "/assets/66f585276c268a800e4d880b_beautyberry.webp",
+     "name": "Beautyberry",
+     "note": "Sweet Berries"
+    },
+    {
+     "img": "/assets/66f5851fd7f31c9b5fa98ea1_bilberry.webp",
+     "name": "Bilberry",
+     "note": "Sweet Berries"
+    },
+    {
+     "img": "/assets/66f585153807543210d53a0d_blackberry.webp",
+     "name": "Blackberry",
+     "note": "Sweet Berries"
+    },
+    {
+     "img": "/assets/66f58508210eba1781459d74_cabbage.webp",
+     "name": "Cabbage",
+     "note": "beetroot"
+    },
+    {
+     "img": "/assets/66f58500f8ba5e744353098a_cabbage_seeds.webp",
+     "name": "Cabbage Seeds",
+     "note": "Beetroot Seeds"
+    },
+    {
+     "img": "/assets/66f584fa44e01a6cf32bb755_cherry.webp",
+     "name": "Cherry",
+     "note": "Sweet Berries"
+    },
+    {
+     "img": "/assets/66f579927fdc60a8ebb6df9b_chili_peppers.webp",
+     "name": "Chili Peppers",
+     "note": "beetroot"
+    },
+    {
+     "img": "/assets/66f584f4936265ab52e8454a_citrus.webp",
+     "name": "Citrus",
+     "note": "Apple"
+    },
+    {
+     "img": "/assets/66f584ef477725bfacd7602c_corn.webp",
+     "name": "Corn",
+     "note": "Potato"
+    },
+    {
+     "img": "/assets/66f584e8d78a4a60236f62b4_corn_kernels.webp",
+     "name": "Corn Kernels",
+     "note": "Baked Potato"
+    },
+    {
+     "img": "/assets/66f5796c8d500e6a5bded92b_croissant.webp",
+     "name": "Croissant",
+     "note": "bread"
+    },
+    {
+     "img": "/assets/66f584394696be2706c70a83_dorset_cheese.webp",
+     "name": "Dorset Cheese",
+     "note": "Bread"
+    },
+    {
+     "img": "/assets/66f5783743f2a6ca88567906_dumplings.webp",
+     "name": "Dumplings",
+     "note": "bread"
+    },
+    {
+     "img": "/assets/66f57aa34898045fa25c8d7b_dumpling_soup.webp",
+     "name": "Dumpling Soup",
+     "note": "rabbit_stew"
+    },
+    {
+     "img": "/assets/66f578405bf93442866f8916_eggs_and_bacon.webp",
+     "name": "Eggs and Bacon",
+     "note": "steak egg"
+    },
+    {
+     "img": "/assets/66f5844386ea46e40a493247_flax.webp",
+     "name": "Flax",
+     "note": "Wheat"
+    },
+    {
+     "img": "/assets/66f5844b818446db296356ca_flax_seeds.webp",
+     "name": "Flax Seeds",
+     "note": "Wheat Seeds"
+    },
+    {
+     "img": "/assets/66f5841baeb999decd33dc0c_grapes.webp",
+     "name": "Grapes",
+     "note": "Sweet Berries"
+    },
+    {
+     "img": "/assets/66f58406c19cc79a734c05e5_grilled_shashlik.webp",
+     "name": "Grilled Shashlik",
+     "note": "[Cooked Porkchop]"
+    },
+    {
+     "img": "/assets/66f583a558374203db6e5773_hawthorn.webp",
+     "name": "Hawthorn",
+     "note": "Sweet Berries"
+    },
+    {
+     "img": "/assets/66f5839dcecb86f7714fc3a0_hemp.webp",
+     "name": "Hemp",
+     "note": "Wheat"
+    },
+    {
+     "img": "/assets/66f58383a3ed49ea7f40388e_hemp_seeds.webp",
+     "name": "Hemp Seeds",
+     "note": "Wheat Seeds"
+    },
+    {
+     "img": "/assets/66f58379ab03da721e7b9225_hollyberry.webp",
+     "name": "Hollyberry",
+     "note": "Sweet Berries"
+    },
+    {
+     "img": "/assets/66f5784968186be2bb6021aa_lasagna.webp",
+     "name": "Lasagna",
+     "note": "bread"
+    },
+    {
+     "img": "/assets/66f583089345fd391831279a_legumes_seed.webp",
+     "name": "Legumes Seed",
+     "note": "Carrot"
+    },
+    {
+     "img": "/assets/66f5785a13e44b53ae21eef9_meat_stew.webp",
+     "name": "Meat Stew",
+     "note": "rabbit_stew"
+    },
+    {
+     "img": "/assets/66f582fce27a070475eba745_rowan_berry.webp",
+     "name": "Owan Berry",
+     "note": "Sweet Berries"
+    },
+    {
+     "img": "/assets/66f5786743f2a6ca88569d28_pasta.webp",
+     "name": "Pasta",
+     "note": "rabbit_stew"
+    },
+    {
+     "img": "/assets/66f582c2c7f4c7618fb5e624_pear.webp",
+     "name": "Pear",
+     "note": "Apple"
+    },
+    {
+     "img": "/assets/66f582af818446db2961cd84_plums.webp",
+     "name": "Plums",
+     "note": "Apple"
+    },
+    {
+     "img": "/assets/66f5852eab03da721e7d4d33_beans_pole.webp",
+     "name": "Pole Beans",
+     "note": "Carrot"
+    },
+    {
+     "img": "/assets/66f578759df2e705ea8cd384_popcorn.webp",
+     "name": "Popcorn",
+     "note": "wheat_seeds"
+    },
+    {
+     "img": "/assets/66f57880b96f9f2d86ae958b_potato_slices.webp",
+     "name": "Potato Slices",
+     "note": "baked_potato"
+    },
+    {
+     "img": "/assets/66f582a8ab03da721e7adff3_raspberry.webp",
+     "name": "Raspberry",
+     "note": "Sweet Berries"
+    },
+    {
+     "img": "/assets/66f5836ca06a0f3a8ddba72d_legumes.webp",
+     "name": "Raw Legumes",
+     "note": "Carrot"
+    },
+    {
+     "img": "/assets/66f582a00b665545de4196bc_rice.webp",
+     "name": "Raw Rice",
+     "note": "Potato"
+    },
+    {
+     "img": "/assets/66f5840f477725bfacd69723_raw_shashlik.webp",
+     "name": "Raw Shashlik",
+     "note": "Porkchop"
+    },
+    {
+     "img": "/assets/66f5829a4696be2706c597dc_rice_consumeable.webp",
+     "name": "Ricebowl",
+     "note": "Baked Potato"
+    },
+    {
+     "img": "/assets/66f5791651d7eae39021d5d8_sandwich.webp",
+     "name": "Sandwich",
+     "note": "bread"
+    },
+    {
+     "img": "/assets/66f5828e49aae2c1bc57e1b0_sausages.webp",
+     "name": "Sausages",
+     "note": "Cooked Porkchop"
+    },
+    {
+     "img": "/assets/66f58286c7f4c7618fb5b783_spaetzle.webp",
+     "name": "Spaetzle",
+     "note": "Baked Potato"
+    },
+    {
+     "img": "/assets/66f57976c99c40ee733f6160_sushi.webp",
+     "name": "Sushi",
+     "note": "salmon"
+    },
+    {
+     "img": "/assets/66f57924930552be037274c7_sushi_rolls.webp",
+     "name": "Sushi Rolls",
+     "note": "cooked_salmon"
+    },
+    {
+     "img": "/assets/66f5827589dfefe0c7b66260_tobacco.webp",
+     "name": "Tobacco",
+     "note": "Wheat"
+    },
+    {
+     "img": "/assets/66f5826e4d34a2797c56007a_tobacco_seeds.webp",
+     "name": "Tobacco Seeds",
+     "note": "Wheat Seeds"
+    },
+    {
+     "img": "/assets/66f5825a4f93ec05d701bc19_turnips.webp",
+     "name": "Turnips",
+     "note": "Beetroot"
+    },
+    {
+     "img": "/assets/66f582615a639e4c577579a8_turnip_seeds.webp",
+     "name": "Turnip Seeds",
+     "note": "Beetroot Seeds"
+    }
+   ]
+  }
+ ]
+}

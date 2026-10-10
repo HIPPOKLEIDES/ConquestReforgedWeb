@@ -5,6 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { scopeCss } from './wf-scope.mjs';
+import { renderConquestItem } from './conquest-render.mjs';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
@@ -507,17 +508,27 @@ function buildClones() {
     return exists('assets/' + name) ? '/assets/' + name : u;
   }));
   for (const [u, name] of Object.entries(scripts)) emitRaw('assets/' + name, fs.readFileSync(path.join(dir, name)));
-  for (const f0 of fs.readdirSync(dir).filter((n) => n.endsWith('.body.html') && !CHROME_CLONES.includes(n.replace('.body.html', '')))) {
-    const slug = f0.replace('.body.html', '').replace(/__/g, '/');
-    const f = path.join(dir, f0);
-    if (!fs.existsSync(f)) continue;
-    const meta = JSON.parse(fs.readFileSync(path.join(dir, f0.replace('.body.html', '.meta.json')), 'utf8'));
-    let body = fs.readFileSync(f, 'utf8');
-    body = body.replace(/<script[^>]*\ssrc="([^"]+)"[^>]*>(?:<\/script>)?/g, (m, u) => (scripts[u] ? `<script src="/assets/${scripts[u]}"></script>` : m));
+  const emitClonePage = (slug, meta, body0) => {
+    let body = body0.replace(/<script[^>]*\ssrc="([^"]+)"[^>]*>(?:<\/script>)?/g, (m, u) => (scripts[u] ? `<script src="/assets/${scripts[u]}"></script>` : m));
     body = baSwap(body.replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/'));
     body = body.includes('</body>') ? body.replace('</body>', BA_JS + '</body>') : body + BA_JS;
     const out = `<!DOCTYPE html><html data-wf-page="${meta.wfPage}" data-wf-site="${meta.wfSite}" lang="en"><head><meta charset="utf-8"><title>${esc(meta.title)}</title><meta name="description" content="${esc(meta.description)}"><meta property="og:title" content="${esc(meta.title)}"><meta property="og:description" content="${esc(meta.description)}"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/pack-webflow.css"><script>!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link rel="icon" href="${site.logo}"><style>.truncate{white-space:nowrap;text-overflow:ellipsis}</style>${(meta.headScripts || []).map((u) => `<script async src="${u}"></script>`).join('')}</head>${body}</html>`;
     if (slug === '404') emitRaw('404.html', out); else emit('/' + slug, out);
+  };
+  // reference pages built from data (src/data/conquest/*.json + src/content/conquest/*.shell.html)
+  const dataDir = path.join(SRC, 'data', 'conquest');
+  const dataPages = fs.existsSync(dataDir) ? fs.readdirSync(dataDir).filter((n) => n.endsWith('.json')).map((n) => n.replace('.json', '')) : [];
+  for (const name of dataPages) {
+    const d = JSON.parse(fs.readFileSync(path.join(dataDir, name + '.json'), 'utf8'));
+    let shell = fs.readFileSync(path.join(SRC, 'content', 'conquest', name + '.shell.html'), 'utf8');
+    shell = shell.replace(/<!--LIST (\d+)-->/g, (m, n) => d.lists[+n].items.map((it) => renderConquestItem(it, d.lists[+n].cfg)).join(''));
+    emitClonePage(`conquest/conquest-${name}`, d.meta, shell);
+  }
+  for (const f0 of fs.readdirSync(dir).filter((n) => n.endsWith('.body.html') && !CHROME_CLONES.includes(n.replace('.body.html', '')))) {
+    const slug = f0.replace('.body.html', '').replace(/__/g, '/');
+    if (dataPages.some((p) => slug === `conquest/conquest-${p}`)) continue;
+    const meta = JSON.parse(fs.readFileSync(path.join(dir, f0.replace('.body.html', '.meta.json')), 'utf8'));
+    emitClonePage(slug, meta, fs.readFileSync(path.join(dir, f0), 'utf8'));
   }
 }
 

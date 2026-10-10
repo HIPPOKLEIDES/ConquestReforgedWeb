@@ -1,0 +1,527 @@
+{
+ "meta": {
+  "title": "Conqest Customshields",
+  "description": "Official home of the original Conquest_ resourcepack. Here you can find all info regarding custom shields conquest allows you to access.",
+  "wfPage": "64b3075471c946976607f469",
+  "wfSite": "5a4a68ddf6b9a40001c2e07e",
+  "headScripts": []
+ },
+ "lists": [
+  {
+   "cfg": {
+    "listClass": "custom-shield-box",
+    "frame": "customshield-frame-copy",
+    "inner": "collection-item-22",
+    "b215": true,
+    "grad": true,
+    "preview": "div-block-212-copy",
+    "img": "customshields-icon",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f58234a3ed49ea7f3f012c_11th_century.webp",
+     "name": "11th Century Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f58229f9a781b2b2bf1e0c_15th_century.webp",
+     "name": "15th Century Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f5821e818446db29613d6d_african_tall.webp",
+     "name": "African Tall",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f5737f0f9ac575b53b0081_arabian_small_shield.webp",
+     "name": "Arabian Buckler",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57dd9830eadc12d15beb1_arabian_kite_shield.webp",
+     "name": "Arabian Kite Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57dd28292026e8c5deace_arabian_round_shield.webp",
+     "name": "Arabian Round Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57dca3e2379a61db618af_archery_target.webp",
+     "name": "Archery Target",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57579dba2aac02cbae200_askir_scutum.webp",
+     "name": "Askirian Scutum",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57c741389faae322664cd_dwarven.webp",
+     "name": "Basic Dwarven Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57dc1b889687eb2a9a838_big_roman_scutum.webp",
+     "name": "Big Roman Scutum",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57dbb00a88103aebb47be_big_round_birds.webp",
+     "name": "Big Round Birds Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f5768dae3fe35f5c5a4afe_round_shield_02.webp",
+     "name": "Big Round Bloodswirl Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57da4c7b0aec4a11ad099_big_round_blue2.webp",
+     "name": "Big Round Blue Black Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57db1c051b6a905115a58_big_round_blue.webp",
+     "name": "Big Round Blue Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f575357cb716d677aa5618_round_shield_05.webp",
+     "name": "Big Round Dragondesign Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f5752c9ebcbd9a11f4c938_round_shield_06.webp",
+     "name": "Big Round Fancy Whirl Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f5766d19d6c0e443048b92_round_shield_03.webp",
+     "name": "Big Round Golden Dragon Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57657d296a2ffe3bd3e62_round_shield_01.webp",
+     "name": "Big Round Raven Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57d9587e2eafe3bb9be79_big_round_red_black.webp",
+     "name": "Big Round Red Black Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57d9d94561c50f8eda2a6_big_round_red.webp",
+     "name": "Big Round Red Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57d8e98de7347b2f66f33_big_round_triskell.webp",
+     "name": "Big Round Triskell Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57d74cf9d59d9c7325956_big_round_whirl_blue_black.webp",
+     "name": "Big Round Whirl Blue Black Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57d841389faae32272f7f_big_round_whirl_blue.webp",
+     "name": "Big Round Whirl Blue Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57d685de01f382c4843df_big_round_whirl_red.webp",
+     "name": "Big Round Whirl Red Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57d5a00a88103aebaf2b5_big_round_whirl_red_white.webp",
+     "name": "Big Round Whirl Red White Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57d53a260665c820b9eed_big_round_whirl_yellow.webp",
+     "name": "Big Round Whirl Yellow Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57d49c51847b1eb70b9ab_big_round_whirl_yellow_white.webp",
+     "name": "Big Round Whirl Yellow White Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57d42b889687eb2a9580a_big_round_wood.webp",
+     "name": "Big Round Woodshield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57d0ccf9d59d9c731d9b7_big_round_yellow_black.webp",
+     "name": "Big Round Yellow Black Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57d3a7051ae5ff4a8c5cc_big_round_yellow.webp",
+     "name": "Big Round Yellow Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57551a8d62a0e2a129381_round_shield_04.webp",
+     "name": "Big Rround Runes Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f575e3744e2570b57bcfbc_gothic_browm_white.webp",
+     "name": "Black Brown Squares Heater",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f576b15694a4363f1f45e1_blackguard_towershield.webp",
+     "name": "Blackguard Towershield",
+     "note": "Shields"
+    },
+    {
+     "img": "/assets/66f576087f17904915327e99_kiteshield_legion_black_01.webp",
+     "name": "Black Legion Kiteshield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f5756fa704f33ad0ef9cc8_black_sun_gothic_shield.webp",
+     "name": "Black Sun Gothic Heatershield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f575ec988faadfc181a2fd_gothic_shield_white_black_01.webp",
+     "name": "Black White Stoat Heater",
+     "note": "SHield"
+    },
+    {
+     "img": "/assets/66f575de9215e38247cbd229_gothic_shield_black_yellow.webp",
+     "name": "Black Yellow Cross Heater",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f575fd6a3be49862b762db_gothic_shield_yellow_deer.webp",
+     "name": "Black Yellow Deer Heater",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f5824e0dce695d2794790d_blue_triangle_heater.webp",
+     "name": "Blue Triangle Heater",
+     "note": "shield"
+    },
+    {
+     "img": "/assets/66f57ced41cf17f7ae80d581_bone_shield.webp",
+     "name": "Bone Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57639992282c969296fd1_kiteshield_silver_blue.webp",
+     "name": "Burning Heron Kiteshield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57bce830eadc12d143807_hoplite_shield_blank.webp",
+     "name": "Clean Hoplite Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57c9e0a33248aed1fbec6_coffin_shield.webp",
+     "name": "Coffin Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57c95a260665c820af304_conquest_shield.webp",
+     "name": "Conquest Heater Sharp",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57c09fe4d0ff42c80bb4e_heater_sharp.webp",
+     "name": "Crossed Heater Sharp",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57c8a1e0b1f83265dfda9_crusaders_shield.webp",
+     "name": "Crusader Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57ae841c8e4ad404e6bc1_some_witcher_shield.webp",
+     "name": "Dark Sun Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57cba14f12ad70e66da99_chimalli_shield2.webp",
+     "name": "Decorated Chimalli Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57c3418d8769ebb25c0bd_fancy_shield.webp",
+     "name": "Decorated Round Bronze Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57c3d130c1c1346feee25_fancy_iron_shield.webp",
+     "name": "Decorated Tall Chinese Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57563324a2cdcb4cbbfa0_dragonburg_shield.webp",
+     "name": "Dragon Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f5732ac9665093a9d95d5d_dwarven_towershield.webp",
+     "name": "Dwarven Towershield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57c689691bd67ba44a1ac_eagle_heater_sparp.webp",
+     "name": "Eagle Heater Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57ab5108fa559172228fd_witcher_shield.webp",
+     "name": "Flaming Rose Heater Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57c2a7e4b4f1b37602ee3_fleur_de_lis.webp",
+     "name": "Fleur De Lis Heater",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57c216b782256dbbcde64_flicia_shield.webp",
+     "name": "Flicia Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57c5020f14a6569b71122_elven.webp",
+     "name": "Golden Elven Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f5769881fbb1dbebbd0496_kiteshield_black_white.webp",
+     "name": "Golden Lion Kiteshield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57611325e85238245a6ab_kiteshield_gold_black.webp",
+     "name": "Golden Rooster Kiteshield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57c1ac7b0aec4a119815f_greek_cut.webp",
+     "name": "Greek Cut",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57c11ace71eb41fee4425_heater_bottom_round.webp",
+     "name": "Heater Round",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57bc7996db77dab333644_hoplite_shield_eye.webp",
+     "name": "Hoplite Shield Eye",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57bbd1c0f1368d9717d83_hoplite_shield_scorpion.webp",
+     "name": "Hoplite Shield Scorpion",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57bb3f7c0c8148dac6fb0_hoplite_shield_sparta.webp",
+     "name": "Hoplite Shield Sparta",
+     "note": "Sheld"
+    },
+    {
+     "img": "/assets/66f57baa12774339665b369a_hoplite_shield_trident.webp",
+     "name": "Hoplite Shield Trident",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f576a2945f558386cb3071_buckler.webp",
+     "name": "Iron Buckler",
+     "note": "shield"
+    },
+    {
+     "img": "/assets/66f57b9d5de01f382c46afbb_jousting_shield.webp",
+     "name": "Jousting Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57b3b90bbd6f6c523acaa_pavise_shield.webp",
+     "name": "Large Pavise Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f5764b79bc74851ef0d516_persian_shield_01.webp",
+     "name": "Large Persian Cut Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57b8ac65b7fcd31afd429_lords_of_the_pine.webp",
+     "name": "Lords of the Pine",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57b7f44c5f1d1eaf47a15_norman.webp",
+     "name": "Norman Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57618df291c9bbaa10102_kiteshield_gold_blue.webp",
+     "name": "Ocean Rose Kiteshield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f573676a3be49862b44517_dwarven_round_shield.webp",
+     "name": "Octangular Dwarven Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f5767ea32091f57484ec0f_old_shield.webp",
+     "name": "Old Kiteshield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57b772166e834d01ad2e9_orc.webp",
+     "name": "Orcish Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f575bdd0707a983bf32b0b_gothic_shield_red_white.webp",
+     "name": "Red Blue Lion Heater",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f575c43f559ee183dfd01b_gothic_shield_red_deer.webp",
+     "name": "Red Gold Antler Heater",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f575ca367313e61d023b33_gothic_shield_red_02.webp",
+     "name": "Red Gold Lion Heater",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f575a543299f96b334f620_gothic_shield_red_white_04.webp",
+     "name": "Red White Cross Heater",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f575aecf0c14fc7da1fee2_gothic_shield_red_white_03.webp",
+     "name": "Red White Lions Heater",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f575b5461342482d6e6df0_gothic_shield_red_white_02.webp",
+     "name": "Red White Trees Heater",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57b081c0f1368d9701bac_roman_shield_yellow.webp",
+     "name": "Reinforced Boar Rounded Scutum",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f5782fefd6ab131b36ef16_roman_shield_red.webp",
+     "name": "Reinforced Red Swirl Rounded Scutum",
+     "note": "shield"
+    },
+    {
+     "img": "/assets/66f57b172166e834d01a71e9_roman_shield.webp",
+     "name": "Reinforced Rounded Scutum",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f5782024b41e3feae3427f_roman_shield_green.webp",
+     "name": "Reinforced Swirl Rounded Scutum",
+     "note": "shield"
+    },
+    {
+     "img": "/assets/66f57b2118d8769ebb249c6f_rohirrim_shield.webp",
+     "name": "Rohirrim Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57afd696fea1043550b1a_rounded_roman_scutum.webp",
+     "name": "Rounded Roman Scutum",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57b1141cf17f7ae7f3da3_roman_shield_white.webp",
+     "name": "Rreinforced White Swirl Round Scutum",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57c480caa7d093e8865c4_elven_silver.webp",
+     "name": "Silver Elven Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57ce12fdae5511ef87002_bronze_shield.webp",
+     "name": "Simple Round Bronze Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57b932b1eec24e968046c_long_wooden_shield.webp",
+     "name": "Simple Rounded Scutum",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57cab2fdae5511ef84325_chinese_shield.webp",
+     "name": "Simple Tall Chinese Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f5734d1766af1fcfa76ca6_dwarven_small_shield.webp",
+     "name": "Small Dwarven Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57cc13e08db8925319d8c_chimalli_shield.webp",
+     "name": "Spiral Chimalli Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57ad8dd9ca5cf2d4ae3b1_square_wankel.webp",
+     "name": "Square Wankel Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57aceb889687eb2a7566a_sthadgard_shield.webp",
+     "name": "Sthadgard Heater Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f582423807543210d2619a_defenders_of_the_stronghold.webp",
+     "name": "Stronghold Heater Sharp",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57abc5e849b777ca2b73f_targe_shield.webp",
+     "name": "Targe Shield",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f576756a3be49862b7d5cf_templarshield.webp",
+     "name": "Templar Heater",
+     "note": "Shield"
+    },
+    {
+     "img": "/assets/66f57663197a2300aa9ebd25_large_knight_shield.webp",
+     "name": "Towershield of the Horselord",
+     "note": "Shield"
+    }
+   ]
+  }
+ ]
+}

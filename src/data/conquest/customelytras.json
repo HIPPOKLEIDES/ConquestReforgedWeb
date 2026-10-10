@@ -1,0 +1,147 @@
+{
+ "meta": {
+  "title": "Conqest CustomElytras",
+  "description": "Official home of the original Conquest_ resourcepack. Here you can find all info regarding custom elytras conquest allows you to access.",
+  "wfPage": "64b3075471c946976607f464",
+  "wfSite": "5a4a68ddf6b9a40001c2e07e",
+  "headScripts": []
+ },
+ "lists": [
+  {
+   "cfg": {
+    "listClass": "custom-shield-box",
+    "frame": "customshield-frame",
+    "inner": "collection-item-22",
+    "b215": true,
+    "grad": true,
+    "preview": "cusom-armors-preview",
+    "img": "customshields-icon",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f4a3725c9c406c7571c861_xenthium.webp",
+     "name": "Xenthium Glider",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a37ae18652e7e29464f8_steam.webp",
+     "name": "Steam Glider",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a3895be7f49b61bf30c2_conquest.webp",
+     "name": "Conquest Cape",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a384f5595360eb3ad857_conquest_man.webp",
+     "name": "Conquest_man",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a3adb1b25d96aab597cd_king.webp",
+     "name": "Royal robe",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a3b85be7f49b61bf582c_red.webp",
+     "name": "Red Cape",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a3c499d9431dd899dd16_turquoise.webp",
+     "name": "Turquoise Cape",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a3cb99d9431dd899e3f6_brown.webp",
+     "name": "Brown Cape",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a3db24d75560b66b7ea7_mage.webp",
+     "name": "Blue Cape With Stars",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a3e579eac90d0d34332c_blue.webp",
+     "name": "Blue Cape",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a4b1bcf0efb6849a81c8_black.webp",
+     "name": "Black Cape",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a4bd5d4f4b5c228c7666_white.webp",
+     "name": "White Cape",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a4c80df31a39e86e4e39_pelt.webp",
+     "name": "Ocelot Pelt",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a4d2cf2de4558672f497_vex.webp",
+     "name": "Vex Wings",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a53fc91d0d8feaa9386c_phantom.webp",
+     "name": "Phantom",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a54b3f9a486d2fdd1476_light.webp",
+     "name": "Light Whips",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a55500e53822a3752c07_fairy.webp",
+     "name": "Fairy Wings",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a55fe18652e7e29625ea_dragonfly.webp",
+     "name": "Dragonfly",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a56acaa08549a4f80338_undead.webp",
+     "name": "Skeletal Dragon Wings",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a59799d9431dd89b541d_enddragon.webp",
+     "name": "End Dragon Wings",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a5aebcf0efb6849b43fe_golden.webp",
+     "name": "Golden Eagle",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a5bc5932ee610cd8de74_bald.webp",
+     "name": "Bald Eagle",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a5ca5932ee610cd8fce4_angel.webp",
+     "name": "Angel Wings",
+     "note": "Elytra"
+    },
+    {
+     "img": "/assets/66f4a5a55be7f49b61c15281_dragon.webp",
+     "name": "Dragonwings",
+     "note": "Elyra"
+    }
+   ]
+  }
+ ]
+}

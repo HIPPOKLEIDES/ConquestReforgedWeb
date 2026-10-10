@@ -1,0 +1,472 @@
+{
+ "meta": {
+  "title": "Conqest CustomPaintings",
+  "description": "Official home of the original Conquest_ resourcepack. Here you can find all info regarding custom paintings conquest allows you to access.",
+  "wfPage": "64b3075471c946976607f468",
+  "wfSite": "5a4a68ddf6b9a40001c2e07e",
+  "headScripts": []
+ },
+ "lists": [
+  {
+   "cfg": {
+    "listClass": "custom-shield-box",
+    "frame": "customshield-frame",
+    "inner": "collection-item-22",
+    "b215": true,
+    "grad": true,
+    "preview": "cusom-armors-preview",
+    "img": "customshields-icon",
+    "nameTag": "a",
+    "notes": "single",
+    "cmd": false
+   },
+   "items": [
+    {
+     "img": "/assets/66f4b2eb630187ca0cec7da5_blue_gilded_sigil.webp",
+     "name": "Blue gilded sigil",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b3974ed9a5aab6be24ba_blue_banner.webp",
+     "name": "New Blue Banner",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b3a0bfc12ceb1fc54a5d_red_banner.webp",
+     "name": "New Red Banner",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b1f94ed9a5aab6bcb9e7_red_gilded_sigil.webp",
+     "name": "Red gilded Sigil",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b1920dde3d346bed8860_torn_blue_banner.webp",
+     "name": "Torn blue Banner",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b18ca2e5d2fa98bb3952_torn_red_banner.webp",
+     "name": "Torn red Banner",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b3a84dd500f9c02770d2_sigil.webp",
+     "name": "White Blue Sigil",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b302f444aa11390a3a14_blooddrag.webp",
+     "name": "Blooddrag",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b2fc54f01a1c9ff73935_blooddrip.webp",
+     "name": "Blooddrips",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b2f7c0e226cdc97cbebb_bloodsplatter.webp",
+     "name": "Bloodsplatter on wall",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b2f1fdb294a68c38bad6_bloodsplotch.webp",
+     "name": "Bloodsplotch",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b1758b53a8e286ee566d_wallcarpet_blue.webp",
+     "name": "Blue Wallcarpet",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b3fd8b53a8e286f085a5_large_wallcarpet.webp",
+     "name": "Large Wallcarpet",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b16954f01a1c9ff5920d_wallcarpet_red.webp",
+     "name": "Red Wallcarpet",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b405ec5645482c83ad76_wallcarpet.webp",
+     "name": "Wallcarpet",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b15f6d8d681f6590321e_wallchain.webp",
+     "name": "Prison Wallchain",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b1e0e3ac8a363874ccdb_shakles.webp",
+     "name": "Wall Shakles",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b2327f75b0c91e4fb493_large_wallclock.webp",
+     "name": "Large Wallclock",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b1b8630187ca0ceb48e9_small_wallclock.webp",
+     "name": "Small Wallclock",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b3f5630187ca0ced5a62_large_curtain.webp",
+     "name": "Large Curtain",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b2c6d2189db02b9092cc_conquest_iron.webp",
+     "name": "Conquest iron Decor",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b2bfd2189db02b908ba1_counting_notches.webp",
+     "name": "Counting Notches",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b2a64e103744889aaac0_dreamcatcher.webp",
+     "name": "Dreamcatcher",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b3b87710ca11e9deac0a_stonedecor.webp",
+     "name": "French Stonedecor",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b27c630187ca0cec2e93_griffindecor.webp",
+     "name": "Griffindecor",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b260738c6f3d623a5289_hayring.webp",
+     "name": "Hayring",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b3270dde3d346bef0079_doorknob.webp",
+     "name": "Metal Doorknob",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b3d717a909f8c489d253_wooden_grate.webp",
+     "name": "Wooden Crate",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/61bfe65fa0252cf4d3463144_output-onlinegiftools_5_.gif",
+     "name": "Airconditioner fan",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b31745de65d9d0f82659_3way_cable.webp",
+     "name": "Cable crossing",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b2b8a86af37b9ddc47d5_curved_cable.webp",
+     "name": "Curved cable",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b284c9b004fc67bcec97_fusebox.webp",
+     "name": "Old Fusebox",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b1afe9e1ce2c771a551c_straight_cable.webp",
+     "name": "Straight Cable",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b224e9e1ce2c771ae158_outlet.webp",
+     "name": "Walloutlet",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/61bfe9201c5fbc5f1035cbca_output-onlinegiftools_6_.gif",
+     "name": "Large gear",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/61bfe9e9a507941026199821_output-onlinegiftools_7_.gif",
+     "name": "Medium Gear",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/61bfebbf61c754212479131f_output-onlinegiftools_10_.gif",
+     "name": "Small Gears",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b3e019ed90bc68719e17_big_map.webp",
+     "name": "Big Map",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b3e87f75b0c91e5120d2_giant_map.webp",
+     "name": "Giant Map",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b3b0a86af37b9ddcfc00_small_map.webp",
+     "name": "Small Map",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b2ce5e8dc6d870874ee8_castle_at_the_shore.webp",
+     "name": "Castle at the shore",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b1858b53a8e286ee645c_valley_castle.webp",
+     "name": "Castle in the Valley",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b31ec0e226cdc97cf1e3_castle_painting.webp",
+     "name": "Castle Painting",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b2ab987a71f209b11506_dragonslayer.webp",
+     "name": "Dragonslayer Painting",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b2998eda665e804a4d42_fall_from_grace.webp",
+     "name": "Fall from grace",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b29230eec281601a1b01_foggy_mountains.webp",
+     "name": "Foggy mountains",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b372e3ac8a3638765461_large_painting.webp",
+     "name": "Harbour Painting",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/61bfe5d60248efd2a6f5845f_output-onlinegiftools_4_.gif",
+     "name": "Ice Knight",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b241e9e1ce2c771af8b4_lakeside_manor.webp",
+     "name": "Lakeside manor",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b36ca2e5d2fa98bd09f2_landscape.webp",
+     "name": "Landscape Painting",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b3856d8d681f6592300d_portrait.webp",
+     "name": "Lord Portrait",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b21e50b360a9f70a4f8c_painting_in_progress.webp",
+     "name": "Painting in Progress",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b2053a2eb947709353ce_polaroids.webp",
+     "name": "Polaroids Collage",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b1a07710ca11e9dcd81e_they_came_for_thee.webp",
+     "name": "They came for Thee",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b17c4ed9a5aab6bc1fdc_village_in_the_mountains.webp",
+     "name": "Village in the Mountains",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b3108b53a8e286efd903_advertisement.webp",
+     "name": "Bank advertisement",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b3804dd500f9c0274fda_plan.webp",
+     "name": "Engineer Plan",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b28be9e1ce2c771b3248_for_hire.webp",
+     "name": "For hire poster",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b37a738c6f3d623afb75_notes_on_wall.webp",
+     "name": "Notes on Wall",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b2487d05b082d962d363_join_us.webp",
+     "name": "Recruitmentflyer",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b1e98fbc5fb4164179b8_science_notes.webp",
+     "name": "Science Notes",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b1cbc9b004fc67bc32df_small_portraits.webp",
+     "name": "Small Portraits",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b3c8630187ca0ced373e_toolsketch.webp",
+     "name": "Toolsketch",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b3d1c9b004fc67bdfe96_wanted.webp",
+     "name": "Wantedposter",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b1564e103744889925b5_wanted_basket.webp",
+     "name": "Wantedposter Basket",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b3be19ed90bc687189a4_taskboard.webp",
+     "name": "Wooden Taskboard",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/61bfeb62bb55322f0f1cd653_output-onlinegiftools-_8_.gif",
+     "name": "Magically glowing Runes",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b215efdfb829fb1eef34_plauge.webp",
+     "name": "Plague Mark",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b1f1b185918e431e84b6_roman_graffiti.webp",
+     "name": "Romanes eunt Domus",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b2de51d72b9903be6278_brownbearskin.webp",
+     "name": "Brownbearskin",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b2b18eda665e804a5c00_deer_antlers.webp",
+     "name": "Deer antlers",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b2a08fbc5fb4164224aa_elephant_tusks.webp",
+     "name": "Elephant tusks",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b20c7710ca11e9dd4819_polarbearskin.webp",
+     "name": "Polarbearskin",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b19a6d8d681f659063dd_tigerskin.webp",
+     "name": "Tigerskin",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b2d58fbc5fb416425286_carpenter_tools.webp",
+     "name": "Carpenter Tools",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b269a2e5d2fa98bc56b1_hanging_whip.webp",
+     "name": "Hanging bullwhip",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b276630187ca0cec2973_hanging_hat.webp",
+     "name": "Hanging cowboyhat",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b2708eda665e804a33c7_hanging_rope.webp",
+     "name": "Hanging rope",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b25350b360a9f70a7616_horseshoe.webp",
+     "name": "Horseshoes",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b2383b1d1c614581d552_large_lumbersaw.webp",
+     "name": "Large Lumbersaw",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b22dbfc12ceb1fc40ec0_measureing_tools.webp",
+     "name": "Measuring Tools",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b1d94dd500f9c025e134_shelf_with_plates.webp",
+     "name": "Shelf with Plates",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b14e987a71f209af7360_wooden_harrow.webp",
+     "name": "Wooden Harrow",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f4b2e5d2189db02b90a910_board_of_keys.webp",
+     "name": "Board of Keys",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b35f1558531e5e56dfe8_knives.webp",
+     "name": "Kitchen Knives",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4b38b4e103744889b7148_pots_and_pans.webp",
+     "name": "Pots and Pans",
+     "note": "Painting"
+    },
+    {
+     "img": "/assets/66f4a9e230eec2816010ebdd_wallanchor3.webp",
+     "name": "wallanchor lily",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f6dbcab10b427d46031a61_wallanchor1.webp",
+     "name": "wallanchor S",
+     "note": "painting"
+    },
+    {
+     "img": "/assets/66f6dbd588254a39aeacd172_wallanchor2.webp",
+     "name": "wallanchor X",
+     "note": "painting"
+    }
+   ]
+  }
+ ]
+}
