@@ -1,0 +1,18 @@
+---
+title: Wildeprojekt
+ip: included in the modpack
+logo: /assets/6a7c99cb0abaa2f3e7dd5d50_wildepng.webp
+links: wildeprojekt.org|https://wildeprojekt.org/modpack ;; wildeprojekt.org|https://wildeprojekt.org/discord ;; instagram.com|https://www.instagram.com/wildeprojekt/ ;; patreon.com|https://www.patreon.com/cw/wildeprojekt
+---
+
+<p>The Official Conquest Reforged Plots and Project Server - independently operated by the community, endorsed by the developers!</p>
+
+<p>Beginning in May 2026, Wildeprojekt came together through the minds of like-minded individuals who wanted to provide the Conquest Reforged community with a place to come together and build. And with the endorsement of the Conquest Reforged developers we hope it will fill the gap that was left by those before us.</p>
+
+<p>Upon joining you’ll find yourself in spawn which contains all the information you need to get started. You will begin at the rank of Iron. Submit your plot in the Discord to rank up and acquire larger plots, and eventually a project world, should you desire one with the <strong>Diamond </strong>rank. Each rank offers the following:<strong></strong></p>
+
+<ul role="list"><li><strong>Iron</strong>: 3x Mini 40x40 Plots</li><li><strong>Copper</strong>: 2x Small 80x80 Plots</li><li><strong>Silver</strong>: 1x Medium 160x160 Plot</li><li><strong>Gold</strong>: 1x Large 240x240 Plot</li><li><strong>Diamond</strong>: +1 Large 240x240 Plot and a Project World</li></ul>
+
+<p>The Wildeprojekt Minecraft server boasts various tools to help bring your builds to life! These tools include: <strong>World Edit, Schematic Brush, Schematic Viewer, Paintbrush, TerraSniper, and Axiom.</strong></p>
+
+<p>Alongside the Minecraft server, the Discord community has various channels for inspiration, showcasing creations, and discussing your builds. This is also where you can submit your plots!<br/><strong>Build, rank up, create new worlds with your friends!</strong></p>

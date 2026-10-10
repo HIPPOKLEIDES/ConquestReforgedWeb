@@ -1,0 +1,16 @@
+---
+title: Bleak Isles
+ip: IP available via Modpack
+logo: /assets/68f10876a24bae191898a596_c453cffdd202a22287d7a9a02200680ac147ab73.webp
+links: Discord|https://discord.gg/D4vbqxp5z8 ;; Modrinth|https://modrinth.com/modpack/bleak-isles
+---
+
+<p>A <strong>low-fantasy, dark survival</strong> modpack crafted for the Bleak Isles survival RP server. Supports both our <strong>Server</strong> or <strong>Singleplayer</strong> play. Featuring <strong>Conquest Reforged</strong> at its core and enhanced world generation tools to create hauntingly beautiful terrain, the pack emphasizes:</p>
+
+<ul role="list"><li>⚔️ <strong>Faction-driven roleplay</strong></li><li>🏘️ <strong>Player-run economies &amp; settlements</strong></li><li>🗺️ <strong>Challenging survival gameplay</strong></li><li>🏰 <strong>Dungeon delving &amp; exploration</strong></li><li>⚖️ <strong>Grounded, immersive mechanics</strong></li><li>🧭 <strong>Custom classes and character backgrounds</strong></li></ul>
+
+<p>Choose from unique <strong>classes and backgrounds</strong> to shape your character’s skills, profession, and place in the world. Whether you&#x27;re a hardened frontiersman, a silver-tongued merchant, a clandestine scholar, or a wandering sellsword, your role has purpose.</p>
+
+<p>The Bleak Isles are not kind to those who walk alone. <strong>Survival depends on cooperation</strong>—builders, traders, warriors, and explorers must work together to thrive. Every class contributes to the whole, and every story is forged in fellowship.</p>
+
+<p>Join our Discord to become part of the story, whether you&#x27;re playing with us or want to share your singleplayer journey with others: <a href="https://discord.gg/D4vbqxp5z8">https://discord.gg/D4vbqxp5z8</a></p>

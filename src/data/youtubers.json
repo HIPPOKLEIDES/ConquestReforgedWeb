@@ -1,29 +1,205 @@
 [
-  { "name": "ArdaCraft", "content": "Conquest Reforged Mod", "lang": "English", "yt": "https://www.youtube.com/channel/UCoqngW24Nl6yS-u99vE4E1Q" },
-  { "name": "guitarfreak_21", "content": "Conquest Reforged Mod", "lang": "English", "tw": "https://www.twitch.tv/guitarfreak_21" },
-  { "name": "xelandriax", "content": "Conquest Reforged Mod", "lang": "English", "tw": "https://www.twitch.tv/xelandriax" },
-  { "name": "fire_frenzy", "content": "Conquest Reforged Mod", "lang": "English", "tw": "https://www.twitch.tv/fire_frenzy" },
-  { "name": "calamityjane64", "content": "Conquest Reforged Mod", "lang": "English", "tw": "https://www.twitch.tv/calamityjane64" },
-  { "name": "JesterWish", "content": "Conquest Reforged Mod, Other Games", "lang": "English", "yt": "https://www.youtube.com/channel/UCCZRCrKIkfbrotChe_Ca9-g", "tw": "https://www.twitch.tv/jesterwish" },
-  { "name": "TalSet333", "content": "Conquest Reforged Mod, Other Games", "lang": "English", "yt": "https://www.youtube.com/user/TalSet333" },
-  { "name": "Viggoman Plays", "content": "Conquest Reforged Mod", "lang": "English", "yt": "https://www.youtube.com/user/viggomanminecraft", "tw": "https://www.twitch.tv/viggomanplays" },
-  { "name": "Creativerealms", "content": "Conquest Reforged Mod, Other Games", "lang": "English", "tw": "https://www.twitch.tv/creativerealms" },
-  { "name": "iliketogetrekt", "content": "Conquest Reforged Mod", "lang": "English", "tw": "https://www.twitch.tv/iliketogetrekt" },
-  { "name": "Filthy_Coin", "content": "Conquest Reforged Mod", "lang": "English", "tw": "https://www.twitch.tv/filthy_coin" },
-  { "name": "Dractuss", "content": "Conquest Reforged", "lang": "English", "tw": "https://www.twitch.tv/Dractuss" },
-  { "name": "Monsterfish_", "content": "Conquest Reforged, Conquest_ Resourcepack", "lang": "English", "tw": "https://www.twitch.tv/monsterfish_/" },
-  { "name": "Fixxitt412", "content": "Conquest Resourcepack", "lang": "English", "yt": "https://www.youtube.com/watch?v=J8GyJwHS7UU&ab_channel=Fixxitt412" },
-  { "name": "Middle-earth Explored", "content": "Conquest Reforged Mod", "lang": "English", "yt": "https://www.youtube.com/channel/UCH864glJ9MijPXpMhD3ncUg" },
-  { "name": "HFranz", "content": "Conquest Reforged Mod", "lang": "English", "yt": "https://www.youtube.com/c/HFranz/featured", "tw": "https://www.twitch.tv/hfranzontwitch" },
-  { "name": "lowresbones", "content": "Conquest Reforged Mod, Vanilla", "lang": "English", "yt": "https://www.youtube.com/channel/UC6uZpmXBpt8oKZMQeAY3olw" },
-  { "name": "Dukonred1", "content": "Conquest_ Resourcepack, Conquest Reforged Mod", "lang": "English", "yt": "https://www.youtube.com/user/DukonMC", "tw": "https://www.twitch.tv/dukonred1" },
-  { "name": "Rinty-Craft", "content": "Conquest_ Resourcepack (mixed)", "lang": "Japanese", "yt": "https://www.youtube.com/channel/UCF9NKy22WTMcC4s_GHnW9_g" },
-  { "name": "Antroz59Mc", "content": "Conquest_ Resourcepack", "lang": "French", "yt": "https://www.youtube.com/user/Antroz59Mc" },
-  { "name": "king0light", "content": "Conquest Reforged Mod", "lang": "English", "yt": "https://www.youtube.com/channel/UCYTRwQiZ9zsYWFVckILipPQ", "tw": "https://www.twitch.tv/king0light" },
-  { "name": "History Crafters", "content": "Conquest Reforged Mod, Vanilla Modded, Roleplay", "lang": "Polish", "yt": "https://www.youtube.com/channel/UCHDba9O-onVcPZemG-Yf3VA/videos" },
-  { "name": "Triliton", "content": "Conquest Reforged Mod", "lang": "English", "yt": "https://www.youtube.com/channel/UCiXoEiHJDWlBoxroG13Sjtg/featured" },
-  { "name": "TeamLyrah", "content": "Conquest_ Resourcepack", "lang": "English", "yt": "https://www.youtube.com/user/TeamLyrah" },
-  { "name": "Chingom_", "content": "Conquest Reforged Mod", "lang": "English", "yt": "https://www.youtube.com/channel/UC7nw22Q3m_Hkk3d_N0QNvVQ" },
-  { "name": "Boitameu", "content": "Conquest_ Resourcepack", "lang": "French", "yt": "https://www.youtube.com/channel/UCWUEKx3_RLA3vdGtB9Xn47g" },
-  { "name": "LegendaryPorpoise", "content": "Conquest Reforged", "lang": "English", "yt": "https://www.youtube.com/channel/UCmwpVPFu5MfZHORDpL5eggA", "tw": "https://www.twitch.tv/legendaryporpoise" }
+  {
+    "name": "ArdaCraft",
+    "content": "Conquest Reforged Mod",
+    "lang": "English",
+    "yt": "https://www.youtube.com/channel/UCoqngW24Nl6yS-u99vE4E1Q",
+    "slug": "ardacraft"
+  },
+  {
+    "name": "guitarfreak_21",
+    "content": "Conquest Reforged Mod",
+    "lang": "English",
+    "tw": "https://www.twitch.tv/guitarfreak_21",
+    "slug": "guitarfreak-21",
+    "twitchChannel": "guitarfreak_21"
+  },
+  {
+    "name": "xelandriax",
+    "content": "Conquest Reforged Mod",
+    "lang": "English",
+    "tw": "https://www.twitch.tv/xelandriax",
+    "slug": "xelandriax",
+    "twitchChannel": "xelandriax"
+  },
+  {
+    "name": "fire_frenzy",
+    "content": "Conquest Reforged Mod",
+    "lang": "English",
+    "tw": "https://www.twitch.tv/fire_frenzy",
+    "slug": "fire-frenzy",
+    "twitchChannel": "fire_frenzy"
+  },
+  {
+    "name": "calamityjane64",
+    "content": "Conquest Reforged Mod",
+    "lang": "English",
+    "tw": "https://www.twitch.tv/calamityjane64",
+    "slug": "calamityjane64",
+    "twitchChannel": "calamityjane64"
+  },
+  {
+    "name": "JesterWish",
+    "content": "Conquest Reforged Mod, Other Games",
+    "lang": "English",
+    "yt": "https://www.youtube.com/channel/UCCZRCrKIkfbrotChe_Ca9-g",
+    "tw": "https://www.twitch.tv/jesterwish",
+    "slug": "jesterwish"
+  },
+  {
+    "name": "TalSet333",
+    "content": "Conquest Reforged Mod, Other Games",
+    "lang": "English",
+    "yt": "https://www.youtube.com/user/TalSet333",
+    "slug": "talset333"
+  },
+  {
+    "name": "Viggoman Plays",
+    "content": "Conquest Reforged Mod",
+    "lang": "English",
+    "yt": "https://www.youtube.com/user/viggomanminecraft",
+    "tw": "https://www.twitch.tv/viggomanplays",
+    "slug": "viggoman-plays"
+  },
+  {
+    "name": "Creativerealms",
+    "content": "Conquest Reforged Mod, Other Games",
+    "lang": "English",
+    "tw": "https://www.twitch.tv/creativerealms",
+    "slug": "creativerealms"
+  },
+  {
+    "name": "iliketogetrekt",
+    "content": "Conquest Reforged Mod",
+    "lang": "English",
+    "tw": "https://www.twitch.tv/iliketogetrekt",
+    "slug": "iliketogetrekt",
+    "twitchChannel": "iliketogetrekt"
+  },
+  {
+    "name": "Filthy_Coin",
+    "content": "Conquest Reforged Mod",
+    "lang": "English",
+    "tw": "https://www.twitch.tv/filthy_coin",
+    "slug": "filthy-coin",
+    "twitchChannel": "filthy_coin"
+  },
+  {
+    "name": "Dractuss",
+    "content": "Conquest Reforged",
+    "lang": "English",
+    "tw": "https://www.twitch.tv/Dractuss",
+    "slug": "dractuss",
+    "twitchChannel": "Dractuss"
+  },
+  {
+    "name": "Monsterfish_",
+    "content": "Conquest Reforged, Conquest_ Resourcepack",
+    "lang": "English",
+    "tw": "https://www.twitch.tv/monsterfish_/",
+    "slug": "monsterfish",
+    "twitchChannel": "monsterfish_"
+  },
+  {
+    "name": "Fixxitt412",
+    "content": "Conquest Resourcepack",
+    "lang": "English",
+    "yt": "https://www.youtube.com/watch?v=J8GyJwHS7UU&ab_channel=Fixxitt412",
+    "slug": "fixxitt412"
+  },
+  {
+    "name": "Middle-earth Explored",
+    "content": "Conquest Reforged Mod",
+    "lang": "English",
+    "yt": "https://www.youtube.com/channel/UCH864glJ9MijPXpMhD3ncUg",
+    "slug": "middle-earth-explored"
+  },
+  {
+    "name": "HFranz",
+    "content": "Conquest Reforged Mod",
+    "lang": "English",
+    "yt": "https://www.youtube.com/c/HFranz/featured",
+    "tw": "https://www.twitch.tv/hfranzontwitch",
+    "slug": "hfranz"
+  },
+  {
+    "name": "lowresbones",
+    "content": "Conquest Reforged Mod, Vanilla",
+    "lang": "English",
+    "yt": "https://www.youtube.com/channel/UC6uZpmXBpt8oKZMQeAY3olw",
+    "slug": "lowresbones"
+  },
+  {
+    "name": "Dukonred1",
+    "content": "Conquest_ Resourcepack, Conquest Reforged Mod",
+    "lang": "English",
+    "yt": "https://www.youtube.com/user/DukonMC",
+    "tw": "https://www.twitch.tv/dukonred1",
+    "slug": "dukonred1"
+  },
+  {
+    "name": "Rinty-Craft",
+    "content": "Conquest_ Resourcepack (mixed)",
+    "lang": "Japanese",
+    "yt": "https://www.youtube.com/channel/UCF9NKy22WTMcC4s_GHnW9_g",
+    "slug": "rinty-craft"
+  },
+  {
+    "name": "Antroz59Mc",
+    "content": "Conquest_ Resourcepack",
+    "lang": "French",
+    "yt": "https://www.youtube.com/user/Antroz59Mc",
+    "slug": "antroz59mc"
+  },
+  {
+    "name": "king0light",
+    "content": "Conquest Reforged Mod",
+    "lang": "English",
+    "yt": "https://www.youtube.com/channel/UCYTRwQiZ9zsYWFVckILipPQ",
+    "tw": "https://www.twitch.tv/king0light",
+    "slug": "king0light"
+  },
+  {
+    "name": "History Crafters",
+    "content": "Conquest Reforged Mod, Vanilla Modded, Roleplay",
+    "lang": "Polish",
+    "yt": "https://www.youtube.com/channel/UCHDba9O-onVcPZemG-Yf3VA/videos",
+    "slug": "history-crafters"
+  },
+  {
+    "name": "Triliton",
+    "content": "Conquest Reforged Mod",
+    "lang": "English",
+    "yt": "https://www.youtube.com/channel/UCiXoEiHJDWlBoxroG13Sjtg/featured",
+    "slug": "triliton"
+  },
+  {
+    "name": "TeamLyrah",
+    "content": "Conquest_ Resourcepack",
+    "lang": "English",
+    "yt": "https://www.youtube.com/user/TeamLyrah",
+    "slug": "teamlyrah"
+  },
+  {
+    "name": "Chingom_",
+    "content": "Conquest Reforged Mod",
+    "lang": "English",
+    "yt": "https://www.youtube.com/channel/UC7nw22Q3m_Hkk3d_N0QNvVQ",
+    "slug": "chingom"
+  },
+  {
+    "name": "Boitameu",
+    "content": "Conquest_ Resourcepack",
+    "lang": "French",
+    "yt": "https://www.youtube.com/channel/UCWUEKx3_RLA3vdGtB9Xn47g",
+    "slug": "boitameu"
+  },
+  {
+    "name": "LegendaryPorpoise",
+    "content": "Conquest Reforged",
+    "lang": "English",
+    "yt": "https://www.youtube.com/channel/UCmwpVPFu5MfZHORDpL5eggA",
+    "tw": "https://www.twitch.tv/legendaryporpoise",
+    "slug": "legendaryporpoise"
+  }
 ]

@@ -308,9 +308,16 @@ function buildShowcases() {
 function buildServers() {
   const items = readJSON('data', 'servers.json');
   const tags = [...new Set(items.flatMap((i) => i.tags))];
+  const details = {};
+  for (const s of items) {
+    if (!exists('content', 'servers', s.slug + '.md')) continue;
+    const { meta, body } = parseDoc(readText('content', 'servers', s.slug + '.md'));
+    details[s.slug] = { meta, body };
+  }
   const cards = items.map((s) => {
-    const link = s.url ? `<div class="links"><a class="pill" href="${s.url}" rel="noopener" target="_blank">Visit</a></div>` : '';
-    return `<div class="card" data-tags="${esc(s.tags.join('|'))}"><img class="thumb fallback" src="${s.image || site.fallbackThumb}" alt="" loading="lazy"><div class="body"><h3>${esc(s.name)}</h3><p>${esc(s.tags.join(' | '))}</p></div>${link}</div>`;
+    const d = details[s.slug];
+    const inner = `<img class="thumb fallback" src="${(d && d.meta.logo) || s.image || site.fallbackThumb}" alt="" loading="lazy"><div class="body"><h3>${esc(s.name)}</h3><p>${esc(s.tags.join(' | '))}</p></div>`;
+    return d ? `<a class="card" href="/servers/${s.slug}" data-tags="${esc(s.tags.join('|'))}">${inner}</a>` : `<div class="card" data-tags="${esc(s.tags.join('|'))}">${inner}${s.url ? `<div class="links"><a class="pill" href="${s.url}" rel="noopener" target="_blank">Visit</a></div>` : ''}</div>`;
   });
   cards.push(`<a class="card cta-card" href="/team"><img src="${site.fallbackThumb}" alt=""><h3>This could be you</h3><p>Want your <b>Conquest Reforged</b> server featured? Contact the team to get it added!</p></a>`);
   const filters = `<div class="filters" role="group" aria-label="Filter servers"><button type="button" aria-pressed="true" data-tag="">All Servers</button>${tags.map((t) => `<button type="button" aria-pressed="false" data-tag="${esc(t)}">${esc(t)}</button>`).join('')}</div>`;
@@ -320,14 +327,33 @@ b.forEach(function(x){x.addEventListener('click',function(){var t=x.dataset.tag;
 c.forEach(function(card){card.style.display=(!t||card.dataset.tags.split('|').indexOf(t)>-1)?'':'none'})})})})();
 </script>`;
   emit('/serverslist/servers', layout({ title: 'Servers', description: 'Bored of single player? Check out these awesome servers and share your creativity and fun with the rest of our fantastic community!', urlPath: '/serverslist/servers', body: page('Servers', `${filters}<div class="grid">${cards.join('\n')}</div>${script}`) }));
+  for (const s of items) {
+    const d = details[s.slug];
+    if (!d) continue;
+    const links = (d.meta.links || '').split(' ;; ').filter(Boolean).map((l) => l.split('|')).map(([label, url]) => `<a class="btn" href="${esc(url)}" rel="noopener" target="_blank">${esc(label)}</a>`).join('');
+    const others = items.filter((o) => o.slug !== s.slug && details[o.slug]).map((o) => `<a href="/servers/${o.slug}">${esc(o.name)}</a>`).join(' · ');
+    const inner = `${d.meta.logo ? `<img src="${d.meta.logo}" alt="${esc(s.name)}" style="max-width:260px">` : ''}${d.meta.ip ? `<p><strong>IP:</strong> ${esc(d.meta.ip)}</p>` : ''}${md(d.body)}${links ? `<div class="btn-row">${links}</div>` : ''}<p class="muted">${esc(s.tags.join(' | '))}</p>${others ? `<p>Other servers: ${others}</p>` : ''}<p><a href="/serverslist/servers">← All servers</a></p>`;
+    emit(`/servers/${s.slug}`, layout({ title: s.name, description: `${s.name}, a server using Conquest Reforged`, urlPath: `/servers/${s.slug}`, ogImage: d.meta.logo, body: page(s.name, inner) }));
+  }
 }
 
 // ---------- video creators ----------
 function buildYoutubers() {
   const items = readJSON('data', 'youtubers.json');
-  const card = (c) => `<div class="card"><div class="body"><h3>${esc(c.name)}</h3><p>Content: ${esc(c.content)}<br>Language: ${esc(c.lang)}</p></div><div class="links">${c.yt ? `<a class="pill yt" href="${esc(c.yt)}" rel="noopener" target="_blank">YouTube</a>` : ''}${c.tw ? `<a class="pill tw" href="${esc(c.tw)}" rel="noopener" target="_blank">Twitch</a>` : ''}</div></div>`;
+  const card = (c) => {
+    const inner = `<div class="body"><h3>${esc(c.name)}</h3><p>Content: ${esc(c.content)}<br>Language: ${esc(c.lang)}</p></div>`;
+    const pills = `<div class="links">${c.yt ? `<a class="pill yt" href="${esc(c.yt)}" rel="noopener" target="_blank">YouTube</a>` : ''}${c.tw ? `<a class="pill tw" href="${esc(c.tw)}" rel="noopener" target="_blank">Twitch</a>` : ''}</div>`;
+    return `<div class="card">${c.slug ? `<a href="/youtube-channels/${c.slug}" style="color:inherit">${inner}</a>` : inner}${pills}</div>`;
+  };
   const inner = `<div class="grid">${items.map(card).join('\n')}</div><div class="voice"><p>Your channel is not featured or you know one that isn't? Contact the <a href="/team">team</a> to get it added!</p></div>`;
   emit('/serverslist/youtube-channels', layout({ title: 'Content Creators', description: 'Find content creators who use Conquest Reforged here!', urlPath: '/serverslist/youtube-channels', body: page('Video Creators', inner) }));
+  for (const c of items) {
+    if (!c.slug) continue;
+    const yt = c.yt ? ` on <a href="${esc(c.yt)}" rel="noopener" target="_blank">YouTube</a>` : '';
+    const tw = c.tw ? ` and their streams on <a href="${esc(c.tw)}" rel="noopener" target="_blank">Twitch</a>` : '';
+    const body = `<h2>Meet ${esc(c.name)}</h2><p>${esc(c.name)} makes content using ${esc(c.content)} in ${esc(c.lang)}.</p><p>You can find out more about their ${c.yt ? 'videos' + yt : ''}${c.yt && c.tw ? '' : ''}${c.tw ? (c.yt ? tw : 'streams on <a href="' + esc(c.tw) + '" rel="noopener" target="_blank">Twitch</a>') : ''}.</p><div class="btn-row">${c.yt ? `<a class="btn" href="${esc(c.yt)}" rel="noopener" target="_blank">YouTube</a>` : ''}${c.tw ? `<a class="btn" href="${esc(c.tw)}" rel="noopener" target="_blank">Twitch</a>` : ''}</div><p>Hope you find some good entertainment over there and support the creators in whatever way you can!</p><p><a href="/serverslist/youtube-channels">← All creators</a></p>`;
+    emit(`/youtube-channels/${c.slug}`, layout({ title: c.name, description: `${c.name} makes content using Conquest Reforged`, urlPath: `/youtube-channels/${c.slug}`, body: page('Video Creators', body) }));
+  }
 }
 
 // ---------- guides ----------
@@ -347,6 +373,40 @@ function buildGuides() {
     return `<div class="card">${inner}</div>`;
   });
   emit('/guides', layout({ title: 'Guides', description: 'These guides aim to make your experience with the mod more streamlined and enjoyable.', urlPath: '/guides', body: page('Official Guides', `<div class="grid">${cards.join('\n')}</div>`) }));
+}
+
+// ---------- search ----------
+// Client-side search: a JSON index of every generated page + a /search page that filters it.
+function buildSearch() {
+  const docs = [];
+  for (const u of generated) {
+    if (u.endsWith('.html')) continue;
+    const file = path.join(DIST, u === '/' ? 'index.html' : path.join(u.slice(1), 'index.html'));
+    if (!fs.existsSync(file)) continue;
+    const html = fs.readFileSync(file, 'utf8');
+    const main = (html.match(/<main class="page">([\s\S]*?)<\/main>/) || [])[1];
+    if (!main) continue;
+    const title = stripTags((html.match(/<title>([^<]*)<\/title>/) || [])[1] || u).replace(/ \| Conquest Reforged$/, '');
+    docs.push({ u, t: title, x: stripTags(main.replace(/<script[\s\S]*?<\/script>/g, ' ')).replace(/\s+/g, ' ').trim().slice(0, 4000) });
+  }
+  emitRaw('search-index.json', JSON.stringify(docs));
+  const script = `<script>
+(function(){
+var q=(new URLSearchParams(location.search).get('q')||'').trim(),box=document.getElementById('q'),out=document.getElementById('results');
+box.value=q;if(!q){out.innerHTML='<p class="muted">Type something to search news, guides, servers, creators and showcases.</p>';return}
+var terms=q.toLowerCase().split(/\s+/).filter(Boolean);
+fetch('/search-index.json').then(function(r){return r.json()}).then(function(docs){
+ var hits=docs.map(function(d){var t=d.t.toLowerCase(),x=d.x.toLowerCase(),s=0;
+  for(var i=0;i<terms.length;i++){var a=t.split(terms[i]).length-1,b=x.split(terms[i]).length-1;if(!a&&!b){s=0;break}s+=a*5+b}
+  return {d:d,s:s}}).filter(function(h){return h.s>0}).sort(function(a,b){return b.s-a.s}).slice(0,30);
+ if(!hits.length){out.innerHTML='<p>No results for <b></b>.</p>';out.querySelector('b').textContent=q;return}
+ out.innerHTML=hits.map(function(h){var x=h.d.x,i=x.toLowerCase().indexOf(terms[0]),st=Math.max(0,i-60),sn=x.slice(st,st+180);
+  var el=document.createElement('div');el.className='post-card';var a=document.createElement('h3');var l=document.createElement('a');l.href=h.d.u;l.textContent=h.d.t;a.appendChild(l);var p=document.createElement('p');p.textContent=(st>0?'… ':'')+sn+(x.length>st+180?' …':'');el.appendChild(a);el.appendChild(p);return el.outerHTML}).join('');
+});
+})();
+</script>`;
+  const form = `<form action="/search" method="get" role="search" style="display:flex;gap:10px;margin:0 0 18px"><input id="q" name="q" type="search" placeholder="search…" style="flex:1;font:inherit;font-size:20px;padding:6px 12px;border:1px solid #999;border-radius:10px"><button class="btn" type="submit">Search</button></form><div id="results"></div>`;
+  emit('/search', layout({ title: 'Search', description: 'Search the Conquest Reforged site', urlPath: '/search', body: page('Search', form + script) }));
 }
 
 // ---------- team / contact ----------
@@ -388,13 +448,12 @@ buildYoutubers();
 buildGuides();
 buildTeam();
 build404();
+buildSearch();
 
 emitRaw('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${site.url}/sitemap.xml\n`);
 emitRaw('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${generated.map((u) => `<url><loc>${site.url}${u === '/' ? '' : u}</loc></url>`).join('')}</urlset>`);
 // Old Webflow URLs that no longer exist as pages.
 emitRaw('_redirects', `/mod / 301
-/youtube-channels/* /serverslist/youtube-channels 301
-/servers/* /serverslist/servers 301
 /server-categories/* /serverslist/servers 301
 /showcase-categories/* /showcases 301
 /guide-categories/* /guides 301

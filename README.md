@@ -32,3 +32,9 @@ redirects, so the build keeps providing those. See WEBSTUDIO.md for setup and wo
 ## Moving hosts later
 `dist/` is plain static files. Cloudflare reads `_headers`/`_redirects`; on Hetzner (Apache) put the same
 rules in `.htaccess`.
+
+## Detail pages and search
+- Showcases: `src/content/showcase/<slug>.md`; servers: `src/content/servers/<slug>.md` (front matter: ip, logo, links);
+  creators: entries in `src/data/youtubers.json` (with a `slug`). `node scrape-details.mjs` re-copies them from the old
+  Webflow site (only while it is online), then `node fetch-assets.mjs`.
+- `/search` is client-side: `build.mjs` writes `search-index.json` from every generated page.
