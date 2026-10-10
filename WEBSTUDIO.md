@@ -96,10 +96,16 @@ Embed scripts should be idempotent and only touch elements inside their own embe
 Webstudio is the source of truth; these files are copies so the code can be restored or re-pasted
 (open the embed in Webstudio > Settings > Code, select all, paste).
 
-## Landing page and pack pages
-- `/` is the studio landing page (no shared header/footer, just the social tab). Its cards link to `/mod`,
-  `/conquest-pack` and `/conquest-bedrock`. The mod's own home page is `/mod`; the shared header's logo and the mobile
-  menu's "Home" link point there.
-- `/conquest-pack` and `/conquest-bedrock` are generated from `src/content/pages/*.md` (copied from the old site with
-  `node scrape-packs.mjs`; the Java page's intro is hand-written inside that script). The Java page's sub-pages
-  under `/conquest/...` (special-feature galleries) were not ported, so those entries are plain text.
+## Landing page, /mod and the Webflow-style pages
+- `/` is the studio landing page and `/mod` the mod's home page: both are Webstudio pages. Info, FAQ and Downloads still exist in the
+  Webstudio project, but the live site serves the original Webflow content for them (see below); `build.mjs` skips those three
+  folders of the Webstudio export (`CHROME_CLONES`). The header, footer and social banner are still lifted from the Webstudio export.
+- `/conquest-pack`, `/conquest-bedrock`, `/conquest/...`, `/biomespecific*/...`, `/catalog` and the 404 page are exact clones of the
+  old pages: `node clone-packs.mjs` downloads the markup, Webflow's stylesheet and scripts into `src/clone/`.
+- News, guides, showcases, servers, creators, team and search are generated from Markdown/JSON, but emit the original Webflow markup
+  (class names such as `div-block-8`) inside a `<div class="wfs">` wrapper. `wf-scope.mjs` re-scopes Webflow's stylesheet under
+  `.wfs` (written to `/assets/wf-scoped.css`), so the pages look identical without touching the Webstudio chrome.
+- Content scrapers (only needed while the old site is online): `scrape-details.mjs` (showcases, servers, creators + their JSON),
+  `scrape-bodies.mjs` (news and guide bodies as the original rich-text HTML), `clone-packs.mjs`. Then `node fetch-assets.mjs`.
+- `FIX_CSS`/`FIX_JS` in `build.mjs` are small corrections applied on top of the Webstudio chrome (footer link spacing, search
+  button position and z-index, current-page glow in the footer).
