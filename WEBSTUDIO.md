@@ -83,3 +83,9 @@ styling for those pages is the `body.ws` rules at the bottom of `src/styles.css`
 Webstudio names the uploaded font file "Nyala", but the pasted styles use "Nyala 0". The Slot's header holds a
 small HTML Embed with an `@font-face` that declares "Nyala 0", so the font loads on every page. If you restyle
 text in Webstudio's Style panel, pick "Nyala" or "Nyala 0".
+
+## Scripts inside HTML Embeds
+Webstudio pages are a React app, which rebuilds HTML Embeds after loading and drops what their scripts set up.
+`build.mjs` parks those scripts (`type="text/plain"`) and re-runs them once the page settles, so carousels,
+the before/after slider and the nav highlight work on Webstudio pages. Generated pages run them normally.
+Embed scripts should be idempotent and only touch elements inside their own embed.

@@ -476,6 +476,20 @@ if (fs.existsSync(WS)) {
       else if (e.name === 'index.html') wsPages.push('/' + path.relative(WS, d).split(path.sep).join('/'));
     }
   })(WS);
+  // Webstudio pages are a React app: after loading, React re-renders HTML Embeds and drops whatever their
+  // inline <script>s set up. Park those scripts, then re-run them once the page has settled.
+  const RUN_EMBEDS = `<script>(function(){var done=0,t;function run(){if(done)return;done=1;document.querySelectorAll('.w-html-embed script').forEach(function(s){var n=document.createElement('script');n.text=s.textContent;s.parentNode.replaceChild(n,s)})}function settle(){clearTimeout(t);t=setTimeout(run,350)}function go(){settle();var o=new MutationObserver(settle);o.observe(document.body,{childList:true,subtree:true});setTimeout(function(){o.disconnect();run()},4000)}if(document.readyState==='complete')go();else addEventListener('load',go)})();</script>`;
+  (function walk(d) {
+    for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+      const p = path.join(d, e.name);
+      if (e.isDirectory()) { walk(p); continue; }
+      if (e.name !== 'index.html') continue;
+      const out = path.join(DIST, path.relative(WS, p));
+      const html = fs.readFileSync(out, 'utf8');
+      if (!/<script>/.test(html)) continue;
+      fs.writeFileSync(out, html.replace(/<script>/g, '<script type="text/plain">').replace('</body>', RUN_EMBEDS + '</body>'));
+    }
+  })(WS);
   // Images pasted into Webstudio as HTML keep editor URLs like /cgi/asset/<name>_<21-char id>.webp.
   // Point them at our local copy /assets/<name>.webp when we have one.
   let rewritten = 0;
