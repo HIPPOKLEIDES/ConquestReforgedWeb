@@ -2,13 +2,13 @@
 title: Minas Tirith Shophouse Concepts
 ---
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b315ac61b74377996b6120_thumbnail.webp" alt="Minas Tirith Shophouse Concepts" loading="lazy"></p>
+<p><img src="/assets/64b315ac61b74377996b6120_thumbnail.webp" alt="Minas Tirith Shophouse Concepts" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6c30288073a5ddd02cb10_showcase_minasconcepts_2.webp" alt="Minas Tirith Shophouse Concepts" loading="lazy"></p>
+<p><img src="/assets/66f6c30288073a5ddd02cb10_showcase_minasconcepts_2.webp" alt="Minas Tirith Shophouse Concepts" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6c304df47f57d3abb9fa5_showcase_minasconcepts_3.webp" alt="Minas Tirith Shophouse Concepts" loading="lazy"></p>
+<p><img src="/assets/66f6c304df47f57d3abb9fa5_showcase_minasconcepts_3.webp" alt="Minas Tirith Shophouse Concepts" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6c306cff8a42c5a4bfa16_showcase_minasconcepts_4.webp" alt="Minas Tirith Shophouse Concepts" loading="lazy"></p>
+<p><img src="/assets/66f6c306cff8a42c5a4bfa16_showcase_minasconcepts_4.webp" alt="Minas Tirith Shophouse Concepts" loading="lazy"></p>
 
 <p>This isn&#x27;t from the typical Minas Tirith we all know from the movies - a pure white, beaming monolith. What is this then? Wheellee, Eag, and Hearthseeker have been fans of the <em>Lord of the Rings</em> universe for many years now, and being so well-versed with Tolkein&#x27;s work, they&#x27;ve reimagined Minas Tirith&#x27;s streets to look more like how the books described the city. In doing so, they&#x27;ve made a remarkably detailed and authentic conceptualization that borrows heavily from real world historical architecture. To us give more background about their work and inspiration, they&#x27;ve kindly provided a brief description of the build:</p>
 

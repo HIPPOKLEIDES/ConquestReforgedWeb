@@ -1,0 +1,1 @@
+import{r as e,j as r}from"./chunk-DOLqGrXS.js";const a=e.forwardRef((s,t)=>r.jsx("div",{...s,ref:t,style:{display:s.children?"contents":"block"}}));a.displayName="Slot";const o=e.forwardRef((s,t)=>r.jsx("div",{...s,ref:t,style:{display:"contents"}}));o.displayName="Fragment";export{a as l,o as m};

@@ -2,7 +2,7 @@
 title: Romanized Doric Temple
 ---
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3125f92b68a28ac7a8cd2_temple_thumbnail.webp" alt="Romanized Doric Temple" loading="lazy"></p>
+<p><img src="/assets/64b3125f92b68a28ac7a8cd2_temple_thumbnail.webp" alt="Romanized Doric Temple" loading="lazy"></p>
 
 <p>Magicclippy’s Romanized Doric temple here is a great example of fine classical proportions and ancient polychromy (ie: the use of many colors). </p>
 

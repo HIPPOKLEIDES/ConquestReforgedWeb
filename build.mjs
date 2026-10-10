@@ -451,6 +451,8 @@ buildHome();
 buildMarkdownPage('info.md', '/info');
 buildMarkdownPage('downloads.md', '/downloads');
 buildMarkdownPage('faq.md', '/faq');
+buildMarkdownPage('conquest-pack.md', '/conquest-pack');
+buildMarkdownPage('conquest-bedrock.md', '/conquest-bedrock');
 buildNews(posts);
 buildShowcases();
 buildServers();
@@ -461,10 +463,20 @@ build404();
 buildSearch();
 
 emitRaw('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${site.url}/sitemap.xml\n`);
-emitRaw('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${generated.map((u) => `<url><loc>${site.url}${u === '/' ? '' : u}</loc></url>`).join('')}</urlset>`);
+// pages designed in Webstudio are not in `generated`, so list them too
+const wsUrls = [];
+(function scan(d, rel = '') {
+  const dir = path.join(SRC, 'webstudio', d);
+  if (!fs.existsSync(dir)) return;
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (e.isDirectory() && e.name !== 'assets') scan(path.join(d, e.name), rel + '/' + e.name);
+  }
+  if (fs.existsSync(path.join(dir, 'index.html'))) wsUrls.push(rel || '/');
+})('');
+const sitemapUrls = [...new Set([...generated.filter((u) => !u.endsWith('.html')), ...wsUrls])];
+emitRaw('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapUrls.map((u) => `<url><loc>${site.url}${u === '/' ? '' : u}</loc></url>`).join('')}</urlset>`);
 // Old Webflow URLs that no longer exist as pages.
-emitRaw('_redirects', `/mod / 301
-/server-categories/* /serverslist/servers 301
+emitRaw('_redirects', `/server-categories/* /serverslist/servers 301
 /showcase-categories/* /showcases 301
 /guide-categories/* /guides 301
 /contact /team 301

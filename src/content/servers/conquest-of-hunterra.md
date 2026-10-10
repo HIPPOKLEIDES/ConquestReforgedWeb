@@ -1,7 +1,7 @@
 ---
 title: CONQUEST OF HUNTERRA
 ip: included in the modpack
-logo: https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/6813f576cf25174678168fdd_2.jpg
+logo: /assets/6813f576cf25174678168fdd_2.jpg
 links: Planet Minecraft|https://www.planetminecraft.com/server/conquest-of-hunterra-modded-roleplay-1-20-1-whitelist/ ;; Discord|https://discord.gg/7beNMhMZSa
 ---
 

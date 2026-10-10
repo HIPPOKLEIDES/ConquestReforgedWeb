@@ -2,37 +2,37 @@
 title: Medvedsky Hrad
 ---
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf4b618990253c412de4_showcase_medvsky_1.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf4b618990253c412de4_showcase_medvsky_1.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf4dbf5ba4b32923c826_showcase_medvsky_2.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf4dbf5ba4b32923c826_showcase_medvsky_2.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf508cfe84b00c7b0fc9_showcase_medvsky_3.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf508cfe84b00c7b0fc9_showcase_medvsky_3.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf5298238c3f9f9b0170_showcase_medvsky_4.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf5298238c3f9f9b0170_showcase_medvsky_4.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf545f6d819d4bad3211_showcase_medvsky_5.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf545f6d819d4bad3211_showcase_medvsky_5.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf59e12e6ed1e0e33fb6_showcase_medvsky_6.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf59e12e6ed1e0e33fb6_showcase_medvsky_6.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf5dbd4e6b35f56d865c_showcase_medvsky_7.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf5dbd4e6b35f56d865c_showcase_medvsky_7.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf5f65d4220e9766a968_showcase_medvsky_8.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf5f65d4220e9766a968_showcase_medvsky_8.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf6165d4220e9766ab16_showcase_medvsky_9.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf6165d4220e9766ab16_showcase_medvsky_9.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf6307b9ea194433372e_showcase_medvsky_10.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf6307b9ea194433372e_showcase_medvsky_10.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf65aff7f3e156a01b9d_showcase_medvsky_12.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf65aff7f3e156a01b9d_showcase_medvsky_12.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf680d9d219c9dff7658_showcase_medvsky_14.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf680d9d219c9dff7658_showcase_medvsky_14.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf6a5fa224e85bdcfda8_showcase_medvsky_15.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf6a5fa224e85bdcfda8_showcase_medvsky_15.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf6b3313fb07f5345e76_showcase_medvsky_16.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf6b3313fb07f5345e76_showcase_medvsky_16.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf6f4b8dc634cb919305_showcase_medvsky_17.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf6f4b8dc634cb919305_showcase_medvsky_17.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cf7141c57f4b2eab3dcd_showcase_medvsky_18.webp" alt="Medvedsky Hrad" loading="lazy"></p>
+<p><img src="/assets/66f6cf7141c57f4b2eab3dcd_showcase_medvsky_18.webp" alt="Medvedsky Hrad" loading="lazy"></p>
 
 <h2>&quot;Medvedsky Hrad&quot;</h2>
 
@@ -54,7 +54,7 @@ title: Medvedsky Hrad
 
 <p>You can visit this build on the Darwin Reforged server using the &#x27;/warp slav&#x27; command.</p>
 
-<div><img alt="" src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/66f6cfbda628b930dc950bfb_66f6cfb38083bb286bbbc6ff_showcase_medvssky_text_twitter.webp" loading="lazy"/></div><p>The Creators on Twitter</p>
+<div><img alt="" src="/assets/66f6cfbda628b930dc950bfb_66f6cfb38083bb286bbbc6ff_showcase_medvssky_text_twitter.webp" loading="lazy"/></div><p>The Creators on Twitter</p>
 
 <p><a href="https://twitter.com/RedLikeRanger">https://twitter.com/RedLikeRanger</a></p>
 

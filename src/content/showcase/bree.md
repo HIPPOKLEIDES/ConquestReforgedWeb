@@ -4,39 +4,39 @@ title: Bree
 
 ::youtube[TEox2crPEQc]
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/63f14007c16726a8854ced68_16468903-bree.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/63f14007c16726a8854ced68_16468903-bree.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3137fe9d79e7ecffd189f_1.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/64b3137fe9d79e7ecffd189f_1.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3137fe9db6e47d548d973_2.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/64b3137fe9db6e47d548d973_2.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b31380e025c96ef1f1b9c0_3.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/64b31380e025c96ef1f1b9c0_3.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3137fd4e691cd90844d9f_4.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/64b3137fd4e691cd90844d9f_4.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3137f7079905e886c750f_5.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/64b3137f7079905e886c750f_5.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3137f61b743779969a047_6.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/64b3137f61b743779969a047_6.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3137fe9d79e7ecffd185b_7.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/64b3137fe9d79e7ecffd185b_7.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3137fe025c96ef1f1b98b_8.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/64b3137fe025c96ef1f1b98b_8.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3137f72992b5f5c1375f6_9.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/64b3137f72992b5f5c1375f6_9.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3137fe9db6e47d548d877_10.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/64b3137fe9db6e47d548d877_10.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3137fe9134d697466c7ab_11.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/64b3137fe9134d697466c7ab_11.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3137fdac67d439862d6c2_12.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/64b3137fdac67d439862d6c2_12.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/63f143c749b46c4ba4a7f7d4_16468884.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/63f143c749b46c4ba4a7f7d4_16468884.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3137f2a8a72a3d766c1e4_14.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/64b3137f2a8a72a3d766c1e4_14.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/63f143c7c16726384e4d3b99_16469333-bree.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/63f143c7c16726384e4d3b99_16469333-bree.webp" alt="Bree" loading="lazy"></p>
 
-<p><img src="https://cdn.prod.website-files.com/5a4b90dba9ead90001182605/64b3137f7af835ff71fae3a7_16.webp" alt="Bree" loading="lazy"></p>
+<p><img src="/assets/64b3137f7af835ff71fae3a7_16.webp" alt="Bree" loading="lazy"></p>
 
 <p>Our friends at ArdaCraft, the preeminent Conquest Reforged building team, have recently completed their latest project, the revamp and recreation of the town Bree from J.R.R. Tolkien&#x27;s Middle-earth. The completion of the project is a great feat for the ArdaCraft team, and the end result is a testament to their relentless research, planning, and will to chase the cutting-edge of modded building.</p>
 

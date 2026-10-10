@@ -60,7 +60,8 @@ Copy `dist/client/` (minus `.vite/`) into `src/webstudio/`, then `node build.mjs
 The share link contains a token: keep it out of the repo. The CLI saves it in your user config folder.
 
 ## Pages built in Webstudio so far
-- Home (`/`), Info (`/info`), Downloads (`/downloads`) and FAQ (`/faq`). They replace the
+- Landing (`/`, the Webstudio page named "Home": the "WeAreConquest" page with three cards), Mod (`/mod`, the mod's home page),
+  Info (`/info`), Downloads (`/downloads`) and FAQ (`/faq`). They replace the
   Markdown-generated versions at the same path. (`src/content/pages/*.md` for these are now unused.)
 - Header, footer and the social banner live in one shared **Slot** (same on every page). Edit it on any page
   and it changes everywhere. To use it on a new page, copy the Slot from another page and paste it
@@ -94,3 +95,11 @@ Embed scripts should be idempotent and only touch elements inside their own embe
 `webstudio-embeds/` holds the code pasted into Webstudio's HTML Embeds (nav-header.html for the shared header).
 Webstudio is the source of truth; these files are copies so the code can be restored or re-pasted
 (open the embed in Webstudio > Settings > Code, select all, paste).
+
+## Landing page and pack pages
+- `/` is the studio landing page (no shared header/footer, just the social tab). Its cards link to `/mod`,
+  `/conquest-pack` and `/conquest-bedrock`. The mod's own home page is `/mod`; the shared header's logo and the mobile
+  menu's "Home" link point there.
+- `/conquest-pack` and `/conquest-bedrock` are generated from `src/content/pages/*.md` (copied from the old site with
+  `node scrape-packs.mjs`; the Java page's intro is hand-written inside that script). The Java page's sub-pages
+  under `/conquest/...` (special-feature galleries) were not ported, so those entries are plain text.
