@@ -5,7 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { scopeCss } from './wf-scope.mjs';
-import { renderConquestItem } from './conquest-render.mjs';
+import { renderConquestItem, renderCatalogItem } from './conquest-render.mjs';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
@@ -524,9 +524,15 @@ function buildClones() {
     shell = shell.replace(/<!--LIST (\d+)-->/g, (m, n) => d.lists[+n].items.map((it) => renderConquestItem(it, d.lists[+n].cfg)).join(''));
     emitClonePage(`conquest/conquest-${name}`, d.meta, shell);
   }
+  // block catalog (/catalog) from src/data/catalog.json + src/content/catalog.shell.html
+  if (exists('data', 'catalog.json')) {
+    const c = JSON.parse(readText('data', 'catalog.json'));
+    const shell = readText('content', 'catalog.shell.html').replace(/<!--LIST (\d+)-->/g, (m, n) => c.sections[+n].items.map((it) => renderCatalogItem(it, c.sections[+n].wid)).join(''));
+    emitClonePage('catalog', c.meta, shell);
+  }
   for (const f0 of fs.readdirSync(dir).filter((n) => n.endsWith('.body.html') && !CHROME_CLONES.includes(n.replace('.body.html', '')))) {
     const slug = f0.replace('.body.html', '').replace(/__/g, '/');
-    if (dataPages.some((p) => slug === `conquest/conquest-${p}`)) continue;
+    if (dataPages.some((p) => slug === `conquest/conquest-${p}`) || slug === 'catalog') continue;
     const meta = JSON.parse(fs.readFileSync(path.join(dir, f0.replace('.body.html', '.meta.json')), 'utf8'));
     emitClonePage(slug, meta, fs.readFileSync(path.join(dir, f0), 'utf8'));
   }

@@ -117,3 +117,11 @@ around the lists). To add an entry, append to the right list in the JSON:
 (`note2` is only used by Animals, `cmd` only by Heads, `alias` is the optional extra name above the main name on Armors).
 The list sections are the original Webflow lists (they look slightly different, e.g. on Custom Items); put a new entry at the end of
 the section it belongs to. `node scrape-conquest.mjs` was the one-off conversion; do not run it again.
+
+## Block catalog (/catalog)
+`src/data/catalog.json` holds the sections (Wood, Stone, Dirt, Glass, Plants, Misc, Metal, Fabric) and their entries
+(`{ "name": "Acacia Door", "img": "/assets/catalog/acacia_door.png" }`); the PNGs live in `src/assets/catalog/`.
+To add a block: drop its PNG into `src/assets/catalog/`, add an entry to the right section (keep it alphabetical). The old site's
+CMS only showed 100 entries per section, so the Wood, Stone and Plants lists were cut off; the 98 additional images from the team
+were added and the new "Metal" section was created (the sorting into sections is a best guess, move entries as needed).
+The page around the lists is `src/content/catalog.shell.html`. Hovering an entry zooms it (Webflow interaction, kept).

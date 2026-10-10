@@ -15,6 +15,7 @@ const queue = ['conquest-pack', 'conquest-bedrock', '404', 'info', 'faq', 'downl
 const seen = new Set(queue);
 for (let qi = 0; qi < queue.length; qi++) {
   const route = queue[qi];
+  if (route === 'catalog') continue; // data-driven, see scrape-catalog.mjs
   if (/^conquest\/conquest-custom(armors|elytras|heads|items|mobs|paintings|shields)$/.test(route)) continue; // data-driven, see scrape-conquest.mjs
   const slug = route.replace(/\//g, '__');
   let h = route === '404' ? await (await fetch(`${BASE}/this-page-does-not-exist`)).text() : await text(`${BASE}/${route}`);
