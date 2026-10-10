@@ -1,0 +1,7 @@
+[
+  { "slug": "gradients", "title": "Gradienting your Builds", "author": "Eag_inc", "date": "2022-01-03", "updated": "2024-09-27", "image": "/assets/66f355b54e79b06365f4076d_gradient_guide_keyart.webp" },
+  { "slug": "custom-minecraft-directories", "title": "Custom Minecraft Directories - The Easy Way to Switch Between Versions Using the Vanilla Minecraft Launcher", "author": "Phil", "date": "2021-10-16", "updated": "2024-09-25", "image": "/assets/66f35ee5ba1e790631aa823d_custom_directories_guide_keyart.webp" },
+  { "slug": "worldpainter-using-conquest-reforgeds-layers", "title": "WorldPainter - Using Conquest Reforged’s Layers (v1.15.2+)", "author": "Phil", "date": "2021-10-16", "updated": "2024-09-25", "image": "/assets/66f35efc72e235a529f7416c_worldpainter_layer_guide_keyart.webp" },
+  { "slug": "creating-a-modded-server-with-conquest-reforged", "title": "Creating a Modded Server with Conquest Reforged", "author": "Phil", "date": "2021-10-20", "updated": "2024-09-25", "image": "/assets/66f41ae4fd5c1f556e831870_erver_guide_keyart.webp" },
+  { "slug": "weird-and-dark-shadows-on-blocks-how-to-avoid-them", "title": "Weird and Dark Shadows on Blocks - How to Avoid Them", "author": "Phil", "date": "2021-10-21", "updated": "2024-09-25" }
+]

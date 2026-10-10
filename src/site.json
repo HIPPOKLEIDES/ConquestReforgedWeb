@@ -1,0 +1,58 @@
+{
+  "name": "Conquest Reforged",
+  "url": "https://www.conquestreforged.com",
+  "description": "Conquest Reforged is an aesthetic Minecraft mod developed for players who wish to enhance their creative Minecraft experience.",
+  "logo": "/assets/64b03b7e4c70c1160b21fafb_cr_logo.webp",
+  "headerDecor": "/assets/64b1680d9ee6b2428ebdedb3_header_decor.webp",
+  "footerDecor": "/assets/64b1680d7ac808548a7fbdcb_footer_decor.webp",
+  "pageBackground": "/assets/66f2fafd978e2b9a9b3ed8d1_background.avif",
+  "homePoster": "/assets/5a4e6a2b8aff040001147896_lobb.avif",
+  "homeVideo": "/assets/66f56e2c39dfb6b34fd3c2eb_freecompress-64b31af47079905e88728d99_background-converted_6-transcode.mp4",
+  "fonts": {
+    "nyala": "/assets/64b142dd841517deb345dc5a_Nyala-Regular2.woff2"
+  },
+  "navLeft": [
+    { "label": "Changelog", "href": "/news-category/mod-updates" },
+    { "label": "Download", "href": "/downloads" },
+    { "label": "News", "href": "/news" },
+    { "label": "Info", "href": "/info" }
+  ],
+  "navRight": [
+    { "label": "Youtube", "href": "/serverslist/youtube-channels" },
+    { "label": "Showcases", "href": "/showcases" },
+    { "label": "Servers", "href": "/serverslist/servers" },
+    { "label": "Reddit", "href": "https://www.reddit.com/r/ConquestReforged/" }
+  ],
+  "socials": [
+    { "label": "X", "href": "https://x.com/conreforged", "img": "/assets/66f2db0cb85b91ce0b41c83b_X.webp" },
+    { "label": "Instagram", "href": "https://www.instagram.com/conquest_studios/", "img": "/assets/66f2db0ce40da138632ad1f3_instagram.webp" },
+    { "label": "Discord", "href": "https://discord.gg/ZagrZvn", "img": "/assets/66f2db0c5660057f1be44606_discord.webp" }
+  ],
+  "footerLinks": [
+    { "label": "Contact", "href": "/team" },
+    { "label": "FAQ", "href": "/faq" },
+    { "label": "Guides", "href": "/guides" }
+  ],
+  "patreon": {
+    "href": "https://www.patreon.com/ConquestReforged",
+    "img": "/assets/64b16032f3b0772af5734936_patreon_close.webp"
+  },
+  "homeSplash": {
+    "image": "/assets/6a3996a50ea821374bd0d205_splash_update-website_160_highlight.webp",
+    "href": "/news",
+    "text": "The next update for Conquest Reforged is out! This one brings loads of new tool models for all sorts of professions. Pole lathes for weavers, kilns and bellows for smelters, ovens for cooks, harrows for the farmers, and many more..."
+  },
+  "homeButtons": [
+    { "label": "Guides", "href": "/guides", "img": "/assets/64b15d65895fa3705e8d407d_guides_botton.webp", "size": 130 },
+    { "label": "Download", "href": "/downloads", "img": "/assets/64b15d669716bc66dcea14ba_download_button.webp", "size": 175 },
+    { "label": "Servers", "href": "/serverslist/servers", "img": "/assets/64b15d656a220f3a1b0fff48_servers_button.webp", "size": 130 }
+  ],
+  "newsCategories": [
+    { "label": "Hot from the Press", "slug": "hot-from-the-press" },
+    { "label": "Mod Updates", "slug": "mod-updates" },
+    { "label": "Announcements", "slug": "announcements" },
+    { "label": "Featured", "slug": "showcase" }
+  ],
+  "discordWidget": "https://discordapp.com/widget?id=164052674637987840&theme=light",
+  "fallbackThumb": "/assets/66f3135090de1709247c39a8_logo_small.avif"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "conquest-reforged-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static site for conquestreforged.com. No dependencies; needs Node 18+.",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node build.mjs && node serve.mjs",
+    "fetch-assets": "node fetch-assets.mjs"
+  }
+}
