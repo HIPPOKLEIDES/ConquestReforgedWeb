@@ -291,6 +291,11 @@ function buildShowcases() {
   const items = readJSON('data', 'showcases.json');
   const cards = items.map((it) => {
     const hasPage = exists('content', 'showcase', it.slug + '.md');
+    if (hasPage && !it.thumb) {
+      // no thumbnail on file: use the first gallery image of the detail page
+      const first = readText('content', 'showcase', it.slug + '.md').match(/<img src="([^"]+)"/);
+      if (first) it = { ...it, thumb: first[1] };
+    }
     const img = it.thumb ? `<img class="thumb" src="${it.thumb}" alt="" loading="lazy">` : `<img class="thumb fallback" src="${site.fallbackThumb}" alt="" loading="lazy">`;
     const inner = `${img}<div class="body"><h3>${esc(it.title)}</h3><p>made by ${esc(it.author)}<br>${fmtDate(it.date)}</p></div>`;
     if (hasPage) {
