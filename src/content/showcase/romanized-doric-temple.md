@@ -2,8 +2,6 @@
 title: Romanized Doric Temple
 ---
 
-<p><img src="/assets/64b3125f92b68a28ac7a8cd2_temple_thumbnail.webp" alt="Romanized Doric Temple" loading="lazy"></p>
-
 <p>Magicclippy’s Romanized Doric temple here is a great example of fine classical proportions and ancient polychromy (ie: the use of many colors). </p>
 
 <p>Through the use of the thinnest vertical slabs, the columns feature an often overlooked, but important aspect of classical pillars: <em>entasis</em>, which is the subtle thickening of the column towards the base. </p>

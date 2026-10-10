@@ -1,15 +1,309 @@
 [
-  { "slug": "assortment-of-half-timber-tudor-buildings", "title": "Assortment of Half-timber (Tudor) Buildings", "author": "Glov", "date": "2023-03-04", "thumb": "/assets/64b3120a92b68a28ac7a465d_thumbnail.webp" },
-  { "slug": "romanized-doric-temple", "title": "Romanized Doric Temple", "author": "Magicclippy", "date": "2023-02-28", "thumb": "/assets/64b3125f92b68a28ac7a8cd2_temple_thumbnail.webp" },
-  { "slug": "bree", "title": "Bree", "author": "Ardacraft", "date": "2023-02-18" },
-  { "slug": "battle-of-vicksburg", "title": "Battle of Vicksburg", "author": "American Battlefield Trust", "date": "2022-11-13" },
-  { "slug": "essential-trees", "title": "Essential Trees", "author": "Argent and Hfranz", "date": "2022-11-12" },
-  { "slug": "a-r-t-s-arctic-research-and-testing-station", "title": "Arctic Research & Testing Station", "author": "VucMiocene, xTechscammr", "date": "2021-10-29" },
-  { "slug": "rail-gunnery", "title": "Rail Gunnery", "author": "xTechScammr", "date": "2021-10-11" },
-  { "slug": "industrial-automobiles", "title": "Industrial Automobiles", "author": "xTechScammr", "date": "2021-10-11" },
-  { "slug": "hovercrafts-from-the-future", "title": "Hovercrafts from the Future", "author": "xTechScammr", "date": "2021-10-11" },
-  { "slug": "a-baroque-church", "title": "A Baroque Church", "author": "Magicclippy", "date": "2021-09-19" },
-  { "slug": "japanese-pagoda-to-ji-temple", "title": "Japanese Pagoda (Tō-ji-Temple)", "author": "Magicclippy and Xuezhe", "date": "2021-08-09" },
-  { "slug": "minas-tirith-shophouse-concepts", "title": "Minas Tirith Shophouse Concepts", "author": "Whee, Eag, Hearthseeker", "date": "2021-05-26" },
-  { "slug": "medvedsky-hrad", "title": "Medvedsky Hrad", "author": "Patrixcraft, Vitautas, and Redranger", "date": "2020-01-06" }
+  {
+    "slug": "assortment-of-half-timber-tudor-buildings",
+    "title": "Assortment of Half-timber (Tudor) Buildings",
+    "author": "Glov",
+    "date": "2023-03-04",
+    "thumb": "/assets/64b3120a92b68a28ac7a465d_thumbnail.webp",
+    "gallery": [
+      "/assets/64b3120a92b68a28ac7a465d_thumbnail.webp",
+      "/assets/64b3121892b68a28ac7a5119_1.webp",
+      "/assets/64b312187f59f187bff57d4d_2.webp",
+      "/assets/64b312182a8a72a3d765bc88_3.webp",
+      "/assets/64b312181ccbfbea8a30569e_4.webp"
+    ],
+    "link": "https://twitter.com/Ac_Glov/status/1003798325286637569",
+    "authorLink": "https://twitter.com/Ac_Glov/media",
+    "cats": [
+      "medieval",
+      "realistic"
+    ]
+  },
+  {
+    "slug": "romanized-doric-temple",
+    "title": "Romanized Doric Temple",
+    "author": "Magicclippy",
+    "date": "2023-02-28",
+    "thumb": "/assets/64b3125f92b68a28ac7a8cd2_temple_thumbnail.webp",
+    "gallery": [
+      "/assets/64b3125f92b68a28ac7a8cd2_temple_thumbnail.webp"
+    ],
+    "link": "https://twitter.com/ClippyMagic/status/1604718022199050242/photo/1",
+    "authorLink": "https://twitter.com/ClippyMagic",
+    "cats": [
+      "antique",
+      "realistic"
+    ]
+  },
+  {
+    "slug": "bree",
+    "title": "Bree",
+    "author": "Ardacraft",
+    "date": "2023-02-18",
+    "gallery": [
+      "/assets/63f14007c16726a8854ced68_16468903-bree.webp",
+      "/assets/64b3137fe9d79e7ecffd189f_1.webp",
+      "/assets/64b3137fe9db6e47d548d973_2.webp",
+      "/assets/64b31380e025c96ef1f1b9c0_3.webp",
+      "/assets/64b3137fd4e691cd90844d9f_4.webp",
+      "/assets/64b3137f7079905e886c750f_5.webp",
+      "/assets/64b3137f61b743779969a047_6.webp",
+      "/assets/64b3137fe9d79e7ecffd185b_7.webp",
+      "/assets/64b3137fe025c96ef1f1b98b_8.webp",
+      "/assets/64b3137f72992b5f5c1375f6_9.webp",
+      "/assets/64b3137fe9db6e47d548d877_10.webp",
+      "/assets/64b3137fe9134d697466c7ab_11.webp",
+      "/assets/64b3137fdac67d439862d6c2_12.webp",
+      "/assets/63f143c749b46c4ba4a7f7d4_16468884.webp",
+      "/assets/64b3137f2a8a72a3d766c1e4_14.webp",
+      "/assets/63f143c7c16726384e4d3b99_16469333-bree.webp",
+      "/assets/64b3137f7af835ff71fae3a7_16.webp"
+    ],
+    "link": "https://www.planetminecraft.com/project/bree-3335332/",
+    "authorLink": "https://twitter.com/ArdaCraft_?s=20",
+    "cats": [
+      "fantasy",
+      "medieval"
+    ],
+    "thumb": "/assets/66f752740855a2b7db9aa800_bree_article_thumbnail.webp"
+  },
+  {
+    "slug": "battle-of-vicksburg",
+    "title": "Battle of Vicksburg",
+    "author": "American Battlefield Trust",
+    "date": "2022-11-13",
+    "gallery": [
+      "/assets/66f6cc62d0d6383b922cd912_showcase_vicksburg_1.webp",
+      "/assets/66f6cc6507b9ea19442fd70a_showcase_vicksburg_2.webp",
+      "/assets/66f6cc677aea6980774e6353_showcase_vicksburg_3.webp",
+      "/assets/66f6cc6ade37cb4d3088eb1a_showcase_vicksburg_4.webp",
+      "/assets/66f6cc6d8083bb286bb84f2f_showcase_vicksburg_5.webp",
+      "/assets/66f6cc6f98eb75f0ed403ea4_showcase_vicksburg_6.webp",
+      "/assets/66f6cc7146cf5b44bc1af03f_showcase_vicksburg_7.webp",
+      "/assets/66f6cc7327535ecf35c08038_showcase_vicksburg_8.webp",
+      "/assets/66f6cc75fe7761011659d50c_showcase_vicksburg_9.webp",
+      "/assets/66f6cc7765d4220e97642f9e_showcase_vicksburg_10.webp"
+    ],
+    "link": "#",
+    "authorLink": "https://www.youtube.com/c/AmericanBattlefieldTrust",
+    "cats": [
+      "colonial",
+      "realistic"
+    ],
+    "thumb": "/assets/64b314cee025c96ef1f2bf09_thumbnail.webp"
+  },
+  {
+    "slug": "essential-trees",
+    "title": "Essential Trees",
+    "author": "Argent and Hfranz",
+    "date": "2022-11-12",
+    "gallery": [
+      "/assets/64b31468104d31b97adb008b_1.webp",
+      "/assets/64b3147f71c946976612b45a_2.webp",
+      "/assets/64b3147f6b5e7b81063a457c_3.webp",
+      "/assets/64b314800cd2e4472d953ae5_4.webp",
+      "/assets/64b3147f0ad51dbf01fdae33_5.webp",
+      "/assets/64b31488605b77f625a8b1da_6.webp",
+      "/assets/64b3148ae9db6e47d549ad96_7.webp",
+      "/assets/64b3148d61b74377996a7c01_8.webp",
+      "/assets/64b3148f61b74377996a7e6e_9.webp",
+      "/assets/64b3149172992b5f5c144436_10.webp"
+    ],
+    "link": "https://essentialschematics.gumroad.com/",
+    "authorLink": "https://twitter.com/hfranz_official",
+    "cats": [
+      "landscape-terrain",
+      "realistic"
+    ],
+    "thumb": "/assets/64b31468104d31b97adb008b_1.webp"
+  },
+  {
+    "slug": "a-r-t-s-arctic-research-and-testing-station",
+    "title": "Arctic Research & Testing Station",
+    "author": "VucMiocene, xTechscammr",
+    "date": "2021-10-29",
+    "gallery": [
+      "/assets/66f6c47eb70467294c8051ad_showcase_arcticresearch_1.webp",
+      "/assets/66f6c481133102789b040d24_showcase_arcticresearch_2.webp",
+      "/assets/66f6c4836d302b762e0d2049_showcase_arcticresearch_3.webp",
+      "/assets/66f6c48592e2f15d8a25cd62_showcase_arcticresearch_4.webp",
+      "/assets/66f6c488491e413cb3565f7a_showcase_arcticresearch_5.webp",
+      "/assets/66f6c48a1c39fe51d1b9c112_showcase_arcticresearch_6.webp",
+      "/assets/66f6c48db0f55e78154a6f1d_showcase_arcticresearch_7.webp",
+      "/assets/66f6c48fac38654b39f70b74_showcase_arcticresearch_8.webp",
+      "/assets/66f6c493e0908bd7fe380783_showcase_arcticresearch_9.webp",
+      "/assets/66f6c4965628d1c83d6c7d14_showcase_arcticresearch_10.webp",
+      "/assets/66f6c497a38d69a3415e1961_showcase_arcticresearch_11.webp",
+      "/assets/66f6c49988073a5ddd048c24_showcase_arcticresearch_12.webp",
+      "/assets/66f6c49bb320a8d924354872_showcase_arcticresearch_13.webp",
+      "/assets/66f6c49deb17ad6a3e0fd59d_showcase_arcticresearch_14.webp",
+      "/assets/66f6c4a20150eb1097450e73_showcase_arcticresearch_15.webp",
+      "/assets/66f6c4a3eeee00a07202db8c_showcase_arcticresearch_16.webp",
+      "/assets/66f6c4a8eeee00a07202ddcc_showcase_arcticresearch_17.webp",
+      "/assets/66f6c4a988073a5ddd04cd5c_showcase_arcticresearch_18.webp",
+      "/assets/66f6c4abdf985fff93990d7c_showcase_arcticresearch_19.webp",
+      "/assets/66f6c4ad05b145b16ef22950_showcase_arcticresearch_20.webp",
+      "/assets/66f6c4af3c0d6a9d9dd89ace_showcase_arcticresearch_21.webp",
+      "/assets/66f6c4b128c07d1eec1a2f83_showcase_arcticresearch_22.webp",
+      "/assets/66f6c4b3487eb21b1bad1fa4_showcase_arcticresearch_23.webp",
+      "/assets/66f6c4b5df985fff9399132d_showcase_arcticresearch_24.webp",
+      "/assets/66f6c4b653333e22d465168f_showcase_arcticresearch_25.webp"
+    ],
+    "link": "#",
+    "authorLink": "https://twitter.com/VucMiocene?s=20",
+    "cats": [
+      "modern",
+      "futuristic",
+      "realistic"
+    ],
+    "thumb": "/assets/64b314ed61b74377996ac1d8_thumbnail.webp"
+  },
+  {
+    "slug": "rail-gunnery",
+    "title": "Rail Gunnery",
+    "author": "xTechScammr",
+    "date": "2021-10-11",
+    "gallery": [
+      "/assets/64b315087af835ff71fbfb35_thumbnail.webp",
+      "/assets/66f6c7b4a8415383f5693756_showcase_railgunnery_2.webp",
+      "/assets/66f6c7b614ebc229d2d6f33b_showcase_railgunnery_3.webp",
+      "/assets/66f6c7b803f17a49bdddd634_showcase_railgunnery_4.webp"
+    ],
+    "link": "#",
+    "authorLink": "#",
+    "cats": [
+      "futuristic",
+      "steampunk"
+    ],
+    "thumb": "/assets/64b315087af835ff71fbfb35_thumbnail.webp"
+  },
+  {
+    "slug": "industrial-automobiles",
+    "title": "Industrial Automobiles",
+    "author": "xTechScammr",
+    "date": "2021-10-11",
+    "gallery": [
+      "/assets/64b3155a7f59f187bff837b8_thumbnail.webp",
+      "/assets/66f6c86340b41baf8863520b_showcase_industauto_2.webp",
+      "/assets/66f6c865491e413cb35aa33b_showcase_industauto_3.webp",
+      "/assets/66f6c867c95428b029b25573_showcase_industauto_4.webp"
+    ],
+    "link": "#",
+    "authorLink": "#",
+    "cats": [
+      "futuristic",
+      "modern"
+    ],
+    "thumb": "/assets/64b3155a7f59f187bff837b8_thumbnail.webp"
+  },
+  {
+    "slug": "hovercrafts-from-the-future",
+    "title": "Hovercrafts from the Future",
+    "author": "xTechScammr",
+    "date": "2021-10-11",
+    "gallery": [
+      "/assets/64b3157792b68a28ac7d26bc_thumbnail.webp",
+      "/assets/66f6c9ee156a7803aeba76d8_showcase_hovercrafts_2.webp",
+      "/assets/66f6c9f022f313c6b789a5fe_showcase_hovercrafts_3.webp",
+      "/assets/66f6c9f1b320a8d9243afe4a_showcase_hovercrafts_4.webp",
+      "/assets/66f6c9f3097547973a51be44_showcase_hovercrafts_5.webp",
+      "/assets/66f6c9f540b41baf8864be2e_showcase_hovercrafts_6.webp",
+      "/assets/66f6c9f617560693abfffbcd_showcase_hovercrafts_7.webp",
+      "/assets/66f6c9f8dbe89300ab89c33f_showcase_hovercrafts_8.webp",
+      "/assets/66f6c9fa53c642f8eabc9ca5_showcase_hovercrafts_9.webp",
+      "/assets/66f6c9fcbc3361acb828e958_showcase_hovercrafts_10.webp",
+      "/assets/66f6c9fe487eb21b1bb2779f_showcase_hovercrafts_11.webp"
+    ],
+    "link": "#",
+    "authorLink": "#",
+    "cats": [
+      "futuristic"
+    ],
+    "thumb": "/assets/64b3157792b68a28ac7d26bc_thumbnail.webp"
+  },
+  {
+    "slug": "a-baroque-church",
+    "title": "A Baroque Church",
+    "author": "Magicclippy",
+    "date": "2021-09-19",
+    "gallery": [
+      "/assets/66f6c345d5ceb8b8e20d2bac_showcase_baroquechurch_1.webp",
+      "/assets/64b315c3d4e691cd9086155f_614e346c8c136a713a927a04_E_rjiNpXsAImefr.webp"
+    ],
+    "link": "https://twitter.com/ClippyMagic/status/1439713567109009409?s=20",
+    "authorLink": "https://twitter.com/ClippyMagic?s=20",
+    "cats": [
+      "renaissance"
+    ],
+    "thumb": "/assets/64b315c3d4e691cd9086155f_614e346c8c136a713a927a04_E_rjiNpXsAImefr.webp"
+  },
+  {
+    "slug": "japanese-pagoda-to-ji-temple",
+    "title": "Japanese Pagoda (Tō-ji-Temple)",
+    "author": "Magicclippy and Xuezhe",
+    "date": "2021-08-09",
+    "gallery": [
+      "/assets/66f6c297c763fa4fb7e552ff_showcase_toji_1.webp",
+      "/assets/64b3159371c946976613aa88_thumbnail.webp",
+      "/assets/66f6c29c665544179136db6a_showcase_toji_3.webp",
+      "/assets/66f6c29e125bc6212b242f02_showcase_toji_4.webp"
+    ],
+    "link": "https://twitter.com/ClippyMagic/status/1424674584142417921?s=20",
+    "authorLink": "#",
+    "cats": [
+      "asian"
+    ],
+    "thumb": "/assets/64b3159371c946976613aa88_thumbnail.webp"
+  },
+  {
+    "slug": "minas-tirith-shophouse-concepts",
+    "title": "Minas Tirith Shophouse Concepts",
+    "author": "Whee, Eag, Hearthseeker",
+    "date": "2021-05-26",
+    "gallery": [
+      "/assets/64b315ac61b74377996b6120_thumbnail.webp",
+      "/assets/66f6c30288073a5ddd02cb10_showcase_minasconcepts_2.webp",
+      "/assets/66f6c304df47f57d3abb9fa5_showcase_minasconcepts_3.webp",
+      "/assets/66f6c306cff8a42c5a4bfa16_showcase_minasconcepts_4.webp"
+    ],
+    "link": "https://twitter.com/wheellee1/status/1397423746508414980?s=20",
+    "authorLink": "https://twitter.com/wheellee1?s=20",
+    "cats": [
+      "antique",
+      "fantasy"
+    ],
+    "thumb": "/assets/64b315ac61b74377996b6120_thumbnail.webp"
+  },
+  {
+    "slug": "medvedsky-hrad",
+    "title": "Medvedsky Hrad",
+    "author": "Patrixcraft, Vitautas, and Redranger",
+    "date": "2020-01-06",
+    "gallery": [
+      "/assets/66f6cf4b618990253c412de4_showcase_medvsky_1.webp",
+      "/assets/66f6cf4dbf5ba4b32923c826_showcase_medvsky_2.webp",
+      "/assets/66f6cf508cfe84b00c7b0fc9_showcase_medvsky_3.webp",
+      "/assets/66f6cf5298238c3f9f9b0170_showcase_medvsky_4.webp",
+      "/assets/66f6cf545f6d819d4bad3211_showcase_medvsky_5.webp",
+      "/assets/66f6cf59e12e6ed1e0e33fb6_showcase_medvsky_6.webp",
+      "/assets/66f6cf5dbd4e6b35f56d865c_showcase_medvsky_7.webp",
+      "/assets/66f6cf5f65d4220e9766a968_showcase_medvsky_8.webp",
+      "/assets/66f6cf6165d4220e9766ab16_showcase_medvsky_9.webp",
+      "/assets/66f6cf6307b9ea194433372e_showcase_medvsky_10.webp",
+      "/assets/66f6cf65aff7f3e156a01b9d_showcase_medvsky_12.webp",
+      "/assets/66f6cf680d9d219c9dff7658_showcase_medvsky_14.webp",
+      "/assets/66f6cf6a5fa224e85bdcfda8_showcase_medvsky_15.webp",
+      "/assets/66f6cf6b3313fb07f5345e76_showcase_medvsky_16.webp",
+      "/assets/66f6cf6f4b8dc634cb919305_showcase_medvsky_17.webp",
+      "/assets/66f6cf7141c57f4b2eab3dcd_showcase_medvsky_18.webp"
+    ],
+    "link": "https://twitter.com/patrixcraft/status/1073868472998739968",
+    "authorLink": "#",
+    "cats": [
+      "medieval",
+      "realistic",
+      "landscape-terrain"
+    ],
+    "thumb": "/assets/64b3173d104d31b97add571d_1.webp"
+  }
 ]

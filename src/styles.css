@@ -231,10 +231,13 @@ body.home { background: #111; padding-bottom: calc(var(--footer-h) + 10px); over
 }
 
 /* ---------- pages wrapped in the Webstudio header/footer (body.ws) ---------- */
-body.ws { background: #111; padding-bottom: 0; font-family: var(--font); }
+body.ws { background: #111; padding-bottom: 0; font-family: var(--font); white-space: normal; }
 body.ws main.page {
   position: relative; z-index: 10; background: #e8e8e8;
-  margin: 80px auto 0; padding: 20px 20px 140px; min-height: 100vh;
+  margin: 0 auto; padding: 100px 20px 140px; min-height: 100vh;
 }
 body.ws .page h1.heading { margin: 20px 0 12px; }
-@media (max-width: 900px) { body.ws main.page { margin-top: 118px; } }
+@media (max-width: 900px) { body.ws main.page { padding-top: 138px; } }
+
+body.ws .wfs-page { position: relative; z-index: 10; margin-top: 77px; background: transparent; }
+body.ws .wfs { white-space: normal; line-height: 20px; min-height: 0; }

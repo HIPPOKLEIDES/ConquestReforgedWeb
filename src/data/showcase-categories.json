@@ -1,0 +1,54 @@
+[
+  {
+    "slug": "realistic",
+    "label": "Realistic"
+  },
+  {
+    "slug": "colonial",
+    "label": "Colonial"
+  },
+  {
+    "slug": "middleeastern",
+    "label": "Middle Eastern"
+  },
+  {
+    "slug": "indian",
+    "label": "Indian"
+  },
+  {
+    "slug": "asian",
+    "label": "Asian"
+  },
+  {
+    "slug": "futuristic",
+    "label": "Futuristic"
+  },
+  {
+    "slug": "landscape-terrain",
+    "label": "Landscape/Terrain"
+  },
+  {
+    "slug": "antique",
+    "label": "Antique"
+  },
+  {
+    "slug": "renaissance",
+    "label": "Renaissance"
+  },
+  {
+    "slug": "fantasy",
+    "label": "Fantasy"
+  },
+  {
+    "slug": "steampunk",
+    "label": "Steampunk"
+  },
+  {
+    "slug": "modern",
+    "label": "Modern"
+  },
+  {
+    "slug": "medieval",
+    "label": "Medieval"
+  }
+]

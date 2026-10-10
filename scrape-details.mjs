@@ -63,21 +63,37 @@ const ytId = (h) => [...h.matchAll(/youtube\.com%2Fembed%2F([\w-]+)/g)].map((m) 
 
 // ---------- showcases ----------
 const showcases = readJSON('data', 'showcases.json');
+{ // thumbnails used on the list page
+  const lp = await get('/showcases');
+  for (const chunk of lp.split('role="listitem"').slice(1)) {
+    const slug = (chunk.match(/href="\/showcase\/([\w-]+)"/) || [])[1];
+    const img = (chunk.match(/background-image:url\(&quot;(https:[^&]+)&quot;\)/) || chunk.match(/<img src="(https:\/\/cdn\.prod[^"]+)"[^>]*class="image-70"/) || [])[1];
+    const it = showcases.find((x) => x.slug === slug);
+    if (it && img) it.thumb = img;
+  }
+}
 for (const it of showcases) {
   try {
     const raw = await get(`/showcase/${it.slug}`);
     const reg = region(raw);
-    const images = [...new Set([...region(raw, true).matchAll(/"url":\s*"(https:\/\/cdn\.prod\.website-files\.com\/[^"]+)"/g)].map((m) => m[1]))];
-    const rich = dropDeadLinks(cleanRich(richInner(block(reg, 'w-richtext'))));
+    const rich = dropDeadLinks(cleanRich(richInner(block(reg, 'rich-text-block-11'))));
     const vids = ytId(reg);
-    const parts = [];
-    for (const v of vids) parts.push(`::youtube[${v}]`);
-    for (const u of images) parts.push(`<p><img src="${u}" alt="${it.title.replace(/"/g, '&quot;')}" loading="lazy"></p>`);
-    if (rich) parts.push(...rich.split(/(?<=<\/(?:p|h\d|ul|ol|blockquote)>)/).map((s) => s.trim()).filter(Boolean));
-    write(`content/showcase/${it.slug}.md`, `---\ntitle: ${it.title}\n---\n\n${parts.join('\n\n')}\n`);
-    console.log('showcase', it.slug, images.length + ' images', vids.length + ' videos', rich.length + ' chars');
+    const imgs = (cls) => [...reg.matchAll(new RegExp(`<img src="(https://cdn\.prod\.website-files\.com/[^"]+)"[^>]*class="${cls}"`, 'g'))].map((m) => m[1]);
+    const gallery = [...new Set(imgs('image-73'))];
+    const href = (cls) => (reg.match(new RegExp(`<a href="([^"]+)" class="${cls}`)) || [])[1] || '';
+    it.gallery = gallery;
+    it.link = href('link-block-25');
+    it.authorLink = href('link-block-23');
+    it.cats = [...reg.matchAll(/href="\/showcase-categories\/([\w-]+)"/g)].map((m) => m[1]).filter((v, i, a) => a.indexOf(v) === i);
+    write(`content/showcase/${it.slug}.md`, `---\ntitle: ${it.title}\n---\n\n${[...vids.map((v) => `::youtube[${v}]`), ...rich.split(/(?<=<\/(?:p|h\d|ul|ol|blockquote)>)/).map((x) => x.trim()).filter(Boolean)].join('\n\n')}\n`);
+    console.log('showcase', it.slug, gallery.length + ' images', it.cats.join(','), rich.length + ' chars');
   } catch (e) { console.warn('showcase FAILED', it.slug, e.message); }
 }
+// category names, in the order the site lists them
+const catPage = await get('/showcases');
+const catList = [...region(catPage).matchAll(/href="\/showcase-categories\/([\w-]+)"[^>]*class="button-3 xxx w-button">([^<]+)</g)].map((m) => ({ slug: m[1], label: m[2].trim() }));
+write('data/showcase-categories.json', JSON.stringify(catList, null, 2) + '\n');
+write('data/showcases.json', JSON.stringify(showcases, null, 2) + '\n');
 
 // ---------- servers ----------
 const servers = readJSON('data', 'servers.json');

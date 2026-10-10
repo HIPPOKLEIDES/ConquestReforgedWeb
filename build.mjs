@@ -4,13 +4,14 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { scopeCss } from './wf-scope.mjs';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const SRC = path.join(ROOT, 'src');
 const DIST = path.join(ROOT, 'dist');
-const POSTS_PER_PAGE = 10;
+const POSTS_PER_PAGE = 2;
 
 const readText = (...p) => fs.readFileSync(path.join(SRC, ...p), 'utf8');
 const readJSON = (...p) => JSON.parse(readText(...p));
@@ -109,6 +110,17 @@ const cssHash = (() => {
   return { css, v: crypto.createHash('md5').update(css).digest('hex').slice(0, 8) };
 })();
 
+// Webflow's own stylesheet, re-scoped under .wfs: pages that reproduce original Webflow markup use it
+const wfScoped = (() => {
+  const f = path.join(SRC, 'clone', 'webflow.css');
+  if (!fs.existsSync(f)) return { css: '', v: '0' };
+  const css = scopeCss(fs.readFileSync(f, 'utf8')).replace(/https:\/\/cdn\.prod\.website-files\.com\/[^\s"')]+/g, (u) => {
+    const name = decodeURIComponent(u).split('?')[0].split('/').pop().replace(/[^\w.\-]+/g, '_');
+    return exists('assets/' + name) ? '/assets/' + name : u;
+  });
+  return { css, v: crypto.createHash('md5').update(css).digest('hex').slice(0, 8) };
+})();
+
 // The header, footer and social banner are designed in Webstudio (a shared Slot). Lift them, and the
 // Webstudio stylesheet, out of the export so generated pages (news, guides, ...) match exactly.
 const wsChrome = (() => {
@@ -136,6 +148,11 @@ const wsChrome = (() => {
   return { header: header.html, footer: footer.html, banner: banner ? banner.html : '', css, bg: bg ? bg[0] : '' };
 })();
 
+
+// Small corrections applied on top of the Webstudio chrome (footer link spacing, search button position, current-page glow)
+const FIX_CSS = `<style id="cr-fix">header{z-index:60!important}@media(min-width:901px){footer a[href="/team"],footer a[href="/faq"],footer a[href="/guides"]{position:absolute!important;top:13px;transform:translateX(-50%);margin:0!important;text-align:center}footer a[href="/team"]{left:calc(50% - 328px)}footer a[href="/faq"]{left:calc(50% - 161.5px)}footer a[href="/guides"]{left:calc(50% + .5px)}footer a[href*="patreon.com"]{position:absolute!important;top:13px;left:calc(50% + 308.5px);margin:0!important}form.crsearch{left:calc(50% + 150px)!important}}footer a.cr-cur{text-shadow:0 0 21px #d6ff00}</style>`;
+const FIX_JS = `<script>(function(){function m(){var p=location.pathname.replace(/[/]$/,'')||'/';document.querySelectorAll('footer a').forEach(function(a){var h=a.getAttribute('href')||'';if(h.charAt(0)==='/'&&(p===h||p.indexOf(h+'/')===0))a.classList.add('cr-cur')})}m();addEventListener('load',function(){m();setTimeout(m,1500)})})();</script>`;
+
 function layout({ title, description, body, urlPath, home = false, ogImage }) {
   const full = title === site.name ? title : `${title} | ${site.name}`;
   const canonical = site.url + (urlPath === '/' ? '' : urlPath);
@@ -156,7 +173,9 @@ function layout({ title, description, body, urlPath, home = false, ogImage }) {
 <meta property="og:image" content="${ogImage || site.logo}">
 <meta name="twitter:card" content="summary_large_image">
 ${wsChrome.css.join('\n')}
+${body.includes('class="wfs ') ? `<link rel="stylesheet" href="/assets/wf-scoped.css?v=${wfScoped.v}">` : ''}
 <link rel="stylesheet" href="/styles.css?v=${cssHash.v}">
+${FIX_CSS}
 </head>
 <body class="ws">
 ${wsChrome.bg}
@@ -164,6 +183,7 @@ ${wsChrome.header}
 ${body}
 ${wsChrome.footer}
 ${wsChrome.banner}
+${FIX_JS}
 </body>
 </html>
 `;
@@ -215,6 +235,7 @@ ${body}
 `;
 }
 
+const wfPage = (inner) => `<div class="wfs wfs-page"><div class="content">${inner}</div></div>`;
 const page = (heading, inner) => `<main class="page">\n${heading ? `<h1 class="heading">${esc(heading)}</h1>\n` : ''}${inner}\n</main>`;
 
 // ---------- pages from markdown ----------
@@ -242,71 +263,84 @@ function loadPosts() {
   return fs.readdirSync(dir).filter((f) => f.endsWith('.md')).map((f) => {
     const { meta, body } = parseDoc(fs.readFileSync(path.join(dir, f), 'utf8'));
     const slug = f.replace(/\.md$/, '');
-    const html = md(body, 2);
+    const html = md(body);
     const firstP = [...html.matchAll(/<p>([\s\S]*?)<\/p>/g)].map((x) => x[1]).find((x) => stripTags(x).trim().length > 40) || '';
     return { ...meta, slug, html, excerpt: meta.excerpt || stripTags(firstP).slice(0, 260) };
-  }).sort((a, b) => b.date.localeCompare(a.date));
+  }).sort((a, b) => b.date.localeCompare(a.date) || b.slug.localeCompare(a.slug));
 }
 
-function postMeta(p) {
+const catColor = (slug) => (site.newsCategories.find((c) => c.slug === slug) || {}).color || '#90d400';
+// YouTube embeds in news bodies use the original Webflow rich-text video markup
+const richVideo = (html) => html.replace(/<div class="embed"><iframe src="([^"]+)"[^>]*><\/iframe><\/div>/g, (m, src) => `<figure style="padding-bottom:33.723653395784545%" class="w-richtext-align-center w-richtext-figure-type-video"><div><iframe src="${src}" scrolling="no" frameborder="0" allowfullscreen="true"></iframe></div></figure>`);
+const tweet = (p) => `<div class="html-embed-5 w-embed w-script"><div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Check out the latest article ${esc(p.title)} at Conquestreforged.com/news " data-via="ConReforged" data-hashtags="weareconquest" data-show-count="false">Tweet</a></div></div>`;
+const rssLink = `<a href="/news/rss.xml" class="link-block-11 w-inline-block"><img src="/assets/66f4431cbfd7c7873b961641_rss_button.webp" width="30" height="30" alt="rss feed" class="image-49"></a>`;
+function newsItem(p) {
   const a = authors[p.author] || {};
-  return `<div class="post-meta">${a.avatar ? `<img src="${a.avatar}" alt="">` : ''}${p.author ? `<div class="who"><b>${esc(p.author)}</b><br>${esc(a.role || '')}</div>` : ''}<div class="tag">${fmtDate(p.date)}<br>${esc(p.category || '')}</div></div>`;
+  const col = catColor(p.categorySlug);
+  return `<div role="listitem" class="collection-item w-dyn-item"><div class="w-clearfix"><div class="div-block-77"><div class="div-block-78 w-clearfix"><div class="div-block-79"><div class="text-block-7">posted by:</div>${a.avatar ? `<img width="20" src="${a.avatar}" alt="${esc(p.author)}" class="image-34">` : ''}<div class="text-block-5">${esc(p.author || '')}</div></div><div class="text-block-6 link">${esc(a.role || '')}</div></div><div class="div-block-76 w-clearfix"><div class="text-block-3">${fmtDate(p.date)}</div><div style="background-color:${col}" class="text-block-4">${esc(p.category || '')}</div></div></div><a href="/news/${p.slug}" class="heading-3 w-inline-block w-clearfix"><h3 class="heading-3 text-copy">${esc(p.title)}</h3></a><div style="border-color:${col};background-color:${col}" class="div-block-17"></div><div class="rich-text-block-2 w-richtext">${richVideo(p.html)}</div><div class="div-block-95">${tweet(p)}${rssLink}</div></div></div>`;
 }
-function postCard(p) {
-  return `<article class="post-card">${postMeta(p)}<h3><a href="/news/${p.slug}">${esc(p.title)}</a></h3><p>${esc(p.excerpt)}${p.excerpt.length >= 260 ? '…' : ''}</p><a href="/news/${p.slug}">Read the full post →</a></article>`;
+function newsTabs(active) {
+  return `<div class="div-block-150"><a href="/news" class="button-10 w-button${active === 'all' ? ' w--current' : ''}">All News</a><div class="collection-list-wrapper-10 w-dyn-list"><div role="list" class="collection-list-9 w-dyn-items">${site.newsCategories.map((c) => `<div role="listitem" class="collection-item-11 w-dyn-item"><a style="color:${c.color}" href="/news-category/${c.slug}" class="button-9 w-button${active === c.slug ? ' w--current' : ''}">${esc(c.label)}</a></div>`).join('')}</div></div></div>`;
 }
-function catLinks(active) {
-  return `<nav class="cat-links" aria-label="News categories"><a href="/news"${active === 'all' ? ' aria-current="page"' : ''}>All News</a>${site.newsCategories.map((c) => `<a href="/news-category/${c.slug}"${active === c.slug ? ' aria-current="page"' : ''}>${esc(c.label)}</a>`).join('')}</nav>`;
+function newsList(heading, active, slice, pager) {
+  return wfPage(`<div class="div-block-8 w-clearfix"><div class="div-block-10 w-clearfix"><h1 class="heading"><strong class="bold-text-2">${esc(heading)}</strong></h1><div class="div-block-13">${newsTabs(active)}</div><div class="collection-list-wrapper w-dyn-list"><div role="list" class="w-clearfix w-dyn-items">${slice.map(newsItem).join('')}</div>${pager}</div></div></div>`);
 }
+const wfPager = (n, pages, base) => pages > 1 ? `<div role="navigation" aria-label="List" class="w-pagination-wrapper">${n > 1 ? `<a href="${n === 2 ? base : `${base}/page/${n - 1}`}" aria-label="Previous Page" class="w-pagination-previous"><svg class="w-pagination-previous-icon" height="12px" width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" transform="translate(0, 1)"><path fill="none" stroke="currentColor" fill-rule="evenodd" d="M8 10L4 6l4-4"></path></svg><div class="w-inline-block">Previous</div></a>` : ''}${n < pages ? `<a href="${base}/page/${n + 1}" aria-label="Next Page" class="w-pagination-next"><div class="w-inline-block">Next</div><svg class="w-pagination-next-icon" height="12px" width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" transform="translate(0, 1)"><path fill="none" stroke="currentColor" fill-rule="evenodd" d="M4 2l4 4-4 4"></path></svg></a>` : ''}</div>` : '';
 
 function buildNews(posts) {
   const pages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
   for (let n = 1; n <= pages; n++) {
     const slice = posts.slice((n - 1) * POSTS_PER_PAGE, n * POSTS_PER_PAGE);
     const urlPath = n === 1 ? '/news' : `/news/page/${n}`;
-    const pager = pages > 1 ? `<div class="pager"><span>${n > 1 ? `<a href="${n === 2 ? '/news' : `/news/page/${n - 1}`}">← Newer</a>` : ''}</span><span>${n < pages ? `<a href="/news/page/${n + 1}">Older →</a>` : ''}</span></div>` : '';
-    const voice = n === 1 ? `<section class="voice"><h2>Voice of the Community</h2><p>Spread news of your own projects (Conquest related) under the hashtag <a href="https://twitter.com/hashtag/WeAreConquest" rel="noopener" target="_blank">#WeAreConquest</a> to get featured.</p></section>` : '';
-    const inner = `${catLinks('all')}${slice.map(postCard).join('\n')}${pager}${voice}<p class="rss-link"><a href="/news/rss.xml">RSS feed</a></p>`;
-    emit(urlPath, layout({ title: n === 1 ? 'News' : `News (page ${n})`, description: 'Get the latest news about Conquest Reforged right from the source!', urlPath, body: page('Latest News', inner) }));
+    emit(urlPath, layout({ title: n === 1 ? 'News' : `News (page ${n})`, description: 'Get the latest news about Conquest Reforged right from the source!', urlPath, body: newsList('Latest News', 'all', slice, wfPager(n, pages, '/news')) }));
   }
-  posts.forEach((p, i) => {
+  posts.forEach((p) => {
     const urlPath = `/news/${p.slug}`;
-    const newer = posts[i - 1], older = posts[i + 1];
-    const nav = `<div class="pager"><span>${older ? `<a href="/news/${older.slug}">← ${esc(older.title)}</a>` : ''}</span><span>${newer ? `<a href="/news/${newer.slug}">${esc(newer.title)} →</a>` : ''}</span></div>`;
-    const inner = `${postMeta(p)}<h2>${esc(p.title)}</h2>\n${p.html}\n${nav}<p><a href="/news">← All news</a></p>`;
-    emit(urlPath, layout({ title: p.title, description: p.excerpt, urlPath, body: page('News', inner) }));
+    const body = wfPage(`<div class="div-block-8 w-clearfix"><h1 id="Headline" class="heading">${esc(p.title)}</h1><div class="div-block-12-copy"><div class="div-block-165"><div class="div-block-164"><div style="background-color:${catColor(p.categorySlug)}" class="text-block-2-copy w-clearfix">  </div><div class="text-block-2 w-clearfix"> written by </div><a href="/news" class="link-block-19 w-inline-block"><div class="text-block-2 w-clearfix">${esc(p.author || '')}</div></a><div class="text-block-2 w-clearfix"> on </div><div class="text-block-2 w-clearfix">${fmtDate(p.date)}</div></div><div class="div-block-166"></div><div><div class="rich-text-block-10 w-richtext">${richVideo(p.html)}</div><div class="div-block-95">${tweet(p)}${rssLink}</div><a href="#Headline" class="button-12 w-button">Back to top</a></div></div></div></div>`);
+    emit(urlPath, layout({ title: p.title, description: p.excerpt, urlPath, body }));
   });
   for (const c of site.newsCategories) {
     const list = posts.filter((p) => p.categorySlug === c.slug);
-    const urlPath = `/news-category/${c.slug}`;
-    const inner = `${catLinks(c.slug)}${list.length ? list.map(postCard).join('\n') : '<p>No posts in this category yet.</p>'}`;
-    emit(urlPath, layout({ title: c.label, description: `Conquest Reforged news: ${c.label}`, urlPath, body: page(c.label, inner) }));
+    const pg = Math.max(1, Math.ceil(list.length / POSTS_PER_PAGE));
+    for (let n = 1; n <= pg; n++) {
+      const urlPath = n === 1 ? `/news-category/${c.slug}` : `/news-category/${c.slug}/page/${n}`;
+      emit(urlPath, layout({ title: c.label, description: `Conquest Reforged news: ${c.label}`, urlPath, body: newsList('Latest News', c.slug, list.slice((n - 1) * POSTS_PER_PAGE, n * POSTS_PER_PAGE), wfPager(n, pg, `/news-category/${c.slug}`)) }));
+    }
   }
   const rssItems = posts.slice(0, 20).map((p) => `<item><title>${esc(p.title)}</title><link>${site.url}/news/${p.slug}</link><guid>${site.url}/news/${p.slug}</guid><pubDate>${new Date(p.date + 'T12:00:00Z').toUTCString()}</pubDate><description>${esc(p.excerpt)}</description></item>`).join('');
   emitRaw('news/rss.xml', `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>${esc(site.name)} News</title><link>${site.url}/news</link><description>${esc(site.description)}</description>${rssItems}</channel></rss>`);
 }
 
+const richImages = (html) => html.replace(/<p>\s*(<img [^>]*>)\s*<\/p>/g, '<figure class="w-richtext-align-center w-richtext-figure-type-image"><div>$1</div></figure>');
+const rich = (html) => richImages(richVideo(html));
+const catTabs = (base, cats, active, allLabel) => `<div class="collection-list-wrapper-6 w-dyn-list"><div role="list" class="collection-list-4 w-dyn-items"><div role="listitem" class="collection-item-6 w-dyn-item"><a href="${base.all}" class="button-3 xxx w-button">${allLabel}</a></div>${cats.map((c) => `<div role="listitem" class="collection-item-6 w-dyn-item"><a href="${base.prefix}/${c.slug}" class="button-3 xxx w-button${active === c.slug ? ' w--current' : ''}">${esc(c.label)}</a></div>`).join('')}</div></div>`;
+const wfHead = (h1, extra = '') => `<div class="div-block-64${extra}"><h1 class="heading"><strong class="bold-text-2">${esc(h1)}</strong></h1></div><div class="div-block-13"></div>`;
+const LIGHTBOX = `<script>(function(){var l=document.querySelectorAll('.w-lightbox');if(!l.length)return;var o=document.createElement('div');o.style.cssText='position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;cursor:zoom-out';var im=document.createElement('img');im.style.cssText='max-width:94vw;max-height:94vh;box-shadow:0 0 30px #000';o.appendChild(im);document.body.appendChild(o);var imgs=[].map.call(l,function(a){return a.querySelector('img').src}),cur=0;function show(i){cur=(i+imgs.length)%imgs.length;im.src=imgs[cur];o.style.display='flex'}o.addEventListener('click',function(){o.style.display='none'});addEventListener('keydown',function(e){if(o.style.display!=='flex')return;if(e.key==='Escape')o.style.display='none';if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1)});[].forEach.call(l,function(a,i){a.addEventListener('click',function(e){e.preventDefault();show(i)})})})();</script>`;
+
 // ---------- showcases ----------
 function buildShowcases() {
   const items = readJSON('data', 'showcases.json');
-  const cards = items.map((it) => {
-    const hasPage = exists('content', 'showcase', it.slug + '.md');
-    if (hasPage && !it.thumb) {
-      // no thumbnail on file: use the first gallery image of the detail page
-      const first = readText('content', 'showcase', it.slug + '.md').match(/<img src="([^"]+)"/);
-      if (first) it = { ...it, thumb: first[1] };
-    }
-    const img = it.thumb ? `<img class="thumb" src="${it.thumb}" alt="" loading="lazy">` : `<img class="thumb fallback" src="${site.fallbackThumb}" alt="" loading="lazy">`;
-    const inner = `${img}<div class="body"><h3>${esc(it.title)}</h3><p>made by ${esc(it.author)}<br>${fmtDate(it.date)}</p></div>`;
-    if (hasPage) {
-      const { body } = parseDoc(readText('content', 'showcase', it.slug + '.md'));
-      emit(`/showcase/${it.slug}`, layout({ title: it.title, description: `${it.title}, made by ${it.author}`, urlPath: `/showcase/${it.slug}`, ogImage: it.thumb, body: page('Showcase', `<h2>${esc(it.title)}</h2><p class="muted">made by ${esc(it.author)} · ${fmtDate(it.date)}</p>${md(body)}<p><a href="/showcases">← All showcases</a></p>`) }));
-      return `<a class="card" href="/showcase/${it.slug}">${inner}</a>`;
-    }
-    return `<div class="card">${inner}</div>`;
+  const cats = readJSON('data', 'showcase-categories.json');
+  const thumbOf = (it) => it.thumb || (it.gallery && it.gallery[0]) || site.fallbackThumb;
+  const featuredCard = (it) => `<div role="listitem" class="collection-item-14 w-dyn-item w-col w-col-6"><div class="div-block-181"><div class="div-block-177"><img src="${thumbOf(it)}" alt="" class="image-70"></div><div class="div-block-179"><div class="div-block-50-copy"><h1 class="heading-5-copy name">${esc(it.title)}</h1><div class="div-block-180"><div class="text-block-37">made by</div><div class="text-block-38">${esc(it.author)}</div></div><div class="text-block-40">${fmtDate(it.date)}</div></div></div></div><a href="/showcase/${it.slug}" class="link-block-22 w-inline-block"></a></div>`;
+  const smallCard = (it) => `<div role="listitem" class="collection-item-2 w-dyn-item"><a href="/showcase/${it.slug}" class="link-block-21 w-inline-block"><div class="div-block-30"><div class="div-block-31"><div class="div-block-50-copy-copy"><div class="div-block-183"><h1 class="heading-5-copy name">${esc(it.title)}</h1><div class="text-block-37">made by</div><div class="text-block-38">${esc(it.author)}</div></div></div></div><div title="submit" style="background-image:url(&quot;${thumbOf(it)}&quot;)" class="div-block-49-copy"></div><div class="text-block-40-copy">${fmtDate(it.date)}</div></div></a><div class="div-block-48-showcase"><img src="${site.fallbackThumb}" alt="" class="image-32"><div class="text-block-16">Want a chance to be featured? Tweet us your build with <a href="https://twitter.com/hashtag/weareconquest?src=hashtag_click" target="_blank">#WeAreConquest</a> or join our <a href="https://discord.gg/ZagrZvn" target="_blank">Discord</a>.</div></div></div>`;
+  const tabs = (a) => catTabs({ all: '/showcases', prefix: '/showcase-categories' }, cats, a, 'All Categories');
+  emit('/showcases', layout({ title: 'Community Showcases', description: 'Check out some of these awesome projects', urlPath: '/showcases', body: wfPage(`<div class="div-block-8 w-clearfix">${wfHead('Community Showcases')}${tabs('all')}<div class="div-block-13"></div><div class="collection-list-wrapper-14 w-dyn-list"><div role="list" class="collection-list-12 w-dyn-items w-row">${items.slice(0, 2).map(featuredCard).join('')}</div></div><div class="div-block-182"><div class="collection-list-wrapper-2 w-dyn-list"><div role="list" class="collection-list w-dyn-items">${items.slice(2).map(smallCard).join('')}</div></div></div></div>`) }));
+  for (const c of cats) {
+    const list = items.filter((it) => (it.cats || []).includes(c.slug));
+    emit(`/showcase-categories/${c.slug}`, layout({ title: c.label, description: `Community showcases: ${c.label}`, urlPath: `/showcase-categories/${c.slug}`, body: wfPage(`<div class="div-block-8 w-clearfix">${wfHead('Community Showcases')}${tabs(c.slug)}<div class="div-block-13"></div><div class="collection-list-wrapper-2 w-dyn-list"><div role="list" class="collection-list w-dyn-items">${list.map(smallCard).join('')}</div></div></div>`) }));
+  }
+  items.forEach((it, i) => {
+    if (!exists('content', 'showcase', it.slug + '.md')) return;
+    const { body } = parseDoc(readText('content', 'showcase', it.slug + '.md'));
+    const older = items[i + 1], newer = items[i - 1];
+    const gallery = (it.gallery && it.gallery.length ? it.gallery : [thumbOf(it)]);
+    const author = it.authorLink ? `<a href="${esc(it.authorLink)}" class="link-block-23 w-inline-block"><div class="text-block-42">${esc(it.author)}</div></a>` : `<div class="text-block-42">${esc(it.author)}</div>`;
+    const title = it.link ? `<a href="${esc(it.link)}" class="link-block-25 w-inline-block"><h1 class="heading-copy">${esc(it.title)}</h1></a>` : `<h1 class="heading-copy">${esc(it.title)}</h1>`;
+    const more = items.slice(0, 4).map((m) => `<div role="listitem" class="collection-item-17 w-dyn-item w-col w-col-3"><a href="/showcase/${m.slug}" class="link-block-24 w-inline-block${m.slug === it.slug ? ' w--current' : ''}"><img src="${thumbOf(m)}" alt="" class="image-74"><div class="text-block-47">${esc(m.title)}</div><div class="text-block-48">${fmtDate(m.date)}</div></a></div>`).join('');
+    const inner = `<div class="div-block-8 w-clearfix"><div class="div-block-64 fix"><div class="div-block-192">${title}<div class="div-block-184"><div class="text-block-41">a project by</div>${author}</div></div></div><div class="div-block-13"></div><div class="div-block-188"><div class="text-block-43">Published: </div><div class="text-block-44">${fmtDate(it.date)}</div></div><div class="div-block-186"></div><img src="${gallery[0]}" alt="" class="image-75"><div class="collection-list-wrapper-16 w-dyn-list"><div role="list" class="collection-list-13 w-dyn-items">${gallery.map((g) => `<div role="listitem" class="collection-item-15 w-dyn-item w-dyn-repeater-item"><a href="#" class="lightbox-link-3 w-inline-block w-lightbox"><img src="${g}" alt="" class="image-73"><img src="${g}" alt="" class="showcase-image"><img src="${g}" alt="" class="showcase-image-copy"><img src="${g}" alt="" class="image-72"></a></div>`).join('')}</div></div><div class="rich-text-block-11 w-richtext">${rich(md(body))}</div><div class="collection-list-wrapper-17 w-dyn-list"><div role="list" class="collection-list-15 w-dyn-items">${(it.cats || []).map((s) => { const c = cats.find((x) => x.slug === s); return c ? `<div role="listitem" class="collection-item-16 w-dyn-item"><a href="/showcase-categories/${s}" class="w-inline-block"><div class="text-block-45">${esc(c.label)}</div></a></div>` : ''; }).join('')}</div></div><div class="div-block-13"></div><div class="div-block-189"><div class="div-block-191">${older ? `<a href="/showcase/${older.slug}" class="button-14 w-button">previous Project</a>` : ''}</div><div class="div-block-190">${newer ? `<a href="/showcase/${newer.slug}" class="button-13 w-button">next Project</a>` : ''}</div></div><div class="collection-list-wrapper-19 w-dyn-list"><div role="list" class="collection-list-17 w-dyn-items w-row">${more}</div></div></div>${LIGHTBOX}`;
+    emit(`/showcase/${it.slug}`, layout({ title: it.title, description: `${it.title}, made by ${it.author}`, urlPath: `/showcase/${it.slug}`, ogImage: thumbOf(it), body: wfPage(inner) }));
   });
-  const inner = `<div class="grid">${cards.join('\n')}</div><div class="voice"><p>Want a chance to be featured? Tweet us your build with <a href="https://twitter.com/hashtag/weareconquest" rel="noopener" target="_blank">#WeAreConquest</a> or join our <a href="https://discord.gg/ZagrZvn" rel="noopener" target="_blank">Discord</a>.</p></div>`;
-  emit('/showcases', layout({ title: 'Community Showcases', description: 'Check out some of these awesome projects', urlPath: '/showcases', body: page('Community Showcases', inner) }));
 }
 
 // ---------- servers ----------
@@ -369,20 +403,23 @@ function buildYoutubers() {
 // ---------- guides ----------
 function buildGuides() {
   const items = readJSON('data', 'guides.json');
-  const cards = items.map((g) => {
-    const has = exists('content', 'guides', g.slug + '.md');
-    const meta = `by ${esc(g.author)}<br>${fmtDate(g.date)}${g.updated ? ` · updated ${fmtDate(g.updated)}` : ''}`;
-    const inner = `<img class="thumb${g.image ? '' : ' fallback'}" src="${g.image || site.fallbackThumb}" alt="" loading="lazy"><div class="body"><h3>${esc(g.title)}</h3><p>${meta}</p></div>`;
-    if (has) {
-      const { body } = parseDoc(readText('content', 'guides', g.slug + '.md'));
-      const inner2 = `<h2>${esc(g.title)}</h2><p class="muted">by ${esc(g.author)} · ${fmtDate(g.date)}${g.updated ? ` · updated ${fmtDate(g.updated)}` : ''}</p>${md(body)}<p><a href="/guides">← All guides</a></p>`;
-      emit(`/guides/${g.slug}`, layout({ title: g.title, description: `Conquest Reforged guide: ${g.title}`, urlPath: `/guides/${g.slug}`, ogImage: g.image, body: page('Guides', inner2) }));
-      return `<a class="card" href="/guides/${g.slug}">${inner}</a>`;
-    }
-    warnings.push(`guide "${g.slug}" has no src/content/guides/${g.slug}.md yet — card is not linked`);
-    return `<div class="card">${inner}</div>`;
-  });
-  emit('/guides', layout({ title: 'Guides', description: 'These guides aim to make your experience with the mod more streamlined and enjoyable.', urlPath: '/guides', body: page('Official Guides', `<div class="grid">${cards.join('\n')}</div>`) }));
+  const gcats = site.guideCategories;
+  const icon = (c, link) => `<a title="${esc(c.title)}" href="${link}" class="w-inline-block"><img src="${c.icon}" alt="${esc(c.title)}" class="guide-category-icons"></a>`;
+  const card = (g) => `<div role="listitem" class="collection-item-14 w-dyn-item w-col w-col-6"><div class="div-block-181"><div class="div-block-177"><img src="${g.image || site.fallbackThumb}" alt="" class="image-70"></div><div class="div-block-179"><div class="div-block-50-copy"><div class="div-block-195"><div class="text-block-50">${fmtDate(g.date)}</div></div><div class="div-block-197"><div class="text-block-52">${esc(g.title)}</div><div class="div-block-198"><div class="text-block-37">by</div><div class="text-block-38">${esc(g.author)}</div></div></div></div></div></div><a href="/guides/${g.slug}" class="link-block-22 w-inline-block"></a><div class="div-block-194">${gcats.filter((c) => c.slug === g.cat).map((c) => icon(c, `/guides/${g.slug}`)).join('')}</div></div>`;
+  const tabs = (a) => catTabs({ all: '/guides', prefix: '/guide-categories' }, gcats, a, 'All Categories');
+  const small = (g) => `<div role="listitem" class="collection-item-2-copy w-dyn-item"><a href="/guides/${g.slug}" class="link-block-21 w-inline-block"><div class="div-block-30"><div class="div-block-31"><div class="div-block-50-copy-copy"><div class="div-block-183"><h1 class="heading-5-copy name">${esc(g.title)}</h1><div class="text-block-37-copy"> by</div><div class="text-block-38-copy">${esc(g.author)}</div></div></div></div><div title="submit" style="background-image:url(&quot;${g.image || site.fallbackThumb}&quot;)" class="div-block-49-copy-copy"></div><div class="text-block-40-copy">${fmtDate(g.date)}</div></div></a><div class="guidecastegories_small">${gcats.filter((c) => c.slug === g.cat).map((c) => `<a title="${esc(c.title)}" href="/guides/${g.slug}" class="w-inline-block"><img src="${c.icon}" alt="${esc(c.title)}" class="guide-category-icons-small"></a>`).join('')}</div><div class="div-block-48-showcase"><img src="${site.fallbackThumb}" alt="" class="image-32"><div class="text-block-16">Want a chance to be featured? Tweet us your build with <a href="https://twitter.com/hashtag/weareconquest?src=hashtag_click" target="_blank">#WeAreConquest</a> or join our <a href="https://discord.gg/ZagrZvn" target="_blank">Discord</a>.</div></div></div>`;
+  const byDate = (list) => list.map((g, i) => [g, i]).sort((a, b) => b[0].date.localeCompare(a[0].date) || a[1] - b[1]).map((x) => x[0]);
+  const smallList = (list) => list.length ? `<div class="div-block-182"><div class="collection-list-wrapper-2 w-dyn-list"><div role="list" class="collection-list w-dyn-items">${byDate(list).map(small).join('')}</div></div></div>` : `<div class="div-block-182"><div class="collection-list-wrapper-2 w-dyn-list"><div class="w-dyn-empty"><div>No items found.</div></div></div></div>`;
+  const listPage = (urlPath, title, active, list, big) => emit(urlPath, layout({ title, description: 'These guides aim to make your experience with the mod more streamlined and enjoyable.', urlPath, body: wfPage(`<div class="div-block-8 w-clearfix">${wfHead('Official Guides')}${tabs(active)}<div class="div-block-13"></div>${big ? `<div class="collection-list-wrapper-14 w-dyn-list"><div role="list" class="collection-list-12 w-dyn-items w-row">${list.slice(0, 4).map(card).join('')}</div></div>` : ''}${smallList(list)}</div>`) }));
+  listPage('/guides', 'Guides', 'all', items, true);
+  for (const c of gcats) listPage(`/guide-categories/${c.slug}`, c.label, c.slug, items.filter((g) => g.cat === c.slug), false);
+  for (const g of items) {
+    if (!exists('content', 'guides', g.slug + '.md')) { warnings.push(`guide "${g.slug}" has no src/content/guides/${g.slug}.md yet`); continue; }
+    const { body } = parseDoc(readText('content', 'guides', g.slug + '.md'));
+    const other = items.filter((x) => x.slug !== g.slug && exists('content', 'guides', x.slug + '.md'));
+    const inner = `<div class="div-block-8 w-clearfix"><div class="div-block-64"><h1 class="heading">${esc(g.title)}</h1></div><div class="div-block-13"></div><div class="rich-text-block-13-copy w-richtext">${rich(md(body))}</div><div class="div-block-13-copy"></div><div class="collection-list-wrapper-20 w-dyn-list"><div role="list" class="collection-list-18 w-dyn-items w-dyn-hide"></div><div class="empty-state-2 w-dyn-empty"><div>No items found.</div></div></div><div class="div-block-13"></div><div class="text-block-51"><strong>Other Guides:</strong></div><div class="collection-list-wrapper-14-copy w-dyn-list"><div role="list" class="collection-list-12 w-dyn-items w-row">${other.map((o) => `<div role="listitem" class="collection-item-14-copy w-dyn-item w-col w-col-6"><a href="/guides/${o.slug}" class="w-inline-block"><div class="div-block-182"><img src="${o.image || site.fallbackThumb}" alt="" class="image-77"></div><div class="div-block-196"><div>${esc(o.title)}</div></div></a></div>`).join('')}</div></div></div>`;
+    emit(`/guides/${g.slug}`, layout({ title: g.title, description: `Conquest Reforged guide: ${g.title}`, urlPath: `/guides/${g.slug}`, ogImage: g.image, body: wfPage(inner) }));
+  }
 }
 
 // ---------- search ----------
@@ -440,10 +477,33 @@ function build404() {
   emitRaw('404.html', layout({ title: 'Page not found', description: 'Page not found', urlPath: '/404', body: page('Page not found', '<p>That page wandered off. Try the <a href="/">home page</a>, the <a href="/news">news</a>, or the <a href="/downloads">downloads</a>.</p>') }));
 }
 
+// Pack pages are faithful clones of the original Webflow pages (own design, own stylesheet): see clone-packs.mjs
+function buildClones() {
+  const dir = path.join(SRC, 'clone');
+  if (!fs.existsSync(path.join(dir, 'webflow.css'))) return;
+  const scripts = JSON.parse(fs.readFileSync(path.join(dir, 'scripts.json'), 'utf8'));
+  emitRaw('assets/pack-webflow.css', fs.readFileSync(path.join(dir, 'webflow.css'), 'utf8').replace(/https:\/\/cdn\.prod\.website-files\.com\/[^\s"')]+/g, (u) => {
+    const name = decodeURIComponent(u).split('?')[0].split('/').pop().replace(/[^\w.\-]+/g, '_');
+    return exists('assets/' + name) ? '/assets/' + name : u;
+  }));
+  for (const [u, name] of Object.entries(scripts)) emitRaw('assets/' + name, fs.readFileSync(path.join(dir, name)));
+  for (const f0 of fs.readdirSync(dir).filter((n) => n.endsWith('.body.html'))) {
+    const slug = f0.replace('.body.html', '').replace(/__/g, '/');
+    const f = path.join(dir, f0);
+    if (!fs.existsSync(f)) continue;
+    const meta = JSON.parse(fs.readFileSync(path.join(dir, f0.replace('.body.html', '.meta.json')), 'utf8'));
+    let body = fs.readFileSync(f, 'utf8');
+    body = body.replace(/<script[^>]*\ssrc="([^"]+)"[^>]*>(?:<\/script>)?/g, (m, u) => (scripts[u] ? `<script src="/assets/${scripts[u]}"></script>` : m));
+    body = body.replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/');
+    emit('/' + slug, `<!DOCTYPE html><html data-wf-page="${meta.wfPage}" data-wf-site="${meta.wfSite}" lang="en"><head><meta charset="utf-8"><title>${esc(meta.title)}</title><meta name="description" content="${esc(meta.description)}"><meta property="og:title" content="${esc(meta.title)}"><meta property="og:description" content="${esc(meta.description)}"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/pack-webflow.css"><script>!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link rel="icon" href="${site.logo}"><style>.truncate{white-space:nowrap;text-overflow:ellipsis}</style></head>${body}</html>`);
+  }
+}
+
 // ---------- run ----------
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
 emitRaw('styles.css', cssHash.css);
+emitRaw('assets/wf-scoped.css', wfScoped.css);
 if (exists('assets')) fs.cpSync(path.join(SRC, 'assets'), path.join(DIST, 'assets'), { recursive: true });
 
 const posts = loadPosts();
@@ -451,8 +511,7 @@ buildHome();
 buildMarkdownPage('info.md', '/info');
 buildMarkdownPage('downloads.md', '/downloads');
 buildMarkdownPage('faq.md', '/faq');
-buildMarkdownPage('conquest-pack.md', '/conquest-pack');
-buildMarkdownPage('conquest-bedrock.md', '/conquest-bedrock');
+buildClones();
 buildNews(posts);
 buildShowcases();
 buildServers();
@@ -509,7 +568,8 @@ if (fs.existsSync(WS)) {
       const out = path.join(DIST, path.relative(WS, p));
       const html = fs.readFileSync(out, 'utf8');
       if (!/<script>/.test(html)) continue;
-      fs.writeFileSync(out, html.replace(/<script>/g, '<script type="text/plain">').replace('</body>', RUN_EMBEDS + '</body>'));
+      // header (holds the fixed search button) must sit above the fixed footer bar
+      fs.writeFileSync(out, html.replace(/<script>/g, '<script type="text/plain">').replace('</head>', FIX_CSS + '</head>').replace('</body>', RUN_EMBEDS + FIX_JS + '</body>'));
     }
   })(WS);
   // Images pasted into Webstudio as HTML keep editor URLs like /cgi/asset/<name>_<21-char id>.webp.

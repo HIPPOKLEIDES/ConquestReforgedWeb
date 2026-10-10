@@ -12,26 +12,71 @@
     "nyala": "/assets/64b142dd841517deb345dc5a_Nyala-Regular2.woff2"
   },
   "navLeft": [
-    { "label": "Changelog", "href": "/news-category/mod-updates" },
-    { "label": "Download", "href": "/downloads" },
-    { "label": "News", "href": "/news" },
-    { "label": "Info", "href": "/info" }
+    {
+      "label": "Changelog",
+      "href": "/news-category/mod-updates"
+    },
+    {
+      "label": "Download",
+      "href": "/downloads"
+    },
+    {
+      "label": "News",
+      "href": "/news"
+    },
+    {
+      "label": "Info",
+      "href": "/info"
+    }
   ],
   "navRight": [
-    { "label": "Youtube", "href": "/serverslist/youtube-channels" },
-    { "label": "Showcases", "href": "/showcases" },
-    { "label": "Servers", "href": "/serverslist/servers" },
-    { "label": "Reddit", "href": "https://www.reddit.com/r/ConquestReforged/" }
+    {
+      "label": "Youtube",
+      "href": "/serverslist/youtube-channels"
+    },
+    {
+      "label": "Showcases",
+      "href": "/showcases"
+    },
+    {
+      "label": "Servers",
+      "href": "/serverslist/servers"
+    },
+    {
+      "label": "Reddit",
+      "href": "https://www.reddit.com/r/ConquestReforged/"
+    }
   ],
   "socials": [
-    { "label": "X", "href": "https://x.com/conreforged", "img": "/assets/66f2db0cb85b91ce0b41c83b_X.webp" },
-    { "label": "Instagram", "href": "https://www.instagram.com/conquest_studios/", "img": "/assets/66f2db0ce40da138632ad1f3_instagram.webp" },
-    { "label": "Discord", "href": "https://discord.gg/ZagrZvn", "img": "/assets/66f2db0c5660057f1be44606_discord.webp" }
+    {
+      "label": "X",
+      "href": "https://x.com/conreforged",
+      "img": "/assets/66f2db0cb85b91ce0b41c83b_X.webp"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/conquest_studios/",
+      "img": "/assets/66f2db0ce40da138632ad1f3_instagram.webp"
+    },
+    {
+      "label": "Discord",
+      "href": "https://discord.gg/ZagrZvn",
+      "img": "/assets/66f2db0c5660057f1be44606_discord.webp"
+    }
   ],
   "footerLinks": [
-    { "label": "Contact", "href": "/team" },
-    { "label": "FAQ", "href": "/faq" },
-    { "label": "Guides", "href": "/guides" }
+    {
+      "label": "Contact",
+      "href": "/team"
+    },
+    {
+      "label": "FAQ",
+      "href": "/faq"
+    },
+    {
+      "label": "Guides",
+      "href": "/guides"
+    }
   ],
   "patreon": {
     "href": "https://www.patreon.com/ConquestReforged",
@@ -43,16 +88,67 @@
     "text": "The next update for Conquest Reforged is out! This one brings loads of new tool models for all sorts of professions. Pole lathes for weavers, kilns and bellows for smelters, ovens for cooks, harrows for the farmers, and many more..."
   },
   "homeButtons": [
-    { "label": "Guides", "href": "/guides", "img": "/assets/64b15d65895fa3705e8d407d_guides_botton.webp", "size": 130 },
-    { "label": "Download", "href": "/downloads", "img": "/assets/64b15d669716bc66dcea14ba_download_button.webp", "size": 175 },
-    { "label": "Servers", "href": "/serverslist/servers", "img": "/assets/64b15d656a220f3a1b0fff48_servers_button.webp", "size": 130 }
+    {
+      "label": "Guides",
+      "href": "/guides",
+      "img": "/assets/64b15d65895fa3705e8d407d_guides_botton.webp",
+      "size": 130
+    },
+    {
+      "label": "Download",
+      "href": "/downloads",
+      "img": "/assets/64b15d669716bc66dcea14ba_download_button.webp",
+      "size": 175
+    },
+    {
+      "label": "Servers",
+      "href": "/serverslist/servers",
+      "img": "/assets/64b15d656a220f3a1b0fff48_servers_button.webp",
+      "size": 130
+    }
   ],
   "newsCategories": [
-    { "label": "Hot from the Press", "slug": "hot-from-the-press" },
-    { "label": "Mod Updates", "slug": "mod-updates" },
-    { "label": "Announcements", "slug": "announcements" },
-    { "label": "Featured", "slug": "showcase" }
+    {
+      "label": "Hot from the Press",
+      "slug": "hot-from-the-press",
+      "color": "#39bd20"
+    },
+    {
+      "label": "Mod Updates",
+      "slug": "mod-updates",
+      "color": "#90d400"
+    },
+    {
+      "label": "Announcements",
+      "slug": "announcements",
+      "color": "#3645f4"
+    },
+    {
+      "label": "Featured",
+      "slug": "showcase",
+      "color": "#e72151"
+    }
   ],
   "discordWidget": "https://discordapp.com/widget?id=164052674637987840&theme=light",
-  "fallbackThumb": "/assets/66f3135090de1709247c39a8_logo_small.avif"
+  "fallbackThumb": "/assets/66f3135090de1709247c39a8_logo_small.avif",
+  "guideCategories": [
+    {
+      "slug": "building-guides",
+      "label": "Building Guides",
+      "title": "Guides regarding how to improve your buildingskills.",
+      "icon": "/assets/66f44f8b070dc8d986fbb35d_guide_building.webp"
+    },
+    {
+      "slug": "survival",
+      "label": "Survival",
+      "title": "Survival related Guides to make the experience easier.",
+      "icon": "/assets/66f44f8be4e48d287c0d813f_guide_survival.webp"
+    },
+    {
+      "slug": "technical-issues",
+      "label": "Technical Issues",
+      "title": "Help regarding modding in general, customizing the mod or other setup related things like worldpainter and other 3rd party tools.",
+      "icon": "/assets/66f44f8b767af0c9444d8550_guide_technical.webp"
+    }
+  ]
 }
