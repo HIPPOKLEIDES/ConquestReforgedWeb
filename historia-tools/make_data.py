@@ -209,7 +209,7 @@ for ent, name, vanilla, kind in MOBS:
     mobs.append(m)
 
 # ---- citizens (NPC entities in the world; every look a character can spawn with)
-CITIZENS = ['priest', 'guard', 'baker', 'baker_apprentice', 'potter', 'sculptor', 'plasterer', 'farmer', 'fisherman', 'gardener',
+CITIZENS = ['priest', 'guard', 'baker', 'potter', 'sculptor', 'plasterer', 'farmer', 'fisherman', 'gardener',
             'washer_woman', 'well_woman', 'street_cleaner', 'worker', 'runner', 'cloaked_man', 'oldbeggar', 'beggar']
 NAME_FIX = {'oldbeggar': 'Old Beggar'}
 def npc_name(ent):

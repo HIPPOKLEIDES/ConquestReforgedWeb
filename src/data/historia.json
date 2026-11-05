@@ -3578,13 +3578,6 @@
    ]
   },
   {
-   "id": "baker_apprentice",
-   "name": "Baker Apprentice",
-   "imgs": [
-    "/assets/historia/citizens/baker_apprentice-0.webp"
-   ]
-  },
-  {
    "id": "potter",
    "name": "Potter",
    "imgs": [
