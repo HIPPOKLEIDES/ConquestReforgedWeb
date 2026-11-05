@@ -567,7 +567,7 @@ function buildHistoria() {
     ? `<a class="btn btn-gold" href="${h.bpFile}" download>Download .mcaddon</a>`
     : `<a class="btn btn-gold" aria-disabled="true">Available on release day</a>`;
   if (!bpExists) warnings.push(`historia: behaviour pack ${h.bpFile} not in src/ yet (download button disabled)`);
-  const html = readText('historia', 'index.html')
+  let html = readText('historia', 'index.html')
     .replace(/{{SITE_URL}}/g, site.url)
     .replace(/{{CSS_V}}/g, v(css)).replace(/{{JS_V}}/g, v(js))
     .replace(/{{ROBOTS}}/g, h.published ? '' : '<meta name="robots" content="noindex, nofollow">')
@@ -582,6 +582,15 @@ function buildHistoria() {
     .replace(/{{N_TEXTURES}}/g, `${(Math.floor((d.textures || 0) / 100) * 100).toLocaleString('en-US')}+`).replace('{{DOUBLE}}', double)
     .replace('{{CAT_TABS}}', tabs).replace('{{CAT_ITEMS}}', items).replace('{{MOBS}}', mobs)
     .replace('{{BP_VERSION}}', esc(h.bpVersion || '')).replace('{{BP_MC}}', esc(h.bpMinecraft || '')).replace('{{BP_SIZE}}', size).replace('{{BP_BUTTON}}', bpButton);
+  // assets are served as immutable for a year: version every Historia asset URL by its content so changes show up
+  const assetHash = {};
+  const versioned = html.replace(/\/assets\/historia\/[\w./-]+\.(?:webp|jpg|png|mp4|woff2)/g, (u) => {
+    const file = path.join(SRC, u);
+    if (!fs.existsSync(file)) return u;
+    assetHash[u] ||= crypto.createHash('md5').update(fs.readFileSync(file)).digest('hex').slice(0, 8);
+    return `${u}?v=${assetHash[u]}`;
+  });
+  html = versioned;
   // until launch the page exists but is unlisted (noindex, not in the sitemap)
   if (h.published) emit('/historia-rome', html); else emitRaw('historia-rome/index.html', html);
 }
