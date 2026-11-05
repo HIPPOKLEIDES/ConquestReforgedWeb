@@ -184,7 +184,7 @@ MOBS = [
     ('sniffer', 'Tortoise', 'Sniffer', 'beast'), ('phantom', 'Vulture', 'Phantom', 'beast'),
     ('vex', 'Raven', 'Vex', 'beast'), ('parrot', 'Seagull', 'Parrot', 'beast'),
     ('silverfish', 'Rat', 'Silverfish', 'beast'), ('endermite', 'Snake', 'Endermite', 'beast'),
-    ('mooshroom', 'Bull', 'Mooshroom', 'beast'), ('cow', 'Cow', 'Cow', 'farm'), ('horse', 'Horse', 'Horse', 'farm'),
+    ('cow', 'Cow', 'Cow', 'farm'), ('horse', 'Horse', 'Horse', 'farm'),
     ('donkey', 'Donkey', 'Donkey', 'farm'), ('camel', 'Camel', 'Camel', 'farm'), ('goat', 'Goat', 'Goat', 'farm'),
     ('pig', 'Pig', 'Pig', 'farm'), ('sheep', 'Sheep', 'Sheep', 'farm'), ('chicken', 'Chicken', 'Chicken', 'farm'),
     ('wolf', 'Wolf', 'Wolf', 'farm'), ('cat', 'Cat', 'Cat', 'farm'), ('rabbit', 'Hare', 'Rabbit', 'farm'),

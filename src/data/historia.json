@@ -3402,15 +3402,6 @@
    "walk": "/assets/historia/mobs/endermite-walk.webp"
   },
   {
-   "id": "mooshroom",
-   "name": "Bull",
-   "replaces": "Mooshroom",
-   "kind": "beast",
-   "img": "/assets/historia/mobs/mooshroom.webp",
-   "idle": "/assets/historia/mobs/mooshroom-idle.webp",
-   "walk": "/assets/historia/mobs/mooshroom-walk.webp"
-  },
-  {
    "id": "cow",
    "name": "Cow",
    "replaces": "Cow",

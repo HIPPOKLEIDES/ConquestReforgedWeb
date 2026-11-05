@@ -218,6 +218,19 @@ async function resolveTerrain(base, name) {
   return lookups[base](name);
 }
 
+async function layered(job, model, mat) {
+  if (!job.layers || !job.layers.length) return { root: model, models: [model] };
+  const root = new THREE.Group(); root.add(model);
+  const models = [model];
+  for (const L of job.layers) {
+    const g = findGeo(await getJSON(`/${job.base}/${L.geoFile || job.geoFile}`), L.geoId);
+    if (!g) throw new Error('layer geometry ' + L.geoId);
+    const lmat = L.texture ? texMaterial(await loadTexture(job.base, L.texture), job.method || 'alpha_test') : mat;
+    const m = buildModel(g, () => lmat, { hideBones: L.hideBones });
+    root.add(m); models.push(m);
+  }
+  return { root, models };
+}
 async function runJob(job) {
   if (job.type === 'entity') {
     const geoJson = await getJSON(`/${job.base}/${job.geoFile}`);
@@ -227,7 +240,7 @@ async function runJob(job) {
     if (job.tw) { geo.tw = job.tw; geo.th = job.th; }
     const mat = texMaterial(tex, job.method || 'alpha_test');
     const model = buildModel(geo, () => mat, { hideBones: job.hideBones });
-    return snapshot(model, job.view || { yaw: 210, pitch: 12 });
+    return snapshot((await layered(job, model, mat)).root, job.view || { yaw: 210, pitch: 12 });
   }
   if (job.type === 'block') {
     const mats = {};
@@ -284,7 +297,7 @@ async function runJob(job) {
     if (!geo) throw new Error('geometry ' + job.geoId);
     const tex = await loadTexture(job.texBase || job.base, job.texture);
     const mat = texMaterial(tex, job.method || 'alpha_test');
-    const model = buildModel(geo, () => mat, { hideBones: job.hideBones });
+    const { root: layeredRoot, models } = await layered(job, buildModel(geo, () => mat, { hideBones: job.hideBones }), mat);
     const anims = [];
     for (const id of job.anims) { const a = await findAnimation(id); if (a) anims.push(a); else log('  no animation', id); }
     if (!anims.length) throw new Error('no animations found');
@@ -302,12 +315,12 @@ async function runJob(job) {
       ctx.v = {};
       for (const pre of job.pre || []) HAnim.mol(pre, ctx);
     };
-    const st = stage(model, job.view || { yaw: 210, pitch: 12 });
+    const st = stage(layeredRoot, job.view || { yaw: 210, pitch: 12 });
     const box = new THREE.Box3();
     const step = Math.max(1, Math.floor(n / 16));
-    for (let i = 0; i < n; i += step) { const t = i / fps; setQ(t); HAnim.poseModel(model, anims, t, ctx); box.union(measure(st)); }
+    for (let i = 0; i < n; i += step) { const t = i / fps; setQ(t); models.forEach((m) => HAnim.poseModel(m, anims, t, ctx)); box.union(measure(st)); }
     for (let i = 0; i < n; i++) {
-      const t = i / fps; setQ(t); HAnim.poseModel(model, anims, t, ctx);
+      const t = i / fps; setQ(t); models.forEach((m) => HAnim.poseModel(m, anims, t, ctx));
       await save(`${job.out}/${String(i).padStart(3, '0')}.png`, shoot(st, box, job.view?.margin));
     }
     return null;

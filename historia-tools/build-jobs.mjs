@@ -322,7 +322,7 @@ if (mode === 'anims') {
     const idle = OVERRIDE ? OVERRIDE[0] : pick(['idle', 'idle_default', 'general', 'look_at_target_idle']);
     const walkA = OVERRIDE ? OVERRIDE[1] : pick(['walk', 'move', 'walking', 'fly', 'swim', 'run']);
     const extras = ['blink', 'tail', 'wings', 'flap', 'fins'].map((k) => A[k]).filter((x) => x && !x.startsWith('controller.') && index[x]);
-    const common = { type: 'anim', base: still.base, geoFile: still.geoFile, geoId: still.geoId, texture: still.texture, hideBones: still.hideBones, pre, fps: 15 };
+    const common = { type: 'anim', base: still.base, geoFile: still.geoFile, geoId: still.geoId, texture: still.texture, hideBones: still.hideBones, layers: still.layers, pre, fps: 15 };
     if (idle) jobs.push({ ...common, anims: [idle, ...extras], out: `anim/${name}/idle` });
     if (walkA) {
       const [abase, ...arel] = index[walkA].split('/');
