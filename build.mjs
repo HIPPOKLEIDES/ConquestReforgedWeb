@@ -560,9 +560,10 @@ function buildHistoria() {
   const mobs = d.mobs.map((m) => `<div class="mob" data-kind="${m.kind}"><img src="${m.idle || m.img}" data-still="${m.img}"${m.idle ? ` data-idle="${m.idle}"` : ''}${m.walk ? ` data-walk="${m.walk}"` : ''} alt="${esc(m.name)}" loading="lazy" width="170" height="170"><b>${esc(m.name)}</b><span>replaces the ${esc(m.replaces)}</span></div>`).join('');
   const bpPath = h.bpFile && path.join(SRC, h.bpFile);
   const bpExists = bpPath && fs.existsSync(bpPath);
-  if (bpExists) emitRaw(h.bpFile.slice(1), fs.readFileSync(bpPath));
+  // the add-on is only deployed (and the button only works) once the page is published on release day
+  if (bpExists && h.published) emitRaw(h.bpFile.slice(1), fs.readFileSync(bpPath));
   const size = bpExists ? `${(fs.statSync(bpPath).size / 1048576).toFixed(1)} MB` : '—';
-  const bpButton = bpExists
+  const bpButton = bpExists && h.published
     ? `<a class="btn btn-gold" href="${h.bpFile}" download>Download .mcaddon</a>`
     : `<a class="btn btn-gold" aria-disabled="true">Available on release day</a>`;
   if (!bpExists) warnings.push(`historia: behaviour pack ${h.bpFile} not in src/ yet (download button disabled)`);
