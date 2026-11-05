@@ -538,6 +538,53 @@ function buildClones() {
   }
 }
 
+// ---------- Historia: Rome product page (src/historia/ template + src/data/historia.json; see historia-tools/) ----------
+function buildHistoria() {
+  if (!exists('historia', 'index.html') || !exists('data', 'historia.json')) return;
+  const h = site.historia || {};
+  const d = readJSON('data', 'historia.json');
+  const css = readText('historia', 'historia.css');
+  const js = readText('historia', 'historia.js');
+  const v = (s) => crypto.createHash('md5').update(s).digest('hex').slice(0, 8);
+  emitRaw('assets/historia/historia.css', css);
+  emitRaw('assets/historia/historia.js', js);
+  const live = !!(h.published && h.marketplaceUrl);
+  const nItems = d.groups.reduce((n, g) => n + g.items.length, 0);
+  const gallery = d.shots.filter((s) => s !== 'marketingkeyart').map((s) => `<a href="/assets/historia/shots/${s}-1600.webp"><img src="/assets/historia/shots/${s}-800.webp" srcset="/assets/historia/shots/${s}-800.webp 800w, /assets/historia/shots/${s}-1600.webp 1600w" sizes="(max-width: 860px) 50vw, 33vw" alt="${esc((h.captions || {})[s] || 'Historia: Rome')}" loading="lazy"><figcaption>${esc((h.captions || {})[s] || '')}</figcaption></a>`).join('');
+  // citizens with several looks cycle through them (historia.js)
+  const citizens = d.citizens.map((c) => `<div class="citizen${c.imgs.length > 1 ? ' cycles' : ''}"><div class="cz-imgs">${c.imgs.map((src, i) => `<img${i ? '' : ' class="on"'} src="${src}" alt="" loading="lazy" width="128" height="128">`).join('')}</div><span>${esc(c.name)}</span>${c.imgs.length > 1 ? `<small>${c.imgs.length} looks</small>` : ''}</div>`).join('');
+  const townsfolk = (d.townsfolk || []).map((src) => `<img src="${src}" alt="" loading="lazy" width="88" height="88">`).join('');
+  const double = d.doubleSlabs.map((s) => `<div class="ds${s.base ? ' has-base' : ''}"><div class="ds-img">${s.base ? `<img class="base" src="${s.base}" alt="" loading="lazy">` : ''}<img class="top" src="${s.img}" alt="" loading="lazy"></div><span class="ds-name">${esc(s.name)}</span></div>`).join('');
+  const tabs = `<button type="button" class="on" data-group="" role="tab" aria-selected="true">All <small>${nItems}</small></button>` + d.groups.map((g) => `<button type="button" data-group="${g.key}" role="tab" aria-selected="false">${esc(g.label)} <small>${g.items.length}</small></button>`).join('');
+  const items = d.groups.flatMap((g) => g.items.map((it) => `<div class="item" data-group="${g.key}" data-search="${esc(`${it.name} ${it.sub} ${g.label}`.toLowerCase())}"><img src="${it.img}" alt="" loading="lazy" width="96" height="96"><b>${esc(it.name)}</b>${it.sub ? `<i>${esc(it.sub)}</i>` : ''}${it.note ? `<em class="note">${esc(it.note)}</em>` : ''}${it.lore ? `<span class="lore">${esc(it.lore)}</span>` : ''}</div>`)).join('');
+  const mobs = d.mobs.map((m) => `<div class="mob" data-kind="${m.kind}"><img src="${m.idle || m.img}" data-still="${m.img}"${m.idle ? ` data-idle="${m.idle}"` : ''}${m.walk ? ` data-walk="${m.walk}"` : ''} alt="${esc(m.name)}" loading="lazy" width="170" height="170"><b>${esc(m.name)}</b><span>replaces the ${esc(m.replaces)}</span></div>`).join('');
+  const bpPath = h.bpFile && path.join(SRC, h.bpFile);
+  const bpExists = bpPath && fs.existsSync(bpPath);
+  if (bpExists) emitRaw(h.bpFile.slice(1), fs.readFileSync(bpPath));
+  const size = bpExists ? `${(fs.statSync(bpPath).size / 1048576).toFixed(1)} MB` : '—';
+  const bpButton = bpExists
+    ? `<a class="btn btn-gold" href="${h.bpFile}" download>Download .mcaddon</a>`
+    : `<a class="btn btn-gold" aria-disabled="true">Available on release day</a>`;
+  if (!bpExists) warnings.push(`historia: behaviour pack ${h.bpFile} not in src/ yet (download button disabled)`);
+  const html = readText('historia', 'index.html')
+    .replace(/{{SITE_URL}}/g, site.url)
+    .replace(/{{CSS_V}}/g, v(css)).replace(/{{JS_V}}/g, v(js))
+    .replace(/{{ROBOTS}}/g, h.published ? '' : '<meta name="robots" content="noindex, nofollow">')
+    .replace(/{{MARKETPLACE_URL}}/g, esc(live ? h.marketplaceUrl : '#behavior-pack'))
+    .replace(/{{CTA_LABEL}}/g, esc(live ? h.ctaLive : h.ctaComing))
+    .replace(/{{RELEASE_LINE}}/g, esc(live ? 'Now on the Minecraft Marketplace' : h.releaseLine))
+    .replace(/{{N_BLOCKS}}/g, `${Math.floor(nItems / 50) * 50}+`)
+    .replace(/{{N_MOBS}}/g, `${Math.floor(d.mobs.length / 5) * 5}+`)
+    .replace(/{{N_CITIZENS}}/g, `${d.citizens.length}`)
+    .replace(/{{N_DOUBLE}}/g, `${d.doubleSlabs.length}`).replace(/{{N_ITEMS}}/g, `${nItems}`)
+    .replace('{{GALLERY}}', gallery).replace('{{CITIZENS}}', citizens).replace('{{TOWNSFOLK}}', townsfolk)
+    .replace(/{{N_TEXTURES}}/g, `${(Math.floor((d.textures || 0) / 100) * 100).toLocaleString('en-US')}+`).replace('{{DOUBLE}}', double)
+    .replace('{{CAT_TABS}}', tabs).replace('{{CAT_ITEMS}}', items).replace('{{MOBS}}', mobs)
+    .replace('{{BP_VERSION}}', esc(h.bpVersion || '')).replace('{{BP_MC}}', esc(h.bpMinecraft || '')).replace('{{BP_SIZE}}', size).replace('{{BP_BUTTON}}', bpButton);
+  // until launch the page exists but is unlisted (noindex, not in the sitemap)
+  if (h.published) emit('/historia-rome', html); else emitRaw('historia-rome/index.html', html);
+}
+
 // ---------- run ----------
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
@@ -551,6 +598,7 @@ buildMarkdownPage('info.md', '/info');
 buildMarkdownPage('downloads.md', '/downloads');
 buildMarkdownPage('faq.md', '/faq');
 buildClones();
+buildHistoria();
 buildChromeClones();
 buildNews(posts);
 buildShowcases();

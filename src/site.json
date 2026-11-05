@@ -158,5 +158,28 @@
     "youtube": "/assets/66f4476c5f9c8a717ff4ae5c_youtuber_button.webp",
     "twitterBtn": "/assets/66f44cbebe1e00beab2f7ad5_twitter_button.webp",
     "rss": "/assets/rss-icon.webp"
+  },
+  "historia": {
+    "published": false,
+    "releaseLine": "Coming to the Minecraft Marketplace · November 24",
+    "marketplaceUrl": "",
+    "ctaComing": "Coming November 24",
+    "ctaLive": "Get it on the Marketplace",
+    "bpFile": "/downloads/historia-rome-addon.mcaddon",
+    "bpVersion": "1.0.3",
+    "bpMinecraft": "1.21.130",
+    "captions": {
+      "marketingkeyart": "Rome from the countryside",
+      "marketingscreenshot_0": "The Temple of Jupiter",
+      "marketingscreenshot_1": "Cranes at the river harbour",
+      "marketingscreenshot_2": "A garden shrine",
+      "marketingscreenshot_3": "The arena",
+      "marketingscreenshot_4": "Inside a temple",
+      "marketingscreenshot_5": "The bathhouse",
+      "marketingscreenshot_6": "A busy street",
+      "marketingscreenshot_7": "Through the gate at night",
+      "marketingscreenshot_8": "A villa garden",
+      "marketingscreenshot_9": "A fuller's workshop"
+    }
   }
 }

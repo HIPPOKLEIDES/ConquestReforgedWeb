@@ -1,0 +1,527 @@
+[
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/priest_male.geo.json",
+  "geoId": "geometry.priest_male",
+  "texture": "textures/entity/npc/priest_male",
+  "hideBones": [],
+  "out": "citizens/priest/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/guard.geo.json",
+  "geoId": "geometry.guard",
+  "texture": "textures/entity/npc/guard",
+  "hideBones": [],
+  "out": "citizens/guard/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/guard.geo.json",
+  "geoId": "geometry.guard",
+  "texture": "textures/entity/npc/guard_2",
+  "hideBones": [],
+  "out": "citizens/guard/1.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/guard1.geo.json",
+  "geoId": "geometry.guard1",
+  "texture": "textures/entity/npc/guard",
+  "hideBones": [],
+  "out": "citizens/guard/2.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/guard1.geo.json",
+  "geoId": "geometry.guard1",
+  "texture": "textures/entity/npc/guard_2",
+  "hideBones": [],
+  "out": "citizens/guard/3.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/guard2.geo.json",
+  "geoId": "geometry.guard2",
+  "texture": "textures/entity/npc/guard",
+  "hideBones": [],
+  "out": "citizens/guard/4.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/guard2.geo.json",
+  "geoId": "geometry.guard2",
+  "texture": "textures/entity/npc/guard_2",
+  "hideBones": [],
+  "out": "citizens/guard/5.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/guard.geo.json",
+  "geoId": "geometry.guard",
+  "texture": "textures/entity/npc/guard",
+  "hideBones": [
+   "shield"
+  ],
+  "out": "citizens/guard/6.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/guard.geo.json",
+  "geoId": "geometry.guard",
+  "texture": "textures/entity/npc/guard_2",
+  "hideBones": [
+   "shield"
+  ],
+  "out": "citizens/guard/7.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/guard1.geo.json",
+  "geoId": "geometry.guard1",
+  "texture": "textures/entity/npc/guard",
+  "hideBones": [
+   "shield"
+  ],
+  "out": "citizens/guard/8.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/guard1.geo.json",
+  "geoId": "geometry.guard1",
+  "texture": "textures/entity/npc/guard_2",
+  "hideBones": [
+   "shield"
+  ],
+  "out": "citizens/guard/9.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/guard2.geo.json",
+  "geoId": "geometry.guard2",
+  "texture": "textures/entity/npc/guard",
+  "hideBones": [
+   "shield"
+  ],
+  "out": "citizens/guard/10.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/guard2.geo.json",
+  "geoId": "geometry.guard2",
+  "texture": "textures/entity/npc/guard_2",
+  "hideBones": [
+   "shield"
+  ],
+  "out": "citizens/guard/11.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/baker.geo.json",
+  "geoId": "geometry.baker",
+  "texture": "textures/entity/baker",
+  "hideBones": [],
+  "out": "citizens/baker/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/baker_apprentice.geo.json",
+  "geoId": "geometry.baker_apprentice",
+  "texture": "textures/entity/baker_apprentice",
+  "hideBones": [],
+  "out": "citizens/baker_apprentice/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/potter.geo.json",
+  "geoId": "geometry.potter",
+  "texture": "textures/entity/npc/potter",
+  "hideBones": [],
+  "out": "citizens/potter/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/sculptor.geo.json",
+  "geoId": "geometry.sculptor",
+  "texture": "textures/entity/npc/sculptor",
+  "hideBones": [],
+  "out": "citizens/sculptor/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/plasterer.geo.json",
+  "geoId": "geometry.plasterer",
+  "texture": "textures/entity/npc/plasterer",
+  "hideBones": [],
+  "out": "citizens/plasterer/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/farmer_1.geo.json",
+  "geoId": "geometry.farmer_1",
+  "texture": "textures/entity/npc/farmer_1",
+  "hideBones": [],
+  "out": "citizens/farmer/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/farmer_2.geo.json",
+  "geoId": "geometry.farmer_2",
+  "texture": "textures/entity/npc/farmer_2",
+  "hideBones": [],
+  "out": "citizens/farmer/1.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/farmer_3.geo.json",
+  "geoId": "geometry.farmer_3",
+  "texture": "textures/entity/npc/farmer_3",
+  "hideBones": [],
+  "out": "citizens/farmer/2.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/fisherman.geo.json",
+  "geoId": "geometry.fisherman",
+  "texture": "textures/entity/npc/fisherman",
+  "hideBones": [],
+  "out": "citizens/fisherman/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/gardener.geo.json",
+  "geoId": "geometry.gardener",
+  "texture": "textures/entity/npc/gardener",
+  "hideBones": [],
+  "out": "citizens/gardener/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/washer_woman.geo.json",
+  "geoId": "geometry.washer_woman",
+  "texture": "textures/entity/npc/washer_woman",
+  "hideBones": [],
+  "out": "citizens/washer_woman/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/well_woman_1.geo.json",
+  "geoId": "geometry.well_woman_1",
+  "texture": "textures/entity/npc/well_woman_1",
+  "hideBones": [],
+  "out": "citizens/well_woman/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/well_woman_2.geo.json",
+  "geoId": "geometry.well_woman_2",
+  "texture": "textures/entity/npc/well_woman_2",
+  "hideBones": [],
+  "out": "citizens/well_woman/1.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/well_woman_3.geo.json",
+  "geoId": "geometry.well_woman_3",
+  "texture": "textures/entity/npc/well_woman_3",
+  "hideBones": [],
+  "out": "citizens/well_woman/2.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/street_cleaner.geo.json",
+  "geoId": "geometry.street_cleaner",
+  "texture": "textures/entity/npc/street_cleaner",
+  "hideBones": [],
+  "out": "citizens/street_cleaner/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/cloaked_man.geo.json",
+  "geoId": "geometry.cloaked_man",
+  "texture": "textures/entity/npc/cloaked_man",
+  "hideBones": [],
+  "out": "citizens/cloaked_man/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/oldbeggar.geo.json",
+  "geoId": "geometry.oldbeggar",
+  "texture": "textures/entity/oldbeggar",
+  "hideBones": [],
+  "out": "citizens/oldbeggar/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/beggar.geo.json",
+  "geoId": "geometry.beggar",
+  "texture": "textures/entity/beggar",
+  "hideBones": [],
+  "out": "citizens/beggar/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/runner.geo.json",
+  "geoId": "geometry.runner",
+  "texture": "textures/entity/npc/towngoer_m_1",
+  "hideBones": [],
+  "out": "citizens/runner/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/worker_saw.geo.json",
+  "geoId": "geometry.worker_saw",
+  "texture": "textures/entity/npc/worker_stone",
+  "hideBones": [],
+  "out": "citizens/worker/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/worker_drill.geo.json",
+  "geoId": "geometry.worker_drill",
+  "texture": "textures/entity/npc/worker_stone",
+  "hideBones": [],
+  "out": "citizens/worker/1.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/worker_handplane.geo.json",
+  "geoId": "geometry.worker_handplane",
+  "texture": "textures/entity/npc/worker",
+  "hideBones": [],
+  "out": "citizens/worker/2.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/worker_auger.geo.json",
+  "geoId": "geometry.worker_auger",
+  "texture": "textures/entity/npc/worker",
+  "hideBones": [],
+  "out": "citizens/worker/3.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/worker_log.geo.json",
+  "geoId": "geometry.worker_log",
+  "texture": "textures/entity/npc/worker",
+  "hideBones": [],
+  "out": "citizens/worker/4.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/worker_woodcutter.geo.json",
+  "geoId": "geometry.worker_woodcutter",
+  "texture": "textures/entity/npc/worker",
+  "hideBones": [],
+  "out": "citizens/worker/5.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/worker_mill.geo.json",
+  "geoId": "geometry.worker_mill",
+  "texture": "textures/entity/npc/worker_mill",
+  "hideBones": [],
+  "out": "citizens/worker/6.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_f_1.geo.json",
+  "geoId": "geometry.towngoer_f_1",
+  "texture": "textures/entity/npc/towngoer_f_1",
+  "hideBones": [],
+  "out": "citizens/towngoer/0.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_f_1.geo.json",
+  "geoId": "geometry.towngoer_f_1",
+  "texture": "textures/entity/npc/towngoer_f_2",
+  "hideBones": [],
+  "out": "citizens/towngoer/1.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_f_2.geo.json",
+  "geoId": "geometry.towngoer_f_2",
+  "texture": "textures/entity/npc/towngoer_f_3",
+  "hideBones": [],
+  "out": "citizens/towngoer/2.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_f_3.geo.json",
+  "geoId": "geometry.towngoer_f_3",
+  "texture": "textures/entity/npc/towngoer_f_4",
+  "hideBones": [],
+  "out": "citizens/towngoer/3.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_f_3.geo.json",
+  "geoId": "geometry.towngoer_f_3",
+  "texture": "textures/entity/npc/towngoer_f_5",
+  "hideBones": [],
+  "out": "citizens/towngoer/4.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_f_3.geo.json",
+  "geoId": "geometry.towngoer_f_3",
+  "texture": "textures/entity/npc/towngoer_f_6",
+  "hideBones": [],
+  "out": "citizens/towngoer/5.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_f_4.geo.json",
+  "geoId": "geometry.towngoer_f_4",
+  "texture": "textures/entity/npc/towngoer_f_7",
+  "hideBones": [],
+  "out": "citizens/towngoer/6.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_m_1.geo.json",
+  "geoId": "geometry.towngoer_m_1",
+  "texture": "textures/entity/npc/towngoer_m_1",
+  "hideBones": [],
+  "out": "citizens/towngoer/7.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_m_1.geo.json",
+  "geoId": "geometry.towngoer_m_1",
+  "texture": "textures/entity/npc/towngoer_m_2",
+  "hideBones": [],
+  "out": "citizens/towngoer/8.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_m_1.geo.json",
+  "geoId": "geometry.towngoer_m_1",
+  "texture": "textures/entity/npc/towngoer_m_3",
+  "hideBones": [],
+  "out": "citizens/towngoer/9.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_m_2.geo.json",
+  "geoId": "geometry.towngoer_m_2",
+  "texture": "textures/entity/npc/towngoer_m_4",
+  "hideBones": [],
+  "out": "citizens/towngoer/10.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_m_2.geo.json",
+  "geoId": "geometry.towngoer_m_2",
+  "texture": "textures/entity/npc/towngoer_m_5",
+  "hideBones": [],
+  "out": "citizens/towngoer/11.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_m_2.geo.json",
+  "geoId": "geometry.towngoer_m_2",
+  "texture": "textures/entity/npc/towngoer_m_6",
+  "hideBones": [],
+  "out": "citizens/towngoer/12.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_m_3.geo.json",
+  "geoId": "geometry.towngoer_m_3",
+  "texture": "textures/entity/npc/towngoer_m_7",
+  "hideBones": [],
+  "out": "citizens/towngoer/13.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_m_3.geo.json",
+  "geoId": "geometry.towngoer_m_3",
+  "texture": "textures/entity/npc/towngoer_m_8",
+  "hideBones": [],
+  "out": "citizens/towngoer/14.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_m_3.geo.json",
+  "geoId": "geometry.towngoer_m_3",
+  "texture": "textures/entity/npc/towngoer_m_9",
+  "hideBones": [],
+  "out": "citizens/towngoer/15.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_m_4.geo.json",
+  "geoId": "geometry.towngoer_m_4",
+  "texture": "textures/entity/npc/towngoer_m_10",
+  "hideBones": [],
+  "out": "citizens/towngoer/16.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/towngoer_m_4.geo.json",
+  "geoId": "geometry.towngoer_m_4",
+  "texture": "textures/entity/npc/towngoer_m_11",
+  "hideBones": [],
+  "out": "citizens/towngoer/17.png"
+ }
+]

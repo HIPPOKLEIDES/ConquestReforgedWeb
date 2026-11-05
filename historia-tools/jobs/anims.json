@@ -1,0 +1,937 @@
+[
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/poseidon.geo.json",
+  "geoId": "geometry.poseidon",
+  "texture": "textures/entity/guardian_elder",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.poseidon.idle"
+  ],
+  "out": "anim/elder_guardian/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/poseidon.geo.json",
+  "geoId": "geometry.poseidon",
+  "texture": "textures/entity/guardian_elder",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.poseidon.swim"
+  ],
+  "duration": 0.75,
+  "walkRate": 12.5752,
+  "out": "anim/elder_guardian/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/minotaur.geo.json",
+  "geoId": "geometry.warden",
+  "texture": "textures/entity/warden/warden",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.warden.idle"
+  ],
+  "out": "anim/warden/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/minotaur.geo.json",
+  "geoId": "geometry.warden",
+  "texture": "textures/entity/warden/warden",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.warden.walk"
+  ],
+  "duration": 1,
+  "walkRate": 9.4314,
+  "out": "anim/warden/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/harpy.geo.json",
+  "geoId": "geometry.blaze",
+  "texture": "textures/entity/blaze",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.harpy.idle"
+  ],
+  "out": "anim/blaze/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/harpy.geo.json",
+  "geoId": "geometry.blaze",
+  "texture": "textures/entity/blaze",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.harpy.walk"
+  ],
+  "duration": 1,
+  "walkRate": 9.4314,
+  "out": "anim/blaze/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/mermaid.geo.json",
+  "geoId": "geometry.guardian",
+  "texture": "textures/entity/guardian",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.mermaid.idle"
+  ],
+  "out": "anim/guardian/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/mermaid.geo.json",
+  "geoId": "geometry.guardian",
+  "texture": "textures/entity/guardian",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.mermaid.swim"
+  ],
+  "duration": 0.75,
+  "walkRate": 12.5752,
+  "out": "anim/guardian/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/piglin_brute.geo.json",
+  "geoId": "geometry.piglin_brute",
+  "texture": "textures/entity/piglin/piglin_brute",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.centaur.idle"
+  ],
+  "out": "anim/piglin_brute/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/piglin_brute.geo.json",
+  "geoId": "geometry.piglin_brute",
+  "texture": "textures/entity/piglin/piglin_brute",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.centaur.walk"
+  ],
+  "duration": 1,
+  "walkRate": 9.4314,
+  "out": "anim/piglin_brute/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/piglin.geo.json",
+  "geoId": "geometry.piglin",
+  "texture": "textures/entity/piglin/piglin",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.satyr.idle"
+  ],
+  "out": "anim/piglin/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/piglin.geo.json",
+  "geoId": "geometry.piglin",
+  "texture": "textures/entity/piglin/piglin",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.satyr.walk"
+  ],
+  "duration": 1,
+  "walkRate": 9.4314,
+  "out": "anim/piglin/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/irongolem.geo.json",
+  "geoId": "geometry.irongolem",
+  "texture": "textures/entity/iron_golem",
+  "pre": [
+   "variable.modified_tcos0 = Math.clamp(((Math.cos(query.modified_distance_moved * 13.5) * Math.min(query.modified_move_speed, 0.6) / variable.gliding_speed_value) * 25.0), -12.5, 12.5);"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.golem.idle"
+  ],
+  "out": "anim/iron_golem/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/irongolem.geo.json",
+  "geoId": "geometry.irongolem",
+  "texture": "textures/entity/iron_golem",
+  "pre": [
+   "variable.modified_tcos0 = Math.clamp(((Math.cos(query.modified_distance_moved * 13.5) * Math.min(query.modified_move_speed, 0.6) / variable.gliding_speed_value) * 25.0), -12.5, 12.5);"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.golem.walk"
+  ],
+  "duration": 1.5,
+  "walkRate": 6.2876,
+  "out": "anim/iron_golem/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/ravager.geo.json",
+  "geoId": "geometry.ravager",
+  "texture": "textures/entity/illager/ravager",
+  "pre": [
+   "variable.roar_length = 1.0;",
+   "variable.bite_anim_duration = 0.75f;",
+   "variable.bite_neck_length = 10;"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.elephant.idle"
+  ],
+  "out": "anim/ravager/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/ravager.geo.json",
+  "geoId": "geometry.ravager",
+  "texture": "textures/entity/illager/ravager",
+  "pre": [
+   "variable.roar_length = 1.0;",
+   "variable.bite_anim_duration = 0.75f;",
+   "variable.bite_neck_length = 10;"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.elephant.walk"
+  ],
+  "duration": 2,
+  "walkRate": 4.7157,
+  "out": "anim/ravager/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/hoglin.geo.json",
+  "geoId": "geometry.hoglin",
+  "texture": "textures/entity/hoglin/hoglin",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.hoglin.idle"
+  ],
+  "out": "anim/hoglin/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/hoglin.geo.json",
+  "geoId": "geometry.hoglin",
+  "texture": "textures/entity/hoglin/hoglin",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.hoglin.walk"
+  ],
+  "duration": 1,
+  "walkRate": 9.4314,
+  "out": "anim/hoglin/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/tortoise.geo.json",
+  "geoId": "geometry.sniffer",
+  "texture": "textures/entity/sniffer/sniffer",
+  "pre": [
+   "variable.moving = math.min(1.0, query.modified_move_speed * 10);"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.sniffer.idle"
+  ],
+  "out": "anim/sniffer/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/tortoise.geo.json",
+  "geoId": "geometry.sniffer",
+  "texture": "textures/entity/sniffer/sniffer",
+  "pre": [
+   "variable.moving = math.min(1.0, query.modified_move_speed * 10);"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.sniffer.walk"
+  ],
+  "duration": 2,
+  "walkRate": 4.7157,
+  "out": "anim/sniffer/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/vulture.geo.json",
+  "geoId": "geometry.phantom",
+  "texture": "textures/entity/phantom",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.vulture.fly"
+  ],
+  "out": "anim/phantom/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/raven.geo.json",
+  "geoId": "geometry.vex",
+  "texture": "textures/entity/vex/vex",
+  "pre": [
+   "variable.state = query.is_dancing ? 3 : (query.is_sitting ? 2 : (!query.is_on_ground && !query.is_jumping && !query.is_riding ? 0 : 1));"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.seagull.idle"
+  ],
+  "out": "anim/vex/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/raven.geo.json",
+  "geoId": "geometry.vex",
+  "texture": "textures/entity/vex/vex",
+  "pre": [
+   "variable.state = query.is_dancing ? 3 : (query.is_sitting ? 2 : (!query.is_on_ground && !query.is_jumping && !query.is_riding ? 0 : 1));"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.seagull.fly"
+  ],
+  "duration": 5.0833,
+  "walkRate": 1.8553695434068418,
+  "out": "anim/vex/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/seagull.geo.json",
+  "geoId": "geometry.parrot",
+  "texture": "textures/entity/parrot/parrot_blue",
+  "pre": [
+   "variable.state = query.is_dancing ? 3 : (query.is_sitting ? 2 : (!query.is_on_ground && !query.is_jumping && !query.is_riding ? 0 : 1));"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.seagull.idle"
+  ],
+  "out": "anim/parrot/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/seagull.geo.json",
+  "geoId": "geometry.parrot",
+  "texture": "textures/entity/parrot/parrot_blue",
+  "pre": [
+   "variable.state = query.is_dancing ? 3 : (query.is_sitting ? 2 : (!query.is_on_ground && !query.is_jumping && !query.is_riding ? 0 : 1));"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.seagull.fly"
+  ],
+  "duration": 5.0833,
+  "walkRate": 1.8553695434068418,
+  "out": "anim/parrot/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/rat.geo.json",
+  "geoId": "geometry.silverfish",
+  "texture": "textures/entity/silverfish",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.silverfish.idle"
+  ],
+  "out": "anim/silverfish/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/rat.geo.json",
+  "geoId": "geometry.silverfish",
+  "texture": "textures/entity/silverfish",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.silverfish.move"
+  ],
+  "duration": 0.4167,
+  "walkRate": 22.633549316054715,
+  "out": "anim/silverfish/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/endermite.geo.json",
+  "geoId": "geometry.endermite",
+  "texture": "textures/entity/endermite",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.snake.idle"
+  ],
+  "out": "anim/endermite/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/endermite.geo.json",
+  "geoId": "geometry.endermite",
+  "texture": "textures/entity/endermite",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.snake.slither"
+  ],
+  "duration": 1,
+  "walkRate": 9.4314,
+  "out": "anim/endermite/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/mooshroom.geo.json",
+  "geoId": "geometry.mooshroom.v1.8",
+  "texture": "textures/entity/cow/mooshroom",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.cow.idle"
+  ],
+  "out": "anim/mooshroom/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/mooshroom.geo.json",
+  "geoId": "geometry.mooshroom.v1.8",
+  "texture": "textures/entity/cow/mooshroom",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.cow.walk"
+  ],
+  "duration": 1.75,
+  "walkRate": 5.389371428571429,
+  "out": "anim/mooshroom/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/cow.geo.json",
+  "geoId": "geometry.cow.v1.8",
+  "texture": "textures/entity/cow/cow",
+  "pre": [
+   "t.variant = query.property('minecraft:climate_variant');",
+   "v.index = (t.variant == 'temperate') ? 0 : ((t.variant == 'warm') ? 1 : 2);",
+   "v.is_cold = t.variant == 'cold';"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.cow.idle",
+   "animation.cow.blink"
+  ],
+  "out": "anim/cow/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/cow.geo.json",
+  "geoId": "geometry.cow.v1.8",
+  "texture": "textures/entity/cow/cow",
+  "pre": [
+   "t.variant = query.property('minecraft:climate_variant');",
+   "v.index = (t.variant == 'temperate') ? 0 : ((t.variant == 'warm') ? 1 : 2);",
+   "v.is_cold = t.variant == 'cold';"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.cow.walk",
+   "animation.cow.blink"
+  ],
+  "duration": 1.75,
+  "walkRate": 5.389371428571429,
+  "out": "anim/cow/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/horse.geo.json",
+  "geoId": "geometry.horse",
+  "texture": "textures/entity/horse2/horse_brown",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.horse.idle"
+  ],
+  "out": "anim/horse/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/horse.geo.json",
+  "geoId": "geometry.horse",
+  "texture": "textures/entity/horse2/horse_brown",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.horse.walking"
+  ],
+  "duration": 1.1667,
+  "walkRate": 8.08382617639496,
+  "out": "anim/horse/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/donkey.geo.json",
+  "geoId": "geometry.donkey",
+  "texture": "textures/entity/horse2/donkey",
+  "pre": [
+   "v.dummy = 0;"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.horse.idle"
+  ],
+  "out": "anim/donkey/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/donkey.geo.json",
+  "geoId": "geometry.donkey",
+  "texture": "textures/entity/horse2/donkey",
+  "pre": [
+   "v.dummy = 0;"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.horse.walking"
+  ],
+  "duration": 1.1667,
+  "walkRate": 8.08382617639496,
+  "out": "anim/donkey/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/camel.geo.json",
+  "geoId": "geometry.camel",
+  "texture": "textures/entity/camel/camel",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.camel.idle"
+  ],
+  "out": "anim/camel/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/camel.geo.json",
+  "geoId": "geometry.camel",
+  "texture": "textures/entity/camel/camel",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.camel.walk"
+  ],
+  "duration": 1.5,
+  "walkRate": 6.2876,
+  "out": "anim/camel/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/goat.geo.json",
+  "geoId": "geometry.goat",
+  "texture": "textures/entity/goat/goat",
+  "pre": [
+   "variable.tcos_right_side = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+   "variable.tcos_left_side = -variable.tcos_right_side;",
+   "variable.attack_head_rot =  Math.sin(variable.attack_time * 180.0) * -37.3;",
+   "variable.ram_head_rot = Math.sin(variable.should_bow_head * 90.0) * 37.3;"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.goat.idle"
+  ],
+  "out": "anim/goat/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/goat.geo.json",
+  "geoId": "geometry.goat",
+  "texture": "textures/entity/goat/goat",
+  "pre": [
+   "variable.tcos_right_side = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+   "variable.tcos_left_side = -variable.tcos_right_side;",
+   "variable.attack_head_rot =  Math.sin(variable.attack_time * 180.0) * -37.3;",
+   "variable.ram_head_rot = Math.sin(variable.should_bow_head * 90.0) * 37.3;"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.goat.walk"
+  ],
+  "duration": 1,
+  "walkRate": 9.4314,
+  "out": "anim/goat/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/pig.geo.json",
+  "geoId": "geometry.pig.v1.8",
+  "texture": "textures/entity/pig/pig",
+  "pre": [
+   "t.variant = query.property('minecraft:climate_variant');",
+   "v.index = (t.variant == 'temperate') ? 0 : ((t.variant == 'warm') ? 1 : 2);"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.hoglin.idle"
+  ],
+  "out": "anim/pig/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/pig.geo.json",
+  "geoId": "geometry.pig.v1.8",
+  "texture": "textures/entity/pig/pig",
+  "pre": [
+   "t.variant = query.property('minecraft:climate_variant');",
+   "v.index = (t.variant == 'temperate') ? 0 : ((t.variant == 'warm') ? 1 : 2);"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.hoglin.walk"
+  ],
+  "duration": 1,
+  "walkRate": 9.4314,
+  "out": "anim/pig/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/sheep.geo.json",
+  "geoId": "geometry.sheep.v1.8",
+  "texture": "textures/entity/sheep/sheep",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.sheep.idle"
+  ],
+  "out": "anim/sheep/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/sheep.geo.json",
+  "geoId": "geometry.sheep.v1.8",
+  "texture": "textures/entity/sheep/sheep",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.sheep.walk"
+  ],
+  "duration": 1,
+  "walkRate": 9.4314,
+  "out": "anim/sheep/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/chicken.geo.json",
+  "geoId": "geometry.chicken",
+  "texture": "textures/entity/chicken/chicken",
+  "pre": [
+   "t.variant = query.property('minecraft:climate_variant');",
+   "v.index = (t.variant == 'temperate') ? 0 : ((t.variant == 'warm') ? 1 : 2);",
+   "v.is_cold = t.variant == 'cold';"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.chicken.idle",
+   "animation.chicken.blink"
+  ],
+  "out": "anim/chicken/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/chicken.geo.json",
+  "geoId": "geometry.chicken",
+  "texture": "textures/entity/chicken/chicken",
+  "pre": [
+   "t.variant = query.property('minecraft:climate_variant');",
+   "v.index = (t.variant == 'temperate') ? 0 : ((t.variant == 'warm') ? 1 : 2);",
+   "v.is_cold = t.variant == 'cold';"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.chicken.walk",
+   "animation.chicken.blink"
+  ],
+  "duration": 1,
+  "walkRate": 9.4314,
+  "out": "anim/chicken/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/wolf.geo.json",
+  "geoId": "geometry.wolf",
+  "texture": "textures/entity/wolf/wolf",
+  "pre": [
+   "variable.body_shake_angle = 0.05 * query.frame_alpha + query.shake_angle;",
+   "variable.body_roll_progress = Math.clamp((variable.body_shake_angle - 0.16) / 1.8, 0, 1);",
+   "variable.body_rot_z = Math.sin(variable.body_roll_progress * 180) * Math.sin(variable.body_roll_progress * 1980) * 27;",
+   "variable.upper_body_roll_progress = Math.clamp((variable.body_shake_angle - 0.08) / 1.8, 0, 1);",
+   "variable.upper_body_rot_z = (Math.sin(variable.upper_body_roll_progress * 180) * Math.sin(variable.upper_body_roll_progress * 1980) * 27) - variable.body_rot_z;",
+   "variable.tail_roll_progress = Math.clamp((variable.body_shake_angle - 0.2) / 1.8, 0, 1);",
+   "variable.tail_rot_z = (Math.sin(variable.tail_roll_progress * 180) * Math.sin(variable.tail_roll_progress * 1980) * 27) - variable.body_rot_z;",
+   "variable.head_roll_progress = Math.clamp(variable.body_shake_angle / 1.8, 0, 1);",
+   "variable.head_rot_z = (Math.sin(variable.head_roll_progress * 180) * Math.sin(variable.head_roll_progress * 1980) * 27) - variable.body_rot_z;"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.wolf.idle"
+  ],
+  "out": "anim/wolf/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/wolf.geo.json",
+  "geoId": "geometry.wolf",
+  "texture": "textures/entity/wolf/wolf",
+  "pre": [
+   "variable.body_shake_angle = 0.05 * query.frame_alpha + query.shake_angle;",
+   "variable.body_roll_progress = Math.clamp((variable.body_shake_angle - 0.16) / 1.8, 0, 1);",
+   "variable.body_rot_z = Math.sin(variable.body_roll_progress * 180) * Math.sin(variable.body_roll_progress * 1980) * 27;",
+   "variable.upper_body_roll_progress = Math.clamp((variable.body_shake_angle - 0.08) / 1.8, 0, 1);",
+   "variable.upper_body_rot_z = (Math.sin(variable.upper_body_roll_progress * 180) * Math.sin(variable.upper_body_roll_progress * 1980) * 27) - variable.body_rot_z;",
+   "variable.tail_roll_progress = Math.clamp((variable.body_shake_angle - 0.2) / 1.8, 0, 1);",
+   "variable.tail_rot_z = (Math.sin(variable.tail_roll_progress * 180) * Math.sin(variable.tail_roll_progress * 1980) * 27) - variable.body_rot_z;",
+   "variable.head_roll_progress = Math.clamp(variable.body_shake_angle / 1.8, 0, 1);",
+   "variable.head_rot_z = (Math.sin(variable.head_roll_progress * 180) * Math.sin(variable.head_roll_progress * 1980) * 27) - variable.body_rot_z;"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.wolf.walk"
+  ],
+  "duration": 0.6667,
+  "walkRate": 14.146392680365983,
+  "out": "anim/wolf/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/cat.geo.json",
+  "geoId": "geometry.cat",
+  "texture": "textures/entity/cat/white",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.cat.idle"
+  ],
+  "out": "anim/cat/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/cat.geo.json",
+  "geoId": "geometry.cat",
+  "texture": "textures/entity/cat/white",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.cat.sprint"
+  ],
+  "duration": 0.75,
+  "walkRate": 12.5752,
+  "out": "anim/cat/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/pillager.geo.json",
+  "geoId": "geometry.pillager_model",
+  "texture": "textures/entity/pillager",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.vindicator.idle"
+  ],
+  "out": "anim/pillager/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/pillager.geo.json",
+  "geoId": "geometry.pillager_model",
+  "texture": "textures/entity/pillager",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.vindicator.walking"
+  ],
+  "duration": 1.5,
+  "walkRate": 6.2876,
+  "out": "anim/pillager/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/vindicator.geo.json",
+  "geoId": "geometry.vindicator_model",
+  "texture": "textures/entity/vindicator",
+  "hideBones": [
+   "body",
+   "rightArm",
+   "leftArm",
+   "rightItem",
+   "leftItem"
+  ],
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.vindicator.idle"
+  ],
+  "out": "anim/vindicator/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/vindicator.geo.json",
+  "geoId": "geometry.vindicator_model",
+  "texture": "textures/entity/vindicator",
+  "hideBones": [
+   "body",
+   "rightArm",
+   "leftArm",
+   "rightItem",
+   "leftItem"
+  ],
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.vindicator.walking"
+  ],
+  "duration": 1.5,
+  "walkRate": 6.2876,
+  "out": "anim/vindicator/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/skeleton.geo.json",
+  "geoId": "geometry.skeleton.v1.8",
+  "texture": "textures/entity/skeleton/skeleton",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.skeleton.idle"
+  ],
+  "out": "anim/skeleton/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/skeleton.geo.json",
+  "geoId": "geometry.skeleton.v1.8",
+  "texture": "textures/entity/skeleton/skeleton",
+  "pre": [],
+  "fps": 15,
+  "anims": [
+   "animation.skeleton.walk"
+  ],
+  "duration": 1.5,
+  "walkRate": 6.2876,
+  "out": "anim/skeleton/walk"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/creeper.geo.json",
+  "geoId": "geometry.creeper.v1.8",
+  "texture": "textures/entity/creeper/creeper",
+  "pre": [
+   "variable.wobble = Math.sin(query.swell_amount * 5730) * query.swell_amount * 0.01 + 1.0;",
+   "variable.swelling_scale1 = (Math.pow(Math.clamp(query.swell_amount, 0.0, 1.0), 4.0) * 0.4 + 1.0) * variable.wobble;",
+   "variable.swelling_scale2 = (Math.pow(Math.clamp(query.swell_amount, 0.0, 1.0), 4.0) * 0.1 + 1.0) / variable.wobble;",
+   "variable.leg_rot = Math.cos(query.modified_distance_moved * 38.17326) * 80.22 * query.modified_move_speed;",
+   "variable.flash = Math.mod(Math.Round(query.swell_amount * 10.0), 2.0);"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.creeper.idle"
+  ],
+  "out": "anim/creeper/idle"
+ },
+ {
+  "type": "anim",
+  "base": "rp",
+  "geoFile": "models/entity/creeper.geo.json",
+  "geoId": "geometry.creeper.v1.8",
+  "texture": "textures/entity/creeper/creeper",
+  "pre": [
+   "variable.wobble = Math.sin(query.swell_amount * 5730) * query.swell_amount * 0.01 + 1.0;",
+   "variable.swelling_scale1 = (Math.pow(Math.clamp(query.swell_amount, 0.0, 1.0), 4.0) * 0.4 + 1.0) * variable.wobble;",
+   "variable.swelling_scale2 = (Math.pow(Math.clamp(query.swell_amount, 0.0, 1.0), 4.0) * 0.1 + 1.0) / variable.wobble;",
+   "variable.leg_rot = Math.cos(query.modified_distance_moved * 38.17326) * 80.22 * query.modified_move_speed;",
+   "variable.flash = Math.mod(Math.Round(query.swell_amount * 10.0), 2.0);"
+  ],
+  "fps": 15,
+  "anims": [
+   "animation.creeper.walk"
+  ],
+  "duration": 1.5,
+  "walkRate": 6.2876,
+  "out": "anim/creeper/walk"
+ }
+]

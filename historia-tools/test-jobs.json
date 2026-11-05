@@ -1,0 +1,5 @@
+[
+ {"type":"entity","base":"rp","geoFile":"models/entity/cow.geo.json","geoId":"geometry.cow.v1.8","texture":"textures/entity/cow/cow","out":"test/cow.png"},
+ {"type":"entity","base":"rp","geoFile":"models/entity/harpy.geo.json","geoId":"geometry.blaze","texture":"textures/entity/blaze","out":"test/harpy.png"},
+ {"type":"cube","base":"rp","faces":{"side":"brick"},"out":"test/brick.png"}
+]

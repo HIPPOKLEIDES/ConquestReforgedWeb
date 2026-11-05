@@ -1,0 +1,332 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Historia render</title>
+<style>body{margin:0;background:#333;color:#ddd;font:14px sans-serif}canvas{background:repeating-conic-gradient(#555 0 25%,#444 0 50%) 0 0/20px 20px}#log{white-space:pre;padding:8px;max-height:40vh;overflow:auto}</style>
+</head><body>
+<div id="log"></div>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script src="/tool/render-anim.js"></script>
+<script type="module">
+import * as THREE from 'three';
+import { TGALoader } from 'three/addons/loaders/TGALoader.js';
+
+const log = (...a) => { document.getElementById('log').textContent += a.join(' ') + '\n'; };
+const SIZE = +(new URLSearchParams(location.search).get('size') || 512);
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setSize(SIZE, SIZE);
+renderer.setPixelRatio(1);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+
+// ---------- loading helpers ----------
+const stripComments = (s) => s.replace(/("(?:\\.|[^"\\])*")|\/\/[^\n]*|\/\*[\s\S]*?\*\//g, (m, str) => str || '');
+const getJSON = async (url) => { const r = await fetch(url); if (!r.ok) throw new Error(url + ' ' + r.status); return JSON.parse(stripComments(await r.text()).replace(/,\s*([}\]])/g, '$1')); };
+const texCache = new Map();
+async function loadTexture(base, p) {
+  const key = base + p;
+  if (texCache.has(key)) return texCache.get(key);
+  const prom = (async () => {
+    for (const [b, ext] of [[base, '.png'], [base, '.tga'], ['rp', '.png'], ['rp', '.tga']]) {
+      const url = `/${b}/${p}${ext}`;
+      const head = await fetch(url, { method: 'GET' });
+      if (!head.ok) continue;
+      const blob = await head.blob();
+      const obj = URL.createObjectURL(blob);
+      const t = ext === '.tga' ? await new TGALoader().loadAsync(obj) : await new THREE.TextureLoader().loadAsync(obj);
+      t.magFilter = THREE.NearestFilter; t.minFilter = THREE.NearestFilter; t.generateMipmaps = false;
+      t.colorSpace = THREE.SRGBColorSpace;
+      t.flipY = ext !== '.tga' ? true : t.flipY;
+      return t;
+    }
+    throw new Error('texture not found: ' + base + '/' + p);
+  })();
+  texCache.set(key, prom);
+  return prom;
+}
+
+// find a geometry definition by identifier in a parsed geo file (1.8 and 1.12+ formats, "a:b" inheritance)
+function findGeo(json, id) {
+  if (json['minecraft:geometry']) {
+    for (const g of json['minecraft:geometry']) {
+      const gid = g.description.identifier;
+      if (gid === id || gid.split(':')[0] === id) return { tw: g.description.texture_width, th: g.description.texture_height, bones: g.bones || [] };
+    }
+  }
+  for (const [k, v] of Object.entries(json)) {
+    if (!k.startsWith('geometry.')) continue;
+    if (k === id || k.split(':')[0] === id) {
+      let bones = v.bones || [];
+      const parent = k.split(':')[1];
+      if (parent && json[parent]) bones = [...(json[parent].bones || []).filter((b) => !bones.some((x) => x.name === b.name)), ...bones];
+      return { tw: v.texturewidth || 64, th: v.textureheight || 64, bones };
+    }
+  }
+  return null;
+}
+
+// ---------- geometry -> three.js ----------
+const SHADE = { up: 1.0, down: 0.5, north: 0.8, south: 0.8, east: 0.62, west: 0.62 };
+const FACE_ORDER = ['east', 'west', 'up', 'down', 'south', 'north']; // BoxGeometry groups: +x -x +y -y +z -z
+function boxUV(cube, u, v) {
+  const [w, h, d] = cube.size.map((x) => Math.floor(x + 0.0000001)); // Blockbench floors box-uv sizes
+  const f = {
+    east: [0, d, d, h], west: [d + w, d, d, h], up: [d + w, d, -w, -d], down: [d + w * 2, 0, -w, d],
+    south: [d * 2 + w, d, w, h], north: [d, d, w, h],
+  };
+  if (cube.mirror) {
+    for (const k of Object.keys(f)) { const r = f[k]; f[k] = [r[0] + r[2], r[1], -r[2], r[3]]; }
+    [f.east, f.west] = [f.west, f.east];
+  }
+  const out = {};
+  for (const [k, r] of Object.entries(f)) out[k] = [u + r[0], v + r[1], u + r[0] + r[2], v + r[1] + r[3]];
+  return out;
+}
+function faceUV(cube) {
+  const uv = cube.uv;
+  if (Array.isArray(uv)) return boxUV(cube, uv[0], uv[1]);
+  const out = {};
+  for (const k of FACE_ORDER) {
+    const f = uv && uv[k];
+    if (!f) continue;
+    const [u, v] = f.uv; const [w, h] = f.uv_size || [0, 0];
+    out[k] = (k === 'up' || k === 'down') ? [u + w, v + h, u, v] : [u, v, u + w, v + h];
+    if (f.material_instance) out[k].mat = f.material_instance;
+  }
+  return out;
+}
+function cubeMesh(cube, tw, th, materialFor, inflateBone) {
+  const inflate = (cube.inflate ?? inflateBone ?? 0);
+  const size = cube.size.map((s) => s + inflate * 2);
+  const geo = new THREE.BoxGeometry(Math.max(size[0], 0.001), Math.max(size[1], 0.001), Math.max(size[2], 0.001));
+  const uvs = faceUV(cube);
+  const uvAttr = geo.attributes.uv;
+  const colors = [];
+  geo.clearGroups();
+  const mats = [];
+  FACE_ORDER.forEach((face, i) => {
+    const r = uvs[face];
+    const shade = SHADE[face];
+    for (let k = 0; k < 4; k++) colors.push(shade, shade, shade);
+    if (!r) { geo.addGroup(i * 6, 6, mats.push(null) - 1); return; }
+    const [u0, v0, u1, v1] = r;
+    const pts = [[u0, v0], [u1, v0], [u0, v1], [u1, v1]];
+    pts.forEach(([u, v], k) => uvAttr.setXY(i * 4 + k, u / tw, 1 - v / th));
+    geo.addGroup(i * 6, 6, mats.push(materialFor(r.mat || null, face)) - 1);
+  });
+  geo.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+  const mesh = new THREE.Mesh(geo, mats.map((m) => m || new THREE.MeshBasicMaterial({ visible: false })));
+  const from = [-(cube.origin[0] + cube.size[0]) - inflate, cube.origin[1] - inflate, cube.origin[2] - inflate];
+  mesh.position.set(from[0] + size[0] / 2, from[1] + size[1] / 2, from[2] + size[2] / 2);
+  return mesh;
+}
+const rad = (d) => (d || 0) * Math.PI / 180;
+function buildModel(geo, materialFor, opts = {}) {
+  const root = new THREE.Group();
+  const groups = {};
+  const hidden = new Set(opts.hideBones || []);
+  for (const b of geo.bones) {
+    const g = new THREE.Group();
+    g.name = b.name;
+    g.userData.pivot = new THREE.Vector3(-(b.pivot?.[0] || 0), b.pivot?.[1] || 0, b.pivot?.[2] || 0);
+    g.rotation.order = 'ZYX';
+    const rot = b.rotation || b.bind_pose_rotation || [0, 0, 0];
+    g.rotation.set(rad(-rot[0]), rad(-rot[1]), rad(rot[2]));
+    g.userData.bone = b;
+    g.userData.restRot = g.rotation.clone();
+    groups[b.name] = g;
+  }
+  for (const b of geo.bones) {
+    const g = groups[b.name];
+    const parent = b.parent && groups[b.parent];
+    const pp = parent ? parent.userData.pivot : new THREE.Vector3();
+    g.position.copy(g.userData.pivot).sub(pp);
+    g.userData.restPos = g.position.clone();
+    (parent || root).add(g);
+    if (hidden.has(b.name) || b.neverRender) { g.visible = false; continue; }
+    for (const c of b.cubes || []) {
+      const mesh = cubeMesh({ ...c, mirror: c.mirror ?? b.mirror }, geo.tw, geo.th, materialFor, b.inflate);
+      if (c.rotation) {
+        const cp = new THREE.Vector3(-(c.pivot?.[0] || 0), c.pivot?.[1] || 0, c.pivot?.[2] || 0);
+        const cg = new THREE.Group();
+        cg.rotation.order = 'ZYX';
+        cg.rotation.set(rad(-c.rotation[0]), rad(-c.rotation[1]), rad(c.rotation[2]));
+        cg.position.copy(cp).sub(g.userData.pivot);
+        mesh.position.sub(cp);
+        cg.add(mesh); g.add(cg);
+      } else {
+        mesh.position.sub(g.userData.pivot);
+        g.add(mesh);
+      }
+    }
+  }
+  root.userData.groups = groups;
+  return root;
+}
+function texMaterial(tex, method) {
+  return new THREE.MeshBasicMaterial({ map: tex, vertexColors: true, transparent: method === 'blend', alphaTest: method === 'blend' ? 0.02 : 0.5, side: THREE.DoubleSide });
+}
+
+// ---------- camera + render ----------
+function stage(obj, view) {
+  const scene = new THREE.Scene();
+  const holder = new THREE.Group();
+  holder.add(obj);
+  holder.rotation.order = 'YXZ';
+  holder.rotation.y = rad(view.yaw ?? 225);
+  // camera looks horizontally; tilt the model instead so the box is measured in view space
+  const tilt = new THREE.Group(); tilt.add(holder); tilt.rotation.x = rad(view.pitch ?? 30); scene.add(tilt);
+  return { scene, tilt };
+}
+function measure(st) { st.scene.updateMatrixWorld(true); return new THREE.Box3().setFromObject(st.tilt); }
+function shoot(st, box, margin) {
+  const c = box.getCenter(new THREE.Vector3()); const s = box.getSize(new THREE.Vector3());
+  const half = Math.max(s.x, s.y) / 2 * (margin ?? 1.08);
+  const cam = new THREE.OrthographicCamera(c.x - half, c.x + half, c.y + half, c.y - half, -1000, 1000);
+  cam.position.set(0, 0, 500); cam.lookAt(0, 0, 0); cam.updateProjectionMatrix();
+  renderer.setClearColor(0x000000, 0);
+  st.scene.updateMatrixWorld(true);
+  renderer.render(st.scene, cam);
+  return renderer.domElement.toDataURL('image/png');
+}
+function snapshot(obj, view) { const st = stage(obj, view); return shoot(st, measure(st), view.margin); }
+let animIndex = null;
+async function findAnimation(id) {
+  animIndex ||= await getJSON('/tool/jobs/anim-index.json');
+  const file = animIndex[id];
+  if (!file) return null;
+  return (await getJSON('/' + file)).animations[id];
+}
+async function save(path, dataUrl) {
+  await fetch('/save?path=' + encodeURIComponent(path), { method: 'POST', body: dataUrl });
+}
+
+// ---------- jobs ----------
+async function terrainLookup(base) {
+  const t = await getJSON(`/${base}/textures/terrain_texture.json`);
+  return (name) => {
+    const e = t.texture_data[name];
+    if (!e) return null;
+    let x = e.textures;
+    if (Array.isArray(x)) x = x[0];
+    if (x && x.variations) x = x.variations[0];
+    if (x && typeof x === 'object') x = x.path;
+    return x;
+  };
+}
+const lookups = {};
+async function resolveTerrain(base, name) {
+  lookups[base] ||= await terrainLookup(base);
+  return lookups[base](name);
+}
+
+async function runJob(job) {
+  if (job.type === 'entity') {
+    const geoJson = await getJSON(`/${job.base}/${job.geoFile}`);
+    const geo = findGeo(geoJson, job.geoId);
+    if (!geo) throw new Error('geometry ' + job.geoId + ' not in ' + job.geoFile);
+    const tex = await loadTexture(job.texBase || job.base, job.texture);
+    if (job.tw) { geo.tw = job.tw; geo.th = job.th; }
+    const mat = texMaterial(tex, job.method || 'alpha_test');
+    const model = buildModel(geo, () => mat, { hideBones: job.hideBones });
+    return snapshot(model, job.view || { yaw: 210, pitch: 12 });
+  }
+  if (job.type === 'block') {
+    const mats = {};
+    for (const [inst, spec] of Object.entries(job.materials)) {
+      const p = await resolveTerrain(job.base, spec.texture);
+      if (!p) { log('  missing texture', spec.texture); continue; }
+      mats[inst] = texMaterial(await loadTexture(job.base, p), spec.render_method);
+    }
+    const fallback = mats['*'] || Object.values(mats)[0];
+    const pick = (inst, face) => mats[inst] || mats[face] || fallback;
+    const parts = job.parts || [{ geoFile: job.geoFile, geoId: job.geoId, hideBones: job.hideBones, offset: [0, 0, 0] }];
+    const root = new THREE.Group();
+    for (const part of parts) {
+      const geoJson = await getJSON(`/${job.base}/${part.geoFile}`);
+      const geo = findGeo(geoJson, part.geoId);
+      if (!geo) throw new Error('geometry ' + part.geoId + ' not in ' + part.geoFile);
+      const m = buildModel(geo, pick, { hideBones: part.hideBones });
+      m.position.set(-(part.offset?.[0] || 0), part.offset?.[1] || 0, part.offset?.[2] || 0);
+      root.add(m);
+    }
+    return snapshot(root, job.view || { yaw: 225, pitch: 30 });
+  }
+  if (job.type === 'cube') {
+    // full block from up to six terrain textures (or direct texture paths)
+    const geo = { tw: 16, th: 16, bones: [{ name: 'b', pivot: [0, 0, 0], cubes: [{ origin: [-8, 0, -8], size: [16, 16, 16], uv: Object.fromEntries(FACE_ORDER.map((f) => [f, { uv: [0, 0], uv_size: [16, 16], material_instance: f }])) }] }] };
+    const mats = {};
+    for (const f of FACE_ORDER) {
+      const name = job.faces[f] || job.faces.side || job.faces['*'];
+      const p = job.direct ? name : await resolveTerrain(job.base, name);
+      mats[f] = texMaterial(await loadTexture(job.base, p), job.method || 'alpha_test');
+    }
+    const model = buildModel(geo, (inst) => mats[inst]);
+    return snapshot(model, job.view || { yaw: 225, pitch: 30, margin: 1.02 });
+  }
+  if (job.type === 'panel') {
+    // a w x h painting as one flat board; its block texture holds the whole picture
+    const p = await resolveTerrain(job.base, job.texture);
+    if (!p) throw new Error('no texture ' + job.texture);
+    const tex = await loadTexture(job.base, p);
+    const W = job.w * 16, H = job.h * 16;
+    // uv in texture fractions (crop = [u, v, w, h] of the whole texture)
+    const [cu, cv, cw, ch] = job.crop || [0, 0, 1, 1];
+    const e = (u, v, w, h) => ({ uv: [u, v], uv_size: [w, h] });
+    const px = cw / W, py = ch / H;
+    const geo = { tw: 1, th: 1, bones: [{ name: 'b', pivot: [0, 0, 0], cubes: [{ origin: [-W / 2, 0, -0.5], size: [W, H, 1],
+      uv: { south: e(cu, cv, cw, ch), east: e(cu, cv, px, ch), west: e(cu + cw - px, cv, px, ch), up: e(cu, cv, cw, py), down: e(cu, cv + ch - py, cw, py) } }] }] };
+    const mat = texMaterial(tex, 'alpha_test');
+    return snapshot(buildModel(geo, () => mat), job.view || { yaw: 200, pitch: 8, margin: 1.03 });
+  }
+  if (job.type === 'anim') {
+    // frame sequence of Bedrock animations -> out/<job.out>/NNN.png
+    const geoJson = await getJSON(`/${job.base}/${job.geoFile}`);
+    const geo = findGeo(geoJson, job.geoId);
+    if (!geo) throw new Error('geometry ' + job.geoId);
+    const tex = await loadTexture(job.texBase || job.base, job.texture);
+    const mat = texMaterial(tex, job.method || 'alpha_test');
+    const model = buildModel(geo, () => mat, { hideBones: job.hideBones });
+    const anims = [];
+    for (const id of job.anims) { const a = await findAnimation(id); if (a) anims.push(a); else log('  no animation', id); }
+    if (!anims.length) throw new Error('no animations found');
+    const fps = job.fps || 15;
+    let dur = job.duration || Math.max(...anims.map((a) => a.animation_length || 0)) || 2;
+    dur = Math.min(dur, job.maxDuration || 6);
+    const n = Math.max(2, Math.round(dur * fps));
+    const ctx = { q: {}, v: {} };
+    const moving = !!job.walkRate;
+    const setQ = (t) => {
+      const d = (job.walkRate || 0) * t;
+      ctx.q = { life_time: t, anim_time: t, modified_distance_moved: d, walk_distance: d, limb_swing: d, distance_moved: d,
+        modified_move_speed: moving ? 1 : 0, limb_swing_amount: moving ? 1 : 0, ground_speed: moving ? 4 : 0, is_moving: +moving,
+        is_on_ground: 1, is_alive: 1, health: 20, max_health: 20, is_baby: 0, delta_time: 1 / fps, ...(job.query || {}) };
+      ctx.v = {};
+      for (const pre of job.pre || []) HAnim.mol(pre, ctx);
+    };
+    const st = stage(model, job.view || { yaw: 210, pitch: 12 });
+    const box = new THREE.Box3();
+    const step = Math.max(1, Math.floor(n / 16));
+    for (let i = 0; i < n; i += step) { const t = i / fps; setQ(t); HAnim.poseModel(model, anims, t, ctx); box.union(measure(st)); }
+    for (let i = 0; i < n; i++) {
+      const t = i / fps; setQ(t); HAnim.poseModel(model, anims, t, ctx);
+      await save(`${job.out}/${String(i).padStart(3, '0')}.png`, shoot(st, box, job.view?.margin));
+    }
+    return null;
+  }
+  throw new Error('unknown job type ' + job.type);
+}
+
+window.runJobs = async (list) => {
+  let ok = 0, bad = 0;
+  for (const job of list) {
+    try { const d = await runJob(job); if (d) await save(job.out, d); ok++; }
+    catch (e) { bad++; log('FAIL', job.out, e.message); }
+  }
+  log(`done: ${ok} ok, ${bad} failed`);
+  return { ok, bad };
+};
+window.renderPreview = async (job) => { const d = await runJob(job); return d.length; };
+const jobsUrl = new URLSearchParams(location.search).get('jobs');
+if (jobsUrl) getJSON(jobsUrl).then(window.runJobs);
+log('ready');
+</script>
+</body></html>

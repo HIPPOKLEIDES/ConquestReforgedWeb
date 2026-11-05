@@ -1,0 +1,1458 @@
+[
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_blue_stripe",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_blue_stripe.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_bronze_plate",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_bronze_plate.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_bronze_plate_large",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_bronze_plate_large.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_bust_trim_empty",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_bust_trim_empty.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_bust_trim_fowl_left",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_bust_trim_fowl.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_bust_trim_grapes",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_bust_trim_grapes.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_bust_trim_leaf",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_bust_trim_leaf.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_bust_trim_man_1",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_bust_trim_man_1.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_bust_trim_man_2",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_bust_trim_man_2.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_bust_trim_woman_1",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_bust_trim_woman_1.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_bust_trim_woman_2",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_bust_trim_woman_2.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "meditative",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_cupid.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_female_mask",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_female_mask.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_graffiti",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_graffiti.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_gray_trim",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_gray_trim.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_green_stripe",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_green_stripe.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_k_trim_left",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_k_trim_1.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_k_trim_left_transparent",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_k_trim_2.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_magistra",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_magistra.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_male_mask",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_male_mask.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_redstripe_bottom",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_redstripe_bottom.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_redstripe_top",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_redstripe_top.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_red_trim",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_red_trim.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_twin_birds_motif_red",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_twin_birds_motif_red.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_twin_birds_motif_white",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_twin_birds_motif_white.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_twin_birds_motif_yellow",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_twin_birds_motif_yellow.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x1_wheel",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 1,
+  "h": 1,
+  "out": "paintings/1x1_wheel.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_amphora_sign_left",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_amphora_sign.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_apse_niche",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_apse_niche.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_baker_sign",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_baker_sign.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_blacksmith_sign_left",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_blacksmith_sign.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_cup_sign",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_cup_sign.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_grape_sign",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_grape_sign.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_merchant_sign",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_merchant_sign.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_noblewoman",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_noblewoman.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_red_diamond_pattern",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_red_diamond_pattern.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_scale_sign",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_scale_sign.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_tholos_painting_1",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_tholos_painting_1.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_tholos_painting_2",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_tholos_painting_2.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_urn_sign",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_urn_sign.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_wheat_sign_left",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_wheat_sign.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_white_temple_sign",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_white_temple_sign.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x2_woman_painting_left",
+  "crop": [
+   0,
+   0,
+   0.5,
+   1
+  ],
+  "w": 1,
+  "h": 2,
+  "out": "paintings/1x2_woman_painting.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x3_grapepaintingleft",
+  "crop": [
+   0,
+   0,
+   0.3333333333333333,
+   1
+  ],
+  "w": 1,
+  "h": 3,
+  "out": "paintings/1x3_square_pattern.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x3_vertical_sun",
+  "crop": [
+   0,
+   0,
+   0.3333333333333333,
+   1
+  ],
+  "w": 1,
+  "h": 3,
+  "out": "paintings/1x3_vertical_sun.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "1x5_figure_painting",
+  "crop": [
+   0,
+   0,
+   0.2,
+   1
+  ],
+  "w": 1,
+  "h": 5,
+  "out": "paintings/1x5_painting_figures.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x1_crafts_tools",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 1,
+  "out": "paintings/2x1_crafts_tools.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x1_diamond",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 1,
+  "out": "paintings/2x1_diamond.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x1_graffiti",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 1,
+  "out": "paintings/2x1_graffiti.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x1_gryphon_left_red",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 1,
+  "out": "paintings/2x1_gryphon_red.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x1_gryphon_left_white",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 1,
+  "out": "paintings/2x1_gryphon_white.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x1_gryphon_left_yellow",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 1,
+  "out": "paintings/2x1_gryphon_yellow.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x1_herbs",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 1,
+  "out": "paintings/2x1_herbs.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x1_masonry_trim",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 1,
+  "out": "paintings/2x1_masonry_trim.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x1_pots",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 1,
+  "out": "paintings/2x1_pots.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x2_apollo",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 2,
+  "out": "paintings/2x2_apollo.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x2_boscoreale_temple",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 2,
+  "out": "paintings/2x2_boscoreale_temple.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "baroque",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 2,
+  "out": "paintings/2x2_circe.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x2_couple",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 2,
+  "out": "paintings/2x2_couple.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x2_gladiator_graffiti",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 2,
+  "out": "paintings/2x2_gladiator_graffiti.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x2_graffiti",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 2,
+  "out": "paintings/2x2_graffiti.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "humble",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 2,
+  "out": "paintings/2x2_tablinum.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x2_wheel",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 2,
+  "h": 2,
+  "out": "paintings/2x2_wheel.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x3_figure_painting",
+  "crop": [
+   0,
+   0,
+   0.6666666666666666,
+   1
+  ],
+  "w": 2,
+  "h": 3,
+  "out": "paintings/2x3_painting_figures.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x3_shopfront_painting_1",
+  "crop": [
+   0,
+   0,
+   0.6666666666666666,
+   1
+  ],
+  "w": 2,
+  "h": 3,
+  "out": "paintings/2x3_shopfront_painting_1.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x3_shopfront_painting_2",
+  "crop": [
+   0,
+   0,
+   0.6666666666666666,
+   1
+  ],
+  "w": 2,
+  "h": 3,
+  "out": "paintings/2x3_shopfront_painting_2.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x3_shopfront_painting_3",
+  "crop": [
+   0,
+   0,
+   0.6666666666666666,
+   1
+  ],
+  "w": 2,
+  "h": 3,
+  "out": "paintings/2x3_shopfront_painting_3.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "2x5_figure_painting",
+  "crop": [
+   0,
+   0,
+   0.4,
+   1
+  ],
+  "w": 2,
+  "h": 5,
+  "out": "paintings/2x5_painting_figures.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "3x2_diamond",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 2,
+  "out": "paintings/3x2_diamond.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "sunflowers",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_blue_square_pattern.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "3x3_circle",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_circle.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "cotan",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_cornicen.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "3x3_diamond",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_diamond.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "3x3_geometric_mix",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_geometric_mix.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "cavebird",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_gladiators.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "gorgoneion_3x3",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_gorgoneion.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "3x3_caupona_painting",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_painting_caupona.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "tides",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_red_fourth_style_frame.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "3x3_retiarius",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_retiarius.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "bouquet",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_sacrifice.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "snake_3x3",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_snake.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "3x3_square",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_square.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "endboss",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_victory.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "owlemons",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 3,
+  "h": 3,
+  "out": "paintings/3x3_white_square_pattern.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "3x4_framed_figure",
+  "crop": [
+   0,
+   0,
+   0.75,
+   1
+  ],
+  "w": 3,
+  "h": 4,
+  "out": "paintings/3x4_framed_figure.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "3x4_landscape",
+  "crop": [
+   0,
+   0,
+   0.75,
+   1
+  ],
+  "w": 3,
+  "h": 4,
+  "out": "paintings/3x4_landscape.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "passage",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 4,
+  "h": 2,
+  "out": "paintings/4x2_fourth_style_panel.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "lowmist",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 4,
+  "h": 2,
+  "out": "paintings/4x2_gold_patterned_panel.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "4x2_graffiti",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 4,
+  "h": 2,
+  "out": "paintings/4x2_graffiti.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "finding",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 4,
+  "h": 2,
+  "out": "paintings/4x2_third_style_panel.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "changing",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 4,
+  "h": 2,
+  "out": "paintings/4x2_white_and_gold_panel.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "4x3_grapepainting",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 4,
+  "h": 3,
+  "out": "paintings/4x3_grapepainting.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "4x3_laestrygonians",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 4,
+  "h": 3,
+  "out": "paintings/4x3_laestrygonians.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "4x3_livias_garden",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 4,
+  "h": 3,
+  "out": "paintings/4x3_livias_garden.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "4x4_fourth_style_scene",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 4,
+  "h": 4,
+  "out": "paintings/4x4_fourth_style_scene.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "orb",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 4,
+  "h": 4,
+  "out": "paintings/4x4_gold_fourth_style.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "unpacked",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 4,
+  "h": 4,
+  "out": "paintings/4x4_hunt_fresco.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "4x4_momento_mori",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 4,
+  "h": 4,
+  "out": "paintings/4x4_momento_mori.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "4x4_second_style_scene",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 4,
+  "h": 4,
+  "out": "paintings/4x4_second_style_scene.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "4x4_square",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 4,
+  "h": 4,
+  "out": "paintings/4x4_square.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "snake_5x3",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 5,
+  "h": 3,
+  "out": "paintings/5x3_snake.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "6x2_green_geometric_painting",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 6,
+  "h": 2,
+  "out": "paintings/6x2_green_geometric_painting.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "7x2_genii",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 7,
+  "h": 2,
+  "out": "paintings/7x2_genii.png"
+ },
+ {
+  "type": "panel",
+  "base": "rpw",
+  "texture": "7x3_figure_painting",
+  "crop": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "w": 7,
+  "h": 3,
+  "out": "paintings/7x3_painting_figures.png"
+ }
+]

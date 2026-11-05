@@ -1,0 +1,1650 @@
+[
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/allay.geo.json",
+  "geoId": "geometry.allay",
+  "texture": "textures/entity/allay/allay",
+  "out": "mobs/rp/allay.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/axolotl.geo.json",
+  "geoId": "geometry.axolotl",
+  "texture": "textures/entity/axolotl/axolotl_blue",
+  "out": "mobs/rp/axolotl.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/bat.geo.json",
+  "geoId": "geometry.bat",
+  "texture": "textures/entity/bat_v2",
+  "out": "mobs/rp/bat.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/bee.geo.json",
+  "geoId": "geometry.bee",
+  "texture": "textures/entity/bee/bee",
+  "out": "mobs/rp/bee.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/harpy.geo.json",
+  "geoId": "geometry.blaze",
+  "texture": "textures/entity/blaze",
+  "out": "mobs/rp/blaze.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/boat.geo.json",
+  "geoId": "geometry.boat",
+  "texture": "textures/entity/boat/boat_acacia",
+  "out": "mobs/rp/boat.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/bogged.geo.json",
+  "geoId": "geometry.skeleton.bogged",
+  "texture": "textures/entity/skeleton/bogged",
+  "out": "mobs/rp/bogged.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/breeze.geo.json",
+  "geoId": "geometry.breeze",
+  "texture": "textures/entity/breeze/breeze",
+  "out": "mobs/rp/breeze.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/camel.geo.json",
+  "geoId": "geometry.camel",
+  "texture": "textures/entity/camel/camel",
+  "out": "mobs/rp/camel.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/camel.geo.json",
+  "geoId": "geometry.camel",
+  "texture": "textures/entity/camel_husk/camel_husk",
+  "out": "mobs/rp/camel_husk.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/cat.geo.json",
+  "geoId": "geometry.cat",
+  "texture": "textures/entity/cat/white",
+  "out": "mobs/rp/cat.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/spider.geo.json",
+  "geoId": "geometry.spider",
+  "texture": "textures/entity/spider/cave_spider",
+  "out": "mobs/rp/cave_spider.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/chest_boat.geo.json",
+  "geoId": "geometry.chest_boat",
+  "texture": "textures/entity/boat/chest_boat_oak",
+  "out": "mobs/rp/chest_boat.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/minecart_chest.geo.json",
+  "geoId": "geometry.minecart_chest",
+  "texture": "textures/entity/minecart_chest",
+  "out": "mobs/rp/chest_minecart.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/chicken.geo.json",
+  "geoId": "geometry.chicken",
+  "texture": "textures/entity/chicken/chicken",
+  "out": "mobs/rp/chicken.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/copper_golem.geo.json",
+  "geoId": "geometry.copper_golem",
+  "texture": "textures/entity/copper_golem/copper_golem",
+  "out": "mobs/rp/copper_golem.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/cow.geo.json",
+  "geoId": "geometry.cow.v1.8",
+  "texture": "textures/entity/cow/cow",
+  "out": "mobs/rp/cow.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/creeper.geo.json",
+  "geoId": "geometry.creeper.v1.8",
+  "texture": "textures/entity/creeper/creeper",
+  "out": "mobs/rp/creeper.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/donkey.geo.json",
+  "geoId": "geometry.donkey",
+  "texture": "textures/entity/horse2/donkey",
+  "out": "mobs/rp/donkey.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/donkey.geo.json",
+  "geoId": "geometry.donkey",
+  "texture": "textures/entity/horse2/donkey",
+  "out": "mobs/rp/donkey.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/donkey.geo.json",
+  "geoId": "geometry.donkey",
+  "texture": "textures/entity/horse2/donkey",
+  "out": "mobs/rp/donkey.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/poseidon.geo.json",
+  "geoId": "geometry.poseidon",
+  "texture": "textures/entity/guardian",
+  "out": "mobs/rp/elder_guardian.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/enderman.geo.json",
+  "geoId": "geometry.enderman.v1.8",
+  "texture": "textures/entity/enderman/enderman",
+  "out": "mobs/rp/enderman.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/endermite.geo.json",
+  "geoId": "geometry.endermite",
+  "texture": "textures/entity/endermite",
+  "out": "mobs/rp/endermite.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/evoker.geo.json",
+  "geoId": "geometry.evoker.v1.8",
+  "texture": "textures/entity/illager/evoker",
+  "out": "mobs/rp/evocation_illager.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/frog.geo.json",
+  "geoId": "geometry.frog",
+  "texture": "textures/entity/frog/temperate_frog",
+  "out": "mobs/rp/frog.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/ghast.geo.json",
+  "geoId": "geometry.ghast",
+  "texture": "textures/entity/ghast/ghast",
+  "out": "mobs/rp/ghast.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/goat.geo.json",
+  "geoId": "geometry.goat",
+  "texture": "textures/entity/goat/goat",
+  "out": "mobs/rp/goat.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/mermaid.geo.json",
+  "geoId": "geometry.guardian",
+  "texture": "textures/entity/guardian",
+  "out": "mobs/rp/guardian.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/happy_ghast.geo.json",
+  "geoId": "geometry.happy_ghast",
+  "texture": "textures/entity/happy_ghast/ghastling",
+  "out": "mobs/rp/happy_ghast.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/hoglin.geo.json",
+  "geoId": "geometry.hoglin",
+  "texture": "textures/entity/hoglin/hoglin",
+  "out": "mobs/rp/hoglin.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/minecart_hopper.geo.json",
+  "geoId": "geometry.minecart_hopper",
+  "texture": "textures/entity/minecart_hopper",
+  "out": "mobs/rp/hopper_minecart.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/horse.geo.json",
+  "geoId": "geometry.horse",
+  "texture": "textures/entity/horse2/horse_brown",
+  "out": "mobs/rp/horse.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/horse.geo.json",
+  "geoId": "geometry.horse",
+  "texture": "textures/entity/horse2/horse_brown",
+  "out": "mobs/rp/horse.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/horse.geo.json",
+  "geoId": "geometry.horse",
+  "texture": "textures/entity/horse2/horse_brown",
+  "out": "mobs/rp/horse.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/irongolem.geo.json",
+  "geoId": "geometry.irongolem",
+  "texture": "textures/entity/iron_golem",
+  "out": "mobs/rp/iron_golem.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/llama.geo.json",
+  "geoId": "geometry.llama.v1.8",
+  "texture": "textures/entity/llama/llama_creamy",
+  "out": "mobs/rp/llama.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/mooshroom.geo.json",
+  "geoId": "geometry.mooshroom.v1.8",
+  "texture": "textures/entity/cow/mooshroom",
+  "out": "mobs/rp/mooshroom.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/mule.geo.json",
+  "geoId": "geometry.mule",
+  "texture": "textures/entity/horse2/mule",
+  "out": "mobs/rp/mule.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/cat.geo.json",
+  "geoId": "geometry.cat",
+  "texture": "textures/entity/cat/blackcat",
+  "out": "mobs/rp/ocelot.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/cat.geo.json",
+  "geoId": "geometry.cat",
+  "texture": "textures/entity/cat/blackcat",
+  "out": "mobs/rp/ocelot.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/parched.geo.json",
+  "geoId": "geometry.parched",
+  "texture": "textures/entity/parched/parched",
+  "out": "mobs/rp/parched.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/seagull.geo.json",
+  "geoId": "geometry.parrot",
+  "texture": "textures/entity/parrot/parrot_blue",
+  "out": "mobs/rp/parrot.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/vulture.geo.json",
+  "geoId": "geometry.phantom",
+  "texture": "textures/entity/phantom",
+  "out": "mobs/rp/phantom.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/pig.geo.json",
+  "geoId": "geometry.pig.v1.8",
+  "texture": "textures/entity/pig/pig",
+  "out": "mobs/rp/pig.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/piglin.geo.json",
+  "geoId": "geometry.piglin",
+  "texture": "textures/entity/piglin/piglin",
+  "out": "mobs/rp/piglin.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/piglin_brute.geo.json",
+  "geoId": "geometry.piglin_brute",
+  "texture": "textures/entity/piglin/piglin_brute",
+  "out": "mobs/rp/piglin_brute.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/pillager.geo.json",
+  "geoId": "geometry.pillager_model",
+  "texture": "textures/entity/pillager",
+  "out": "mobs/rp/pillager.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/rabbit.geo.json",
+  "geoId": "geometry.rabbit.v1.8",
+  "texture": "textures/entity/rabbit/brown",
+  "out": "mobs/rp/rabbit.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/ravager.geo.json",
+  "geoId": "geometry.ravager",
+  "texture": "textures/entity/illager/ravager",
+  "out": "mobs/rp/ravager.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/sheep.geo.json",
+  "geoId": "geometry.sheep.v1.8",
+  "texture": "textures/entity/sheep/sheep",
+  "out": "mobs/rp/sheep.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/rat.geo.json",
+  "geoId": "geometry.silverfish",
+  "texture": "textures/entity/silverfish",
+  "out": "mobs/rp/silverfish.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/skeleton.geo.json",
+  "geoId": "geometry.skeleton.v1.8",
+  "texture": "textures/entity/skeleton/skeleton",
+  "out": "mobs/rp/skeleton.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/horse.geo.json",
+  "geoId": "geometry.horse",
+  "texture": "textures/entity/horse2/horse_skeleton",
+  "out": "mobs/rp/skeleton_horse.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/horse.geo.json",
+  "geoId": "geometry.horse",
+  "texture": "textures/entity/horse2/horse_skeleton",
+  "out": "mobs/rp/skeleton_horse.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/horse.geo.json",
+  "geoId": "geometry.horse",
+  "texture": "textures/entity/horse2/horse_skeleton",
+  "out": "mobs/rp/skeleton_horse.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/tortoise.geo.json",
+  "geoId": "geometry.sniffer",
+  "texture": "textures/entity/sniffer/sniffer",
+  "out": "mobs/rp/sniffer.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/spider.geo.json",
+  "geoId": "geometry.spider",
+  "texture": "textures/entity/spider/spider",
+  "out": "mobs/rp/spider.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/stray.geo.json",
+  "geoId": "geometry.skeleton.stray.v1.8",
+  "texture": "textures/entity/skeleton/stray",
+  "out": "mobs/rp/stray.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/golem.geo.json",
+  "geoId": "geometry.golem",
+  "texture": "textures/entity/strider/strider",
+  "out": "mobs/rp/strider.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/trident_thrown.geo.json",
+  "geoId": "geometry.trident_thrown",
+  "texture": "textures/entity/trident",
+  "out": "mobs/rp/thrown_trident.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/trading_llama.geo.json",
+  "geoId": "geometry.trading_llama",
+  "texture": "textures/entity/llama/trading_llama",
+  "out": "mobs/rp/trader_llama.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/raven.geo.json",
+  "geoId": "geometry.vex",
+  "texture": "textures/entity/vex/vex",
+  "out": "mobs/rp/vex.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/npc/villager_f_1.geo.json",
+  "geoId": "geometry.villager_f_1",
+  "texture": "textures/entity/villager2/towngoer_f_1",
+  "out": "mobs/rp/villager_v2.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/vindicator.geo.json",
+  "geoId": "geometry.vindicator_model",
+  "texture": "textures/entity/vindicator",
+  "out": "mobs/rp/vindicator.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/npc/wandering_trader.geo.json",
+  "geoId": "geometry.wandering_trader",
+  "texture": "textures/entity/wandering_trader",
+  "out": "mobs/rp/wandering_trader.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/minotaur.geo.json",
+  "geoId": "geometry.warden",
+  "texture": "textures/entity/warden/warden",
+  "out": "mobs/rp/warden.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/witch.geo.json",
+  "geoId": "geometry.villager.witch.v1.8",
+  "texture": "textures/entity/witch",
+  "out": "mobs/rp/witch.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/wither_skeleton.geo.json",
+  "geoId": "geometry.skeleton.wither.v1.8",
+  "texture": "textures/entity/skeleton/wither_skeleton",
+  "out": "mobs/rp/wither_skeleton.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/skeleton_skull.geo.json",
+  "geoId": "geometry.skeleton_skull",
+  "texture": "textures/entity/skeleton/wither_skeleton",
+  "out": "mobs/rp/wither_skull.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/wolf.geo.json",
+  "geoId": "geometry.wolf",
+  "texture": "textures/entity/wolf/wolf",
+  "out": "mobs/rp/wolf.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/hoglin.geo.json",
+  "geoId": "geometry.hoglin",
+  "texture": "textures/entity/zoglin/zoglin",
+  "out": "mobs/rp/zoglin.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/horse.geo.json",
+  "geoId": "geometry.horse",
+  "texture": "textures/entity/horse2/horse_zombie",
+  "out": "mobs/rp/zombie_horse.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/piglin.geo.json",
+  "geoId": "geometry.piglin",
+  "texture": "textures/entity/piglin/zombie_piglin",
+  "out": "mobs/rp/zombie_pigman.png"
+ },
+ {
+  "type": "entity",
+  "base": "rp",
+  "geoFile": "models/entity/zombie_villager_v2.geo.json",
+  "geoId": "geometry.zombie.villager_v2",
+  "texture": "textures/entity/zombie_villager2/professions/armorer",
+  "out": "mobs/rp/zombie_villager_v2.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/acacia_door_3x1.geo.json",
+  "geoId": "geometry.acacia_door_3x1",
+  "texture": "textures/entity/acacia_door_3x1",
+  "out": "mobs/rpw/acacia_door_3x1.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/birch_door_3x1.geo.json",
+  "geoId": "geometry.birch_door_3x1",
+  "texture": "textures/entity/birch_door_3x1",
+  "out": "mobs/rpw/birch_door_3x1.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/clothesline_1.geo.json",
+  "geoId": "geometry.clothesline_1_entity",
+  "texture": "textures/blocks/clothesline",
+  "out": "mobs/rpw/clothesline_1_entity.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/clothesline_2.geo.json",
+  "geoId": "geometry.clothesline_2_entity",
+  "texture": "textures/blocks/clothesline",
+  "out": "mobs/rpw/clothesline_2_entity.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/clothesline_3.geo.json",
+  "geoId": "geometry.clothesline_3_entity",
+  "texture": "textures/blocks/clothesline",
+  "out": "mobs/rpw/clothesline_3_entity.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/couch.geo.json",
+  "geoId": "geometry.couch",
+  "texture": "textures/entity/couch",
+  "out": "mobs/rpw/couch.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/cupboard.geo.json",
+  "geoId": "geometry.cupboard",
+  "texture": "textures/entity/cupboard",
+  "out": "mobs/rpw/cupboard.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/dark_oak_door_3x1.geo.json",
+  "geoId": "geometry.dark_oak_door_3x1",
+  "texture": "textures/entity/dark_oak_door_3x1",
+  "out": "mobs/rpw/dark_oak_door_3x1.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/door_3x1.geo.json",
+  "geoId": "geometry.door_3x1",
+  "texture": "textures/entity/door_3x1",
+  "out": "mobs/rpw/door_3x1.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/door_curtains_1.geo.json",
+  "geoId": "geometry.door_curtains_1",
+  "texture": "textures/entity/door_curtains",
+  "out": "mobs/rpw/door_curtains_1.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/door_curtains_2.geo.json",
+  "geoId": "geometry.door_curtains_2",
+  "texture": "textures/entity/door_curtains",
+  "out": "mobs/rpw/door_curtains_2.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/door_curtains_3.geo.json",
+  "geoId": "geometry.door_curtains_3",
+  "texture": "textures/entity/door_curtains",
+  "out": "mobs/rpw/door_curtains_3.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/door_with_frame.geo.json",
+  "geoId": "geometry.door_with_frame",
+  "texture": "textures/blocks/doorway_frame",
+  "out": "mobs/rpw/door_with_frame.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/green_painted_doorframe_1x25.geo.json",
+  "geoId": "geometry.green_painted_doorframe_1x25",
+  "texture": "textures/entity/green_painted_doorframe",
+  "out": "mobs/rpw/green_painted_doorframe_1x25.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/green_painted_doorframe_2x25.geo.json",
+  "geoId": "geometry.green_painted_doorframe_2x25",
+  "texture": "textures/entity/green_painted_doorframe",
+  "out": "mobs/rpw/green_painted_doorframe_2x25.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/green_painted_doorframe_3x35.geo.json",
+  "geoId": "geometry.green_painted_doorframe_3x35",
+  "texture": "textures/entity/green_painted_doorframe",
+  "out": "mobs/rpw/green_painted_doorframe_3x35.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/hand_mill.json",
+  "geoId": "geometry.hand_mill",
+  "texture": "textures/entity/hand_mill",
+  "out": "mobs/rpw/hand_mill.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/hanging_fish.geo.json",
+  "geoId": "geometry.hanging_fish",
+  "texture": "textures/entity/hanging_fish",
+  "out": "mobs/rpw/hanging_fish.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/info_board.geo.json",
+  "geoId": "geometry.info_board",
+  "texture": "textures/entity/info_board",
+  "out": "mobs/rpw/info_board.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/jungle_door_3x1.geo.json",
+  "geoId": "geometry.jungle_door_3x1",
+  "texture": "textures/entity/jungle_door_3x1",
+  "out": "mobs/rpw/jungle_door_3x1.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/market_stall_4x3.geo.json",
+  "geoId": "geometry.market_stall_4x3",
+  "texture": "textures/entity/market_stalls/market_stall_4x3_white",
+  "out": "mobs/rpw/market_stall_4x3.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/market_stall_5x3.geo.json",
+  "geoId": "geometry.market_stall_5x3",
+  "texture": "textures/entity/market_stalls/market_stall_5x3_white",
+  "out": "mobs/rpw/market_stall_5x3.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/baker.geo.json",
+  "geoId": "geometry.baker",
+  "texture": "textures/entity/baker",
+  "out": "mobs/rpw/baker.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/baker_apprentice.geo.json",
+  "geoId": "geometry.baker_apprentice",
+  "texture": "textures/entity/baker_apprentice",
+  "out": "mobs/rpw/baker_apprentice.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/beggar.geo.json",
+  "geoId": "geometry.beggar",
+  "texture": "textures/entity/beggar",
+  "out": "mobs/rpw/beggar.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/cloaked_man.geo.json",
+  "geoId": "geometry.cloaked_man",
+  "texture": "textures/entity/npc/cloaked_man",
+  "out": "mobs/rpw/cloaked_man.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/farmer_1.geo.json",
+  "geoId": "geometry.farmer_1",
+  "texture": "textures/entity/npc/farmer_1",
+  "out": "mobs/rpw/farmer.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/fisherman.geo.json",
+  "geoId": "geometry.fisherman",
+  "texture": "textures/entity/npc/fisherman",
+  "out": "mobs/rpw/fisherman.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/gardener.geo.json",
+  "geoId": "geometry.gardener",
+  "texture": "textures/entity/npc/gardener",
+  "out": "mobs/rpw/gardener.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/guard.geo.json",
+  "geoId": "geometry.guard",
+  "texture": "textures/entity/npc/guard",
+  "out": "mobs/rpw/guard.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/baker_apprentice.geo.json",
+  "geoId": "geometry.baker_apprentice",
+  "texture": "textures/entity/baker_apprentice",
+  "out": "mobs/rpw/baker_apprentice_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/baker.geo.json",
+  "geoId": "geometry.baker",
+  "texture": "textures/entity/baker",
+  "out": "mobs/rpw/baker_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/beggar.geo.json",
+  "geoId": "geometry.beggar",
+  "texture": "textures/entity/beggar",
+  "out": "mobs/rpw/beggar_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/cloaked_man.geo.json",
+  "geoId": "geometry.cloaked_man",
+  "texture": "textures/entity/npc/cloaked_man",
+  "out": "mobs/rpw/cloaked_man_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/npc_icon.geo.json",
+  "geoId": "geometry.npc_icon",
+  "texture": "textures/entity/npc/npc_icon",
+  "out": "mobs/rpw/farmer_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/fisherman.geo.json",
+  "geoId": "geometry.fisherman",
+  "texture": "textures/entity/npc/fisherman",
+  "out": "mobs/rpw/fisherman_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/gardener.geo.json",
+  "geoId": "geometry.gardener",
+  "texture": "textures/entity/npc/gardener",
+  "out": "mobs/rpw/gardener_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/npc_icon.geo.json",
+  "geoId": "geometry.npc_icon",
+  "texture": "textures/entity/npc/npc_icon",
+  "out": "mobs/rpw/guard_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/oldbeggar.geo.json",
+  "geoId": "geometry.oldbeggar",
+  "texture": "textures/entity/oldbeggar",
+  "out": "mobs/rpw/oldbeggar_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/plasterer.geo.json",
+  "geoId": "geometry.plasterer",
+  "texture": "textures/entity/npc/plasterer",
+  "out": "mobs/rpw/plasterer_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/potter.geo.json",
+  "geoId": "geometry.potter",
+  "texture": "textures/entity/npc/potter",
+  "out": "mobs/rpw/potter_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/priest_male.geo.json",
+  "geoId": "geometry.priest_male",
+  "texture": "textures/entity/npc/priest_male",
+  "out": "mobs/rpw/priest_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/sculptor.geo.json",
+  "geoId": "geometry.sculptor",
+  "texture": "textures/entity/npc/sculptor",
+  "out": "mobs/rpw/sculptor_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/street_cleaner.geo.json",
+  "geoId": "geometry.street_cleaner",
+  "texture": "textures/entity/npc/street_cleaner",
+  "out": "mobs/rpw/street_cleaner_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/npc_icon.geo.json",
+  "geoId": "geometry.npc_icon",
+  "texture": "textures/entity/npc/npc_icon",
+  "out": "mobs/rpw/towngoer_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/npc_icon.geo.json",
+  "geoId": "geometry.npc_icon",
+  "texture": "textures/entity/npc/npc_icon",
+  "out": "mobs/rpw/well_woman_npc.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/lion.geo.json",
+  "geoId": "geometry.lion",
+  "texture": "textures/entity/lion",
+  "out": "mobs/rpw/lion_v_gladiator.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/oldbeggar.geo.json",
+  "geoId": "geometry.oldbeggar",
+  "texture": "textures/entity/oldbeggar",
+  "out": "mobs/rpw/oldbeggar.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/plasterer.geo.json",
+  "geoId": "geometry.plasterer",
+  "texture": "textures/entity/npc/plasterer",
+  "out": "mobs/rpw/plasterer.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/potter.geo.json",
+  "geoId": "geometry.potter",
+  "texture": "textures/entity/npc/potter",
+  "out": "mobs/rpw/potter.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/priest_male.geo.json",
+  "geoId": "geometry.priest_male",
+  "texture": "textures/entity/npc/priest_male",
+  "out": "mobs/rpw/priest.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/runner.geo.json",
+  "geoId": "geometry.runner",
+  "texture": "textures/entity/npc/towngoer_m_1",
+  "out": "mobs/rpw/runner.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/sculptor.geo.json",
+  "geoId": "geometry.sculptor",
+  "texture": "textures/entity/npc/sculptor",
+  "out": "mobs/rpw/sculptor.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/street_cleaner.geo.json",
+  "geoId": "geometry.street_cleaner",
+  "texture": "textures/entity/npc/street_cleaner",
+  "out": "mobs/rpw/street_cleaner.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc_dumbbells.geo.json",
+  "geoId": "geometry.npc_dumbbells",
+  "texture": "textures/blocks/weights",
+  "out": "mobs/rpw/towngoer.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/wagon.geo.json",
+  "geoId": "geometry.wagon",
+  "texture": "textures/entity/wagon",
+  "out": "mobs/rpw/wagon.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/washer_woman.geo.json",
+  "geoId": "geometry.washer_woman",
+  "texture": "textures/entity/npc/washer_woman",
+  "out": "mobs/rpw/washer_woman.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/npc_icon.geo.json",
+  "geoId": "geometry.npc_icon",
+  "texture": "textures/entity/npc/well_woman_1",
+  "out": "mobs/rpw/well_woman.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/npc/worker_saw.geo.json",
+  "geoId": "geometry.worker_saw",
+  "texture": "textures/entity/npc/worker_stone",
+  "out": "mobs/rpw/worker.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/oak_door_3x1.geo.json",
+  "geoId": "geometry.oak_door_3x1",
+  "texture": "textures/entity/oak_door_3x1",
+  "out": "mobs/rpw/oak_door_3x1.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_blue_stripe",
+  "out": "mobs/rpw/1x1_blue_stripe_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_bronze_plate",
+  "out": "mobs/rpw/1x1_bronze_plate_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_bronze_plate_large",
+  "out": "mobs/rpw/1x1_bronze_plate_large_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_bust_trim_empty",
+  "out": "mobs/rpw/1x1_bust_trim_empty_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_bust_trim_fowl_left",
+  "out": "mobs/rpw/1x1_bust_trim_fowl_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_bust_trim_grapes",
+  "out": "mobs/rpw/1x1_bust_trim_grapes_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_bust_trim_leaf",
+  "out": "mobs/rpw/1x1_bust_trim_leaf_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_bust_trim_man_1",
+  "out": "mobs/rpw/1x1_bust_trim_man_1_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_bust_trim_man_2",
+  "out": "mobs/rpw/1x1_bust_trim_man_2_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_bust_trim_woman_1",
+  "out": "mobs/rpw/1x1_bust_trim_woman_1_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_bust_trim_woman_2",
+  "out": "mobs/rpw/1x1_bust_trim_woman_2_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_green_stripe",
+  "out": "mobs/rpw/1x1_green_stripe_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_k_trim_left",
+  "out": "mobs/rpw/1x1_k_trim_1_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_k_trim_left_transparent",
+  "out": "mobs/rpw/1x1_k_trim_2_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_redstripe_bottom",
+  "out": "mobs/rpw/1x1_redstripe_bottom_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_redstripe_top",
+  "out": "mobs/rpw/1x1_redstripe_top_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_twin_birds_motif_red",
+  "out": "mobs/rpw/1x1_twin_birds_motif_red_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_twin_birds_motif_white",
+  "out": "mobs/rpw/1x1_twin_birds_motif_white_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "texture": "textures/entity/paintings/1x1_twin_birds_motif_yellow",
+  "out": "mobs/rpw/1x1_twin_birds_motif_yellow_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x2.json",
+  "geoId": "geometry.painting_1x2",
+  "texture": "textures/entity/paintings/1x2_amphora_sign_left",
+  "out": "mobs/rpw/1x2_amphora_sign_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x2.json",
+  "geoId": "geometry.painting_1x2",
+  "texture": "textures/entity/paintings/1x2_baker_sign",
+  "out": "mobs/rpw/1x2_baker_sign_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x2.json",
+  "geoId": "geometry.painting_1x2",
+  "texture": "textures/entity/paintings/1x2_blacksmith_sign_left",
+  "out": "mobs/rpw/1x2_blacksmith_sign_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x2.json",
+  "geoId": "geometry.painting_1x2",
+  "texture": "textures/entity/paintings/1x2_cup_sign",
+  "out": "mobs/rpw/1x2_cup_sign_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x2.json",
+  "geoId": "geometry.painting_1x2",
+  "texture": "textures/entity/paintings/1x2_grape_sign",
+  "out": "mobs/rpw/1x2_grape_sign_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x2.json",
+  "geoId": "geometry.painting_1x2",
+  "texture": "textures/entity/paintings/1x2_merchant_sign",
+  "out": "mobs/rpw/1x2_merchant_sign_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x2.json",
+  "geoId": "geometry.painting_1x2",
+  "texture": "textures/entity/paintings/1x2_scale_sign",
+  "out": "mobs/rpw/1x2_scale_sign_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x2.json",
+  "geoId": "geometry.painting_1x2",
+  "texture": "textures/entity/paintings/1x2_tholos_painting_1",
+  "out": "mobs/rpw/1x2_tholos_painting_1_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x2.json",
+  "geoId": "geometry.painting_1x2",
+  "texture": "textures/entity/paintings/1x2_tholos_painting_2",
+  "out": "mobs/rpw/1x2_tholos_painting_2_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x2.json",
+  "geoId": "geometry.painting_1x2",
+  "texture": "textures/entity/paintings/1x2_urn_sign",
+  "out": "mobs/rpw/1x2_urn_sign_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x2.json",
+  "geoId": "geometry.painting_1x2",
+  "texture": "textures/entity/paintings/1x2_wheat_sign_left",
+  "out": "mobs/rpw/1x2_wheat_sign_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x2.json",
+  "geoId": "geometry.painting_1x2",
+  "texture": "textures/entity/paintings/1x2_white_temple_sign",
+  "out": "mobs/rpw/1x2_white_temple_sign_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x2.json",
+  "geoId": "geometry.painting_1x2",
+  "texture": "textures/entity/paintings/1x2_woman_painting_left",
+  "out": "mobs/rpw/1x2_woman_painting_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x3.json",
+  "geoId": "geometry.painting_1x3",
+  "texture": "textures/entity/paintings/1x3_grapepaintingleft",
+  "out": "mobs/rpw/1x3_square_pattern_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x3.json",
+  "geoId": "geometry.painting_1x3",
+  "texture": "textures/entity/paintings/1x3_vertical_sun",
+  "out": "mobs/rpw/1x3_vertical_sun_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x5.json",
+  "geoId": "geometry.painting_1x5",
+  "texture": "textures/entity/paintings/1x5_figure_painting",
+  "out": "mobs/rpw/1x5_painting_figures_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_2x1.json",
+  "geoId": "geometry.painting_2x1",
+  "texture": "textures/entity/paintings/2x1_diamond",
+  "out": "mobs/rpw/2x1_diamond_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_2x1.json",
+  "geoId": "geometry.painting_2x1",
+  "texture": "textures/entity/paintings/2x1_gryphon_left_red",
+  "out": "mobs/rpw/2x1_gryphon_red_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_2x1.json",
+  "geoId": "geometry.painting_2x1",
+  "texture": "textures/entity/paintings/2x1_gryphon_left_white",
+  "out": "mobs/rpw/2x1_gryphon_white_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_2x1.json",
+  "geoId": "geometry.painting_2x1",
+  "texture": "textures/entity/paintings/2x1_gryphon_left_yellow",
+  "out": "mobs/rpw/2x1_gryphon_yellow_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_2x3.json",
+  "geoId": "geometry.painting_2x3",
+  "texture": "textures/entity/paintings/2x3_figure_painting",
+  "out": "mobs/rpw/2x3_painting_figures_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_2x3.json",
+  "geoId": "geometry.painting_2x3",
+  "texture": "textures/entity/paintings/2x3_shopfront_painting_1",
+  "out": "mobs/rpw/2x3_shopfront_painting_1_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_2x3.json",
+  "geoId": "geometry.painting_2x3",
+  "texture": "textures/entity/paintings/2x3_shopfront_painting_2",
+  "out": "mobs/rpw/2x3_shopfront_painting_2_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_2x3.json",
+  "geoId": "geometry.painting_2x3",
+  "texture": "textures/entity/paintings/2x3_shopfront_painting_3",
+  "out": "mobs/rpw/2x3_shopfront_painting_3_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_2x5.json",
+  "geoId": "geometry.painting_2x5",
+  "texture": "textures/entity/paintings/2x5_figure_painting",
+  "out": "mobs/rpw/2x5_painting_figures_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_3x2.json",
+  "geoId": "geometry.painting_3x2",
+  "texture": "textures/entity/paintings/3x2_diamond",
+  "out": "mobs/rpw/3x2_diamond_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_3x3.json",
+  "geoId": "geometry.painting_3x3",
+  "texture": "textures/entity/paintings/3x3_circle",
+  "out": "mobs/rpw/3x3_circle_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_3x3.json",
+  "geoId": "geometry.painting_3x3",
+  "texture": "textures/entity/paintings/3x3_diamond",
+  "out": "mobs/rpw/3x3_diamond_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_3x3.json",
+  "geoId": "geometry.painting_3x3",
+  "texture": "textures/entity/paintings/3x3_geometric_mix",
+  "out": "mobs/rpw/3x3_geometric_mix_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_3x3.json",
+  "geoId": "geometry.painting_3x3",
+  "texture": "textures/entity/paintings/gorgoneion_3x3",
+  "out": "mobs/rpw/3x3_gorgoneion_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_3x3.json",
+  "geoId": "geometry.painting_3x3",
+  "texture": "textures/entity/paintings/3x3_caupona_painting",
+  "out": "mobs/rpw/3x3_painting_caupona_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_3x3.json",
+  "geoId": "geometry.painting_3x3",
+  "texture": "textures/entity/paintings/3x3_square",
+  "out": "mobs/rpw/3x3_square_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_4x3.json",
+  "geoId": "geometry.painting_4x3",
+  "texture": "textures/entity/paintings/4x3_grapepainting",
+  "out": "mobs/rpw/4x3_grapepainting_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_4x4.json",
+  "geoId": "geometry.painting_4x4",
+  "texture": "textures/entity/paintings/4x4_square",
+  "out": "mobs/rpw/4x4_square_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_6x2.json",
+  "geoId": "geometry.painting_6x2",
+  "texture": "textures/entity/paintings/6x2_green_geometric_painting",
+  "out": "mobs/rpw/6x2_green_geometric_painting_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_7x2.json",
+  "geoId": "geometry.painting_7x2",
+  "texture": "textures/entity/paintings/7x2_genii",
+  "out": "mobs/rpw/7x2_genii_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_7x3.json",
+  "geoId": "geometry.painting_7x3",
+  "texture": "textures/entity/paintings/7x3_figure_painting",
+  "out": "mobs/rpw/7x3_painting_figures_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_3x3.json",
+  "geoId": "geometry.painting_3x3",
+  "texture": "textures/entity/paintings/snake_3x3",
+  "out": "mobs/rpw/snake_3x3_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_5x3.json",
+  "geoId": "geometry.painting_5x3",
+  "texture": "textures/entity/paintings/snake_5x3",
+  "out": "mobs/rpw/snake_5x3_e.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/flies.json",
+  "geoId": "geometry.flies",
+  "texture": "textures/blocks/arch_window",
+  "out": "mobs/rpw/flies.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/flies.json",
+  "geoId": "geometry.flies",
+  "texture": "textures/blocks/arch_window",
+  "out": "mobs/rpw/flies2.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/flies.json",
+  "geoId": "geometry.flies",
+  "texture": "textures/blocks/arch_window",
+  "out": "mobs/rpw/flies3.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/fountain_stream.json",
+  "geoId": "geometry.fountain_stream",
+  "texture": "textures/blocks/arch_window",
+  "out": "mobs/rpw/fountain_stream.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/water_rings.json",
+  "geoId": "geometry.water_rings",
+  "texture": "textures/blocks/arch_window",
+  "out": "mobs/rpw/water_rings.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/potted_date_palm.geo.json",
+  "geoId": "geometry.potted_date_palm",
+  "texture": "textures/entity/potted_date_palm",
+  "out": "mobs/rpw/potted_date_palm.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/rusted_acacia_door_3x1.geo.json",
+  "geoId": "geometry.rusted_acacia_door_3x1",
+  "texture": "textures/entity/rusted_acacia_door_3x1",
+  "out": "mobs/rpw/rusted_acacia_door_3x1.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/temple_door_orange_wood.entity.geo.json",
+  "geoId": "geometry.temple_door_orange_wood",
+  "texture": "textures/entity/temple_door_orange_wood",
+  "out": "mobs/rpw/temple_door_orange_wood.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/trade_sign_post.geo.json",
+  "geoId": "geometry.trade_sign_post",
+  "texture": "textures/entity/trade_sign",
+  "out": "mobs/rpw/trade_sign.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/tripod_pot_hanger.geo.json",
+  "geoId": "geometry.tripod_pot_hanger",
+  "texture": "textures/entity/tripod_pot_hanger",
+  "out": "mobs/rpw/tripod_pot_hanger.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/warped_door_3x1.geo.json",
+  "geoId": "geometry.warped_door_3x1",
+  "texture": "textures/entity/warped_door_3x1",
+  "out": "mobs/rpw/warped_door_3x1.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/wooden_crib.geo.json",
+  "geoId": "geometry.wooden_crib",
+  "texture": "textures/entity/wooden_crib",
+  "out": "mobs/rpw/wooden_crib.png"
+ },
+ {
+  "type": "entity",
+  "base": "rpw",
+  "geoFile": "models/entity/wood_fired_oven.geo.json",
+  "geoId": "geometry.wood_fired_oven",
+  "texture": "textures/entity/oven/brick",
+  "out": "mobs/rpw/wood_fired_oven.png"
+ }
+]

@@ -1,0 +1,8434 @@
+[
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/double_arch_orange_brick.geo.json",
+  "geoId": "geometry.double_arch_orange_brick",
+  "materials": {
+   "*": {
+    "texture": "double_arch_orange_brick",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/double_arch_orange_brick.png",
+  "id": "rmnmshp:double_arch_orange_brick",
+  "group": "architectural/arch"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/round_arch_small.geo.json",
+  "geoId": "geometry.round_arch_small",
+  "materials": {
+   "*": {
+    "texture": "single_arch_orange_brick",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/round_arch_small.png",
+  "id": "rmnmshp:round_arch_small",
+  "group": "architectural/arch"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/segmental_arch_half_large.geo.json",
+  "geoId": "geometry.segmental_arch_half_large",
+  "materials": {
+   "*": {
+    "texture": "double_arch_orange_brick",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/segmental_arch_half_large.png",
+  "id": "rmnmshp:segmental_arch_half_large",
+  "group": "architectural/arch"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/segmental_arch_small.geo.json",
+  "geoId": "geometry.segmental_arch_small",
+  "materials": {
+   "*": {
+    "texture": "single_arch_orange_brick",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/segmental_arch_small.png",
+  "id": "rmnmshp:segmental_arch_small",
+  "group": "architectural/arch"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/arena_seats.geo.json",
+  "geoId": "geometry.arena_seats",
+  "materials": {
+   "*": {
+    "texture": "arena_seating",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/arena_seats.png",
+  "id": "rmnmshp:arena_seats",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/arena_seats_block.geo.json",
+  "geoId": "geometry.arena_seats_block",
+  "materials": {
+   "*": {
+    "texture": "arena_seating",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/arena_seats_block.png",
+  "id": "rmnmshp:arena_seats_block",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/arena_seats_corner.geo.json",
+  "geoId": "geometry.arena_seats_corner",
+  "materials": {
+   "*": {
+    "texture": "arena_seating",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/arena_seats_corner.png",
+  "id": "rmnmshp:arena_seats_corner",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/arena_seats_quarter.geo.json",
+  "geoId": "geometry.arena_seats_quarter",
+  "materials": {
+   "*": {
+    "texture": "arena_seating",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/arena_seats_quarter.png",
+  "id": "rmnmshp:arena_seats_quarter",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/arena_seats_slab.geo.json",
+  "geoId": "geometry.arena_seats_slab",
+  "materials": {
+   "*": {
+    "texture": "arena_seating",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/arena_seats_slab.png",
+  "id": "rmnmshp:arena_seats_slab",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/arena_seats_vertical_slab.geo.json",
+  "geoId": "geometry.arena_seats_vertical_slab",
+  "materials": {
+   "*": {
+    "texture": "arena_seating",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/arena_seats_vertical_slab.png",
+  "id": "rmnmshp:arena_seats_vertical_slab",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/balustrade_balusters.geo.json",
+  "geoId": "geometry.balustrade_balusters",
+  "materials": {
+   "*": {
+    "texture": "balustrade",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/balustrade_balusters.png",
+  "id": "rmnmshp:balustrade_balusters",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/balustrade_plinth.geo.json",
+  "geoId": "geometry.balustrade_plinth",
+  "materials": {
+   "*": {
+    "texture": "balustrade",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/balustrade_plinth.png",
+  "id": "rmnmshp:balustrade_plinth",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/balustrade_plinth_corner.geo.json",
+  "geoId": "geometry.balustrade_plinth_corner",
+  "materials": {
+   "*": {
+    "texture": "balustrade",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/balustrade_plinth_corner.png",
+  "id": "rmnmshp:balustrade_plinth_corner",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/large_white_base.geo.json",
+  "geoId": "geometry.large_white_base",
+  "materials": {
+   "*": {
+    "texture": "large_red_base",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/large_red_base.png",
+  "id": "rmnmshp:large_red_base",
+  "group": "architectural/columns/base"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/large_white_base.geo.json",
+  "geoId": "geometry.large_white_base",
+  "materials": {
+   "*": {
+    "texture": "large_white_base",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/large_white_base.png",
+  "id": "rmnmshp:large_white_base",
+  "group": "architectural/columns/base"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/white_marble_doric_bottom.geo.json",
+  "geoId": "geometry.white_marble_doric_bottom",
+  "materials": {
+   "*": {
+    "texture": "white_marble_doric_bottom",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/white_marble_doric_bottom.png",
+  "id": "rmnmshp:white_marble_doric_bottom",
+  "group": "architectural/columns/base"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/white_marble_doric_bottom_h.geo.json",
+  "geoId": "geometry.white_marble_doric_bottom_h",
+  "materials": {
+   "*": {
+    "texture": "white_marble_doric_bottom_h",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/white_marble_doric_bottom_h.png",
+  "id": "rmnmshp:white_marble_doric_bottom_h",
+  "group": "architectural/columns/base"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/corinthian_capital.json",
+  "geoId": "geometry.corinthian_capital",
+  "materials": {
+   "*": {
+    "texture": "black_corinthian_capital",
+    "render_method": "alpha_test_to_opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/black_corinthian_capital.png",
+  "id": "rmnmshp:black_corinthian_capital",
+  "group": "architectural/columns/capital"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/corinthian_capital.json",
+  "geoId": "geometry.corinthian_capital",
+  "materials": {
+   "*": {
+    "texture": "gold_corinthian_capital",
+    "render_method": "alpha_test_to_opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/gold_corinthian_capital.png",
+  "id": "rmnmshp:gold_corinthian_capital",
+  "group": "architectural/columns/capital"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/large_doric_capital.geo.json",
+  "geoId": "geometry.large_doric_capital",
+  "materials": {
+   "*": {
+    "texture": "large_doric_capital",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/large_doric_capital.png",
+  "id": "rmnmshp:large_doric_capital",
+  "group": "architectural/columns/capital"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/large_ionic_capital.geo.json",
+  "geoId": "geometry.large_ionic_capital",
+  "materials": {
+   "*": {
+    "texture": "large_ionic_capital",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/large_ionic_capital.png",
+  "id": "rmnmshp:large_ionic_capital",
+  "group": "architectural/columns/capital"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/corinthian_capital.json",
+  "geoId": "geometry.corinthian_capital",
+  "materials": {
+   "*": {
+    "texture": "marble_corinthian_capital",
+    "render_method": "alpha_test_to_opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/marble_corinthian_capital.png",
+  "id": "rmnmshp:marble_corinthian_capital",
+  "group": "architectural/columns/capital"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/ionic_capital.geo.json",
+  "geoId": "geometry.ionic_capital",
+  "materials": {
+   "*": {
+    "texture": "polychrome_ionic_capital",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/polychrome_ionic_capital.png",
+  "id": "rmnmshp:polychrome_ionic_capital",
+  "group": "architectural/columns/capital"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/corinthian_capital.json",
+  "geoId": "geometry.corinthian_capital",
+  "materials": {
+   "*": {
+    "texture": "red_green_corinthian_capital",
+    "render_method": "alpha_test_to_opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/red_and_green_corinthian_capital.png",
+  "id": "rmnmshp:red_and_green_corinthian_capital",
+  "group": "architectural/columns/capital"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/corinthian_capital.json",
+  "geoId": "geometry.corinthian_capital",
+  "materials": {
+   "*": {
+    "texture": "sandstone_corinthian_capital",
+    "render_method": "alpha_test_to_opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sandstone_corinthian_capital.png",
+  "id": "rmnmshp:sandstone_corinthian_capital",
+  "group": "architectural/columns/capital"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/white_marble_doric_capital.geo.json",
+  "geoId": "geometry.white_marble_doric_capital",
+  "materials": {
+   "*": {
+    "texture": "white_marble_doric_capital",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/white_marble_doric_capital.png",
+  "id": "rmnmshp:white_marble_doric_capital",
+  "group": "architectural/columns/capital"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/white_marble_doric_capital_h.geo.json",
+  "geoId": "geometry.white_marble_doric_capital_h",
+  "materials": {
+   "*": {
+    "texture": "white_marble_doric_capital_h",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/white_marble_doric_capital_h.png",
+  "id": "rmnmshp:white_marble_doric_capital_h",
+  "group": "architectural/columns/capital"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/large_white_pillar.geo.json",
+  "geoId": "geometry.large_white_pillar",
+  "materials": {
+   "*": {
+    "texture": "large_red_pillar_b",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/large_red_pillar.png",
+  "id": "rmnmshp:large_red_pillar",
+  "group": "architectural/columns/shaft"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/large_white_pillar_entasis_1.geo.json",
+  "geoId": "geometry.large_white_pillar_entasis_1",
+  "materials": {
+   "*": {
+    "texture": "large_red_pillar_b",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/large_red_pillar_entasis_1.png",
+  "id": "rmnmshp:large_red_pillar_entasis_1",
+  "group": "architectural/columns/shaft"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/large_white_pillar_entasis_2.geo.json",
+  "geoId": "geometry.large_white_pillar_entasis_2",
+  "materials": {
+   "*": {
+    "texture": "large_red_pillar_b",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/large_red_pillar_entasis_2.png",
+  "id": "rmnmshp:large_red_pillar_entasis_2",
+  "group": "architectural/columns/shaft"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/large_white_pillar.geo.json",
+  "geoId": "geometry.large_white_pillar",
+  "materials": {
+   "*": {
+    "texture": "large_white_pillar_a",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/large_white_pillar.png",
+  "id": "rmnmshp:large_white_pillar",
+  "group": "architectural/columns/shaft"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/large_white_pillar_entasis_1.geo.json",
+  "geoId": "geometry.large_white_pillar_entasis_1",
+  "materials": {
+   "*": {
+    "texture": "large_white_pillar_a",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/large_white_pillar_entasis_1.png",
+  "id": "rmnmshp:large_white_pillar_entasis_1",
+  "group": "architectural/columns/shaft"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/large_white_pillar_entasis_2.geo.json",
+  "geoId": "geometry.large_white_pillar_entasis_2",
+  "materials": {
+   "*": {
+    "texture": "large_white_pillar_a",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/large_white_pillar_entasis_2.png",
+  "id": "rmnmshp:large_white_pillar_entasis_2",
+  "group": "architectural/columns/shaft"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/white_marble_doric_pillar.geo.json",
+  "geoId": "geometry.white_marble_doric_pillar",
+  "materials": {
+   "*": {
+    "texture": "white_marble_doric_pillar",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/white_marble_doric_pillar.png",
+  "id": "rmnmshp:white_marble_doric_pillar",
+  "group": "architectural/columns/shaft"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/white_marble_doric_pillar_h.geo.json",
+  "geoId": "geometry.white_marble_doric_pillar_h",
+  "materials": {
+   "*": {
+    "texture": "white_marble_doric_pillar",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/white_marble_doric_pillar_h.png",
+  "id": "rmnmshp:white_marble_doric_pillar_h",
+  "group": "architectural/columns/shaft"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/entablature_middle_2.geo.json",
+  "geoId": "geometry.entablature_middle_2",
+  "materials": {
+   "*": {
+    "texture": "doorway_frame",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/entablature.png",
+  "id": "rmnmshp:entablature",
+  "group": "architectural/doorway"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/doorframe_bracing_2x1_right.geo.json",
+  "geoId": "geometry.doorframe_bracing_2x1_right",
+  "materials": {
+   "*": {
+    "texture": "green_painted_doorframe",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/green_painted_railing.png",
+  "id": "rmnmshp:green_painted_railing",
+  "group": "architectural/doorway"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/lintel_and_bracing_left.geo.json",
+  "geoId": "geometry.lintel_and_bracing_left",
+  "materials": {
+   "*": {
+    "texture": "doorway_frame",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/lintel_and_bracing.png",
+  "id": "rmnmshp:lintel_and_bracing",
+  "group": "architectural/doorway"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/pediment_left_1.geo.json",
+    "geoId": "geometry.pediment_left_1",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/pediment_left_2.geo.json",
+    "geoId": "geometry.pediment_left_2",
+    "hideBones": [],
+    "offset": [
+     16,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/pediment_left_1.geo.json",
+    "geoId": "geometry.pediment_left_1",
+    "hideBones": [],
+    "offset": [
+     32,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/pediment_right_2.geo.json",
+    "geoId": "geometry.pediment_right_2",
+    "hideBones": [],
+    "offset": [
+     48,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/pediment_right_1.geo.json",
+    "geoId": "geometry.pediment_right_1",
+    "hideBones": [],
+    "offset": [
+     64,
+     0,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "doorway_frame",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/pediment_5.png",
+  "id": "rmnmshp:pediment_5",
+  "group": "architectural/doorway"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/doorway_capital.geo.json",
+  "geoId": "geometry.doorway_capital",
+  "materials": {
+   "*": {
+    "texture": "doorway_capital",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/plastered_capital.png",
+  "id": "rmnmshp:plastered_capital",
+  "group": "architectural/doorway"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/doorway_column.geo.json",
+  "geoId": "geometry.doorway_column",
+  "materials": {
+   "*": {
+    "texture": "doorway_pillar_gradient_3",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/plastered_column.png",
+  "id": "rmnmshp:plastered_column",
+  "group": "architectural/doorway"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/doorway_column.geo.json",
+  "geoId": "geometry.doorway_column",
+  "materials": {
+   "*": {
+    "texture": "doorway_pillar_gradient_1",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/plastered_column_red.png",
+  "id": "rmnmshp:plastered_column_red",
+  "group": "architectural/doorway"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/white_cornice.geo.json",
+  "geoId": "geometry.white_cornice",
+  "materials": {
+   "*": {
+    "texture": "black_cornice",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/black_cornice_marble.png",
+  "id": "rmnmshp:black_cornice_marble",
+  "group": "architectural/entablature"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/white_cornice.geo.json",
+  "geoId": "geometry.white_cornice",
+  "materials": {
+   "*": {
+    "texture": "blue_cornice",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/blue_cornice_marble.png",
+  "id": "rmnmshp:blue_cornice_marble",
+  "group": "architectural/entablature"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/cornice.geo.json",
+  "geoId": "geometry.cornice",
+  "materials": {
+   "*": {
+    "texture": "white_cornice",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/cornice.png",
+  "id": "rmnmshp:cornice",
+  "group": "architectural/entablature"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/cornice_corner.geo.json",
+  "geoId": "geometry.cornice_corner",
+  "materials": {
+   "*": {
+    "texture": "white_cornice",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/cornice_corner.png",
+  "id": "rmnmshp:cornice_corner",
+  "group": "architectural/entablature"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/cornice_edge.geo.json",
+  "geoId": "geometry.cornice_edge",
+  "materials": {
+   "*": {
+    "texture": "white_cornice",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/cornice_edge.png",
+  "id": "rmnmshp:cornice_edge",
+  "group": "architectural/entablature"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/white_cornice.geo.json",
+  "geoId": "geometry.white_cornice",
+  "materials": {
+   "*": {
+    "texture": "full_red_cornice",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/full_red_cornice_marble.png",
+  "id": "rmnmshp:full_red_cornice_marble",
+  "group": "architectural/entablature"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/white_cornice.geo.json",
+  "geoId": "geometry.white_cornice",
+  "materials": {
+   "*": {
+    "texture": "gold_cornice",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/gold_cornice_marble.png",
+  "id": "rmnmshp:gold_cornice_marble",
+  "group": "architectural/entablature"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/white_cornice.geo.json",
+  "geoId": "geometry.white_cornice",
+  "materials": {
+   "*": {
+    "texture": "green_cornice",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/green_cornice_marble.png",
+  "id": "rmnmshp:green_cornice_marble",
+  "group": "architectural/entablature"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/red_cornice.geo.json",
+  "geoId": "geometry.red_cornice",
+  "materials": {
+   "*": {
+    "texture": "red_cornice",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/red_cornice_marble.png",
+  "id": "rmnmshp:red_cornice_marble",
+  "group": "architectural/entablature"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/white_cornice.geo.json",
+  "geoId": "geometry.white_cornice",
+  "materials": {
+   "*": {
+    "texture": "white_cornice",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/white_cornice_marble.png",
+  "id": "rmnmshp:white_cornice_marble",
+  "group": "architectural/entablature"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_slab.png",
+  "id": "rmnmshp:imbrex_and_tegulae_slab",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_corner.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_corner",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_slab_corner.png",
+  "id": "rmnmshp:imbrex_and_tegulae_slab_corner",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_slab_corner_inner.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_slab_corner_inner",
+  "materials": {
+   "*": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_slab_corner_inner.png",
+  "id": "rmnmshp:imbrex_and_tegulae_slab_corner_inner",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_edge_left.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_edge_left",
+  "materials": {
+   "*": {
+    "texture": "imbrex_edge",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_slab_edge.png",
+  "id": "rmnmshp:imbrex_and_tegulae_slab_edge",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_edge_center.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_edge_center",
+  "materials": {
+   "*": {
+    "texture": "imbrex_edge",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_slab_edge_center.png",
+  "id": "rmnmshp:imbrex_and_tegulae_slab_edge_center",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_slab_large.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_slab_large",
+  "materials": {
+   "*": {
+    "texture": "imbrex_edge",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_slab_large.png",
+  "id": "rmnmshp:imbrex_and_tegulae_slab_large",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_slab_top_center.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_slab_top_center",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_slab_top_center.png",
+  "id": "rmnmshp:imbrex_and_tegulae_slab_top_center",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_slab_top_n.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_slab_top_n",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_slab_top_n.png",
+  "id": "rmnmshp:imbrex_and_tegulae_slab_top_n",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_slab_top_ne.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_slab_top_ne",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_slab_top_ne.png",
+  "id": "rmnmshp:imbrex_and_tegulae_slab_top_ne",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_slab_top_ns.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_slab_top_ns",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_slab_top_ns.png",
+  "id": "rmnmshp:imbrex_and_tegulae_slab_top_ns",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_small.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_small",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_small.png",
+  "id": "rmnmshp:imbrex_and_tegulae_small",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_small_2.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_small_2",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_small_2.png",
+  "id": "rmnmshp:imbrex_and_tegulae_small_2",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_small_2_corner.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_small_2_corner",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_small_2_corner.png",
+  "id": "rmnmshp:imbrex_and_tegulae_small_2_corner",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_small_corner.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_small_corner",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_small_corner.png",
+  "id": "rmnmshp:imbrex_and_tegulae_small_corner",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_small_corner_inner.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_small_corner_inner",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_small_corner_inner.png",
+  "id": "rmnmshp:imbrex_and_tegulae_small_corner_inner",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_stair.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_stair",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_stair.png",
+  "id": "rmnmshp:imbrex_and_tegulae_stair",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_stair_corner.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_stair_corner",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_stair_corner.png",
+  "id": "rmnmshp:imbrex_and_tegulae_stair_corner",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_stair_corner_inner.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_stair_corner_inner",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_stair_corner_inner.png",
+  "id": "rmnmshp:imbrex_and_tegulae_stair_corner_inner",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_stair_large.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_stair_large",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_stair_large.png",
+  "id": "rmnmshp:imbrex_and_tegulae_stair_large",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_stair_large_top_ns.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_stair_large_top_ns",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_stair_large_top_ns.png",
+  "id": "rmnmshp:imbrex_and_tegulae_stair_large_top_ns",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_stair_top_n.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_stair_top_n",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_stair_top_n.png",
+  "id": "rmnmshp:imbrex_and_tegulae_stair_top_n",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/imbrex_and_tegulae_stair_top_ns.geo.json",
+  "geoId": "geometry.imbrex_and_tegulae_stair_top_ns",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/imbrex_and_tegulae_stair_top_ns.png",
+  "id": "rmnmshp:imbrex_and_tegulae_stair_top_ns",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/lintel.geo.json",
+  "geoId": "geometry.lintel",
+  "materials": {
+   "*": {
+    "texture": "lintel",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/lintel_wooden.png",
+  "id": "rmnmshp:lintel_wooden",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_2_left.geo.json",
+  "geoId": "geometry.pediment_2_left",
+  "materials": {
+   "*": {
+    "texture": "pediment_marble_1",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/marble_pediment_2.png",
+  "id": "rmnmshp:marble_pediment_2",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_2_edge_left.geo.json",
+  "geoId": "geometry.pediment_2_edge_left",
+  "materials": {
+   "*": {
+    "texture": "pediment_marble_1",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/marble_pediment_2_edge.png",
+  "id": "rmnmshp:marble_pediment_2_edge",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_2_peak.geo.json",
+  "geoId": "geometry.pediment_2_peak",
+  "materials": {
+   "*": {
+    "texture": "pediment_marble_1",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/marble_pediment_2_peak.png",
+  "id": "rmnmshp:marble_pediment_2_peak",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_cornice_bottom.geo.json",
+  "geoId": "geometry.pediment_cornice_bottom",
+  "materials": {
+   "*": {
+    "texture": "pediment_marble_1",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/marble_pediment_cornice.png",
+  "id": "rmnmshp:marble_pediment_cornice",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_2_left.geo.json",
+  "geoId": "geometry.pediment_2_left",
+  "materials": {
+   "*": {
+    "texture": "pediment_polychrome2",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/polychrome_2_pediment_2.png",
+  "id": "rmnmshp:polychrome_2_pediment_2",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_2_edge_left.geo.json",
+  "geoId": "geometry.pediment_2_edge_left",
+  "materials": {
+   "*": {
+    "texture": "pediment_polychrome2",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/polychrome_2_pediment_2_edge.png",
+  "id": "rmnmshp:polychrome_2_pediment_2_edge",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_2_peak.geo.json",
+  "geoId": "geometry.pediment_2_peak",
+  "materials": {
+   "*": {
+    "texture": "pediment_polychrome2",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/polychrome_2_pediment_2_peak.png",
+  "id": "rmnmshp:polychrome_2_pediment_2_peak",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_cornice_bottom.geo.json",
+  "geoId": "geometry.pediment_cornice_bottom",
+  "materials": {
+   "*": {
+    "texture": "pediment_polychrome2",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/polychrome_2_pediment_cornice.png",
+  "id": "rmnmshp:polychrome_2_pediment_cornice",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_2_left.geo.json",
+  "geoId": "geometry.pediment_2_left",
+  "materials": {
+   "*": {
+    "texture": "pediment_polychrome",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/polychrome_3_pediment_2.png",
+  "id": "rmnmshp:polychrome_3_pediment_2",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_2_edge_left.geo.json",
+  "geoId": "geometry.pediment_2_edge_left",
+  "materials": {
+   "*": {
+    "texture": "pediment_polychrome",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/polychrome_3_pediment_2_edge.png",
+  "id": "rmnmshp:polychrome_3_pediment_2_edge",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_2_peak.geo.json",
+  "geoId": "geometry.pediment_2_peak",
+  "materials": {
+   "*": {
+    "texture": "pediment_polychrome",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/polychrome_3_pediment_2_peak.png",
+  "id": "rmnmshp:polychrome_3_pediment_2_peak",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_cornice_bottom.geo.json",
+  "geoId": "geometry.pediment_cornice_bottom",
+  "materials": {
+   "*": {
+    "texture": "pediment_polychrome",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/polychrome_3_pediment_cornice.png",
+  "id": "rmnmshp:polychrome_3_pediment_cornice",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_2_left.geo.json",
+  "geoId": "geometry.pediment_2_left",
+  "materials": {
+   "*": {
+    "texture": "pediment_marble_red",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/polychrome_pediment_2.png",
+  "id": "rmnmshp:polychrome_pediment_2",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_2_edge_left.geo.json",
+  "geoId": "geometry.pediment_2_edge_left",
+  "materials": {
+   "*": {
+    "texture": "pediment_marble_red",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/polychrome_pediment_2_edge.png",
+  "id": "rmnmshp:polychrome_pediment_2_edge",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_2_peak.geo.json",
+  "geoId": "geometry.pediment_2_peak",
+  "materials": {
+   "*": {
+    "texture": "pediment_marble_red",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/polychrome_pediment_2_peak.png",
+  "id": "rmnmshp:polychrome_pediment_2_peak",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pediment_cornice_bottom.geo.json",
+  "geoId": "geometry.pediment_cornice_bottom",
+  "materials": {
+   "*": {
+    "texture": "pediment_marble_red",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/polychrome_pediment_cornice.png",
+  "id": "rmnmshp:polychrome_pediment_cornice",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/thin_wooden_post.geo.json",
+  "geoId": "geometry.thin_wooden_post",
+  "materials": {
+   "*": {
+    "texture": "clothesline",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/post_small_wooden.png",
+  "id": "rmnmshp:post_small_wooden",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/wooden_post_center.geo.json",
+  "geoId": "geometry.wooden_post_center",
+  "materials": {
+   "*": {
+    "texture": "wooden_frame",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/post_wooden.png",
+  "id": "rmnmshp:post_wooden",
+  "group": "architectural"
+ },
+ {
+  "type": "cube",
+  "base": "rpw",
+  "faces": {
+   "*": "purple_plaster_lightest"
+  },
+  "method": "opaque",
+  "out": "blocks/purple_plaster.png",
+  "id": "rmnmshp:purple_plaster",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/wooden_plank_stairs.geo.json",
+  "geoId": "geometry.wooden_plank_stairs",
+  "materials": {
+   "*": {
+    "texture": "wooden_plank_stairs",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/wooden_plank_stairs.png",
+  "id": "rmnmshp:wooden_plank_stairs",
+  "group": "architectural/stairs"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/wooden_railing_bottom.geo.json",
+  "geoId": "geometry.wooden_railing_bottom",
+  "materials": {
+   "*": {
+    "texture": "wooden_railing",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/wooden_railing.png",
+  "id": "rmnmshp:wooden_railing",
+  "group": "architectural/stairs"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/tegulae_slab.geo.json",
+  "geoId": "geometry.tegulae_slab",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/tegulae_slab.png",
+  "id": "rmnmshp:tegulae_slab",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/tegulae_slab_top_ns.geo.json",
+  "geoId": "geometry.tegulae_slab_top_ns",
+  "materials": {
+   "*": {
+    "texture": "imbrex",
+    "render_method": "opaque"
+   },
+   "full": {
+    "texture": "cut_copper",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/tegulae_slab_top_ns.png",
+  "id": "rmnmshp:tegulae_slab_top_ns",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/white_marble_rail.geo.json",
+  "geoId": "geometry.white_marble_rail",
+  "materials": {
+   "*": {
+    "texture": "white_marble_rail",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/white_marble_rail.png",
+  "id": "rmnmshp:white_marble_rail",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/plaster_window.geo.json",
+  "geoId": "geometry.plaster_window",
+  "materials": {
+   "*": {
+    "texture": "arch_window",
+    "render_method": "blend"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/plaster_arch_window.png",
+  "id": "rmnmshp:plaster_arch_window",
+  "group": "architectural/windows"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sandstone_arch_window.geo.json",
+  "geoId": "geometry.sandstone_arch_window",
+  "materials": {
+   "*": {
+    "texture": "arch_window",
+    "render_method": "blend"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sandstone_arch_window.png",
+  "id": "rmnmshp:sandstone_arch_window",
+  "group": "architectural/windows"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/wooden_lintel_large_center.geo.json",
+  "geoId": "geometry.wooden_lintel_large_center",
+  "materials": {
+   "*": {
+    "texture": "wooden_frame",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/wooden_lintel_large.png",
+  "id": "rmnmshp:wooden_lintel_large",
+  "group": "architectural"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/1x1_shutter.geo.json",
+  "geoId": "geometry.1x1_shutter",
+  "materials": {
+   "*": {
+    "texture": "1x1_shutter",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_shutter.png",
+  "id": "rmnmshp:1x1_shutter",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/bathhouse_sandals.geo.json",
+  "geoId": "geometry.bathhouse_sandals",
+  "materials": {
+   "*": {
+    "texture": "bathhouse_sandals",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/bathhouse_sandals.png",
+  "id": "rmnmshp:bathhouse_sandals",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/chamber_pot.geo.json",
+  "geoId": "geometry.chamber_pot",
+  "materials": {
+   "*": {
+    "texture": "chamber_pot",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/chamber_pot.png",
+  "id": "rmnmshp:chamber_pot",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/cosmetic_articles.geo.json",
+  "geoId": "geometry.cosmetic_articles",
+  "materials": {
+   "*": {
+    "texture": "cosmetic_articles",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/cosmetic_articles.png",
+  "id": "rmnmshp:cosmetic_articles",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/dumbbells_medium.block.geo.json",
+  "geoId": "geometry.dumbbells_medium",
+  "materials": {
+   "*": {
+    "texture": "weights",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/dumbbells_medium.png",
+  "id": "rmnmshp:dumbbells_medium",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/dumbbells_small.block.geo.json",
+  "geoId": "geometry.dumbbells_small",
+  "materials": {
+   "*": {
+    "texture": "weights",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/dumbbells_small.png",
+  "id": "rmnmshp:dumbbells_small",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/apple_1.geo.json",
+  "geoId": "geometry.apple_1",
+  "materials": {
+   "*": {
+    "texture": "apples",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/apples.png",
+  "id": "rmnmshp:apples",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/bread.block.geo.json",
+  "geoId": "geometry.bread",
+  "materials": {
+   "*": {
+    "texture": "bread",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/bread.png",
+  "id": "rmnmshp:bread",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/bronze_jug.geo.json",
+  "geoId": "geometry.bronze_jug",
+  "materials": {
+   "*": {
+    "texture": "bronze_jug",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/bronze_jug.png",
+  "id": "rmnmshp:bronze_jug",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/cooking_pan.json",
+  "geoId": "geometry.cooking_pan",
+  "materials": {
+   "*": {
+    "texture": "oven_cookware",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/cooking_pan.png",
+  "id": "rmnmshp:cooking_pan",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/cooking_pot.json",
+  "geoId": "geometry.cooking_pot",
+  "materials": {
+   "*": {
+    "texture": "oven_cookware",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/cooking_pot.png",
+  "id": "rmnmshp:cooking_pot",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/cutting_board_cheese.geo.json",
+  "geoId": "geometry.cutting_board_cheese",
+  "materials": {
+   "*": {
+    "texture": "culina",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/cutting_board_cheese.png",
+  "id": "rmnmshp:cutting_board_cheese",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/fishes.geo.json",
+  "geoId": "geometry.fishes",
+  "materials": {
+   "*": {
+    "texture": "plate_food",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/fish.png",
+  "id": "rmnmshp:fish",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/goblets_and_jug.geo.json",
+  "geoId": "geometry.goblets_and_jug",
+  "materials": {
+   "*": {
+    "texture": "goblets",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/goblets_and_jug.png",
+  "id": "rmnmshp:goblets_and_jug",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/gold_bowl_apples.geo.json",
+  "geoId": "geometry.gold_bowl_apples",
+  "materials": {
+   "*": {
+    "texture": "gold_bowl_apples",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [
+   "bone2",
+   "bone3",
+   "bone4"
+  ],
+  "out": "blocks/gold_bowl.png",
+  "id": "rmnmshp:gold_bowl",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/grill.geo.json",
+  "geoId": "geometry.grill",
+  "materials": {
+   "*": {
+    "texture": "oven_cookware",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/grill.png",
+  "id": "rmnmshp:grill",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/hanging_garlic.geo.json",
+  "geoId": "geometry.hanging_garlic",
+  "materials": {
+   "*": {
+    "texture": "culina",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/hanging_garlic.png",
+  "id": "rmnmshp:hanging_garlic",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/herbs.geo.json",
+  "geoId": "geometry.herbs",
+  "materials": {
+   "*": {
+    "texture": "herbs",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/herbs.png",
+  "id": "rmnmshp:herbs",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/offerings.geo.json",
+  "geoId": "geometry.offerings",
+  "materials": {
+   "*": {
+    "texture": "offerings",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/offerings.png",
+  "id": "rmnmshp:offerings",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/plate_garlic.geo.json",
+  "geoId": "geometry.plate_garlic",
+  "materials": {
+   "*": {
+    "texture": "culina",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/plate_garlic.png",
+  "id": "rmnmshp:plate_garlic",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/bar_counter_empty.geo.json",
+  "geoId": "geometry.bar_counter_empty",
+  "materials": {
+   "*": {
+    "texture": "bar_counter_red",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/red_bar_counter.png",
+  "id": "rmnmshp:red_bar_counter",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/bar_counter_empty.geo.json",
+  "geoId": "geometry.bar_counter_empty",
+  "materials": {
+   "*": {
+    "texture": "bar_counter_white",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/white_bar_counter.png",
+  "id": "rmnmshp:white_bar_counter",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/bowl_empty.geo.json",
+  "geoId": "geometry.bowl_empty",
+  "materials": {
+   "*": {
+    "texture": "plate_food",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/wooden_bowl.png",
+  "id": "rmnmshp:wooden_bowl",
+  "group": "decor/food"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/garlands_2_left.geo.json",
+    "geoId": "geometry.garlands_2_left",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/garlands_2_right.geo.json",
+    "geoId": "geometry.garlands_2_right",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "garlands",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/garland_2.png",
+  "id": "rmnmshp:garland_2",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/garlands_3_left.block.geo.json",
+    "geoId": "geometry.garlands_3_left",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/garlands_3_mid.block.geo.json",
+    "geoId": "geometry.garlands_3_mid",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/garlands_3_right.block.geo.json",
+    "geoId": "geometry.garlands_3_right",
+    "hideBones": [],
+    "offset": [
+     -32,
+     0,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "garlands_3",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/garland_3.png",
+  "id": "rmnmshp:garland_3",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/lararium_bottom.geo.json",
+    "geoId": "geometry.lararium_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/lararium_middle.geo.json",
+    "geoId": "geometry.lararium_middle",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/lararium_top.geo.json",
+    "geoId": "geometry.lararium_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "lararium",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/lararium.png",
+  "id": "rmnmshp:lararium",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/lifting_stone.block.geo.json",
+  "geoId": "geometry.lifting_stone",
+  "materials": {
+   "*": {
+    "texture": "weights",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/lifting_stone.png",
+  "id": "rmnmshp:lifting_stone",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/bronze_brazier_round.geo.json",
+  "geoId": "geometry.bronze_brazier_round",
+  "materials": {
+   "*": {
+    "texture": "bronze_brazier",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/bronze_brazier_round.png",
+  "id": "rmnmshp:bronze_brazier_round",
+  "group": "decor/lights"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/bronze_brazier_square.geo.json",
+  "geoId": "geometry.bronze_brazier_square",
+  "materials": {
+   "*": {
+    "texture": "bronze_brazier",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/bronze_brazier_square.png",
+  "id": "rmnmshp:bronze_brazier_square",
+  "group": "decor/lights"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/bronze_lantern.geo.json",
+  "geoId": "geometry.bronze_lantern",
+  "materials": {
+   "*": {
+    "texture": "bronze_lantern",
+    "render_method": "blend"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/bronze_lantern.png",
+  "id": "rmnmshp:bronze_lantern",
+  "group": "decor/lights"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/bronze_oil_lamp.geo.json",
+  "geoId": "geometry.bronze_oil_lamp",
+  "materials": {
+   "*": {
+    "texture": "bronze_oil_lamp",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/bronze_oil_lamp.png",
+  "id": "rmnmshp:bronze_oil_lamp",
+  "group": "decor/lights"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/bronze_oil_lamp_stand_bottom.json",
+    "geoId": "geometry.bronze_oil_lamp_stand_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/bronze_oil_lamp_stand_top_unlit.geo.json",
+    "geoId": "geometry.bronze_oil_lamp_stand_top_unlit",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "bronze_oil_lamp",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/bronze_oil_lamp_stand.png",
+  "id": "rmnmshp:bronze_oil_lamp_stand",
+  "group": "decor/lights"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/three_wick_oil_lamp_hanging.geo.json",
+  "geoId": "geometry.three_wick_oil_lamp_hanging",
+  "materials": {
+   "*": {
+    "texture": "three_wick_oil_lamp",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/hanging_three_wick_oil_lamp.png",
+  "id": "rmnmshp:hanging_three_wick_oil_lamp",
+  "group": "decor/lights"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/pedestal_brazier_bottom.geo.json",
+    "geoId": "geometry.pedestal_brazier_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/pedestal_brazier_top_unlit.geo.json",
+    "geoId": "geometry.pedestal_brazier_top_unlit",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "pedestal_brazier",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/pedestal_brazier.png",
+  "id": "rmnmshp:pedestal_brazier",
+  "group": "decor/lights"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/small_brazier.geo.json",
+  "geoId": "geometry.small_brazier",
+  "materials": {
+   "*": {
+    "texture": "small_brazier",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/small_brazier.png",
+  "id": "rmnmshp:small_brazier",
+  "group": "decor/lights"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/standing_post_brazier_bottom.geo.json",
+    "geoId": "geometry.standing_post_brazier_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/standing_post_brazier_top_unlit.geo.json",
+    "geoId": "geometry.standing_post_brazier_top_unlit",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "standing_post_brazier",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/standing_post_brazier.png",
+  "id": "rmnmshp:standing_post_brazier",
+  "group": "decor/lights"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/terracotta_oil_lamp.geo.json",
+  "geoId": "geometry.terracotta_oil_lamp",
+  "materials": {
+   "*": {
+    "texture": "terracotta_oil_lamp",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/terracotta_oil_lamp.png",
+  "id": "rmnmshp:terracotta_oil_lamp",
+  "group": "decor/lights"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/terracotta_oil_lamp_1.geo.json",
+  "geoId": "geometry.terracotta_oil_lamp_1",
+  "materials": {
+   "*": {
+    "texture": "terracotta_oil_lamp",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/terracotta_oil_lamp_1.png",
+  "id": "rmnmshp:terracotta_oil_lamp_1",
+  "group": "decor/lights"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/terracotta_oil_lamp_2.geo.json",
+  "geoId": "geometry.terracotta_oil_lamp_2",
+  "materials": {
+   "*": {
+    "texture": "terracotta_oil_lamp",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/terracotta_oil_lamp_2.png",
+  "id": "rmnmshp:terracotta_oil_lamp_2",
+  "group": "decor/lights"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/oil_lamp_clay_small.geo.json",
+  "geoId": "geometry.oil_lamp_clay_small",
+  "materials": {
+   "*": {
+    "texture": "oil_lamp_clay_small",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/terracotta_oil_lamp_3.png",
+  "id": "rmnmshp:terracotta_oil_lamp_3",
+  "group": "decor/lights"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/wall_mounted_brazier.geo.json",
+  "geoId": "geometry.wall_mounted_brazier",
+  "materials": {
+   "*": {
+    "texture": "wall_mounted_brazier",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/wall_mounted_brazier.png",
+  "id": "rmnmshp:wall_mounted_brazier",
+  "group": "decor/lights"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_blue_stripe",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_blue_stripe.png",
+  "id": "rmnmshp:1x1_blue_stripe",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_bronze_plate",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_bronze_plate.png",
+  "id": "rmnmshp:1x1_bronze_plate",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_bronze_plate_large",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_bronze_plate_large.png",
+  "id": "rmnmshp:1x1_bronze_plate_large",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_bust_trim_empty",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_bust_trim_empty.png",
+  "id": "rmnmshp:1x1_bust_trim_empty",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_bust_trim_fowl_left",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_bust_trim_fowl.png",
+  "id": "rmnmshp:1x1_bust_trim_fowl",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_bust_trim_grapes",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_bust_trim_grapes.png",
+  "id": "rmnmshp:1x1_bust_trim_grapes",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_bust_trim_leaf",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_bust_trim_leaf.png",
+  "id": "rmnmshp:1x1_bust_trim_leaf",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_bust_trim_man_1",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_bust_trim_man_1.png",
+  "id": "rmnmshp:1x1_bust_trim_man_1",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_bust_trim_man_2",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_bust_trim_man_2.png",
+  "id": "rmnmshp:1x1_bust_trim_man_2",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_bust_trim_woman_1",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_bust_trim_woman_1.png",
+  "id": "rmnmshp:1x1_bust_trim_woman_1",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_bust_trim_woman_2",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_bust_trim_woman_2.png",
+  "id": "rmnmshp:1x1_bust_trim_woman_2",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "meditative",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_cupid.png",
+  "id": "rmnmshp:1x1_cupid",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_female_mask",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_female_mask.png",
+  "id": "rmnmshp:1x1_female_mask",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_graffiti",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_graffiti.png",
+  "id": "rmnmshp:1x1_graffiti",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_gray_trim",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_gray_trim.png",
+  "id": "rmnmshp:1x1_gray_trim",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_green_stripe",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_green_stripe.png",
+  "id": "rmnmshp:1x1_green_stripe",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_k_trim_left",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_k_trim_1.png",
+  "id": "rmnmshp:1x1_k_trim_1",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_k_trim_left_transparent",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_k_trim_2.png",
+  "id": "rmnmshp:1x1_k_trim_2",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_magistra",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_magistra.png",
+  "id": "rmnmshp:1x1_magistra",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_male_mask",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_male_mask.png",
+  "id": "rmnmshp:1x1_male_mask",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_redstripe_bottom",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_redstripe_bottom.png",
+  "id": "rmnmshp:1x1_redstripe_bottom",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_redstripe_top",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_redstripe_top.png",
+  "id": "rmnmshp:1x1_redstripe_top",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_red_trim",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_red_trim.png",
+  "id": "rmnmshp:1x1_red_trim",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_twin_birds_motif_red",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_twin_birds_motif_red.png",
+  "id": "rmnmshp:1x1_twin_birds_motif_red",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_twin_birds_motif_white",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_twin_birds_motif_white.png",
+  "id": "rmnmshp:1x1_twin_birds_motif_white",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_twin_birds_motif_yellow",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_twin_birds_motif_yellow.png",
+  "id": "rmnmshp:1x1_twin_birds_motif_yellow",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/painting_1x1.json",
+  "geoId": "geometry.painting_1x1",
+  "materials": {
+   "*": {
+    "texture": "1x1_wheel",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x1_wheel.png",
+  "id": "rmnmshp:1x1_wheel",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_amphora_sign_left",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_amphora_sign.png",
+  "id": "rmnmshp:1x2_amphora_sign",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_apse_niche",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_apse_niche.png",
+  "id": "rmnmshp:1x2_apse_niche",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_baker_sign",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_baker_sign.png",
+  "id": "rmnmshp:1x2_baker_sign",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_blacksmith_sign_left",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_blacksmith_sign.png",
+  "id": "rmnmshp:1x2_blacksmith_sign",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_cup_sign",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_cup_sign.png",
+  "id": "rmnmshp:1x2_cup_sign",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_grape_sign",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_grape_sign.png",
+  "id": "rmnmshp:1x2_grape_sign",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_merchant_sign",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_merchant_sign.png",
+  "id": "rmnmshp:1x2_merchant_sign",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_noblewoman",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_noblewoman.png",
+  "id": "rmnmshp:1x2_noblewoman",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_red_diamond_pattern",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_red_diamond_pattern.png",
+  "id": "rmnmshp:1x2_red_diamond_pattern",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_scale_sign",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_scale_sign.png",
+  "id": "rmnmshp:1x2_scale_sign",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_tholos_painting_1",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_tholos_painting_1.png",
+  "id": "rmnmshp:1x2_tholos_painting_1",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_tholos_painting_2",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_tholos_painting_2.png",
+  "id": "rmnmshp:1x2_tholos_painting_2",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_urn_sign",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_urn_sign.png",
+  "id": "rmnmshp:1x2_urn_sign",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_wheat_sign_left",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_wheat_sign.png",
+  "id": "rmnmshp:1x2_wheat_sign",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_white_temple_sign",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_white_temple_sign.png",
+  "id": "rmnmshp:1x2_white_temple_sign",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "1x2_woman_painting_left",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x2_woman_painting.png",
+  "id": "rmnmshp:1x2_woman_painting",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "1x3_grapepaintingleft",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x3_square_pattern.png",
+  "id": "rmnmshp:1x3_square_pattern",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "1x3_vertical_sun",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x3_vertical_sun.png",
+  "id": "rmnmshp:1x3_vertical_sun",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_5x5_1.geo.json",
+  "geoId": "geometry.painting_5x5_1",
+  "materials": {
+   "*": {
+    "texture": "1x5_figure_painting",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/1x5_painting_figures.png",
+  "id": "rmnmshp:1x5_painting_figures",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x1_1.geo.json",
+  "geoId": "geometry.painting_2x1_1",
+  "materials": {
+   "*": {
+    "texture": "2x1_crafts_tools",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x1_crafts_tools.png",
+  "id": "rmnmshp:2x1_crafts_tools",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x1_1.geo.json",
+  "geoId": "geometry.painting_2x1_1",
+  "materials": {
+   "*": {
+    "texture": "2x1_diamond",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x1_diamond.png",
+  "id": "rmnmshp:2x1_diamond",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x1_1.geo.json",
+  "geoId": "geometry.painting_2x1_1",
+  "materials": {
+   "*": {
+    "texture": "2x1_graffiti",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x1_graffiti.png",
+  "id": "rmnmshp:2x1_graffiti",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x1_1.geo.json",
+  "geoId": "geometry.painting_2x1_1",
+  "materials": {
+   "*": {
+    "texture": "2x1_gryphon_left_red",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x1_gryphon_red.png",
+  "id": "rmnmshp:2x1_gryphon_red",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x1_1.geo.json",
+  "geoId": "geometry.painting_2x1_1",
+  "materials": {
+   "*": {
+    "texture": "2x1_gryphon_left_white",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x1_gryphon_white.png",
+  "id": "rmnmshp:2x1_gryphon_white",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x1_1.geo.json",
+  "geoId": "geometry.painting_2x1_1",
+  "materials": {
+   "*": {
+    "texture": "2x1_gryphon_left_yellow",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x1_gryphon_yellow.png",
+  "id": "rmnmshp:2x1_gryphon_yellow",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x1_1.geo.json",
+  "geoId": "geometry.painting_2x1_1",
+  "materials": {
+   "*": {
+    "texture": "2x1_herbs",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x1_herbs.png",
+  "id": "rmnmshp:2x1_herbs",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x1_1.geo.json",
+  "geoId": "geometry.painting_2x1_1",
+  "materials": {
+   "*": {
+    "texture": "2x1_masonry_trim",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x1_masonry_trim.png",
+  "id": "rmnmshp:2x1_masonry_trim",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x1_1.geo.json",
+  "geoId": "geometry.painting_2x1_1",
+  "materials": {
+   "*": {
+    "texture": "2x1_pots",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x1_pots.png",
+  "id": "rmnmshp:2x1_pots",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "2x2_apollo",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x2_apollo.png",
+  "id": "rmnmshp:2x2_apollo",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "2x2_boscoreale_temple",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x2_boscoreale_temple.png",
+  "id": "rmnmshp:2x2_boscoreale_temple",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "baroque",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x2_circe.png",
+  "id": "rmnmshp:2x2_circe",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "2x2_couple",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x2_couple.png",
+  "id": "rmnmshp:2x2_couple",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "2x2_gladiator_graffiti",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x2_gladiator_graffiti.png",
+  "id": "rmnmshp:2x2_gladiator_graffiti",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "2x2_graffiti",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x2_graffiti.png",
+  "id": "rmnmshp:2x2_graffiti",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "humble",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x2_tablinum.png",
+  "id": "rmnmshp:2x2_tablinum",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_2x2_1.geo.json",
+  "geoId": "geometry.painting_2x2_1",
+  "materials": {
+   "*": {
+    "texture": "2x2_wheel",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x2_wheel.png",
+  "id": "rmnmshp:2x2_wheel",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "2x3_figure_painting",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x3_painting_figures.png",
+  "id": "rmnmshp:2x3_painting_figures",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "2x3_shopfront_painting_1",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x3_shopfront_painting_1.png",
+  "id": "rmnmshp:2x3_shopfront_painting_1",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "2x3_shopfront_painting_2",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x3_shopfront_painting_2.png",
+  "id": "rmnmshp:2x3_shopfront_painting_2",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "2x3_shopfront_painting_3",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x3_shopfront_painting_3.png",
+  "id": "rmnmshp:2x3_shopfront_painting_3",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_5x5_1.geo.json",
+  "geoId": "geometry.painting_5x5_1",
+  "materials": {
+   "*": {
+    "texture": "2x5_figure_painting",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/2x5_painting_figures.png",
+  "id": "rmnmshp:2x5_painting_figures",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x2_1.geo.json",
+  "geoId": "geometry.painting_3x2_1",
+  "materials": {
+   "*": {
+    "texture": "3x2_diamond",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x2_diamond.png",
+  "id": "rmnmshp:3x2_diamond",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "sunflowers",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_blue_square_pattern.png",
+  "id": "rmnmshp:3x3_blue_square_pattern",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "3x3_circle",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_circle.png",
+  "id": "rmnmshp:3x3_circle",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "cotan",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_cornicen.png",
+  "id": "rmnmshp:3x3_cornicen",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "3x3_diamond",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_diamond.png",
+  "id": "rmnmshp:3x3_diamond",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "3x3_geometric_mix",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_geometric_mix.png",
+  "id": "rmnmshp:3x3_geometric_mix",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "cavebird",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_gladiators.png",
+  "id": "rmnmshp:3x3_gladiators",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "gorgoneion_3x3",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_gorgoneion.png",
+  "id": "rmnmshp:3x3_gorgoneion",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "3x3_caupona_painting",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_painting_caupona.png",
+  "id": "rmnmshp:3x3_painting_caupona",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "tides",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_red_fourth_style_frame.png",
+  "id": "rmnmshp:3x3_red_fourth_style_frame",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "3x3_retiarius",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_retiarius.png",
+  "id": "rmnmshp:3x3_retiarius",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "bouquet",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_sacrifice.png",
+  "id": "rmnmshp:3x3_sacrifice",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "snake_3x3",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_snake.png",
+  "id": "rmnmshp:3x3_snake",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "3x3_square",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_square.png",
+  "id": "rmnmshp:3x3_square",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "endboss",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_victory.png",
+  "id": "rmnmshp:3x3_victory",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x3_1.geo.json",
+  "geoId": "geometry.painting_3x3_1",
+  "materials": {
+   "*": {
+    "texture": "owlemons",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x3_white_square_pattern.png",
+  "id": "rmnmshp:3x3_white_square_pattern",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x4_1.geo.json",
+  "geoId": "geometry.painting_3x4_1",
+  "materials": {
+   "*": {
+    "texture": "3x4_framed_figure",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x4_framed_figure.png",
+  "id": "rmnmshp:3x4_framed_figure",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_3x4_1.geo.json",
+  "geoId": "geometry.painting_3x4_1",
+  "materials": {
+   "*": {
+    "texture": "3x4_landscape",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/3x4_landscape.png",
+  "id": "rmnmshp:3x4_landscape",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_4x2_1.geo.json",
+  "geoId": "geometry.painting_4x2_1",
+  "materials": {
+   "*": {
+    "texture": "passage",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/4x2_fourth_style_panel.png",
+  "id": "rmnmshp:4x2_fourth_style_panel",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_4x2_1.geo.json",
+  "geoId": "geometry.painting_4x2_1",
+  "materials": {
+   "*": {
+    "texture": "lowmist",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/4x2_gold_patterned_panel.png",
+  "id": "rmnmshp:4x2_gold_patterned_panel",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_4x2_1.geo.json",
+  "geoId": "geometry.painting_4x2_1",
+  "materials": {
+   "*": {
+    "texture": "4x2_graffiti",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/4x2_graffiti.png",
+  "id": "rmnmshp:4x2_graffiti",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_4x2_1.geo.json",
+  "geoId": "geometry.painting_4x2_1",
+  "materials": {
+   "*": {
+    "texture": "finding",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/4x2_third_style_panel.png",
+  "id": "rmnmshp:4x2_third_style_panel",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_4x2_1.geo.json",
+  "geoId": "geometry.painting_4x2_1",
+  "materials": {
+   "*": {
+    "texture": "changing",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/4x2_white_and_gold_panel.png",
+  "id": "rmnmshp:4x2_white_and_gold_panel",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_4x3_1.geo.json",
+  "geoId": "geometry.painting_4x3_1",
+  "materials": {
+   "*": {
+    "texture": "4x3_grapepainting",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/4x3_grapepainting.png",
+  "id": "rmnmshp:4x3_grapepainting",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_4x3_1.geo.json",
+  "geoId": "geometry.painting_4x3_1",
+  "materials": {
+   "*": {
+    "texture": "4x3_laestrygonians",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/4x3_laestrygonians.png",
+  "id": "rmnmshp:4x3_laestrygonians",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_4x3_1.geo.json",
+  "geoId": "geometry.painting_4x3_1",
+  "materials": {
+   "*": {
+    "texture": "4x3_livias_garden",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/4x3_livias_garden.png",
+  "id": "rmnmshp:4x3_livias_garden",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_4x4_1.geo.json",
+  "geoId": "geometry.painting_4x4_1",
+  "materials": {
+   "*": {
+    "texture": "4x4_fourth_style_scene",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/4x4_fourth_style_scene.png",
+  "id": "rmnmshp:4x4_fourth_style_scene",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_4x4_1.geo.json",
+  "geoId": "geometry.painting_4x4_1",
+  "materials": {
+   "*": {
+    "texture": "orb",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/4x4_gold_fourth_style.png",
+  "id": "rmnmshp:4x4_gold_fourth_style",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_4x4_1.geo.json",
+  "geoId": "geometry.painting_4x4_1",
+  "materials": {
+   "*": {
+    "texture": "unpacked",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/4x4_hunt_fresco.png",
+  "id": "rmnmshp:4x4_hunt_fresco",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_4x4_1.geo.json",
+  "geoId": "geometry.painting_4x4_1",
+  "materials": {
+   "*": {
+    "texture": "4x4_momento_mori",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/4x4_momento_mori.png",
+  "id": "rmnmshp:4x4_momento_mori",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_4x4_1.geo.json",
+  "geoId": "geometry.painting_4x4_1",
+  "materials": {
+   "*": {
+    "texture": "4x4_second_style_scene",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/4x4_second_style_scene.png",
+  "id": "rmnmshp:4x4_second_style_scene",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_4x4_1.geo.json",
+  "geoId": "geometry.painting_4x4_1",
+  "materials": {
+   "*": {
+    "texture": "4x4_square",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/4x4_square.png",
+  "id": "rmnmshp:4x4_square",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_5x3_1.geo.json",
+  "geoId": "geometry.painting_5x3_1",
+  "materials": {
+   "*": {
+    "texture": "snake_5x3",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/5x3_snake.png",
+  "id": "rmnmshp:5x3_snake",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_6x2_1.geo.json",
+  "geoId": "geometry.painting_6x2_1",
+  "materials": {
+   "*": {
+    "texture": "6x2_green_geometric_painting",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/6x2_green_geometric_painting.png",
+  "id": "rmnmshp:6x2_green_geometric_painting",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_7x2_1.geo.json",
+  "geoId": "geometry.painting_7x2_1",
+  "materials": {
+   "*": {
+    "texture": "7x2_genii",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/7x2_genii.png",
+  "id": "rmnmshp:7x2_genii",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/painting/painting_7x3_1.geo.json",
+  "geoId": "geometry.painting_7x3_1",
+  "materials": {
+   "*": {
+    "texture": "7x3_figure_painting",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/7x3_painting_figures.png",
+  "id": "rmnmshp:7x3_painting_figures",
+  "group": "decor/paintings"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/plank_stack.geo.json",
+    "geoId": "geometry.plank_stack",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/plank_stack_1.geo.json",
+    "geoId": "geometry.plank_stack_1",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "plank_stack",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/plank_stack.png",
+  "id": "rmnmshp:plank_stack",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/plank_stack_covered.geo.json",
+    "geoId": "geometry.plank_stack_covered",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/plank_stack_covered_1.geo.json",
+    "geoId": "geometry.plank_stack_covered_1",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "plank_stack",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/plank_stack_covered.png",
+  "id": "rmnmshp:plank_stack_covered",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/plank_stack_tall.geo.json",
+    "geoId": "geometry.plank_stack_tall",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/plank_stack_tall_1.geo.json",
+    "geoId": "geometry.plank_stack_tall_1",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "plank_stack",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/plank_stack_tall.png",
+  "id": "rmnmshp:plank_stack_tall",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/plank_stack_tall_covered.geo.json",
+    "geoId": "geometry.plank_stack_tall_covered",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/plank_stack_tall_covered_1.geo.json",
+    "geoId": "geometry.plank_stack_tall_covered_1",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "plank_stack",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/plank_stack_tall_covered.png",
+  "id": "rmnmshp:plank_stack_tall_covered",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/rope_fence.geo.json",
+    "geoId": "geometry.rope_fence",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/rope_fence_2.geo.json",
+    "geoId": "geometry.rope_fence_2",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/rope_fence_1.geo.json",
+    "geoId": "geometry.rope_fence_1",
+    "hideBones": [],
+    "offset": [
+     -32,
+     0,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "rope_fence",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/rope_fence.png",
+  "id": "rmnmshp:rope_fence",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/rope_pile_1.geo.json",
+  "geoId": "geometry.rope_pile_1",
+  "materials": {
+   "*": {
+    "texture": "rope",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/rope_pile.png",
+  "id": "rmnmshp:rope_pile",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sawdust.geo.json",
+  "geoId": "geometry.sawdust",
+  "materials": {
+   "*": {
+    "texture": "sawdust",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sawdust.png",
+  "id": "rmnmshp:sawdust",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/scale.geo.json",
+  "geoId": "geometry.scale",
+  "materials": {
+   "*": {
+    "texture": "scale",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/scale.png",
+  "id": "rmnmshp:scale",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/scrolls_on_floor_1.geo.json",
+  "geoId": "geometry.scrolls_on_floor_1",
+  "materials": {
+   "*": {
+    "texture": "scrolls_on_floor",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/scrolls_on_floor.png",
+  "id": "rmnmshp:scrolls_on_floor",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/scroll_box.geo.json",
+  "geoId": "geometry.scroll_box",
+  "materials": {
+   "*": {
+    "texture": "scroll_box",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/scroll_box.png",
+  "id": "rmnmshp:scroll_box",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/curule_chair.geo.json",
+  "geoId": "geometry.curule_chair",
+  "materials": {
+   "*": {
+    "texture": "curule_chair",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/curule_chair.png",
+  "id": "rmnmshp:curule_chair",
+  "group": "decor/seats"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/poor_folding_chair.geo.json",
+  "geoId": "geometry.poor_folding_chair",
+  "materials": {
+   "*": {
+    "texture": "poor_folding_chair",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/poor_folding_chair.png",
+  "id": "rmnmshp:poor_folding_chair",
+  "group": "decor/seats"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/stool_wicker.geo.json",
+  "geoId": "geometry.stool_wicker",
+  "materials": {
+   "*": {
+    "texture": "kitchen_table",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/stool_wicker.png",
+  "id": "rmnmshp:stool_wicker",
+  "group": "decor/seats"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/stool_wooden.geo.json",
+  "geoId": "geometry.stool_wooden",
+  "materials": {
+   "*": {
+    "texture": "kitchen_table",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/stool_wooden.png",
+  "id": "rmnmshp:stool_wooden",
+  "group": "decor/seats"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sponge_stick.geo.json",
+  "geoId": "geometry.sponge_stick",
+  "materials": {
+   "*": {
+    "texture": "sponge_stick",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sponge_stick.png",
+  "id": "rmnmshp:sponge_stick",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/augustus_prima_porta_bottom.geo.json",
+    "geoId": "geometry.augustus_prima_porta_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/augustus_prima_porta_mid.geo.json",
+    "geoId": "geometry.augustus_prima_porta_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/augustus_prima_porta_top.geo.json",
+    "geoId": "geometry.augustus_prima_porta_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "augustus_prima_porta",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/augustus_prima_porta.png",
+  "id": "rmnmshp:augustus_prima_porta",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/augustus_prima_porta_bottom.geo.json",
+    "geoId": "geometry.augustus_prima_porta_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/augustus_prima_porta_mid.geo.json",
+    "geoId": "geometry.augustus_prima_porta_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/augustus_prima_porta_top.geo.json",
+    "geoId": "geometry.augustus_prima_porta_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "augustus_prima_porta_polychrome",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/augustus_prima_porta_painted.png",
+  "id": "rmnmshp:augustus_prima_porta_painted",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/domitian_bottom.geo.json",
+    "geoId": "geometry.domitian_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/domitian_mid.geo.json",
+    "geoId": "geometry.domitian_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/domitian_top.geo.json",
+    "geoId": "geometry.domitian_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "male_statues_1",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/domitian.png",
+  "id": "rmnmshp:domitian",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/domitian_bottom.geo.json",
+    "geoId": "geometry.domitian_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/domitian_mid.geo.json",
+    "geoId": "geometry.domitian_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/domitian_top.geo.json",
+    "geoId": "geometry.domitian_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "domitian_polychrome",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/domitian_painted.png",
+  "id": "rmnmshp:domitian_painted",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/juventas_bottom.geo.json",
+    "geoId": "geometry.juventas_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/juventas_mid.geo.json",
+    "geoId": "geometry.juventas_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/juventas_top.geo.json",
+    "geoId": "geometry.juventas_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "juventas",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/juventas.png",
+  "id": "rmnmshp:juventas",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/juventas_bottom.geo.json",
+    "geoId": "geometry.juventas_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/juventas_mid.geo.json",
+    "geoId": "geometry.juventas_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/juventas_top.geo.json",
+    "geoId": "geometry.juventas_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "juventas_polychrome",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/juventas_painted.png",
+  "id": "rmnmshp:juventas_painted",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/pedestal1.geo.json",
+    "geoId": "geometry.pedestal1",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/pedestal2.geo.json",
+    "geoId": "geometry.pedestal2",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     16
+    ]
+   },
+   {
+    "geoFile": "models/blocks/pedestal3.geo.json",
+    "geoId": "geometry.pedestal3",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     32
+    ]
+   },
+   {
+    "geoFile": "models/blocks/lion_sitting_1.geo.json",
+    "geoId": "geometry.lion_sitting_1",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/lion_sitting_2.geo.json",
+    "geoId": "geometry.lion_sitting_2",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     16
+    ]
+   },
+   {
+    "geoFile": "models/blocks/lion_sitting_3.geo.json",
+    "geoId": "geometry.lion_sitting_3",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     32
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "lion_standing",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/lion_sitting_statue.png",
+  "id": "rmnmshp:lion_sitting_statue",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/pedestal1.geo.json",
+    "geoId": "geometry.pedestal1",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/pedestal2.geo.json",
+    "geoId": "geometry.pedestal2",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     16
+    ]
+   },
+   {
+    "geoFile": "models/blocks/pedestal3.geo.json",
+    "geoId": "geometry.pedestal3",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     32
+    ]
+   },
+   {
+    "geoFile": "models/blocks/lion_standing_1.geo.json",
+    "geoId": "geometry.lion_standing_1",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/lion_standing_2.geo.json",
+    "geoId": "geometry.lion_standing_2",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     16
+    ]
+   },
+   {
+    "geoFile": "models/blocks/lion_standing_3.geo.json",
+    "geoId": "geometry.lion_standing_3",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     32
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "lion_standing",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/lion_standing_statue.png",
+  "id": "rmnmshp:lion_standing_statue",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/maenad_bottom.geo.json",
+    "geoId": "geometry.maenad_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/maenad_mid.geo.json",
+    "geoId": "geometry.maenad_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/maenad_top.geo.json",
+    "geoId": "geometry.maenad_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "maenad",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/maenad.png",
+  "id": "rmnmshp:maenad",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/maenad_bottom.geo.json",
+    "geoId": "geometry.maenad_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/maenad_mid.geo.json",
+    "geoId": "geometry.maenad_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/maenad_top.geo.json",
+    "geoId": "geometry.maenad_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "maenad_polychrome",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/maenad_painted.png",
+  "id": "rmnmshp:maenad_painted",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/nerva_bottom.geo.json",
+    "geoId": "geometry.nerva_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/nerva_mid.geo.json",
+    "geoId": "geometry.nerva_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/nerva_top.geo.json",
+    "geoId": "geometry.nerva_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "male_statues_1",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/nerva.png",
+  "id": "rmnmshp:nerva",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/nerva_bottom.geo.json",
+    "geoId": "geometry.nerva_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/nerva_mid.geo.json",
+    "geoId": "geometry.nerva_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/nerva_top.geo.json",
+    "geoId": "geometry.nerva_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "nerva_polychrome",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/nerva_painted.png",
+  "id": "rmnmshp:nerva_painted",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/samothrace_legs.geo.json",
+    "geoId": "geometry.samothrace_legs",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/samothrace_body.geo.json",
+    "geoId": "geometry.samothrace_body",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/samothrace_head.geo.json",
+    "geoId": "geometry.samothrace_head",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/samothrace_wreath.geo.json",
+    "geoId": "geometry.samothrace_wreath",
+    "hideBones": [],
+    "offset": [
+     -16,
+     32,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/samothrace_trident.geo.json",
+    "geoId": "geometry.samothrace_trident",
+    "hideBones": [],
+    "offset": [
+     16,
+     32,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/samothrace_l_wing.geo.json",
+    "geoId": "geometry.samothrace_l_wing",
+    "hideBones": [],
+    "offset": [
+     16,
+     32,
+     16
+    ]
+   },
+   {
+    "geoFile": "models/blocks/samothrace_r_wing.geo.json",
+    "geoId": "geometry.samothrace_r_wing",
+    "hideBones": [],
+    "offset": [
+     -16,
+     32,
+     16
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "nike_of_samothrace",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/nike.png",
+  "id": "rmnmshp:nike",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/samothrace_legs.geo.json",
+    "geoId": "geometry.samothrace_legs",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/samothrace_body.geo.json",
+    "geoId": "geometry.samothrace_body",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/samothrace_head.geo.json",
+    "geoId": "geometry.samothrace_head",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/samothrace_wreath.geo.json",
+    "geoId": "geometry.samothrace_wreath",
+    "hideBones": [],
+    "offset": [
+     -16,
+     32,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/samothrace_trident.geo.json",
+    "geoId": "geometry.samothrace_trident",
+    "hideBones": [],
+    "offset": [
+     16,
+     32,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/samothrace_l_wing.geo.json",
+    "geoId": "geometry.samothrace_l_wing",
+    "hideBones": [],
+    "offset": [
+     16,
+     32,
+     16
+    ]
+   },
+   {
+    "geoFile": "models/blocks/samothrace_r_wing.geo.json",
+    "geoId": "geometry.samothrace_r_wing",
+    "hideBones": [],
+    "offset": [
+     -16,
+     32,
+     16
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "nike_polychrome",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/nike_painted.png",
+  "id": "rmnmshp:nike_painted",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/senator_bottom.geo.json",
+    "geoId": "geometry.senator_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/senator_mid.geo.json",
+    "geoId": "geometry.senator_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/senator_top.geo.json",
+    "geoId": "geometry.senator_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "male_statues_1",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/senator.png",
+  "id": "rmnmshp:senator",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/senator_bottom.geo.json",
+    "geoId": "geometry.senator_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/senator_mid.geo.json",
+    "geoId": "geometry.senator_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/senator_top.geo.json",
+    "geoId": "geometry.senator_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "senator_polychrome",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/senator_painted.png",
+  "id": "rmnmshp:senator_painted",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/venus_bottom.json",
+    "geoId": "geometry.venus_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/venus_mid.geo.json",
+    "geoId": "geometry.venus_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/venus_top.geo.json",
+    "geoId": "geometry.venus_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "venus",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/venus.png",
+  "id": "rmnmshp:venus",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/venus_de_milo_bottom.json",
+    "geoId": "geometry.venus_de_milo_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/venus_de_milo_mid.geo.json",
+    "geoId": "geometry.venus_de_milo_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/venus_de_milo_top.json",
+    "geoId": "geometry.venus_de_milo_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "venus_de_milo",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/venus_de_milo.png",
+  "id": "rmnmshp:venus_de_milo",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/venus_de_milo_bottom.json",
+    "geoId": "geometry.venus_de_milo_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/venus_de_milo_mid.geo.json",
+    "geoId": "geometry.venus_de_milo_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/venus_de_milo_top.json",
+    "geoId": "geometry.venus_de_milo_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "venus_de_milo_polychrome",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/venus_de_milo_painted.png",
+  "id": "rmnmshp:venus_de_milo_painted",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/venus_bottom.json",
+    "geoId": "geometry.venus_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/venus_mid.geo.json",
+    "geoId": "geometry.venus_mid",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/venus_top.geo.json",
+    "geoId": "geometry.venus_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "venus_polychrome",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/venus_painted.png",
+  "id": "rmnmshp:venus_painted",
+  "group": "decor/statues"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/amphora.geo.json",
+  "geoId": "geometry.amphora",
+  "materials": {
+   "*": {
+    "texture": "amphora",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/amphora.png",
+  "id": "rmnmshp:amphora",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/amphora_2.geo.json",
+  "geoId": "geometry.amphora_2",
+  "materials": {
+   "*": {
+    "texture": "amphora_2",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/amphora_2.png",
+  "id": "rmnmshp:amphora_2",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/amphora_large.geo.json",
+  "geoId": "geometry.amphora_large",
+  "materials": {
+   "*": {
+    "texture": "amphora_large",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/amphora_large.png",
+  "id": "rmnmshp:amphora_large",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/amphora_red.block.geo.json",
+  "geoId": "geometry.amphora_red",
+  "materials": {
+   "*": {
+    "texture": "amphora_red",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/amphora_red.png",
+  "id": "rmnmshp:amphora_red",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/amphora_small_thin.geo.json",
+  "geoId": "geometry.amphora_small_thin",
+  "materials": {
+   "*": {
+    "texture": "amphora_small_black",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/amphora_small_thin.png",
+  "id": "rmnmshp:amphora_small_thin",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/empty_basket.json",
+  "geoId": "geometry.empty_basket",
+  "materials": {
+   "*": {
+    "texture": "basket_1",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/basket.png",
+  "id": "rmnmshp:basket",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/basket_large.block.geo.json",
+  "geoId": "geometry.basket_large",
+  "materials": {
+   "*": {
+    "texture": "basket",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/basket_large.png",
+  "id": "rmnmshp:basket_large",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/fruit_basket.geo.json",
+  "geoId": "geometry.fruit_basket",
+  "materials": {
+   "*": {
+    "texture": "fruit_basket",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [
+   "apples",
+   "figs"
+  ],
+  "out": "blocks/basket_round.png",
+  "id": "rmnmshp:basket_round",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/basket_small.block.geo.json",
+  "geoId": "geometry.basket_small",
+  "materials": {
+   "*": {
+    "texture": "basket",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/basket_small.png",
+  "id": "rmnmshp:basket_small",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/firewood_basket.geo.json",
+  "geoId": "geometry.firewood_basket",
+  "materials": {
+   "*": {
+    "texture": "firewood_basket",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [
+   "wood"
+  ],
+  "out": "blocks/basket_tall.png",
+  "id": "rmnmshp:basket_tall",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/bucket.block.geo.json",
+  "geoId": "geometry.bucket",
+  "materials": {
+   "*": {
+    "texture": "bucket",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/bucket.png",
+  "id": "rmnmshp:bucket",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/burial_urn_1.geo.json",
+  "geoId": "geometry.burial_urn_1",
+  "materials": {
+   "*": {
+    "texture": "burial_urn_1",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/burial_urn_1.png",
+  "id": "rmnmshp:burial_urn_1",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/burial_urn_2.geo.json",
+  "geoId": "geometry.burial_urn_2",
+  "materials": {
+   "*": {
+    "texture": "burial_urn_2",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/burial_urn_2.png",
+  "id": "rmnmshp:burial_urn_2",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/cage.block.geo.json",
+  "geoId": "geometry.cage",
+  "materials": {
+   "*": {
+    "texture": "cage",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/cage.png",
+  "id": "rmnmshp:cage",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/clay_amphora_small.geo.json",
+  "geoId": "geometry.clay_amphora_small",
+  "materials": {
+   "*": {
+    "texture": "clay_amphora_small",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/clay_amphora_small.png",
+  "id": "rmnmshp:clay_amphora_small",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/leaning_amphora.block.geo.json",
+  "geoId": "geometry.leaning_amphora",
+  "materials": {
+   "*": {
+    "texture": "leaning_amphora",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/leaning_amphora.png",
+  "id": "rmnmshp:leaning_amphora",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/plate_and_jug.geo.json",
+  "geoId": "geometry.plate_and_jug",
+  "materials": {
+   "*": {
+    "texture": "plate_and_jug",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/plate_and_jug.png",
+  "id": "rmnmshp:plate_and_jug",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pot.geo.json",
+  "geoId": "geometry.pot",
+  "materials": {
+   "*": {
+    "texture": "pots",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/pot.png",
+  "id": "rmnmshp:pot",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pot_1.geo.json",
+  "geoId": "geometry.pot_1",
+  "materials": {
+   "*": {
+    "texture": "pots",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/pot_1.png",
+  "id": "rmnmshp:pot_1",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pot_terracotta.block.geo.json",
+  "geoId": "geometry.pot_terracotta",
+  "materials": {
+   "*": {
+    "texture": "pot_terracotta",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/pot_terracotta.png",
+  "id": "rmnmshp:pot_terracotta",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/red_figure_amphora.geo.json",
+  "geoId": "geometry.red_figure_amphora",
+  "materials": {
+   "*": {
+    "texture": "red_figure_amphora",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/red_figure_amphora.png",
+  "id": "rmnmshp:red_figure_amphora",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sack_big.block.geo.json",
+  "geoId": "geometry.sack_big",
+  "materials": {
+   "*": {
+    "texture": "sacks",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sack_large.png",
+  "id": "rmnmshp:sack_large",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sack_pile.block.geo.json",
+  "geoId": "geometry.sack_pile",
+  "materials": {
+   "*": {
+    "texture": "sack_pile",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sack_pile.png",
+  "id": "rmnmshp:sack_pile",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sack_small.block.geo.json",
+  "geoId": "geometry.sack_small",
+  "materials": {
+   "*": {
+    "texture": "sacks",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sack_small.png",
+  "id": "rmnmshp:sack_small",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/shelf.geo.json",
+  "geoId": "geometry.shelf",
+  "materials": {
+   "*": {
+    "texture": "culina",
+    "render_method": "double_sided"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/shelf.png",
+  "id": "rmnmshp:shelf",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/small_urns.geo.json",
+  "geoId": "geometry.small_urns",
+  "materials": {
+   "*": {
+    "texture": "small_urns",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/small_urns.png",
+  "id": "rmnmshp:small_urns",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/vase_terracotta.block.geo.json",
+  "geoId": "geometry.vase_terracotta",
+  "materials": {
+   "*": {
+    "texture": "vase_terracotta",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/vase_terracotta.png",
+  "id": "rmnmshp:vase_terracotta",
+  "group": "decor/storage"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/bronze_table_with_marble_top.json",
+  "geoId": "geometry.bronze_table_with_marble_top",
+  "materials": {
+   "*": {
+    "texture": "bronze_table_with_marble_top",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/bronze_table_with_marble_top.png",
+  "id": "rmnmshp:bronze_table_with_marble_top",
+  "group": "decor/tables"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/fancy_wooden_table.geo.json",
+  "geoId": "geometry.fancy_wooden_table",
+  "materials": {
+   "*": {
+    "texture": "fancy_wooden_table",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/fancy_wooden_table.png",
+  "id": "rmnmshp:fancy_wooden_table",
+  "group": "decor/tables"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/entity/standing table.geo.json",
+  "geoId": "geometry.standing_table",
+  "materials": {
+   "*": {
+    "texture": "standing_table",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/standing_table.png",
+  "id": "rmnmshp:standing_table",
+  "group": "decor/tables"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/three_legged_table.geo.json",
+  "geoId": "geometry.three_legged_table",
+  "materials": {
+   "*": {
+    "texture": "three_legged_table",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/three_legged_table.png",
+  "id": "rmnmshp:three_legged_table",
+  "group": "decor/tables"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/three_legged_table_w_supports.geo.json",
+  "geoId": "geometry.three_legged_table_w_supports",
+  "materials": {
+   "*": {
+    "texture": "three_legged_table_w_supports",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/three_legged_table_with_supports.png",
+  "id": "rmnmshp:three_legged_table_with_supports",
+  "group": "decor/tables"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/flower_pot_on_stand_short.geo.json",
+  "geoId": "geometry.flower_pot_on_stand_short",
+  "materials": {
+   "*": {
+    "texture": "flower_pot_on_stand",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/wooden_stool_table.png",
+  "id": "rmnmshp:wooden_stool_table",
+  "group": "decor/tables"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/wooden_table.geo.json",
+  "geoId": "geometry.wooden_table",
+  "materials": {
+   "*": {
+    "texture": "wooden_table",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/wooden_table.png",
+  "id": "rmnmshp:wooden_table",
+  "group": "decor/tables"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/table_wooden.geo.json",
+  "geoId": "geometry.table_wooden",
+  "materials": {
+   "*": {
+    "texture": "kitchen_table",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/wooden_table_1.png",
+  "id": "rmnmshp:wooden_table_1",
+  "group": "decor/tables"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/carpet_roll.geo.json",
+  "geoId": "geometry.carpet_roll",
+  "materials": {
+   "*": {
+    "texture": "carpets",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/carpet_roll.png",
+  "id": "rmnmshp:carpet_roll",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/carpet_roll_1.geo.json",
+  "geoId": "geometry.carpet_roll_1",
+  "materials": {
+   "*": {
+    "texture": "carpets",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/carpet_roll_1.png",
+  "id": "rmnmshp:carpet_roll_1",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/carpet_roll_2.geo.json",
+  "geoId": "geometry.carpet_roll_2",
+  "materials": {
+   "*": {
+    "texture": "carpets",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/carpet_roll_2.png",
+  "id": "rmnmshp:carpet_roll_2",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/carpet_roll_3.geo.json",
+  "geoId": "geometry.carpet_roll_3",
+  "materials": {
+   "*": {
+    "texture": "carpets",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/carpet_roll_3.png",
+  "id": "rmnmshp:carpet_roll_3",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/carpet_roll_4.geo.json",
+  "geoId": "geometry.carpet_roll_4",
+  "materials": {
+   "*": {
+    "texture": "carpets",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/carpet_roll_4.png",
+  "id": "rmnmshp:carpet_roll_4",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/carpet_roll_5.geo.json",
+  "geoId": "geometry.carpet_roll_5",
+  "materials": {
+   "*": {
+    "texture": "carpets",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/carpet_roll_5.png",
+  "id": "rmnmshp:carpet_roll_5",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/carpet_roll_6.geo.json",
+  "geoId": "geometry.carpet_roll_6",
+  "materials": {
+   "*": {
+    "texture": "carpets",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/carpet_roll_6.png",
+  "id": "rmnmshp:carpet_roll_6",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/carpet_roll_7.geo.json",
+  "geoId": "geometry.carpet_roll_7",
+  "materials": {
+   "*": {
+    "texture": "carpets",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/carpet_roll_7.png",
+  "id": "rmnmshp:carpet_roll_7",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/carpet_roll_8.geo.json",
+  "geoId": "geometry.carpet_roll_8",
+  "materials": {
+   "*": {
+    "texture": "carpets",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/carpet_roll_8.png",
+  "id": "rmnmshp:carpet_roll_8",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/clothesline_1/clothesline_1_a.geo.json",
+    "geoId": "geometry.clothesline_1_a",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/clothesline_1/clothesline_1_b.geo.json",
+    "geoId": "geometry.clothesline_1_b",
+    "hideBones": [],
+    "offset": [
+     16,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/clothesline_1/clothesline_1_c.geo.json",
+    "geoId": "geometry.clothesline_1_c",
+    "hideBones": [],
+    "offset": [
+     32,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/clothesline_1/clothesline_1_d.geo.json",
+    "geoId": "geometry.clothesline_1_d",
+    "hideBones": [],
+    "offset": [
+     48,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/clothesline_1/clothesline_1_e.geo.json",
+    "geoId": "geometry.clothesline_1_e",
+    "hideBones": [],
+    "offset": [
+     64,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/clothesline_1/clothesline_1_f.geo.json",
+    "geoId": "geometry.clothesline_1_f",
+    "hideBones": [],
+    "offset": [
+     48,
+     -16,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "clothesline",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/clothesline_1.png",
+  "id": "rmnmshp:clothesline_1",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/clothesline_2/clothesline_2_a.geo.json",
+    "geoId": "geometry.clothesline_2_a",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/clothesline_2/clothesline_2_b.geo.json",
+    "geoId": "geometry.clothesline_2_b",
+    "hideBones": [],
+    "offset": [
+     16,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/clothesline_2/clothesline_2_c.geo.json",
+    "geoId": "geometry.clothesline_2_c",
+    "hideBones": [],
+    "offset": [
+     32,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/clothesline_2/clothesline_2_d.geo.json",
+    "geoId": "geometry.clothesline_2_d",
+    "hideBones": [],
+    "offset": [
+     48,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/clothesline_2/clothesline_2_e.geo.json",
+    "geoId": "geometry.clothesline_2_e",
+    "hideBones": [],
+    "offset": [
+     64,
+     0,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "clothesline",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/clothesline_2.png",
+  "id": "rmnmshp:clothesline_2",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/clothesline_3/clothesline_3_a.geo.json",
+    "geoId": "geometry.clothesline_3_a",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/clothesline_3/clothesline_3_b.geo.json",
+    "geoId": "geometry.clothesline_3_b",
+    "hideBones": [],
+    "offset": [
+     16,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/clothesline_3/clothesline_3_c.geo.json",
+    "geoId": "geometry.clothesline_3_c",
+    "hideBones": [],
+    "offset": [
+     32,
+     0,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "clothesline",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/clothesline_3.png",
+  "id": "rmnmshp:clothesline_3",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/doorway_awning_left.block.geo.json",
+    "geoId": "geometry.doorway_awning_left",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/doorway_awning_mid.block.geo.json",
+    "geoId": "geometry.doorway_awning_mid",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/doorway_awning_right.block.geo.json",
+    "geoId": "geometry.doorway_awning_right",
+    "hideBones": [],
+    "offset": [
+     -32,
+     0,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "doorway_awning_green",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/doorway_awning_green.png",
+  "id": "rmnmshp:doorway_awning_green",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/doorway_awning_left.block.geo.json",
+    "geoId": "geometry.doorway_awning_left",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/doorway_awning_mid.block.geo.json",
+    "geoId": "geometry.doorway_awning_mid",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/doorway_awning_right.block.geo.json",
+    "geoId": "geometry.doorway_awning_right",
+    "hideBones": [],
+    "offset": [
+     -32,
+     0,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "doorway_awning_white",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/doorway_awning_white.png",
+  "id": "rmnmshp:doorway_awning_white",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/folded_clothes.geo.json",
+  "geoId": "geometry.folded_clothes",
+  "materials": {
+   "*": {
+    "texture": "folded_clothes",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/folded_clothes.png",
+  "id": "rmnmshp:folded_clothes",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/hanging_cloth.geo.json",
+  "geoId": "geometry.hanging_cloth",
+  "materials": {
+   "*": {
+    "texture": "hanging_cloth",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/hanging_cloth.png",
+  "id": "rmnmshp:hanging_cloth",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/hanging_cloth_1.geo.json",
+  "geoId": "geometry.hanging_cloth_1",
+  "materials": {
+   "*": {
+    "texture": "hanging_cloth",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/hanging_cloth_1.png",
+  "id": "rmnmshp:hanging_cloth_1",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/hanging_cloth_2.geo.json",
+  "geoId": "geometry.hanging_cloth_2",
+  "materials": {
+   "*": {
+    "texture": "hanging_cloth",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/hanging_cloth_2.png",
+  "id": "rmnmshp:hanging_cloth_2",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/portico_awning_1.geo.json",
+    "geoId": "geometry.portico_awning_1",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/portico_awning_2.geo.json",
+    "geoId": "geometry.portico_awning_2",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/portico_awning_3.geo.json",
+    "geoId": "geometry.portico_awning_3",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/portico_awning_4.geo.json",
+    "geoId": "geometry.portico_awning_4",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     -16
+    ]
+   },
+   {
+    "geoFile": "models/blocks/portico_awning_5.geo.json",
+    "geoId": "geometry.portico_awning_5",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     -32
+    ]
+   },
+   {
+    "geoFile": "models/blocks/portico_awning_6.geo.json",
+    "geoId": "geometry.portico_awning_6",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     -32
+    ]
+   },
+   {
+    "geoFile": "models/blocks/portico_awning_7.geo.json",
+    "geoId": "geometry.portico_awning_7",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     -32
+    ]
+   },
+   {
+    "geoFile": "models/blocks/portico_awning_8.geo.json",
+    "geoId": "geometry.portico_awning_8",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     -16
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "portico_awning_blue",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/portico_awning_blue.png",
+  "id": "rmnmshp:portico_awning_blue",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/portico_awning_1.geo.json",
+    "geoId": "geometry.portico_awning_1",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/portico_awning_2.geo.json",
+    "geoId": "geometry.portico_awning_2",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/portico_awning_3.geo.json",
+    "geoId": "geometry.portico_awning_3",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/portico_awning_4.geo.json",
+    "geoId": "geometry.portico_awning_4",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     -16
+    ]
+   },
+   {
+    "geoFile": "models/blocks/portico_awning_5.geo.json",
+    "geoId": "geometry.portico_awning_5",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     -32
+    ]
+   },
+   {
+    "geoFile": "models/blocks/portico_awning_6.geo.json",
+    "geoId": "geometry.portico_awning_6",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     -32
+    ]
+   },
+   {
+    "geoFile": "models/blocks/portico_awning_7.geo.json",
+    "geoId": "geometry.portico_awning_7",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     -32
+    ]
+   },
+   {
+    "geoFile": "models/blocks/portico_awning_8.geo.json",
+    "geoId": "geometry.portico_awning_8",
+    "hideBones": [],
+    "offset": [
+     0,
+     32,
+     -16
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "portico_awning_red",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/portico_awning_red.png",
+  "id": "rmnmshp:portico_awning_red",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/tarp_pile.block.geo.json",
+  "geoId": "geometry.tarp_pile",
+  "materials": {
+   "*": {
+    "texture": "tarp",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/tarp_pile.png",
+  "id": "rmnmshp:tarp_pile",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/tarp_pile_1.block.geo.json",
+  "geoId": "geometry.tarp_pile_1",
+  "materials": {
+   "*": {
+    "texture": "tarp",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/tarp_pile_1.png",
+  "id": "rmnmshp:tarp_pile_1",
+  "group": "decor/textiles"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/thurible.geo.json",
+  "geoId": "geometry.thurible",
+  "materials": {
+   "*": {
+    "texture": "thurible",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/thurible.png",
+  "id": "rmnmshp:thurible",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/standing_water_bowl.geo.json",
+  "geoId": "geometry.standing_water_bowl",
+  "materials": {
+   "*": {
+    "texture": "marble_water_bowl",
+    "render_method": "alpha_test"
+   },
+   "water": {
+    "texture": "bowl_water",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [
+   "water"
+  ],
+  "out": "blocks/standing_water_bowl.png",
+  "id": "rmnmshp:standing_water_bowl",
+  "group": "decor/water"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/water_basin.geo.json",
+  "geoId": "geometry.water_basin",
+  "materials": {
+   "*": {
+    "texture": "water_basin",
+    "render_method": "opaque"
+   },
+   "water": {
+    "texture": "water_solid",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [
+   "water"
+  ],
+  "out": "blocks/water_basin.png",
+  "id": "rmnmshp:water_basin",
+  "group": "decor/water"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/wooden_boards.geo.json",
+  "geoId": "geometry.wooden_boards",
+  "materials": {
+   "*": {
+    "texture": "board",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/wooden_boards.png",
+  "id": "rmnmshp:wooden_boards",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/garlands_1.block.geo.json",
+  "geoId": "geometry.garlands_1",
+  "materials": {
+   "*": {
+    "texture": "garlands",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/wreath.png",
+  "id": "rmnmshp:wreath",
+  "group": "decor"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/fallen_leaves.geo.json",
+  "geoId": "geometry.fallen_leaves",
+  "materials": {
+   "*": {
+    "texture": "fallen_leaves_1",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/fallen_leaves.png",
+  "id": "rmnmshp:fallen_leaves",
+  "group": "plants"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/flowers_in_vase.geo.json",
+  "geoId": "geometry.flowers_in_vase",
+  "materials": {
+   "*": {
+    "texture": "flowers_in_vase",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/flowers_in_vase.png",
+  "id": "rmnmshp:flowers_in_vase",
+  "group": "plants"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/flower_basket_lavender_bottom.geo.json",
+    "geoId": "geometry.flower_basket_lavender_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/flower_basket_lavender_top.geo.json",
+    "geoId": "geometry.flower_basket_lavender_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "flower_basket_lavender",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/flower_basket_lavender.png",
+  "id": "rmnmshp:flower_basket_lavender",
+  "group": "plants"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/flower_basket_white_bottom.geo.json",
+    "geoId": "geometry.flower_basket_white_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/flower_basket_white_top.geo.json",
+    "geoId": "geometry.flower_basket_white_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "flower_basket_white",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/flower_basket_white.png",
+  "id": "rmnmshp:flower_basket_white",
+  "group": "plants"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/flower_basket_yellow_bottom.geo.json",
+    "geoId": "geometry.flower_basket_yellow_bottom",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/flower_basket_yellow_top.geo.json",
+    "geoId": "geometry.flower_basket_yellow_top",
+    "hideBones": [],
+    "offset": [
+     0,
+     16,
+     0
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "flower_basket_yellow",
+    "render_method": "alpha_test"
+   }
+  },
+  "out": "blocks/flower_basket_yellow.png",
+  "id": "rmnmshp:flower_basket_yellow",
+  "group": "plants"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/flower_pot_1.geo.json",
+  "geoId": "geometry.flower_pot_1",
+  "materials": {
+   "*": {
+    "texture": "flower_pot_on_stand",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/flower_pot_1.png",
+  "id": "rmnmshp:flower_pot_1",
+  "group": "plants"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/flower_pot_on_stand_tall.geo.json",
+  "geoId": "geometry.flower_pot_on_stand_tall",
+  "materials": {
+   "*": {
+    "texture": "flower_pot_on_stand",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/flower_pot_on_stand.png",
+  "id": "rmnmshp:flower_pot_on_stand",
+  "group": "plants"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/large_clay_pot_white_flowers.geo.json",
+  "geoId": "geometry.large_clay_pot_white_flowers",
+  "materials": {
+   "*": {
+    "texture": "large_clay_pot_white_flowers",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/large_clay_pot_white_flowers.png",
+  "id": "rmnmshp:large_clay_pot_white_flowers",
+  "group": "plants"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/large_clay_pot_yellow_flowers.geo.json",
+  "geoId": "geometry.large_clay_pot_yellow_flowers",
+  "materials": {
+   "*": {
+    "texture": "large_clay_pot_yellow_flowers",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/large_clay_pot_yellow_flowers.png",
+  "id": "rmnmshp:large_clay_pot_yellow_flowers",
+  "group": "plants"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/leaftip_side.geo.json",
+  "geoId": "geometry.leaftip_side",
+  "materials": {
+   "*": {
+    "texture": "leaftip_acacia_1",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/leaf_tip_acacia.png",
+  "id": "rmnmshp:leaf_tip_acacia",
+  "group": "plants"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/leaftip_side.geo.json",
+  "geoId": "geometry.leaftip_side",
+  "materials": {
+   "*": {
+    "texture": "leaftip_cypress_1",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/leaf_tip_cypress.png",
+  "id": "rmnmshp:leaf_tip_cypress",
+  "group": "plants"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/leaftip.geo.json",
+  "geoId": "geometry.leaftip",
+  "materials": {
+   "*": {
+    "texture": "leaf_tip_cypress_top_1",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/leaf_tip_cypress_top.png",
+  "id": "rmnmshp:leaf_tip_cypress_top",
+  "group": "plants"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/auger.geo.json",
+  "geoId": "geometry.auger",
+  "materials": {
+   "*": {
+    "texture": "auger",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/auger.png",
+  "id": "rmnmshp:auger",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/auger_plank.geo.json",
+  "geoId": "geometry.auger_plank",
+  "materials": {
+   "*": {
+    "texture": "auger",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/auger_plank.png",
+  "id": "rmnmshp:auger_plank",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/axe.geo.json",
+  "geoId": "geometry.axe",
+  "materials": {
+   "*": {
+    "texture": "axe",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/axe.png",
+  "id": "rmnmshp:axe",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/axe_log.geo.json",
+  "geoId": "geometry.axe_log",
+  "materials": {
+   "*": {
+    "texture": "axe",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/axe_log.png",
+  "id": "rmnmshp:axe_log",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/broom.geo.json",
+  "geoId": "geometry.broom",
+  "materials": {
+   "*": {
+    "texture": "broom",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/broom.png",
+  "id": "rmnmshp:broom",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/chisel_and_hammer.geo.json",
+  "geoId": "geometry.chisel_and_hammer",
+  "materials": {
+   "*": {
+    "texture": "chisel_and_hammer",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/chisel_and_hammer.png",
+  "id": "rmnmshp:chisel_and_hammer",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/compass.geo.json",
+  "geoId": "geometry.compass",
+  "materials": {
+   "*": {
+    "texture": "compass",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/compass.png",
+  "id": "rmnmshp:compass",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "parts": [
+   {
+    "geoFile": "models/blocks/crane/crane_8.geo.json",
+    "geoId": "geometry.crane_8",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     80
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_1.geo.json",
+    "geoId": "geometry.crane_1",
+    "hideBones": [],
+    "offset": [
+     0,
+     0,
+     128
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_19.geo.json",
+    "geoId": "geometry.crane_19",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     32
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_16.geo.json",
+    "geoId": "geometry.crane_16",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     48
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_13.geo.json",
+    "geoId": "geometry.crane_13",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     64
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_9.geo.json",
+    "geoId": "geometry.crane_9",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     80
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_5.geo.json",
+    "geoId": "geometry.crane_5",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     96
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_3.geo.json",
+    "geoId": "geometry.crane_3",
+    "hideBones": [],
+    "offset": [
+     -16,
+     0,
+     112
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_28.geo.json",
+    "geoId": "geometry.crane_28",
+    "hideBones": [],
+    "offset": [
+     -16,
+     16,
+     32
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_24.geo.json",
+    "geoId": "geometry.crane_24",
+    "hideBones": [],
+    "offset": [
+     -16,
+     16,
+     80
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_21.geo.json",
+    "geoId": "geometry.crane_21",
+    "hideBones": [],
+    "offset": [
+     -16,
+     16,
+     96
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_32.geo.json",
+    "geoId": "geometry.crane_32",
+    "hideBones": [],
+    "offset": [
+     -16,
+     32,
+     80
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_41.geo.json",
+    "geoId": "geometry.crane_41",
+    "hideBones": [],
+    "offset": [
+     -16,
+     48,
+     48
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_39.geo.json",
+    "geoId": "geometry.crane_39",
+    "hideBones": [],
+    "offset": [
+     -16,
+     48,
+     64
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_30.geo.json",
+    "geoId": "geometry.crane_30",
+    "hideBones": [],
+    "offset": [
+     -32,
+     0,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_17.geo.json",
+    "geoId": "geometry.crane_17",
+    "hideBones": [],
+    "offset": [
+     -32,
+     0,
+     48
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_14.geo.json",
+    "geoId": "geometry.crane_14",
+    "hideBones": [],
+    "offset": [
+     -32,
+     0,
+     64
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_10.geo.json",
+    "geoId": "geometry.crane_10",
+    "hideBones": [],
+    "offset": [
+     -32,
+     0,
+     80
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_6.geo.json",
+    "geoId": "geometry.crane_6",
+    "hideBones": [],
+    "offset": [
+     -32,
+     0,
+     96
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_27.geo.json",
+    "geoId": "geometry.crane_27",
+    "hideBones": [],
+    "offset": [
+     -32,
+     16,
+     64
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_25.geo.json",
+    "geoId": "geometry.crane_25",
+    "hideBones": [],
+    "offset": [
+     -32,
+     16,
+     80
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_22.geo.json",
+    "geoId": "geometry.crane_22",
+    "hideBones": [],
+    "offset": [
+     -32,
+     16,
+     96
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_48.geo.json",
+    "geoId": "geometry.crane_48",
+    "hideBones": [],
+    "offset": [
+     -32,
+     32,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_38.geo.json",
+    "geoId": "geometry.crane_38",
+    "hideBones": [],
+    "offset": [
+     -32,
+     32,
+     16
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_37.geo.json",
+    "geoId": "geometry.crane_37",
+    "hideBones": [],
+    "offset": [
+     -32,
+     32,
+     32
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_36.geo.json",
+    "geoId": "geometry.crane_36",
+    "hideBones": [],
+    "offset": [
+     -32,
+     32,
+     48
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_35.geo.json",
+    "geoId": "geometry.crane_35",
+    "hideBones": [],
+    "offset": [
+     -32,
+     32,
+     64
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_33.geo.json",
+    "geoId": "geometry.crane_33",
+    "hideBones": [],
+    "offset": [
+     -32,
+     32,
+     80
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_31.geo.json",
+    "geoId": "geometry.crane_31",
+    "hideBones": [],
+    "offset": [
+     -32,
+     32,
+     96
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_44.geo.json",
+    "geoId": "geometry.crane_44",
+    "hideBones": [],
+    "offset": [
+     -32,
+     48,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_43.geo.json",
+    "geoId": "geometry.crane_43",
+    "hideBones": [],
+    "offset": [
+     -32,
+     48,
+     16
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_47.geo.json",
+    "geoId": "geometry.crane_47",
+    "hideBones": [],
+    "offset": [
+     -32,
+     64,
+     0
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_46.geo.json",
+    "geoId": "geometry.crane_46",
+    "hideBones": [],
+    "offset": [
+     -32,
+     64,
+     16
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_45.geo.json",
+    "geoId": "geometry.crane_45",
+    "hideBones": [],
+    "offset": [
+     -32,
+     64,
+     32
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_20.geo.json",
+    "geoId": "geometry.crane_20",
+    "hideBones": [],
+    "offset": [
+     -48,
+     0,
+     32
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_18.geo.json",
+    "geoId": "geometry.crane_18",
+    "hideBones": [],
+    "offset": [
+     -48,
+     0,
+     48
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_15.geo.json",
+    "geoId": "geometry.crane_15",
+    "hideBones": [],
+    "offset": [
+     -48,
+     0,
+     64
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_11.geo.json",
+    "geoId": "geometry.crane_11",
+    "hideBones": [],
+    "offset": [
+     -48,
+     0,
+     80
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_7.geo.json",
+    "geoId": "geometry.crane_7",
+    "hideBones": [],
+    "offset": [
+     -48,
+     0,
+     96
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_4.geo.json",
+    "geoId": "geometry.crane_4",
+    "hideBones": [],
+    "offset": [
+     -48,
+     0,
+     112
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_29.geo.json",
+    "geoId": "geometry.crane_29",
+    "hideBones": [],
+    "offset": [
+     -48,
+     16,
+     32
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_26.geo.json",
+    "geoId": "geometry.crane_26",
+    "hideBones": [],
+    "offset": [
+     -48,
+     16,
+     80
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_23.geo.json",
+    "geoId": "geometry.crane_23",
+    "hideBones": [],
+    "offset": [
+     -48,
+     16,
+     96
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_34.geo.json",
+    "geoId": "geometry.crane_34",
+    "hideBones": [],
+    "offset": [
+     -48,
+     32,
+     80
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_42.geo.json",
+    "geoId": "geometry.crane_42",
+    "hideBones": [],
+    "offset": [
+     -48,
+     48,
+     48
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_40.geo.json",
+    "geoId": "geometry.crane_40",
+    "hideBones": [],
+    "offset": [
+     -48,
+     48,
+     64
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_12.geo.json",
+    "geoId": "geometry.crane_12",
+    "hideBones": [],
+    "offset": [
+     -64,
+     0,
+     80
+    ]
+   },
+   {
+    "geoFile": "models/blocks/crane/crane_2.geo.json",
+    "geoId": "geometry.crane_2",
+    "hideBones": [],
+    "offset": [
+     -64,
+     0,
+     128
+    ]
+   }
+  ],
+  "materials": {
+   "*": {
+    "texture": "crane",
+    "render_method": "opaque"
+   }
+  },
+  "out": "blocks/crane.png",
+  "id": "rmnmshp:crane",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/crane/crane_17.geo.json",
+  "geoId": "geometry.crane_17",
+  "materials": {
+   "*": {
+    "texture": "crane",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/crane_a.png",
+  "id": "rmnmshp:crane_a",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/crane/crane_33.geo.json",
+  "geoId": "geometry.crane_33",
+  "materials": {
+   "*": {
+    "texture": "crane",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/crane_b.png",
+  "id": "rmnmshp:crane_b",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/cut_beam.geo.json",
+  "geoId": "geometry.cut_beam",
+  "materials": {
+   "*": {
+    "texture": "hand_plane",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/cut_beam.png",
+  "id": "rmnmshp:cut_beam",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/cut_beam_1.geo.json",
+  "geoId": "geometry.cut_beam_1",
+  "materials": {
+   "*": {
+    "texture": "spansaw",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/cut_beam_1.png",
+  "id": "rmnmshp:cut_beam_1",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/cut_log.geo.json",
+  "geoId": "geometry.cut_log",
+  "materials": {
+   "*": {
+    "texture": "wedge",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/cut_log.png",
+  "id": "rmnmshp:cut_log",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/drill.geo.json",
+  "geoId": "geometry.drill",
+  "materials": {
+   "*": {
+    "texture": "drill",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/drill.png",
+  "id": "rmnmshp:drill",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/drill_stone.json",
+  "geoId": "geometry.drill_stone",
+  "materials": {
+   "*": {
+    "texture": "drill",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/drill_stone.png",
+  "id": "rmnmshp:drill_stone",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/hand_plane.geo.json",
+  "geoId": "geometry.hand_plane",
+  "materials": {
+   "*": {
+    "texture": "hand_plane",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/hand_plane.png",
+  "id": "rmnmshp:hand_plane",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/hand_plane_beam.geo.json",
+  "geoId": "geometry.hand_plane_beam",
+  "materials": {
+   "*": {
+    "texture": "hand_plane",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/hand_plane_beam.png",
+  "id": "rmnmshp:hand_plane_beam",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/latrine.geo.json",
+  "geoId": "geometry.latrine",
+  "materials": {
+   "*": {
+    "texture": "latrine",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/latrine.png",
+  "id": "rmnmshp:latrine",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/measuring_square.geo.json",
+  "geoId": "geometry.measuring_square",
+  "materials": {
+   "*": {
+    "texture": "drill",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/measuring_square.png",
+  "id": "rmnmshp:measuring_square",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/measuring_square_stone.geo.json",
+  "geoId": "geometry.measuring_square_stone",
+  "materials": {
+   "*": {
+    "texture": "drill",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/measuring_square_stone.png",
+  "id": "rmnmshp:measuring_square_stone",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/measuring_stick.geo.json",
+  "geoId": "geometry.measuring_stick",
+  "materials": {
+   "*": {
+    "texture": "measuring_stick",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/measuring_stick.png",
+  "id": "rmnmshp:measuring_stick",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/pickaxe.geo.json",
+  "geoId": "geometry.pickaxe",
+  "materials": {
+   "*": {
+    "texture": "pickaxe",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/pickaxe.png",
+  "id": "rmnmshp:pickaxe",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/saw.json",
+  "geoId": "geometry.saw",
+  "materials": {
+   "*": {
+    "texture": "saw",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/saw.png",
+  "id": "rmnmshp:saw",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sledgehammer.geo.json",
+  "geoId": "geometry.sledgehammer",
+  "materials": {
+   "*": {
+    "texture": "wedge",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sledgehammer.png",
+  "id": "rmnmshp:sledgehammer",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/spansaw.geo.json",
+  "geoId": "geometry.spansaw",
+  "materials": {
+   "*": {
+    "texture": "spansaw",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/spansaw.png",
+  "id": "rmnmshp:spansaw",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/spansaw_log.geo.json",
+  "geoId": "geometry.spansaw_log",
+  "materials": {
+   "*": {
+    "texture": "spansaw",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/spansaw_log.png",
+  "id": "rmnmshp:spansaw_log",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/t_beam_bottom.geo.json",
+  "geoId": "geometry.t_beam_bottom",
+  "materials": {
+   "*": {
+    "texture": "hand_plane",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/t_beam.png",
+  "id": "rmnmshp:t_beam",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/wedge.geo.json",
+  "geoId": "geometry.wedge",
+  "materials": {
+   "*": {
+    "texture": "wedge",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/wedge.png",
+  "id": "rmnmshp:wedge",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/wedge_log.geo.json",
+  "geoId": "geometry.wedge_log",
+  "materials": {
+   "*": {
+    "texture": "wedge",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/wedge_log.png",
+  "id": "rmnmshp:wedge_log",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/woodworking_tools.geo.json",
+  "geoId": "geometry.woodworking_tools_wall",
+  "materials": {
+   "*": {
+    "texture": "woodworking_tools_wall",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/woodworking_tools_wall.png",
+  "id": "rmnmshp:woodworking_tools_wall",
+  "group": "tools"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/partial.geo.json",
+  "geoId": "geometry.partial_block",
+  "materials": {
+   "*": {
+    "texture": "invisible",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/barrier_ambient_occlusion.png",
+  "id": "rmnmshp:barrier_ambient_occlusion",
+  "group": "utility"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/partial.geo.json",
+  "geoId": "geometry.partial_block",
+  "materials": {
+   "*": {
+    "texture": "invisible",
+    "render_method": "alpha_test"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/barrier_nocollision.png",
+  "id": "rmnmshp:barrier_nocollision",
+  "group": "utility"
+ },
+ {
+  "type": "cube",
+  "base": "rpw",
+  "faces": {
+   "*": "invisible"
+  },
+  "method": "alpha_test",
+  "out": "blocks/butterflies.png",
+  "id": "rmnmshp:butterflies",
+  "group": "utility"
+ },
+ {
+  "type": "cube",
+  "base": "rpw",
+  "faces": {
+   "*": "invisible"
+  },
+  "method": "alpha_test",
+  "out": "blocks/dragonflies.png",
+  "id": "rmnmshp:dragonflies",
+  "group": "utility"
+ },
+ {
+  "type": "cube",
+  "base": "rpw",
+  "faces": {
+   "*": "invisible"
+  },
+  "method": "alpha_test",
+  "out": "blocks/flies.png",
+  "id": "rmnmshp:flies",
+  "group": "utility"
+ },
+ {
+  "type": "cube",
+  "base": "rpw",
+  "faces": {
+   "*": "invisible"
+  },
+  "method": "alpha_test",
+  "out": "blocks/fog_steam.png",
+  "id": "rmnmshp:fog_steam",
+  "group": "utility"
+ },
+ {
+  "type": "cube",
+  "base": "rpw",
+  "faces": {
+   "*": "invisible"
+  },
+  "method": "alpha_test",
+  "out": "blocks/light_block_15_collision.png",
+  "id": "rmnmshp:light_block_15_collision",
+  "group": "utility"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sign.geo.json",
+  "geoId": "geometry.sign",
+  "materials": {
+   "*": {
+    "texture": "sign_acacia",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sign_acacia.png",
+  "id": "rmnmshp:sign_acacia",
+  "group": "utility"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sign.geo.json",
+  "geoId": "geometry.sign",
+  "materials": {
+   "*": {
+    "texture": "sign_birch",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sign_birch.png",
+  "id": "rmnmshp:sign_birch",
+  "group": "utility"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sign.geo.json",
+  "geoId": "geometry.sign",
+  "materials": {
+   "*": {
+    "texture": "sign_cherry",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sign_cherry.png",
+  "id": "rmnmshp:sign_cherry",
+  "group": "utility"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sign.geo.json",
+  "geoId": "geometry.sign",
+  "materials": {
+   "*": {
+    "texture": "sign_crimson",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sign_crimson.png",
+  "id": "rmnmshp:sign_crimson",
+  "group": "utility"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sign.geo.json",
+  "geoId": "geometry.sign",
+  "materials": {
+   "*": {
+    "texture": "sign_dark_oak",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sign_dark_oak.png",
+  "id": "rmnmshp:sign_dark_oak",
+  "group": "utility"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sign.geo.json",
+  "geoId": "geometry.sign",
+  "materials": {
+   "*": {
+    "texture": "sign_jungle",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sign_jungle.png",
+  "id": "rmnmshp:sign_jungle",
+  "group": "utility"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sign.geo.json",
+  "geoId": "geometry.sign",
+  "materials": {
+   "*": {
+    "texture": "sign_mangrove",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sign_mangrove.png",
+  "id": "rmnmshp:sign_mangrove",
+  "group": "utility"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sign.geo.json",
+  "geoId": "geometry.sign",
+  "materials": {
+   "*": {
+    "texture": "sign_oak",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sign_oak.png",
+  "id": "rmnmshp:sign_oak",
+  "group": "utility"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sign.geo.json",
+  "geoId": "geometry.sign",
+  "materials": {
+   "*": {
+    "texture": "sign_spruce",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sign_spruce.png",
+  "id": "rmnmshp:sign_spruce",
+  "group": "utility"
+ },
+ {
+  "type": "block",
+  "base": "rpw",
+  "geoFile": "models/blocks/sign.geo.json",
+  "geoId": "geometry.sign",
+  "materials": {
+   "*": {
+    "texture": "sign_warped",
+    "render_method": "opaque"
+   }
+  },
+  "hideBones": [],
+  "out": "blocks/sign_warped.png",
+  "id": "rmnmshp:sign_warped",
+  "group": "utility"
+ }
+]

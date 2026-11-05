@@ -1,0 +1,303 @@
+[
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/stone"
+  },
+  "out": "doubleslabs/double_stone_slab4__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/stone_granite_smooth"
+  },
+  "out": "doubleslabs/polished_granite_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/stone_andesite_smooth"
+  },
+  "out": "doubleslabs/polished_andesite_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/huge_fungus/crimson_planks"
+  },
+  "out": "doubleslabs/crimson_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/huge_fungus/warped_planks"
+  },
+  "out": "doubleslabs/warped_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/polished_blackstone_bricks"
+  },
+  "out": "doubleslabs/polished_blackstone_brick_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/polished_blackstone"
+  },
+  "out": "doubleslabs/polished_blackstone_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/blackstone",
+   "up": "textures/blocks/blackstone_top",
+   "down": "textures/blocks/blackstone_top"
+  },
+  "out": "doubleslabs/blackstone_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/deepslate/polished_deepslate"
+  },
+  "out": "doubleslabs/polished_deepslate_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/deepslate/cobbled_deepslate"
+  },
+  "out": "doubleslabs/cobbled_deepslate_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/deepslate/deepslate_tiles"
+  },
+  "out": "doubleslabs/deepslate_tile_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/deepslate/deepslate_bricks"
+  },
+  "out": "doubleslabs/deepslate_brick_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/mud_bricks"
+  },
+  "out": "doubleslabs/mud_brick_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/planks_oak"
+  },
+  "out": "doubleslabs/petrified_oak_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/pale_oak_planks"
+  },
+  "out": "doubleslabs/pale_oak_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/resin_bricks"
+  },
+  "out": "doubleslabs/resin_brick_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/planks_oak"
+  },
+  "out": "doubleslabs/oak_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/planks_birch"
+  },
+  "out": "doubleslabs/birch_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/planks_spruce"
+  },
+  "out": "doubleslabs/spruce_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/planks_jungle"
+  },
+  "out": "doubleslabs/jungle_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/planks_acacia"
+  },
+  "out": "doubleslabs/acacia_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/stone_andesite"
+  },
+  "out": "doubleslabs/andesite_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/stone_diorite"
+  },
+  "out": "doubleslabs/diorite_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/stone_granite"
+  },
+  "out": "doubleslabs/granite_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/stone_diorite_smooth"
+  },
+  "out": "doubleslabs/polished_diorite_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/end_bricks"
+  },
+  "out": "doubleslabs/end_stone_brick_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/purpur_block"
+  },
+  "out": "doubleslabs/purpur_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/prismarine_bricks"
+  },
+  "out": "doubleslabs/prismarine_brick_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/cobblestone_mossy"
+  },
+  "out": "doubleslabs/mossy_cobblestone_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/cobblestone"
+  },
+  "out": "doubleslabs/cobblestone_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/brick"
+  },
+  "out": "doubleslabs/brick_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/quartz_block_side",
+   "up": "textures/blocks/quartz_block_top",
+   "down": "textures/blocks/quartz_block_top"
+  },
+  "out": "doubleslabs/quartz_double_slab__base.png"
+ },
+ {
+  "type": "cube",
+  "base": "rp",
+  "direct": true,
+  "faces": {
+   "*": "textures/blocks/nether_brick"
+  },
+  "out": "doubleslabs/nether_brick_double_slab__base.png"
+ }
+]

@@ -1,0 +1,2 @@
+[{"type":"entity","base":"rp","geoFile":"models/entity/poseidon.geo.json","geoId":"geometry.poseidon","texture":"textures/entity/guardian_elder","out":"mobs/rp/elder_guardian.png"},
+ {"type":"entity","base":"rp","geoFile":"models/entity/vindicator.geo.json","geoId":"geometry.vindicator_model","texture":"textures/entity/vindicator","out":"mobs/rp/vindicator.png","hideBones":["body","rightArm","leftArm","rightItem","leftItem"]}]
