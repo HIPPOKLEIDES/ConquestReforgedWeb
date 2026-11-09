@@ -112,3 +112,25 @@
     document.querySelectorAll('.sx-card.open').forEach(function (o) { o.classList.remove('open'); unlift(o); });
   });
 })();
+
+// Marketplace banner: show the dark bar behind it only once the arrow has reached the top of the screen
+(function () {
+  var bars = document.querySelectorAll('.bx-page .div-block-239');
+  if (!bars.length) return;
+  function update() {
+    bars.forEach(function (b) {
+      if (getComputedStyle(b).display === 'none') return;
+      b.classList.toggle('bx-stuck', b.querySelector('.button-18').getBoundingClientRect().top <= 12);
+    });
+  }
+  // Webflow moves the banner a frame or so after the scroll event, so keep checking for a moment after each scroll
+  var until = 0, running = false;
+  function loop() {
+    update();
+    if (performance.now() < until) requestAnimationFrame(loop); else running = false;
+  }
+  function kick() { until = performance.now() + 500; if (!running) { running = true; requestAnimationFrame(loop); } }
+  addEventListener('scroll', kick, { passive: true });
+  addEventListener('resize', update);
+  setTimeout(update, 400);
+})();

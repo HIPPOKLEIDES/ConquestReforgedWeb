@@ -534,7 +534,15 @@ function bedrockPage(body) {
       + `<img src="/assets/bedrock/pack_icon.png" alt="" width="132" height="132">`
       + `<div><h3>${esc(o.title || 'Overlay pack')}</h3><p>${esc(o.note || '')}</p>`
       + `<div class="bx-dl-row">${btn}${meta ? `<span class="bx-meta">${esc(meta)}</span>` : ''}</div>`
-      + `<ol class="bx-steps"><li>You need Conquest_ from the Minecraft Marketplace; this pack only adds to it.</li><li>Open the downloaded file; Minecraft imports it on its own.</li><li>Go to Settings → Global Resources and activate it above Conquest_.</li><li>Once the update is out on the Marketplace, remove this pack again.</li></ol>`
+      + `<details class="bx-install"><summary>How to install</summary><div class="bx-install-body">`
+      + `<p>You need Conquest_ from the Minecraft Marketplace; this pack only adds to it. Wherever you install it, it has to sit <b>above</b> Conquest_ in your active packs.</p>`
+      + `<h4>Windows PC</h4><ol><li>Double-click the downloaded <code>.mcpack</code> file. Minecraft opens and imports it.</li><li>Go to Settings → Global Resources, find the overlay under My Packs and press Activate.</li><li>Make sure it is listed above Conquest_ (use the arrows to move it).</li></ol>`
+      + `<h4>Android</h4><ol><li>Open the downloaded file and choose Minecraft as the app to open it with.</li><li>Activate it in Settings → Global Resources, above Conquest_.</li></ol>`
+      + `<h4>iPhone / iPad</h4><ol><li>The download lands in the Files app under Downloads.</li><li>Tap and hold the file, choose Share, then pick Minecraft.</li><li>Activate it in Settings → Global Resources, above Conquest_.</li></ol>`
+      + `<h4>Xbox, PlayStation, Nintendo Switch</h4><p>Consoles can't import pack files, only Marketplace content. Until the update is in the store you can join a world or Realm hosted by a friend on PC or mobile that has the overlay added to its resource packs, or wait for the store release, which arrives with Conquest_ automatically.</p>`
+      + `<h4>After the official release</h4><p>Remove the overlay again (Settings → Storage → Resource Packs), so it doesn't cover newer textures from the store version.</p>`
+      + `<h4>Trouble?</h4><ul><li>Import failed: check the file still ends in <code>.mcpack</code>; some browsers add <code>.zip</code>.</li><li>Nothing changed: the overlay must be above Conquest_, and your game must be ${esc(o.minecraft || '1.26.50+')}.</li></ul>`
+      + `</div></details>`
       + `</div></div></section>`;
   }
 

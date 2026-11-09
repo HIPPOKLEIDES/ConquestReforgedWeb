@@ -5,7 +5,7 @@
    (bedrock.js sets --lift) so it stays fully visible. */
 
 /* the page's "To the Marketplace" banner stays above everything */
-.div-block-239 { z-index: 2147483000 !important; }
+.div-block-239 { z-index: 99999 !important; } /* above everything except the social icons (z-index 100000) */
 
 /* ---------- sections ---------- */
 .bx-sec {
@@ -275,3 +275,29 @@
 }
 .bx-media .before-img-div-inner, .bx-media .after-img-div-inner { background-size: 100% 100% !important; background-position: center !important; }
 .bx-media .devider-ba { height: 100% !important; }
+
+/* ---------- install spoiler in the download card ---------- */
+.bx-install { margin: 16px 0 0; padding: 12px 0 0; border-top: 1px solid rgba(199, 116, 27, .3); }
+.bx-install summary { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; list-style: none; font-size: 1.1rem; letter-spacing: .03em; color: var(--gold-hi); }
+.bx-install summary::-webkit-details-marker { display: none; }
+.bx-install summary::after { content: ""; width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform .25s; }
+.bx-install[open] summary::after { transform: translateY(2px) rotate(-135deg); }
+.bx-install summary:hover { color: #fff7e8; }
+.bx-install summary:focus-visible { outline: 2px solid #fff3d6; outline-offset: 3px; }
+.bx-install-body { margin-top: 12px; font-size: 1rem; line-height: 1.5; color: #d9c7a6; }
+.bx-install-body p { margin: 0 0 10px; font-size: 1rem; color: #d9c7a6; }
+.bx-install-body h4 { margin: 14px 0 4px; font-size: 1.1rem; font-weight: 400; letter-spacing: .03em; color: var(--ink); }
+.bx-install-body ol, .bx-install-body ul { margin: 0 0 6px; padding-left: 22px; }
+.bx-install-body li { margin: 0 0 3px; }
+.bx-install-body code { padding: 1px 5px; font-size: .92em; color: var(--ink); background: rgba(0, 0, 0, .35); border-radius: 3px; }
+.bx-install-body b { font-weight: 400; color: var(--gold-hi); }
+
+/* ---------- Marketplace banner: the dark bar behind it only appears once the arrow reaches the top of the screen
+   (bedrock.js toggles .bx-stuck); Webflow's own scroll fade of the bar is switched off ---------- */
+.bx-page .div-block-239 { background-color: transparent !important; transition: background-color .2s, box-shadow .2s; }
+/* the bar is its own full-width layer behind the banner, so the banner itself never moves */
+.bx-page .div-block-239::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: -100vw; right: -100vw; z-index: -1; pointer-events: none;
+  background: #0b0805; box-shadow: 0 1px 0 rgba(199, 116, 27, .45), 0 6px 14px rgba(0, 0, 0, .45); opacity: 0; transition: opacity .2s;
+}
+.bx-page .div-block-239.bx-stuck::before { opacity: 1; }
