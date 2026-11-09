@@ -1,0 +1,745 @@
+{
+ "doubleSlabs": [
+  {
+   "id": "cobblestone_double_slab",
+   "name": "Cobblestone",
+   "desc": "Top texture, fan pattern setts",
+   "img": {
+    "src": "/assets/bedrock/ds-cobblestone_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "oak_double_slab",
+   "name": "Oak Wood",
+   "desc": "Carved oak wood",
+   "img": {
+    "src": "/assets/bedrock/ds-oak_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "stone_brick_double_slab",
+   "name": "Stone Brick",
+   "desc": "Chiseled stone brick capital",
+   "img": {
+    "src": "/assets/bedrock/ds-stone_brick_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 2
+   }
+  },
+  {
+   "id": "brick_double_slab",
+   "name": "Brick",
+   "desc": "Mossy brick",
+   "img": {
+    "src": "/assets/bedrock/ds-brick_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "quartz_double_slab",
+   "name": "Quartz",
+   "desc": "Wattle and daub frame (randomized)",
+   "img": {
+    "src": "/assets/bedrock/ds-quartz_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "dark_oak_double_slab",
+   "name": "Dark Oak Wood",
+   "desc": "Shoji",
+   "img": {
+    "src": "/assets/bedrock/ds-dark_oak_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "mossy_cobblestone_double_slab",
+   "name": "Mossy Cobblestone",
+   "desc": "Top texture, dirty fan pattern setts",
+   "img": {
+    "src": "/assets/bedrock/ds-mossy_cobblestone_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "spruce_double_slab",
+   "name": "Spruce Wood",
+   "desc": "Carved spruce wood",
+   "img": {
+    "src": "/assets/bedrock/ds-spruce_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "birch_double_slab",
+   "name": "Birch Wood",
+   "desc": "Carved birch wood",
+   "img": {
+    "src": "/assets/bedrock/ds-birch_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "jungle_double_slab",
+   "name": "Jungle Wood",
+   "desc": "Carved jungle wood",
+   "img": {
+    "src": "/assets/bedrock/ds-jungle_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "acacia_double_slab",
+   "name": "Acacia Wood",
+   "desc": "Perpendicular acacia planks",
+   "img": {
+    "src": "/assets/bedrock/ds-acacia_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "end_stone_brick_double_slab",
+   "name": "End Stone Brick",
+   "desc": "Sandstone tudor cross frames (randomized)",
+   "img": {
+    "src": "/assets/bedrock/ds-end_stone_brick_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "smooth_quartz_double_slab",
+   "name": "Smooth Quartz",
+   "desc": "Wattle and daub frame",
+   "img": {
+    "src": "/assets/bedrock/ds-smooth_quartz_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "crimson_double_slab",
+   "name": "Crimson",
+   "desc": "Sandstone tudor frame",
+   "img": {
+    "src": "/assets/bedrock/ds-crimson_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "warped_double_slab",
+   "name": "Warped",
+   "desc": "Thatch",
+   "img": {
+    "src": "/assets/bedrock/ds-warped_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "cut_sandstone_double_slab",
+   "name": "Cut Sandstone",
+   "desc": "Cut sandstone capital",
+   "img": {
+    "src": "/assets/bedrock/ds-cut_sandstone_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "smooth_sandstone_double_slab",
+   "name": "Smooth Sandstone",
+   "desc": "Mossy smooth sandstone",
+   "img": {
+    "src": "/assets/bedrock/ds-smooth_sandstone_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "red_sandstone_double_slab",
+   "name": "Red Sandstone",
+   "desc": "Mossy red sandstone",
+   "img": {
+    "src": "/assets/bedrock/ds-red_sandstone_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "smooth_red_sandstone_double_slab",
+   "name": "Smooth Red Sandstone",
+   "desc": "Mossy smooth red sandstone",
+   "img": {
+    "src": "/assets/bedrock/ds-smooth_red_sandstone_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 3
+   }
+  },
+  {
+   "id": "granite_double_slab",
+   "name": "Granite",
+   "desc": "Smooth red granite",
+   "img": {
+    "src": "/assets/bedrock/ds-granite_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "polished_granite_double_slab",
+   "name": "Polished Granite",
+   "desc": "Dark stained polished granite",
+   "img": {
+    "src": "/assets/bedrock/ds-polished_granite_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "diorite_double_slab",
+   "name": "Diorite",
+   "desc": "Dark weathered diorite",
+   "img": {
+    "src": "/assets/bedrock/ds-diorite_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "polished_diorite_double_slab",
+   "name": "Polished Diorite",
+   "desc": "Weathered polished diorite",
+   "img": {
+    "src": "/assets/bedrock/ds-polished_diorite_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "andesite_double_slab",
+   "name": "Andesite",
+   "desc": "",
+   "img": {
+    "src": "/assets/bedrock/ds-andesite_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "polished_andesite_double_slab",
+   "name": "Polished Andesite",
+   "desc": "Cracks between the bricks, made to mix with regular polished andesite",
+   "img": {
+    "src": "/assets/bedrock/ds-polished_andesite_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "normal_stone_double_slab",
+   "name": "Stone",
+   "desc": "Smooth stone",
+   "img": {
+    "src": "/assets/bedrock/ds-normal_stone_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "nether_brick_double_slab",
+   "name": "Nether Brick",
+   "desc": "Nether brick pillar",
+   "img": {
+    "src": "/assets/bedrock/ds-nether_brick_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "red_nether_brick_double_slab",
+   "name": "Red Nether Brick",
+   "desc": "Dark nether brick column",
+   "img": {
+    "src": "/assets/bedrock/ds-red_nether_brick_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "mangrove_double_slab",
+   "name": "Mangrove Wood",
+   "desc": "",
+   "img": {
+    "src": "/assets/bedrock/ds-mangrove_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 2
+   }
+  },
+  {
+   "id": "bamboo_double_slab",
+   "name": "Bamboo",
+   "desc": "Log wall",
+   "img": {
+    "src": "/assets/bedrock/ds-bamboo_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "bamboo_mosaic_double_slab",
+   "name": "Bamboo Mosaic",
+   "desc": "Stacked firewood",
+   "img": {
+    "src": "/assets/bedrock/ds-bamboo_mosaic_double_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 3
+   }
+  },
+  {
+   "id": "double_cut_copper_slab",
+   "name": "Cut Copper",
+   "desc": "Cross hatched metal plating",
+   "img": {
+    "src": "/assets/bedrock/ds-double_cut_copper_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  },
+  {
+   "id": "exposed_double_cut_copper_slab",
+   "name": "Exposed Cut Copper",
+   "desc": "Rusty cross hatched metal plating (also weathered and oxidized)",
+   "img": {
+    "src": "/assets/bedrock/ds-exposed_double_cut_copper_slab.png",
+    "w": 134.4,
+    "h": 148.8,
+    "cells": 4
+   }
+  }
+ ],
+ "gradients": [
+  {
+   "name": "#1 Moss to grey stone",
+   "desc": "Mossy rubble at the foot, plain grey stone above",
+   "verified": false,
+   "img": {
+    "src": "/assets/bedrock/gradient-1.png",
+    "w": 200,
+    "h": 275.2
+   },
+   "steps": [
+    {
+     "name": "Green Terracotta",
+     "icon": "/assets/bedrock/hardened_clay_stained_green.png"
+    },
+    {
+     "name": "Black Concrete",
+     "icon": "/assets/bedrock/concrete_black.png"
+    },
+    {
+     "name": "Smooth Basalt",
+     "icon": "/assets/bedrock/smooth_basalt.png"
+    },
+    {
+     "name": "Stone",
+     "icon": "/assets/bedrock/stone.png"
+    }
+   ]
+  },
+  {
+   "name": "#2 Soot to pale stone",
+   "desc": "Sooty black rubble rising into pale diorite",
+   "verified": false,
+   "img": {
+    "src": "/assets/bedrock/gradient-2.png",
+    "w": 200,
+    "h": 275.2
+   },
+   "steps": [
+    {
+     "name": "Blackstone",
+     "icon": "/assets/bedrock/blackstone.png"
+    },
+    {
+     "name": "Cracked Deepslate Bricks",
+     "icon": "/assets/bedrock/deepslate__cracked_deepslate_bricks.png"
+    },
+    {
+     "name": "Polished Andesite",
+     "icon": "/assets/bedrock/stone_andesite_smooth.png"
+    },
+    {
+     "name": "Smooth Basalt",
+     "icon": "/assets/bedrock/smooth_basalt.png"
+    },
+    {
+     "name": "Stone",
+     "icon": "/assets/bedrock/stone.png"
+    },
+    {
+     "name": "End Stone",
+     "icon": "/assets/bedrock/end_stone.png"
+    },
+    {
+     "name": "Diorite",
+     "icon": "/assets/bedrock/stone_diorite.png"
+    }
+   ]
+  },
+  {
+   "name": "#3 Dark to light masonry",
+   "desc": "Dark deepslate bricks fading to light dressed stone",
+   "verified": false,
+   "img": {
+    "src": "/assets/bedrock/gradient-3.png",
+    "w": 200,
+    "h": 275.2
+   },
+   "steps": [
+    {
+     "name": "Deepslate Bricks",
+     "icon": "/assets/bedrock/deepslate__deepslate_bricks.png"
+    },
+    {
+     "name": "Cobbled Deepslate",
+     "icon": "/assets/bedrock/deepslate__cobbled_deepslate.png"
+    },
+    {
+     "name": "Granite",
+     "icon": "/assets/bedrock/stone_granite.png"
+    },
+    {
+     "name": "Stone Bricks",
+     "icon": "/assets/bedrock/stonebrick.png"
+    },
+    {
+     "name": "End Stone",
+     "icon": "/assets/bedrock/end_stone_side.png"
+    },
+    {
+     "name": "Polished Diorite",
+     "icon": "/assets/bedrock/stone_diorite_smooth.png"
+    }
+   ]
+  },
+  {
+   "name": "#4 Mossy rubble to limestone",
+   "desc": "Overgrown rubble turning into pale limestone",
+   "verified": false,
+   "img": {
+    "src": "/assets/bedrock/gradient-4.png",
+    "w": 200,
+    "h": 275.2
+   },
+   "steps": [
+    {
+     "name": "Green Terracotta",
+     "icon": "/assets/bedrock/hardened_clay_stained_green.png"
+    },
+    {
+     "name": "Black Concrete",
+     "icon": "/assets/bedrock/concrete_black.png"
+    },
+    {
+     "name": "Mossy Cobblestone",
+     "icon": "/assets/bedrock/cobblestone_mossy.png"
+    },
+    {
+     "name": "Green Concrete",
+     "icon": "/assets/bedrock/concrete_green.png"
+    },
+    {
+     "name": "End Stone",
+     "icon": "/assets/bedrock/end_stone_side.png"
+    },
+    {
+     "name": "Polished Diorite",
+     "icon": "/assets/bedrock/stone_diorite_smooth.png"
+    }
+   ]
+  },
+  {
+   "name": "#5 Red rock to sandstone",
+   "desc": "Red rubble at the foot, warm sandstone at the top",
+   "verified": false,
+   "img": {
+    "src": "/assets/bedrock/gradient-5.png",
+    "w": 200,
+    "h": 275.2
+   },
+   "steps": [
+    {
+     "name": "Red Sandstone",
+     "icon": "/assets/bedrock/natural_red_sandstone.png"
+    },
+    {
+     "name": "Orange Concrete",
+     "icon": "/assets/bedrock/concrete_orange.png"
+    },
+    {
+     "name": "Mud Bricks",
+     "icon": "/assets/bedrock/mud_bricks.png"
+    },
+    {
+     "name": "Tuff Bricks",
+     "icon": "/assets/bedrock/tuff_bricks.png"
+    },
+    {
+     "name": "Sandstone",
+     "icon": "/assets/bedrock/natural_sandstone.png"
+    }
+   ]
+  },
+  {
+   "name": "#6 Mossy cobble to sandstone",
+   "desc": "Mossy cobbles giving way to sandstone brick",
+   "verified": false,
+   "img": {
+    "src": "/assets/bedrock/gradient-6.png",
+    "w": 200,
+    "h": 275.2
+   },
+   "steps": [
+    {
+     "name": "Mossy Cobblestone",
+     "icon": "/assets/bedrock/cobblestone_mossy.png"
+    },
+    {
+     "name": "Mud Bricks",
+     "icon": "/assets/bedrock/mud_bricks.png"
+    },
+    {
+     "name": "Tuff Bricks",
+     "icon": "/assets/bedrock/tuff_bricks.png"
+    },
+    {
+     "name": "Sandstone",
+     "icon": "/assets/bedrock/natural_sandstone.png"
+    }
+   ]
+  },
+  {
+   "name": "#7 Brick to sandstone",
+   "desc": "Dark brick base under sandstone ashlar",
+   "verified": false,
+   "img": {
+    "src": "/assets/bedrock/gradient-7.png",
+    "w": 200,
+    "h": 275.2
+   },
+   "steps": [
+    {
+     "name": "Nether Bricks",
+     "icon": "/assets/bedrock/nether_brick.png"
+    },
+    {
+     "name": "Bricks",
+     "icon": "/assets/bedrock/brick.png"
+    },
+    {
+     "name": "Mud Bricks",
+     "icon": "/assets/bedrock/mud_bricks.png"
+    },
+    {
+     "name": "Tuff Bricks",
+     "icon": "/assets/bedrock/tuff_bricks.png"
+    }
+   ]
+  },
+  {
+   "name": "#8 Brick to grey stone",
+   "desc": "Brick patching at the foot of a stone brick wall",
+   "verified": false,
+   "img": {
+    "src": "/assets/bedrock/gradient-8.png",
+    "w": 200,
+    "h": 275.2
+   },
+   "steps": [
+    {
+     "name": "Bricks",
+     "icon": "/assets/bedrock/brick.png"
+    },
+    {
+     "name": "Cracked Stone Bricks",
+     "icon": "/assets/bedrock/stonebrick_cracked.png"
+    },
+    {
+     "name": "Stone Bricks",
+     "icon": "/assets/bedrock/stonebrick.png"
+    }
+   ]
+  },
+  {
+   "name": "#9 Dark rubble to stone brick",
+   "desc": "Black rubble footing under grey stone brick",
+   "verified": false,
+   "img": {
+    "src": "/assets/bedrock/gradient-9.png",
+    "w": 200,
+    "h": 275.2
+   },
+   "steps": [
+    {
+     "name": "Blackstone",
+     "icon": "/assets/bedrock/blackstone.png"
+    },
+    {
+     "name": "Deepslate Bricks",
+     "icon": "/assets/bedrock/deepslate__deepslate_bricks.png"
+    },
+    {
+     "name": "Cobbled Deepslate",
+     "icon": "/assets/bedrock/deepslate__cobbled_deepslate.png"
+    },
+    {
+     "name": "Granite",
+     "icon": "/assets/bedrock/stone_granite.png"
+    },
+    {
+     "name": "Stone Bricks",
+     "icon": "/assets/bedrock/stonebrick.png"
+    }
+   ]
+  },
+  {
+   "name": "#10 Earth",
+   "desc": "Dark soil to coarse dirt, gravel and stone",
+   "verified": false,
+   "img": {
+    "src": "/assets/bedrock/gradient-10.png",
+    "w": 200,
+    "h": 275.2
+   },
+   "steps": [
+    {
+     "name": "Dirt",
+     "icon": "/assets/bedrock/dirt.png"
+    },
+    {
+     "name": "Coarse Dirt",
+     "icon": "/assets/bedrock/coarse_dirt.png"
+    },
+    {
+     "name": "Gravel",
+     "icon": "/assets/bedrock/gravel.png"
+    },
+    {
+     "name": "Stone",
+     "icon": "/assets/bedrock/stone.png"
+    }
+   ]
+  },
+  {
+   "name": "#14 Red rubble to cream",
+   "desc": "Red sandstone at the foot, red rubble fading through tuff to cream stone",
+   "verified": false,
+   "img": {
+    "src": "/assets/bedrock/gradient-11.png",
+    "w": 200,
+    "h": 275.2
+   },
+   "steps": [
+    {
+     "name": "Red Sandstone",
+     "icon": "/assets/bedrock/natural_red_sandstone.png"
+    },
+    {
+     "name": "Red Terracotta",
+     "icon": "/assets/bedrock/hardened_clay_stained_red.png"
+    },
+    {
+     "name": "Terracotta",
+     "icon": "/assets/bedrock/hardened_clay.png"
+    },
+    {
+     "name": "Tuff",
+     "icon": "/assets/bedrock/tuff.png"
+    },
+    {
+     "name": "White Terracotta",
+     "icon": "/assets/bedrock/hardened_clay_stained_white.png"
+    }
+   ]
+  },
+  {
+   "name": "#15 Andesite to diorite",
+   "desc": "Dark andesite rising through stone to light diorite",
+   "verified": false,
+   "img": {
+    "src": "/assets/bedrock/gradient-12.png",
+    "w": 200,
+    "h": 275.2
+   },
+   "steps": [
+    {
+     "name": "Andesite",
+     "icon": "/assets/bedrock/stone_andesite.png"
+    },
+    {
+     "name": "Smooth Basalt",
+     "icon": "/assets/bedrock/smooth_basalt.png"
+    },
+    {
+     "name": "Stone",
+     "icon": "/assets/bedrock/stone.png"
+    },
+    {
+     "name": "End Stone",
+     "icon": "/assets/bedrock/end_stone.png"
+    },
+    {
+     "name": "Diorite",
+     "icon": "/assets/bedrock/stone_diorite.png"
+    }
+   ]
+  }
+ ]
+}

@@ -7,6 +7,7 @@
   "scripts": {
     "build": "node build.mjs",
     "serve": "node build.mjs && node serve.mjs",
+    "dev": "node dev.mjs",
     "fetch-assets": "node fetch-assets.mjs"
   }
 }

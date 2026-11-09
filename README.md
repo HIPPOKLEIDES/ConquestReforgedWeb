@@ -22,6 +22,8 @@ to download them into `src/assets` and rewrite references, then commit.
 - Data: `src/data/*.json` (servers, showcases, creators, team); nav/footer/home: `src/site.json`
 - Styles: `src/styles.css`
 - Preview: `node build.mjs && node serve.mjs` → http://localhost:8080
+- Live preview: `node dev.mjs` (or `npm run dev`) → http://localhost:8080, rebuilds on every change in `src/`
+- Bedrock page showcases (/conquest-bedrock): `node fetch-bedrock-textures.mjs` renders the double slabs and gradient walls from the Bedrock resource pack into transparent PNGs (`bedrock-render.mjs`, no dependencies; one strip per double slab with its random-texture frames) (lists and order in that script; gradients with `verified: false` show a Test badge) into `src/assets/bedrock` + `src/data/bedrock-showcase.json`; styles/script in `src/bedrock/`. The overlay pack download is configured in `src/site.json` → `bedrockOverlay` (put the file at that path under `src/`)
 
 ## Webstudio (visual page design)
 Pages designed in Webstudio are exported as static files and dropped into `src/webstudio/`;

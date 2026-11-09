@@ -475,6 +475,121 @@ function buildTeam() {
 const BA_JS = `<script>(function(){document.querySelectorAll('[data-cr-ba]').forEach(function(box){var q=function(s){return box.querySelector(s)},ai=q('.after-img-div-inner'),ao=q('.after-img-div-outer'),bi=q('.before-img-div-inner'),bf=q('.before-img-div');var p=.5,t=.5,run=0;function set(){ai.style.transform='translate3d('+(-100*p)+'%,0,0)';ao.style.transform='translate3d('+(100*p)+'%,0,0)';bi.style.transform='translate3d('+(100*(1-p))+'%,0,0)';bf.style.transform='translate3d('+(-100*(1-p))+'%,0,0)'}function tick(){p+=(t-p)*.18;if(Math.abs(t-p)<.001){p=t;run=0}else requestAnimationFrame(tick);set()}set();addEventListener('pointermove',function(e){var r=box.getBoundingClientRect();if(!r.width)return;t=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width));if(!run){run=1;requestAnimationFrame(tick)}})})})();</script>`;
 const baSwap = (html) => html.replace(/<div data-w-id="[^"]+" class="div-block-170">/g, '<div data-cr-ba class="div-block-170">');
 
+// /conquest-bedrock: the stretch from "Introducing the double-slab extravaganza" to the gradient paragraph is
+// rebuilt: overlay pack download (site.json bedrockOverlay), double slab showcase and gradient showcase.
+// Textures + data come from the resource pack via fetch-bedrock-textures.mjs; styles/script in src/bedrock/.
+const BEDROCK_REGION = /<h2 id="w-node-[^"]*">Introducing the double-slab extravaganza<\/h2>[\s\S]*?making your build even more immersive\.<br\/><\/p>/;
+let bxAssets = null;
+function bedrockPage(body) {
+  if (!BEDROCK_REGION.test(body) || !exists('data', 'bedrock-showcase.json') || !exists('bedrock', 'bedrock.css')) return body;
+  if (!bxAssets) {
+    const css = readText('bedrock', 'bedrock.css'), js = readText('bedrock', 'bedrock.js');
+    const h = (s) => crypto.createHash('md5').update(s).digest('hex').slice(0, 8);
+    emitRaw('assets/bedrock/bedrock.css', css);
+    emitRaw('assets/bedrock/bedrock.js', js);
+    bxAssets = { css: `/assets/bedrock/bedrock.css?v=${h(css)}`, js: `/assets/bedrock/bedrock.js?v=${h(js)}` };
+  }
+  const data = readJSON('data', 'bedrock-showcase.json');
+  const bg = (src) => `style="background-image:url(${src})"`;
+  const toggle = (n, initial, what) => n > initial
+    ? `<div class="sx-more"><button type="button" class="bx-btn" aria-expanded="false" data-more="Show all ${n} ${what}" data-less="Show fewer"><span>Show all ${n} ${what}</span><i></i></button></div>` : '';
+  // preview: cards after the first `initial` are hidden while collapsed, the next row shows faded ("peek");
+  // p3 = third peek card, only shown where the grid has 3 columns
+  const cardClass = (i, initial, peek) => `sx-card${i >= initial ? ' x' : ''}${i >= initial && i < initial + peek ? ' p' : ''}${peek === 3 && i === initial + 2 ? ' p3' : ''}`;
+
+  // double slabs: slab in the card, the double slab drops in underneath on hover. Pictures are pre-rendered by
+  // fetch-bedrock-textures.mjs: one strip per card, [slab, double slab frame 1, frame 2, ...]. A double slab with
+  // random textures lists its frames in data-f; bedrock.js fades between them every 2 seconds (the inner <b> is
+  // the layer the next frame fades in on).
+  const at = (i, cells) => (cells > 1 ? `${+((i / (cells - 1)) * 100).toFixed(3)}% 0` : '0 0');
+  const pic = (im, i, frames) => `<span class="sx-shadow"></span><span class="pic" style="--w:${im.w}px;--h:${im.h}px;background-image:url(${im.src});background-size:${im.cells * 100}% 100%;background-position:${at(i, im.cells)}"${frames.length > 1 ? ` data-f="${frames.join('|')}"><b></b></span>` : '></span>'}`;
+  const DS_INITIAL = 6;
+  const dsCards = data.doubleSlabs.map((d, i) => `<li class="${cardClass(i, DS_INITIAL, 3)}" tabindex="0" aria-label="${esc(`${d.name}: slab and double slab${d.desc ? ` (${d.desc})` : ''}`)}">`
+    + `<span class="sx-frame"><span class="sx-name">${esc(d.name)}</span>`
+    + `<span class="sx-stage ds-double">${pic(d.img, 1, Array.from({ length: d.img.cells - 1 }, (_, f) => at(f + 1, d.img.cells)))}</span>`
+    + `<span class="sx-stage ds-slab">${pic(d.img, 0, [])}</span>`
+    + `<span class="sx-tag ds-tag-slab">Slab</span><span class="ds-split"></span>`
+    + `<span class="ds-text sx-on"><span class="sx-tag">Double slab</span>${d.desc ? `<span class="sx-desc">${esc(d.desc)}</span>` : ''}</span>`
+    + `</span></li>`).join('');
+
+  // gradients: walls pre-rendered by fetch-bedrock-textures.mjs (layout rules described there)
+  const GR_INITIAL = 4;
+  const grCards = data.gradients.map((g, i) => `<li class="${cardClass(i, GR_INITIAL, 2)}" tabindex="0" aria-label="${esc(`${g.name} gradient: ${g.desc}`)}">`
+    + `<span class="sx-frame">${g.verified ? '' : '<span class="gr-test" title="Suggestion, not checked in game yet">Test</span>'}<span class="sx-name">${esc(g.name)}</span>`
+    + `<span class="sx-stage gr-stage"><span class="sx-shadow"></span><img class="pic" src="${g.img.src}" alt="" width="${g.img.w}" height="${g.img.h}" loading="lazy" style="--w:${g.img.w}px;--h:${g.img.h}px"></span>`
+    + `<span class="gr-info sx-on"><span class="sx-tag">Bottom to top</span><span class="gr-steps">${g.steps.map((s) => `<i ${bg(s.icon)} data-name="${esc(s.name)}" aria-label="${esc(s.name)}"></i>`).join('<b></b>')}</span><span class="sx-desc">${esc(g.desc)}</span></span>`
+    + `</span></li>`).join('');
+
+  // overlay pack download (temporary, until the Marketplace release)
+  const o = site.bedrockOverlay || {};
+  let download = '';
+  if (o.enabled) {
+    const file = o.file && path.join(SRC, o.file);
+    const have = file && fs.existsSync(file);
+    if (have) emitRaw(o.file.slice(1), fs.readFileSync(file));
+    else warnings.push(`bedrock overlay pack ${o.file} not in src/ yet (download button disabled)`);
+    const meta = [o.version && `Version ${o.version}`, o.minecraft && `Minecraft ${o.minecraft}`, have && `${(fs.statSync(file).size / 1048576).toFixed(1)} MB`].filter(Boolean).join(' · ');
+    const btn = have ? `<a class="bx-btn" href="${o.file}" download>Download .${path.extname(o.file).slice(1)}</a>` : `<a class="bx-btn" aria-disabled="true">Download coming soon</a>`;
+    download = `<section class="bx-sec bx-dl" id="overlay-pack"><div class="bx-dl-card"><span class="bx-ribbon">Temporary download</span>`
+      + `<img src="/assets/bedrock/pack_icon.png" alt="" width="132" height="132">`
+      + `<div><h3>${esc(o.title || 'Overlay pack')}</h3><p>${esc(o.note || '')}</p>`
+      + `<div class="bx-dl-row">${btn}${meta ? `<span class="bx-meta">${esc(meta)}</span>` : ''}</div>`
+      + `<details class="bx-install"><summary>How to install</summary><div class="bx-install-body">`
+      + `<p>You need Conquest_ from the Minecraft Marketplace; this pack only adds to it. Wherever you install it, it has to sit <b>above</b> Conquest_ in your active packs.</p>`
+      + `<h4>Windows PC</h4><ol><li>Double-click the downloaded <code>.mcpack</code> file. Minecraft opens and imports it.</li><li>Go to Settings → Global Resources, find the overlay under My Packs and press Activate.</li><li>Make sure it is listed above Conquest_ (use the arrows to move it).</li></ol>`
+      + `<h4>Android</h4><ol><li>Open the downloaded file and choose Minecraft as the app to open it with.</li><li>Activate it in Settings → Global Resources, above Conquest_.</li></ol>`
+      + `<h4>iPhone / iPad</h4><ol><li>The download lands in the Files app under Downloads.</li><li>Tap and hold the file, choose Share, then pick Minecraft.</li><li>Activate it in Settings → Global Resources, above Conquest_.</li></ol>`
+      + `<h4>Xbox, PlayStation, Nintendo Switch</h4><p>Consoles can't import pack files, only Marketplace content. Until the update is in the store you can join a world or Realm hosted by a friend on PC or mobile that has the overlay added to its resource packs, or wait for the store release, which arrives with Conquest_ automatically.</p>`
+      + `<h4>After the official release</h4><p>Remove the overlay again (Settings → Storage → Resource Packs), so it doesn't cover newer textures from the store version.</p>`
+      + `<h4>Trouble?</h4><ul><li>Import failed: check the file still ends in <code>.mcpack</code>; some browsers add <code>.zip</code>.</li><li>Nothing changed: the overlay must be above Conquest_, and your game must be ${esc(o.minecraft || '1.26.50+')}.</li></ul>`
+      + `</div></details>`
+      + `</div></div></section>`;
+  }
+
+  const section = (title, lead, hint, cls, cards, n, initial, what) => `<section class="bx-sec"><h2>${title}</h2><p class="bx-lead">${lead}</p><p class="bx-hint">${hint}</p>`
+    + `<div class="sx ${cls} collapsed" data-sx data-initial="${initial}"><ul class="sx-grid">${cards}</ul>${toggle(n, initial, what)}</div></section>`;
+  const html = `<link rel="stylesheet" href="${bxAssets.css}">${download}`
+    + section('Introducing the double-slab extravaganza',
+      'Alongside the normal block textures Minecraft provides, Conquest adds a bunch of extra textures you get by placing double slabs of certain blocks, plus a dirt texture for the petrified oak slab for smoother walking on your forest paths. More options for those extra details in your builds.',
+      '<b>Hover</b> a slab to see what it turns into as a double slab', 'sx-ds', dsCards, data.doubleSlabs.length, DS_INITIAL, 'double slabs')
+    + section('Natural gradients',
+      'Thanks to our years of experience with a very creative building community, Conquest offers great ways to add natural looking gradients to your builds. Use them for weathering, moss or other effects to make your build even more immersive.',
+      '<b>Hover</b> a wall to see the blocks it is made of, and a block to see its name', 'sx-gr', grCards, data.gradients.length, GR_INITIAL, 'gradients')
+    + `<script src="${bxAssets.js}" defer></script>`;
+  // ---- the rest of the page in the same style: hero, about, feature cards, before/after, roadmap ----
+  const MARKETPLACE = 'https://www.minecraft.net/en-us/marketplace/pdp?id=dab46648-9fa3-4d2b-8570-139c451c9d49';
+  const tile = (src) => `<i class="bx-tile" ${bg(src)}></i>`;
+  const features = [
+    ['stonebrick.png', 'Connected textures', 'The connected textures of the original, recreated as random textures.'],
+    ['cobblestone_double_slab_top.png', 'More textures', 'More than the average Bedrock pack: Conquest uses double slabs, the petrified slab and the technical blocks to widen the selection of blocks you can build with.'],
+    ['planks_oak_double_slab.png', 'Detailed Conquest UI', 'Bedrock’s in-game UI reworked to carry the immersive, detailed UI of the original, plus a little more.'],
+    ['sun.png', 'Custom skybox', 'A subtle but crucial detail the original gets through Optifine, reworked to run natively on Bedrock.'],
+    ['tuff_bricks.png', 'Made by builders, for builders', 'A selection of textures put together for techniques experienced builders rely on, such as gradienting.'],
+  ].map(([icon, t, d]) => `<li class="bx-feat">${tile(`/assets/bedrock/${icon}`)}<h3>${t}</h3><p>${d}</p></li>`).join('')
+    + `<li class="bx-feat bx-feat-cta">${tile('/assets/bedrock/pack_icon.png')}<h3>Block catalog</h3><p>See every block before you decide if Conquest is for you.</p><a class="bx-btn bx-btn-sm" href="/catalog">Open the catalog</a></li>`;
+  const intro = `<section class="bx-sec bx-hero"><div class="bx-hero-logo"><img src="/assets/64b03b7eef60996503cc3bb0_bedrock_logo.webp" alt="Conquest_ Bedrock Edition" width="300" height="300"></div>`
+    + `<div class="bx-hero-text"><span class="bx-kicker">Bedrock Edition</span><h1>Welcome to your Conquest_</h1>`
+    + `<p>The original Conquest_ resource pack, ported to Bedrock and available on the Minecraft Marketplace.</p>`
+    + `<div class="bx-dl-row"><a class="bx-btn" href="${MARKETPLACE}" target="_blank" rel="noopener">To the Marketplace</a>${o.enabled ? '<a class="bx-btn bx-btn-ghost" href="#overlay-pack">1.26 update overlay</a>' : ''}</div></div></section>`
+    + `<section class="bx-sec"><h2>What is Conquest – Bedrock Edition?</h2><p class="bx-lead bx-lead-wide">This is the official Bedrock port of the original Conquest resource pack, available on the Minecraft Marketplace. For those unfamiliar with Minecraft’s Bedrock edition, it runs on another engine that benefits from much better performance, higher render distances and easy multiplayer with cross-play on various platforms, such as Xbox, mobile, PlayStation, Switch and of course Windows. This version of Conquest has been carefully made to preserve the original’s high detail and atmosphere. Much work has gone into recreating the features critical to the Conquest experience as well as possible, such as connected textures, the UI and the custom skybox.</p></section>`
+    + `<section class="bx-sec"><h2>What does it have to offer?</h2><ul class="bx-feats">${features}</ul></section>`;
+  const lookOpen = `<section class="bx-sec bx-look"><h2>Default or Conquest</h2><p class="bx-lead">Drag across the picture to compare. We also invested a lot of time into customizing the GUI of the game to fit the Conquest aesthetic, for the complete experience.</p><div class="bx-media">`;
+  const roadmap = `<section class="bx-sec bx-road"><h2>This is only the beginning!</h2><p class="bx-lead">We have plans for future updates to the pack, to give you the best tools to build the world of your dreams. Potential updates include, but are not limited to:</p>`
+    + `<ol class="bx-steps-cards"><li><b>Latest versions</b>Releases for the latest Minecraft versions</li><li><b>Mobs</b>Custom mob models and animations</li><li><b>Custom models</b>Not supported by resource packs for technical reasons yet, but we keep an eye out for updates that could make them possible</li></ol>`
+    + `<div class="bx-cta"><p>To stay up to date with what we add next, or if you have questions about the pack, join us on Discord.</p><a class="bx-btn" href="https://discord.gg/ZagrZvn" target="_blank" rel="noopener">Join the Discord</a></div></section>`;
+  const swaps = [
+    [/<h1 id="w-node-_200723a1[\s\S]*?(?=<div id="w-node-_438870b2)/, intro],
+    [/<div id="w-node-a674d597-98a8-e9eb-3e08-8822c0ae7dbe-6607f461" class="div-block-34 w-clearfix">/, (m) => lookOpen + m],
+    [/<p id="w-node-f9e95c0d[^>]*>[\s\S]*?<\/p>/, '</div></section>'],
+    [/<h1 id="w-node-_672c4e65[\s\S]*?join us on <a href="https:\/\/discord\.gg\/ZagrZvn">Discord<\/a><\/p>/, roadmap],
+  ];
+  let out = body.replace(BEDROCK_REGION, html);
+  for (const [re, rep] of swaps) {
+    if (re.test(out)) out = out.replace(re, rep); else warnings.push(`bedrock page: section ${re.source.slice(0, 30)} not found, left as it was`);
+  }
+  return out.replace('<body class="body-6">', '<body class="body-6 bx-page">');
+}
+
 // Info, FAQ and Downloads: original Webflow content (with Webflow's slider / before-after scripts) inside our chrome
 const CHROME_CLONES = ['info', 'faq', 'downloads'];
 function buildChromeClones() {
@@ -510,7 +625,7 @@ function buildClones() {
   for (const [u, name] of Object.entries(scripts)) emitRaw('assets/' + name, fs.readFileSync(path.join(dir, name)));
   const emitClonePage = (slug, meta, body0) => {
     let body = body0.replace(/<\/script</g, '</script><').replace(/<\/html>\s*$/, '').replace(/<script[^>]*\ssrc="([^"]+)"[^>]*>(?:<\/script>)?/g, (m, u) => (scripts[u] ? `<script src="/assets/${scripts[u]}"></script>` : m));
-    body = baSwap(body.replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/'));
+    body = bedrockPage(baSwap(body.replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/')));
     body = body.includes('</body>') ? body.replace('</body>', BA_JS + '</body>') : body + BA_JS;
     const out = `<!DOCTYPE html><html data-wf-page="${meta.wfPage}" data-wf-site="${meta.wfSite}" lang="en"><head><meta charset="utf-8"><title>${esc(meta.title)}</title><meta name="description" content="${esc(meta.description)}"><meta property="og:title" content="${esc(meta.title)}"><meta property="og:description" content="${esc(meta.description)}"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/pack-webflow.css"><script>!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link rel="icon" href="${site.logo}"><style>.truncate{white-space:nowrap;text-overflow:ellipsis}</style>${(meta.headScripts || []).map((u) => `<script async src="${u}"></script>`).join('')}</head>${body}</html>`;
     if (slug === '404') emitRaw('404.html', out); else emit('/' + slug, out);
@@ -703,6 +818,7 @@ for (const u of generated) {
       continue;
     }
     if (/\.(css|xml|txt)$/.test(t) || known.has(t) || redirectSources.includes(t)) continue;
+    if (/\.\w+$/.test(t) && fs.existsSync(path.join(DIST, decodeURIComponent(t)))) continue; // downloads copied into dist/
     console.warn(`  broken internal link on ${u}: ${m[1]}`);
     broken++;
   }
