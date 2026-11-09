@@ -181,5 +181,13 @@
       "marketingscreenshot_8": "A villa garden",
       "marketingscreenshot_9": "A fuller's workshop"
     }
+  },
+  "bedrockOverlay": {
+    "enabled": true,
+    "title": "Conquest_ 1.26 Update Overlay",
+    "file": "/downloads/conquest-1.26-update-overlay.mcpack",
+    "version": "1.0.0",
+    "minecraft": "1.26.50+",
+    "note": "Conquest textures for the 1.26 updates: baby mobs and golden dandelion, sulfur and cinnabar, poplar wood, cushions, straw bed, shelf mushrooms and red shrub. A temporary download, available here until the update is live on the Minecraft Marketplace."
   }
 }
