@@ -370,6 +370,38 @@ if (mode === 'citizens') {
   }
 }
 
+if (mode === 'armor') {
+  // armour pieces with their own models (attachables in the retexture pack) x every trim pattern in the pack
+  const idx = geoIndex(RP);
+  const patterns = fs.readdirSync(path.join(RP, 'textures/trims')).filter((f) => /^[a-z]+\.png$/.test(f)).map((f) => f.slice(0, -4));
+  const seen = new Set();
+  // the player variant of each attachable carries the scale used in game
+  const scaleOf = {};
+  for (const f of fs.readdirSync(path.join(RP, 'attachables'))) {
+    const d = readJSON(path.join(RP, 'attachables', f))['minecraft:attachable']?.description;
+    if (!/player/.test(f) || !d) continue;
+    const it = Object.keys(d.item || {})[0] || d.identifier.replace(/\.player$/, '');
+    if (d.scripts?.scale) scaleOf[it] = +d.scripts.scale;
+  }
+  for (const f of fs.readdirSync(path.join(RP, 'attachables')).sort()) {
+    const d = readJSON(path.join(RP, 'attachables', f))['minecraft:attachable']?.description;
+    const item = Object.keys(d?.item || {})[0] || (d?.identifier || '').replace(/.player$/, '');
+    const m = item.match(/^minecraft:(\w+?)_(helmet|chestplate|leggings|boots)$/);
+    if (!m || seen.has(item)) continue;
+    seen.add(item);
+    const geoId = Object.values(d.geometry)[0];
+    if (!idx[geoId]) { console.warn('no geo', item, geoId); continue; }
+    const legs = m[2] === 'leggings';
+    jobs.push({
+      type: 'armor', base: 'rp', geoFile: idx[geoId], geoId, texture: d.textures.default,
+      trims: patterns.map((p) => ({ name: p, texture: `textures/trims/${p}${legs ? '_leggings' : ''}` })),
+      scale: scaleOf[item] || 1, material: m[1], slot: m[2], out: `armor/${m[1]}_${m[2]}`,
+      ...(m[1] === 'leather' ? { leatherTint: [160, 101, 64] } : {}), // vanilla undyed leather colour
+    });
+  }
+  console.log(jobs.map((j) => `${j.material} ${j.slot}`).join(', '));
+}
+
 fs.mkdirSync(path.join(HERE, 'jobs'), { recursive: true });
 fs.writeFileSync(path.join(HERE, 'jobs', `${mode}.json`), JSON.stringify(jobs, null, 1));
 console.log(mode, jobs.length, 'jobs');

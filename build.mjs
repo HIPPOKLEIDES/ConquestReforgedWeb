@@ -672,6 +672,13 @@ function buildHistoria() {
   const double = d.doubleSlabs.map((s) => `<div class="ds${s.base ? ' has-base' : ''}"><div class="ds-img">${s.base ? `<img class="base" src="${s.base}" alt="" loading="lazy">` : ''}<img class="top" src="${s.img}" alt="" loading="lazy"></div><span class="ds-name">${esc(s.name)}</span></div>`).join('');
   const tabs = `<button type="button" class="on" data-group="" role="tab" aria-selected="true">All <small>${nItems}</small></button>` + d.groups.map((g) => `<button type="button" data-group="${g.key}" role="tab" aria-selected="false">${esc(g.label)} <small>${g.items.length}</small></button>`).join('');
   const items = d.groups.flatMap((g) => g.items.map((it) => `<div class="item" data-group="${g.key}" data-search="${esc(`${it.name} ${it.sub} ${g.label}`.toLowerCase())}"><img src="${it.img}" alt="" loading="lazy" width="96" height="96"><b>${esc(it.name)}</b>${it.sub ? `<i>${esc(it.sub)}</i>` : ''}${it.note ? `<em class="note">${esc(it.note)}</em>` : ''}${it.lore ? `<span class="lore">${esc(it.lore)}</span>` : ''}</div>`)).join('');
+  // armoury: piece buttons (grouped by slot), trim chips, material swatches + the data the page script recolours with
+  const A = d.armor || { pieces: [], patterns: [], materials: [] };
+  const slotLabel = { helmet: 'Helmets', chestplate: 'Chestplates', leggings: 'Leggings', boots: 'Boots' };
+  const armorPieces = [...new Set(A.pieces.map((p) => p.slot))].map((slot) => `<div class="arm-slot"><span>${slotLabel[slot] || slot}</span><div>${A.pieces.filter((p) => p.slot === slot).map((p) => `<button type="button" data-piece="${p.id}" title="${esc(p.name)}"><img src="${p.views.front.base}" alt="${esc(p.name)}" width="64" height="64" loading="lazy"></button>`).join('')}</div></div>`).join('');
+  const armorTrims = `<button type="button" data-trim="">None</button>` + A.patterns.map((t) => `<button type="button" data-trim="${t}">${esc(t[0].toUpperCase() + t.slice(1))}</button>`).join('');
+  const armorMats = A.materials.map((m) => `<button type="button" data-mat="${m.id}" title="${esc(m.name)}" style="--c1:${m.palette[1]};--c2:${m.palette[4]}"><i></i><span>${esc(m.name)}</span></button>`).join('');
+  const armorData = JSON.stringify(A).replace(/</g, '\\u003c');
   const mobs = d.mobs.map((m) => `<div class="mob" data-kind="${m.kind}"><img src="${m.idle || m.img}" data-still="${m.img}"${m.idle ? ` data-idle="${m.idle}"` : ''}${m.walk ? ` data-walk="${m.walk}"` : ''} alt="${esc(m.name)}" loading="lazy" width="170" height="170"><b>${esc(m.name)}</b><span>replaces the ${esc(m.replaces)}</span></div>`).join('');
   const bpPath = h.bpFile && path.join(SRC, h.bpFile);
   const bpExists = bpPath && fs.existsSync(bpPath);
@@ -695,6 +702,7 @@ function buildHistoria() {
     .replace(/{{N_DOUBLE}}/g, `${d.doubleSlabs.length}`).replace(/{{N_ITEMS}}/g, `${nItems}`)
     .replace('{{GALLERY}}', gallery).replace('{{CITIZENS}}', citizens).replace('{{TOWNSFOLK}}', townsfolk)
     .replace(/{{N_TEXTURES}}/g, `${(Math.floor((d.textures || 0) / 100) * 100).toLocaleString('en-US')}+`).replace('{{DOUBLE}}', double)
+    .replace('{{ARMOR_PIECES}}', armorPieces).replace('{{ARMOR_TRIMS}}', armorTrims).replace('{{ARMOR_MATS}}', armorMats).replace('{{ARMOR_DATA}}', () => armorData)
     .replace('{{CAT_TABS}}', tabs).replace('{{CAT_ITEMS}}', items).replace('{{MOBS}}', mobs)
     .replace('{{BP_VERSION}}', esc(h.bpVersion || '')).replace('{{BP_MC}}', esc(h.bpMinecraft || '')).replace('{{BP_SIZE}}', size).replace('{{BP_BUTTON}}', bpButton);
   // assets are served as immutable for a year: version every Historia asset URL by its content so changes show up

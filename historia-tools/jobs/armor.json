@@ -1,0 +1,1146 @@
+[
+ {
+  "type": "armor",
+  "base": "rp",
+  "geoFile": "models/entity/chain_helmet.geo.json",
+  "geoId": "geometry.chain_helmet",
+  "texture": "textures/models/armor/chain_1",
+  "trims": [
+   {
+    "name": "bolt",
+    "texture": "textures/trims/bolt"
+   },
+   {
+    "name": "coast",
+    "texture": "textures/trims/coast"
+   },
+   {
+    "name": "dune",
+    "texture": "textures/trims/dune"
+   },
+   {
+    "name": "eye",
+    "texture": "textures/trims/eye"
+   },
+   {
+    "name": "host",
+    "texture": "textures/trims/host"
+   },
+   {
+    "name": "raiser",
+    "texture": "textures/trims/raiser"
+   },
+   {
+    "name": "rib",
+    "texture": "textures/trims/rib"
+   },
+   {
+    "name": "sentry",
+    "texture": "textures/trims/sentry"
+   },
+   {
+    "name": "shaper",
+    "texture": "textures/trims/shaper"
+   },
+   {
+    "name": "silence",
+    "texture": "textures/trims/silence"
+   },
+   {
+    "name": "snout",
+    "texture": "textures/trims/snout"
+   },
+   {
+    "name": "spire",
+    "texture": "textures/trims/spire"
+   },
+   {
+    "name": "tide",
+    "texture": "textures/trims/tide"
+   },
+   {
+    "name": "vex",
+    "texture": "textures/trims/vex"
+   },
+   {
+    "name": "ward",
+    "texture": "textures/trims/ward"
+   },
+   {
+    "name": "wayfinder",
+    "texture": "textures/trims/wayfinder"
+   },
+   {
+    "name": "wild",
+    "texture": "textures/trims/wild"
+   }
+  ],
+  "scale": 1.3,
+  "material": "chainmail",
+  "slot": "helmet",
+  "out": "armor/chainmail_helmet"
+ },
+ {
+  "type": "armor",
+  "base": "rp",
+  "geoFile": "models/entity/chain_chest.geo.json",
+  "geoId": "geometry.chain_chest",
+  "texture": "textures/models/armor/chain_1",
+  "trims": [
+   {
+    "name": "bolt",
+    "texture": "textures/trims/bolt"
+   },
+   {
+    "name": "coast",
+    "texture": "textures/trims/coast"
+   },
+   {
+    "name": "dune",
+    "texture": "textures/trims/dune"
+   },
+   {
+    "name": "eye",
+    "texture": "textures/trims/eye"
+   },
+   {
+    "name": "host",
+    "texture": "textures/trims/host"
+   },
+   {
+    "name": "raiser",
+    "texture": "textures/trims/raiser"
+   },
+   {
+    "name": "rib",
+    "texture": "textures/trims/rib"
+   },
+   {
+    "name": "sentry",
+    "texture": "textures/trims/sentry"
+   },
+   {
+    "name": "shaper",
+    "texture": "textures/trims/shaper"
+   },
+   {
+    "name": "silence",
+    "texture": "textures/trims/silence"
+   },
+   {
+    "name": "snout",
+    "texture": "textures/trims/snout"
+   },
+   {
+    "name": "spire",
+    "texture": "textures/trims/spire"
+   },
+   {
+    "name": "tide",
+    "texture": "textures/trims/tide"
+   },
+   {
+    "name": "vex",
+    "texture": "textures/trims/vex"
+   },
+   {
+    "name": "ward",
+    "texture": "textures/trims/ward"
+   },
+   {
+    "name": "wayfinder",
+    "texture": "textures/trims/wayfinder"
+   },
+   {
+    "name": "wild",
+    "texture": "textures/trims/wild"
+   }
+  ],
+  "scale": 1,
+  "material": "chainmail",
+  "slot": "chestplate",
+  "out": "armor/chainmail_chestplate"
+ },
+ {
+  "type": "armor",
+  "base": "rp",
+  "geoFile": "models/entity/copper_chest.geo.json",
+  "geoId": "geometry.copper_chest",
+  "texture": "textures/models/armor/copper_1",
+  "trims": [
+   {
+    "name": "bolt",
+    "texture": "textures/trims/bolt"
+   },
+   {
+    "name": "coast",
+    "texture": "textures/trims/coast"
+   },
+   {
+    "name": "dune",
+    "texture": "textures/trims/dune"
+   },
+   {
+    "name": "eye",
+    "texture": "textures/trims/eye"
+   },
+   {
+    "name": "host",
+    "texture": "textures/trims/host"
+   },
+   {
+    "name": "raiser",
+    "texture": "textures/trims/raiser"
+   },
+   {
+    "name": "rib",
+    "texture": "textures/trims/rib"
+   },
+   {
+    "name": "sentry",
+    "texture": "textures/trims/sentry"
+   },
+   {
+    "name": "shaper",
+    "texture": "textures/trims/shaper"
+   },
+   {
+    "name": "silence",
+    "texture": "textures/trims/silence"
+   },
+   {
+    "name": "snout",
+    "texture": "textures/trims/snout"
+   },
+   {
+    "name": "spire",
+    "texture": "textures/trims/spire"
+   },
+   {
+    "name": "tide",
+    "texture": "textures/trims/tide"
+   },
+   {
+    "name": "vex",
+    "texture": "textures/trims/vex"
+   },
+   {
+    "name": "ward",
+    "texture": "textures/trims/ward"
+   },
+   {
+    "name": "wayfinder",
+    "texture": "textures/trims/wayfinder"
+   },
+   {
+    "name": "wild",
+    "texture": "textures/trims/wild"
+   }
+  ],
+  "scale": 1,
+  "material": "copper",
+  "slot": "chestplate",
+  "out": "armor/copper_chestplate"
+ },
+ {
+  "type": "armor",
+  "base": "rp",
+  "geoFile": "models/entity/copper_helmet.geo.json",
+  "geoId": "geometry.copper_helmet",
+  "texture": "textures/models/armor/copper_1",
+  "trims": [
+   {
+    "name": "bolt",
+    "texture": "textures/trims/bolt"
+   },
+   {
+    "name": "coast",
+    "texture": "textures/trims/coast"
+   },
+   {
+    "name": "dune",
+    "texture": "textures/trims/dune"
+   },
+   {
+    "name": "eye",
+    "texture": "textures/trims/eye"
+   },
+   {
+    "name": "host",
+    "texture": "textures/trims/host"
+   },
+   {
+    "name": "raiser",
+    "texture": "textures/trims/raiser"
+   },
+   {
+    "name": "rib",
+    "texture": "textures/trims/rib"
+   },
+   {
+    "name": "sentry",
+    "texture": "textures/trims/sentry"
+   },
+   {
+    "name": "shaper",
+    "texture": "textures/trims/shaper"
+   },
+   {
+    "name": "silence",
+    "texture": "textures/trims/silence"
+   },
+   {
+    "name": "snout",
+    "texture": "textures/trims/snout"
+   },
+   {
+    "name": "spire",
+    "texture": "textures/trims/spire"
+   },
+   {
+    "name": "tide",
+    "texture": "textures/trims/tide"
+   },
+   {
+    "name": "vex",
+    "texture": "textures/trims/vex"
+   },
+   {
+    "name": "ward",
+    "texture": "textures/trims/ward"
+   },
+   {
+    "name": "wayfinder",
+    "texture": "textures/trims/wayfinder"
+   },
+   {
+    "name": "wild",
+    "texture": "textures/trims/wild"
+   }
+  ],
+  "scale": 1,
+  "material": "copper",
+  "slot": "helmet",
+  "out": "armor/copper_helmet"
+ },
+ {
+  "type": "armor",
+  "base": "rp",
+  "geoFile": "models/entity/copper_leggings.geo.json",
+  "geoId": "geometry.copper_leggings",
+  "texture": "textures/models/armor/copper_2",
+  "trims": [
+   {
+    "name": "bolt",
+    "texture": "textures/trims/bolt_leggings"
+   },
+   {
+    "name": "coast",
+    "texture": "textures/trims/coast_leggings"
+   },
+   {
+    "name": "dune",
+    "texture": "textures/trims/dune_leggings"
+   },
+   {
+    "name": "eye",
+    "texture": "textures/trims/eye_leggings"
+   },
+   {
+    "name": "host",
+    "texture": "textures/trims/host_leggings"
+   },
+   {
+    "name": "raiser",
+    "texture": "textures/trims/raiser_leggings"
+   },
+   {
+    "name": "rib",
+    "texture": "textures/trims/rib_leggings"
+   },
+   {
+    "name": "sentry",
+    "texture": "textures/trims/sentry_leggings"
+   },
+   {
+    "name": "shaper",
+    "texture": "textures/trims/shaper_leggings"
+   },
+   {
+    "name": "silence",
+    "texture": "textures/trims/silence_leggings"
+   },
+   {
+    "name": "snout",
+    "texture": "textures/trims/snout_leggings"
+   },
+   {
+    "name": "spire",
+    "texture": "textures/trims/spire_leggings"
+   },
+   {
+    "name": "tide",
+    "texture": "textures/trims/tide_leggings"
+   },
+   {
+    "name": "vex",
+    "texture": "textures/trims/vex_leggings"
+   },
+   {
+    "name": "ward",
+    "texture": "textures/trims/ward_leggings"
+   },
+   {
+    "name": "wayfinder",
+    "texture": "textures/trims/wayfinder_leggings"
+   },
+   {
+    "name": "wild",
+    "texture": "textures/trims/wild_leggings"
+   }
+  ],
+  "scale": 1,
+  "material": "copper",
+  "slot": "leggings",
+  "out": "armor/copper_leggings"
+ },
+ {
+  "type": "armor",
+  "base": "rp",
+  "geoFile": "models/entity/diamond_helmet.geo.json",
+  "geoId": "geometry.diamond_helmet",
+  "texture": "textures/models/armor/diamond_1",
+  "trims": [
+   {
+    "name": "bolt",
+    "texture": "textures/trims/bolt"
+   },
+   {
+    "name": "coast",
+    "texture": "textures/trims/coast"
+   },
+   {
+    "name": "dune",
+    "texture": "textures/trims/dune"
+   },
+   {
+    "name": "eye",
+    "texture": "textures/trims/eye"
+   },
+   {
+    "name": "host",
+    "texture": "textures/trims/host"
+   },
+   {
+    "name": "raiser",
+    "texture": "textures/trims/raiser"
+   },
+   {
+    "name": "rib",
+    "texture": "textures/trims/rib"
+   },
+   {
+    "name": "sentry",
+    "texture": "textures/trims/sentry"
+   },
+   {
+    "name": "shaper",
+    "texture": "textures/trims/shaper"
+   },
+   {
+    "name": "silence",
+    "texture": "textures/trims/silence"
+   },
+   {
+    "name": "snout",
+    "texture": "textures/trims/snout"
+   },
+   {
+    "name": "spire",
+    "texture": "textures/trims/spire"
+   },
+   {
+    "name": "tide",
+    "texture": "textures/trims/tide"
+   },
+   {
+    "name": "vex",
+    "texture": "textures/trims/vex"
+   },
+   {
+    "name": "ward",
+    "texture": "textures/trims/ward"
+   },
+   {
+    "name": "wayfinder",
+    "texture": "textures/trims/wayfinder"
+   },
+   {
+    "name": "wild",
+    "texture": "textures/trims/wild"
+   }
+  ],
+  "scale": 1.3,
+  "material": "diamond",
+  "slot": "helmet",
+  "out": "armor/diamond_helmet"
+ },
+ {
+  "type": "armor",
+  "base": "rp",
+  "geoFile": "models/entity/chain_chest.geo.json",
+  "geoId": "geometry.chain_chest",
+  "texture": "textures/models/armor/gold_1",
+  "trims": [
+   {
+    "name": "bolt",
+    "texture": "textures/trims/bolt"
+   },
+   {
+    "name": "coast",
+    "texture": "textures/trims/coast"
+   },
+   {
+    "name": "dune",
+    "texture": "textures/trims/dune"
+   },
+   {
+    "name": "eye",
+    "texture": "textures/trims/eye"
+   },
+   {
+    "name": "host",
+    "texture": "textures/trims/host"
+   },
+   {
+    "name": "raiser",
+    "texture": "textures/trims/raiser"
+   },
+   {
+    "name": "rib",
+    "texture": "textures/trims/rib"
+   },
+   {
+    "name": "sentry",
+    "texture": "textures/trims/sentry"
+   },
+   {
+    "name": "shaper",
+    "texture": "textures/trims/shaper"
+   },
+   {
+    "name": "silence",
+    "texture": "textures/trims/silence"
+   },
+   {
+    "name": "snout",
+    "texture": "textures/trims/snout"
+   },
+   {
+    "name": "spire",
+    "texture": "textures/trims/spire"
+   },
+   {
+    "name": "tide",
+    "texture": "textures/trims/tide"
+   },
+   {
+    "name": "vex",
+    "texture": "textures/trims/vex"
+   },
+   {
+    "name": "ward",
+    "texture": "textures/trims/ward"
+   },
+   {
+    "name": "wayfinder",
+    "texture": "textures/trims/wayfinder"
+   },
+   {
+    "name": "wild",
+    "texture": "textures/trims/wild"
+   }
+  ],
+  "scale": 1,
+  "material": "golden",
+  "slot": "chestplate",
+  "out": "armor/golden_chestplate"
+ },
+ {
+  "type": "armor",
+  "base": "rp",
+  "geoFile": "models/entity/gold_helmet.geo.json",
+  "geoId": "geometry.gold_helmet",
+  "texture": "textures/models/armor/gold_1",
+  "trims": [
+   {
+    "name": "bolt",
+    "texture": "textures/trims/bolt"
+   },
+   {
+    "name": "coast",
+    "texture": "textures/trims/coast"
+   },
+   {
+    "name": "dune",
+    "texture": "textures/trims/dune"
+   },
+   {
+    "name": "eye",
+    "texture": "textures/trims/eye"
+   },
+   {
+    "name": "host",
+    "texture": "textures/trims/host"
+   },
+   {
+    "name": "raiser",
+    "texture": "textures/trims/raiser"
+   },
+   {
+    "name": "rib",
+    "texture": "textures/trims/rib"
+   },
+   {
+    "name": "sentry",
+    "texture": "textures/trims/sentry"
+   },
+   {
+    "name": "shaper",
+    "texture": "textures/trims/shaper"
+   },
+   {
+    "name": "silence",
+    "texture": "textures/trims/silence"
+   },
+   {
+    "name": "snout",
+    "texture": "textures/trims/snout"
+   },
+   {
+    "name": "spire",
+    "texture": "textures/trims/spire"
+   },
+   {
+    "name": "tide",
+    "texture": "textures/trims/tide"
+   },
+   {
+    "name": "vex",
+    "texture": "textures/trims/vex"
+   },
+   {
+    "name": "ward",
+    "texture": "textures/trims/ward"
+   },
+   {
+    "name": "wayfinder",
+    "texture": "textures/trims/wayfinder"
+   },
+   {
+    "name": "wild",
+    "texture": "textures/trims/wild"
+   }
+  ],
+  "scale": 1.3,
+  "material": "golden",
+  "slot": "helmet",
+  "out": "armor/golden_helmet"
+ },
+ {
+  "type": "armor",
+  "base": "rp",
+  "geoFile": "models/entity/iron_helmet.geo.json",
+  "geoId": "geometry.iron_helmet",
+  "texture": "textures/models/armor/iron_1",
+  "trims": [
+   {
+    "name": "bolt",
+    "texture": "textures/trims/bolt"
+   },
+   {
+    "name": "coast",
+    "texture": "textures/trims/coast"
+   },
+   {
+    "name": "dune",
+    "texture": "textures/trims/dune"
+   },
+   {
+    "name": "eye",
+    "texture": "textures/trims/eye"
+   },
+   {
+    "name": "host",
+    "texture": "textures/trims/host"
+   },
+   {
+    "name": "raiser",
+    "texture": "textures/trims/raiser"
+   },
+   {
+    "name": "rib",
+    "texture": "textures/trims/rib"
+   },
+   {
+    "name": "sentry",
+    "texture": "textures/trims/sentry"
+   },
+   {
+    "name": "shaper",
+    "texture": "textures/trims/shaper"
+   },
+   {
+    "name": "silence",
+    "texture": "textures/trims/silence"
+   },
+   {
+    "name": "snout",
+    "texture": "textures/trims/snout"
+   },
+   {
+    "name": "spire",
+    "texture": "textures/trims/spire"
+   },
+   {
+    "name": "tide",
+    "texture": "textures/trims/tide"
+   },
+   {
+    "name": "vex",
+    "texture": "textures/trims/vex"
+   },
+   {
+    "name": "ward",
+    "texture": "textures/trims/ward"
+   },
+   {
+    "name": "wayfinder",
+    "texture": "textures/trims/wayfinder"
+   },
+   {
+    "name": "wild",
+    "texture": "textures/trims/wild"
+   }
+  ],
+  "scale": 1.3,
+  "material": "iron",
+  "slot": "helmet",
+  "out": "armor/iron_helmet"
+ },
+ {
+  "type": "armor",
+  "base": "rp",
+  "geoFile": "models/entity/chain_chest.geo.json",
+  "geoId": "geometry.chain_chest",
+  "texture": "textures/models/armor/leather_1",
+  "trims": [
+   {
+    "name": "bolt",
+    "texture": "textures/trims/bolt"
+   },
+   {
+    "name": "coast",
+    "texture": "textures/trims/coast"
+   },
+   {
+    "name": "dune",
+    "texture": "textures/trims/dune"
+   },
+   {
+    "name": "eye",
+    "texture": "textures/trims/eye"
+   },
+   {
+    "name": "host",
+    "texture": "textures/trims/host"
+   },
+   {
+    "name": "raiser",
+    "texture": "textures/trims/raiser"
+   },
+   {
+    "name": "rib",
+    "texture": "textures/trims/rib"
+   },
+   {
+    "name": "sentry",
+    "texture": "textures/trims/sentry"
+   },
+   {
+    "name": "shaper",
+    "texture": "textures/trims/shaper"
+   },
+   {
+    "name": "silence",
+    "texture": "textures/trims/silence"
+   },
+   {
+    "name": "snout",
+    "texture": "textures/trims/snout"
+   },
+   {
+    "name": "spire",
+    "texture": "textures/trims/spire"
+   },
+   {
+    "name": "tide",
+    "texture": "textures/trims/tide"
+   },
+   {
+    "name": "vex",
+    "texture": "textures/trims/vex"
+   },
+   {
+    "name": "ward",
+    "texture": "textures/trims/ward"
+   },
+   {
+    "name": "wayfinder",
+    "texture": "textures/trims/wayfinder"
+   },
+   {
+    "name": "wild",
+    "texture": "textures/trims/wild"
+   }
+  ],
+  "scale": 1,
+  "material": "leather",
+  "slot": "chestplate",
+  "out": "armor/leather_chestplate",
+  "leatherTint": [
+   160,
+   101,
+   64
+  ]
+ },
+ {
+  "type": "armor",
+  "base": "rp",
+  "geoFile": "models/entity/leather_helmet.geo.json",
+  "geoId": "geometry.leather_helmet",
+  "texture": "textures/models/armor/leather_helmet",
+  "trims": [
+   {
+    "name": "bolt",
+    "texture": "textures/trims/bolt"
+   },
+   {
+    "name": "coast",
+    "texture": "textures/trims/coast"
+   },
+   {
+    "name": "dune",
+    "texture": "textures/trims/dune"
+   },
+   {
+    "name": "eye",
+    "texture": "textures/trims/eye"
+   },
+   {
+    "name": "host",
+    "texture": "textures/trims/host"
+   },
+   {
+    "name": "raiser",
+    "texture": "textures/trims/raiser"
+   },
+   {
+    "name": "rib",
+    "texture": "textures/trims/rib"
+   },
+   {
+    "name": "sentry",
+    "texture": "textures/trims/sentry"
+   },
+   {
+    "name": "shaper",
+    "texture": "textures/trims/shaper"
+   },
+   {
+    "name": "silence",
+    "texture": "textures/trims/silence"
+   },
+   {
+    "name": "snout",
+    "texture": "textures/trims/snout"
+   },
+   {
+    "name": "spire",
+    "texture": "textures/trims/spire"
+   },
+   {
+    "name": "tide",
+    "texture": "textures/trims/tide"
+   },
+   {
+    "name": "vex",
+    "texture": "textures/trims/vex"
+   },
+   {
+    "name": "ward",
+    "texture": "textures/trims/ward"
+   },
+   {
+    "name": "wayfinder",
+    "texture": "textures/trims/wayfinder"
+   },
+   {
+    "name": "wild",
+    "texture": "textures/trims/wild"
+   }
+  ],
+  "scale": 1.3,
+  "material": "leather",
+  "slot": "helmet",
+  "out": "armor/leather_helmet",
+  "leatherTint": [
+   160,
+   101,
+   64
+  ]
+ },
+ {
+  "type": "armor",
+  "base": "rp",
+  "geoFile": "models/entity/chain_chest.geo.json",
+  "geoId": "geometry.chain_chest",
+  "texture": "textures/models/armor/netherite_1",
+  "trims": [
+   {
+    "name": "bolt",
+    "texture": "textures/trims/bolt"
+   },
+   {
+    "name": "coast",
+    "texture": "textures/trims/coast"
+   },
+   {
+    "name": "dune",
+    "texture": "textures/trims/dune"
+   },
+   {
+    "name": "eye",
+    "texture": "textures/trims/eye"
+   },
+   {
+    "name": "host",
+    "texture": "textures/trims/host"
+   },
+   {
+    "name": "raiser",
+    "texture": "textures/trims/raiser"
+   },
+   {
+    "name": "rib",
+    "texture": "textures/trims/rib"
+   },
+   {
+    "name": "sentry",
+    "texture": "textures/trims/sentry"
+   },
+   {
+    "name": "shaper",
+    "texture": "textures/trims/shaper"
+   },
+   {
+    "name": "silence",
+    "texture": "textures/trims/silence"
+   },
+   {
+    "name": "snout",
+    "texture": "textures/trims/snout"
+   },
+   {
+    "name": "spire",
+    "texture": "textures/trims/spire"
+   },
+   {
+    "name": "tide",
+    "texture": "textures/trims/tide"
+   },
+   {
+    "name": "vex",
+    "texture": "textures/trims/vex"
+   },
+   {
+    "name": "ward",
+    "texture": "textures/trims/ward"
+   },
+   {
+    "name": "wayfinder",
+    "texture": "textures/trims/wayfinder"
+   },
+   {
+    "name": "wild",
+    "texture": "textures/trims/wild"
+   }
+  ],
+  "scale": 1,
+  "material": "netherite",
+  "slot": "chestplate",
+  "out": "armor/netherite_chestplate"
+ },
+ {
+  "type": "armor",
+  "base": "rp",
+  "geoFile": "models/entity/netherite_helmet.geo.json",
+  "geoId": "geometry.netherite_helmet",
+  "texture": "textures/models/armor/netherite_1",
+  "trims": [
+   {
+    "name": "bolt",
+    "texture": "textures/trims/bolt"
+   },
+   {
+    "name": "coast",
+    "texture": "textures/trims/coast"
+   },
+   {
+    "name": "dune",
+    "texture": "textures/trims/dune"
+   },
+   {
+    "name": "eye",
+    "texture": "textures/trims/eye"
+   },
+   {
+    "name": "host",
+    "texture": "textures/trims/host"
+   },
+   {
+    "name": "raiser",
+    "texture": "textures/trims/raiser"
+   },
+   {
+    "name": "rib",
+    "texture": "textures/trims/rib"
+   },
+   {
+    "name": "sentry",
+    "texture": "textures/trims/sentry"
+   },
+   {
+    "name": "shaper",
+    "texture": "textures/trims/shaper"
+   },
+   {
+    "name": "silence",
+    "texture": "textures/trims/silence"
+   },
+   {
+    "name": "snout",
+    "texture": "textures/trims/snout"
+   },
+   {
+    "name": "spire",
+    "texture": "textures/trims/spire"
+   },
+   {
+    "name": "tide",
+    "texture": "textures/trims/tide"
+   },
+   {
+    "name": "vex",
+    "texture": "textures/trims/vex"
+   },
+   {
+    "name": "ward",
+    "texture": "textures/trims/ward"
+   },
+   {
+    "name": "wayfinder",
+    "texture": "textures/trims/wayfinder"
+   },
+   {
+    "name": "wild",
+    "texture": "textures/trims/wild"
+   }
+  ],
+  "scale": 1.3,
+  "material": "netherite",
+  "slot": "helmet",
+  "out": "armor/netherite_helmet"
+ },
+ {
+  "type": "armor",
+  "base": "rp",
+  "geoFile": "models/entity/turtle_helmet.geo.json",
+  "geoId": "geometry.turtle_helmet",
+  "texture": "textures/models/armor/turtle_1",
+  "trims": [
+   {
+    "name": "bolt",
+    "texture": "textures/trims/bolt"
+   },
+   {
+    "name": "coast",
+    "texture": "textures/trims/coast"
+   },
+   {
+    "name": "dune",
+    "texture": "textures/trims/dune"
+   },
+   {
+    "name": "eye",
+    "texture": "textures/trims/eye"
+   },
+   {
+    "name": "host",
+    "texture": "textures/trims/host"
+   },
+   {
+    "name": "raiser",
+    "texture": "textures/trims/raiser"
+   },
+   {
+    "name": "rib",
+    "texture": "textures/trims/rib"
+   },
+   {
+    "name": "sentry",
+    "texture": "textures/trims/sentry"
+   },
+   {
+    "name": "shaper",
+    "texture": "textures/trims/shaper"
+   },
+   {
+    "name": "silence",
+    "texture": "textures/trims/silence"
+   },
+   {
+    "name": "snout",
+    "texture": "textures/trims/snout"
+   },
+   {
+    "name": "spire",
+    "texture": "textures/trims/spire"
+   },
+   {
+    "name": "tide",
+    "texture": "textures/trims/tide"
+   },
+   {
+    "name": "vex",
+    "texture": "textures/trims/vex"
+   },
+   {
+    "name": "ward",
+    "texture": "textures/trims/ward"
+   },
+   {
+    "name": "wayfinder",
+    "texture": "textures/trims/wayfinder"
+   },
+   {
+    "name": "wild",
+    "texture": "textures/trims/wild"
+   }
+  ],
+  "scale": 1,
+  "material": "turtle",
+  "slot": "helmet",
+  "out": "armor/turtle_helmet"
+ }
+]

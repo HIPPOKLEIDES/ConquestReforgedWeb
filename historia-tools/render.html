@@ -275,6 +275,88 @@ async function runJob(job) {
     const model = buildModel(geo, (inst) => mats[inst]);
     return snapshot(model, job.view || { yaw: 225, pitch: 30, margin: 1.02 });
   }
+  if (job.type === 'armor') {
+    // one armour piece: a normal render of the base, plus for every trim pattern a "recolourable" layer:
+    // R = position on the 8-step trim palette * 32, G = face shading, A = coverage (the website recolours it per material)
+    const geo = findGeo(await getJSON(`/${job.base}/${job.geoFile}`), job.geoId);
+    if (!geo) throw new Error('geometry ' + job.geoId);
+    const baseTex = await loadTexture(job.base, job.texture);
+    if (job.leatherTint && baseTex.image?.data && !baseTex.userData.tinted) {
+      // leather textures: alpha 1 marks dyeable pixels (tinted with the dye colour), 255 fixed details, 0 empty
+      const px = baseTex.image.data;
+      for (let i = 0; i < px.length; i += 4) {
+        if (px[i + 3] > 0 && px[i + 3] < 255) { for (let k = 0; k < 3; k++) px[i + k] = px[i + k] * job.leatherTint[k] / 255; px[i + 3] = 255; }
+      }
+      baseTex.needsUpdate = true; baseTex.userData.tinted = true;
+    }
+    const baseMat = texMaterial(baseTex, 'alpha_test');
+    const depthMat = texMaterial(baseTex, 'alpha_test'); depthMat.colorWrite = false;
+    // a marble statue to wear the piece: standard player proportions, untextured with Minecraft face shading
+    const marble = new THREE.MeshBasicMaterial({ color: 0xc9bfad, vertexColors: true });
+    const hidden = new THREE.MeshBasicMaterial({ colorWrite: false });
+    const box6 = (o, s) => ({ origin: o, size: s, uv: [0, 0] });
+    const MAN = { tw: 64, th: 64, bones: [
+      { name: 'head', pivot: [0, 24, 0], cubes: [box6([-4, 24, -4], [8, 8, 8])] },
+      { name: 'body', pivot: [0, 24, 0], cubes: [box6([-4, 12, -2], [8, 12, 4])] },
+      { name: 'arms', pivot: [0, 22, 0], cubes: [box6([-8, 12, -2], [4, 12, 4]), box6([4, 12, -2], [4, 12, 4])] },
+      { name: 'legs', pivot: [0, 12, 0], cubes: [box6([-4, 0, -2], [4, 12, 4]), box6([0, 0, -2], [4, 12, 4])] },
+    ] };
+    const FRAME = { helmet: ['head'], chestplate: ['body', 'arms'], leggings: ['legs'], boots: ['legs'] }[job.slot] || [];
+    const mannequin = (mat) => buildModel(MAN, () => mat);
+    // attachable "scale" (player variant), applied around the piece's root bone pivot
+    const piece = (mat) => {
+      const m = buildModel(geo, () => mat);
+      const k = +(job.scale || 1);
+      if (k === 1) return m;
+      const p = geo.bones[0]?.pivot || [0, 0, 0];
+      const outer = new THREE.Group(), inner = new THREE.Group();
+      outer.position.set(-p[0], p[1], p[2]); outer.scale.setScalar(k);
+      inner.position.set(p[0], -p[1], -p[2]);
+      inner.add(m); outer.add(inner);
+      return outer;
+    };
+    const views = job.views || [{ name: 'front', yaw: 210, pitch: 12 }, { name: 'back', yaw: 30, pitch: 12 }];
+    const grab = () => { const c = renderer.domElement; const x = document.createElement('canvas'); x.width = c.width; x.height = c.height; x.getContext('2d').drawImage(c, 0, 0); return x.getContext('2d').getImageData(0, 0, c.width, c.height); };
+    for (const view of views) {
+      // camera box per view: the whole piece (trim-only cubes included) plus the body part it's worn on
+      const probeRoot = new THREE.Group();
+      probeRoot.add(piece(baseMat));
+      probeRoot.add(buildModel({ ...MAN, bones: MAN.bones.filter((b) => FRAME.includes(b.name)) }, () => hidden));
+      const box = measure(stage(probeRoot, view));
+      const scene0 = new THREE.Group();
+      scene0.add(mannequin(marble)); scene0.add(piece(baseMat));
+      await save(`${job.out}/${view.name}/base.png`, shoot(stage(scene0, view), box, 1.06));
+      for (const pattern of job.trims) {
+        const trimTex = await loadTexture(job.base, pattern.texture);
+        const raw = new THREE.MeshBasicMaterial({ map: trimTex, transparent: false, alphaTest: 0.5, side: THREE.DoubleSide });
+        const lit = texMaterial(trimTex, 'alpha_test');
+        const passes = [];
+        for (const mat of [raw, lit]) {
+          const root = new THREE.Group();
+          const occluder = new THREE.Group();
+          occluder.add(piece(depthMat)); occluder.add(mannequin(hidden));
+          occluder.traverse((o) => { if (o.isMesh) o.renderOrder = 0; });
+          const layer = piece(mat);
+          layer.traverse((o) => { if (o.isMesh) o.renderOrder = 1; });
+          root.add(occluder); root.add(layer);
+          shoot(stage(root, view), box, 1.06);
+          passes.push(grab());
+        }
+        const [a, b] = passes;
+        const out = new ImageData(a.width, a.height);
+        for (let i = 0; i < a.data.length; i += 4) {
+          if (a.data[i + 3] < 8) continue;
+          const lum = 0.299 * a.data[i] + 0.587 * a.data[i + 1] + 0.114 * a.data[i + 2];
+          const pos = Math.min(7, Math.max(0, (224 - lum) / 32)); // vanilla trim key: 224,192,...,0 -> palette 0..7
+          const shade = Math.max(b.data[i], b.data[i + 1], b.data[i + 2]) / Math.max(1, a.data[i], a.data[i + 1], a.data[i + 2]);
+          out.data[i] = Math.round(pos * 32); out.data[i + 1] = Math.round(Math.min(1, shade) * 255); out.data[i + 2] = 0; out.data[i + 3] = a.data[i + 3];
+        }
+        const c = document.createElement('canvas'); c.width = a.width; c.height = a.height; c.getContext('2d').putImageData(out, 0, 0);
+        await save(`${job.out}/${view.name}/trim-${pattern.name}.png`, c.toDataURL('image/png'));
+      }
+    }
+    return null;
+  }
   if (job.type === 'panel') {
     // a w x h painting as one flat board; its block texture holds the whole picture
     const p = await resolveTerrain(job.base, job.texture);

@@ -25,6 +25,7 @@
     <a href="#citizens">Citizens</a>
     <a href="#double-slabs">Double Slabs</a>
     <a href="#catalog">Catalogue</a>
+    <a href="#armoury">Armoury</a>
     <a href="#bestiary">Bestiary</a>
     <a href="#behavior-pack">Behaviour Pack</a>
   </nav>
@@ -119,6 +120,30 @@
     <div class="cat-more"><button type="button" class="btn btn-dark">Show all {{N_ITEMS}} blocks</button></div>
     <p class="cat-empty" hidden>Nothing found. Try another word.</p>
   </div>
+</section>
+
+<section class="armoury" id="armoury">
+  <div class="wrap">
+    <p class="eyebrow">Dress your legions</p>
+    <h2 class="section-title light">The Armoury</h2>
+    <p class="section-lead light">Every armour piece has its own Roman model, and the smithing table does more than recolour it: each trim adds something new, from crests and plumes to masks, feathers and extra plates. Pick a piece, a trim and a material.</p>
+    <div class="arm-grid">
+      <figure class="arm-stage">
+        <canvas width="420" height="420" aria-label="Armour preview"></canvas>
+        <figcaption class="arm-caption"></figcaption>
+        <div class="arm-views" role="group" aria-label="View"><button type="button" class="on" data-view="front">Front</button><button type="button" data-view="back">Back</button></div>
+      </figure>
+      <div class="arm-controls">
+        <h3>Armour</h3>
+        <div class="arm-pieces">{{ARMOR_PIECES}}</div>
+        <h3>Trim pattern</h3>
+        <div class="arm-trims">{{ARMOR_TRIMS}}</div>
+        <h3>Trim material</h3>
+        <div class="arm-mats">{{ARMOR_MATS}}</div>
+      </div>
+    </div>
+  </div>
+  <script type="application/json" id="armoury-data">{{ARMOR_DATA}}</script>
 </section>
 
 <section class="bestiary" id="bestiary">

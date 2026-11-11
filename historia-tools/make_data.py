@@ -248,6 +248,66 @@ for f in sorted(os.listdir(mk)):
         c.save(dest, 'WEBP', quality=82, method=6)
     shots.append(stem)
 
+# ---- armoury: custom armour pieces x trim patterns (recoloured in the browser per trim material)
+ARMOR_OUT = os.path.join(OUT, 'armor')
+SLOT_ORDER = {'helmet': 0, 'chestplate': 1, 'leggings': 2, 'boots': 3}
+MAT_ORDER = ['leather', 'chainmail', 'copper', 'iron', 'golden', 'diamond', 'netherite', 'turtle']
+MAT_LABEL = {'golden': 'Gold', 'chainmail': 'Chainmail', 'turtle': 'Turtle Shell'}
+TRIM_MATERIALS = ['iron', 'copper', 'gold', 'lapis', 'emerald', 'diamond', 'netherite', 'redstone', 'amethyst', 'quartz', 'resin']
+DARKER = {'iron': 'iron', 'golden': 'gold', 'copper': 'copper', 'diamond': 'diamond', 'netherite': 'netherite'}  # armour -> trim material that uses the darker palette on it
+armor = None
+if os.path.isdir(ARMOR_OUT):
+    pal = json.load(open(os.path.join(HERE, 'vanilla-trim-palettes.json'), encoding='utf8'))['palettes']
+    pack_pal = os.path.join(CONTENT, 'resource_packs/RP_hrmn/textures/trims/color_palettes')
+    for f in os.listdir(pack_pal):  # the pack's own palettes win
+        if f.endswith('.png'):
+            pal[f[:-4]] = ['#%02x%02x%02x' % c for c in Image.open(os.path.join(pack_pal, f)).convert('RGB').getdata()]
+    pieces, patterns = [], None
+    dirs = sorted(os.listdir(ARMOR_OUT), key=lambda d: (SLOT_ORDER.get(d.rsplit('_', 1)[1], 9), MAT_ORDER.index(d.rsplit('_', 1)[0]) if d.rsplit('_', 1)[0] in MAT_ORDER else 99))
+    for d in dirs:
+        mat, slot = d.rsplit('_', 1)
+        piece = {'id': d, 'material': mat, 'slot': slot, 'name': f"{MAT_LABEL.get(mat, mat.title())} {slot.title()}", 'darker': DARKER.get(mat), 'views': {}}
+        for view in ('front', 'back'):
+            vd = os.path.join(ARMOR_OUT, d, view)
+            layers = sorted(f for f in os.listdir(vd) if f.startswith('trim-'))
+            ims = {'base': Image.open(os.path.join(vd, 'base.png')).convert('RGBA')}
+            for f in layers:
+                ims[f[5:-4]] = Image.open(os.path.join(vd, f)).convert('RGBA')
+            bb = None
+            for im in ims.values():
+                b = im.getbbox()
+                if b:
+                    bb = b if not bb else (min(bb[0], b[0]), min(bb[1], b[1]), max(bb[2], b[2]), max(bb[3], b[3]))
+            side = max(bb[2] - bb[0], bb[3] - bb[1])
+            cx, cy = (bb[0] + bb[2]) // 2, (bb[1] + bb[3]) // 2
+            box = (cx - side // 2, cy - side // 2, cx - side // 2 + side, cy - side // 2 + side)
+            SIZE = 420
+            files = {}
+            for name, im in ims.items():
+                c = Image.new('RGBA', (side, side), (0, 0, 0, 0))
+                c.alpha_composite(im.crop(box), (0, 0))  # crop may run past the edge; PIL pads with transparency
+                # NEAREST keeps the encoded palette positions in the trim layers exact
+                c = c.resize((SIZE, SIZE), Image.LANCZOS if name == 'base' else Image.NEAREST)
+                rel = f'/assets/historia/armor/{d}/{view}-{name}.webp'
+                dest = os.path.join(SITE, 'src' + rel)
+                os.makedirs(os.path.dirname(dest), exist_ok=True)
+                if name == 'base':
+                    c.save(dest, 'WEBP', quality=88, method=6)
+                elif c.getbbox():
+                    c.save(dest, 'WEBP', lossless=True, method=6)
+                else:
+                    continue  # this trim adds nothing visible from this side
+                files[name] = rel
+            piece['views'][view] = files
+            if patterns is None:
+                patterns = [f[5:-4] for f in layers]
+        pieces.append(piece)
+    armor = {
+        'pieces': pieces,
+        'patterns': patterns or [],
+        'materials': [{'id': m, 'name': m.title(), 'palette': pal[m], 'darker': pal.get(m + '_darker')} for m in TRIM_MATERIALS if m in pal],
+    }
+
 # ---- colour textures across both resource packs (PBR helper maps and UI excluded)
 SKIP_TEX = re.compile(r'(_mer|_normal|_heightmap)\.|[\\/](mers|normals?|heightmaps?|ui|gui|font|particles?|environment|colormap|misc|map)[\\/]', re.I)
 n_textures = 0
@@ -255,5 +315,5 @@ for root in (os.path.join(CONTENT, 'resource_packs/RP_hrmn/textures'), os.path.j
     for dp, dn, fn in os.walk(root):
         n_textures += sum(1 for f in fn if f.lower().endswith(('.png', '.tga')) and not SKIP_TEX.search(os.path.join(dp, f)))
 
-json.dump({'textures': n_textures, 'groups': groups, 'doubleSlabs': double, 'mobs': mobs, 'citizens': citizens, 'townsfolk': townsfolk, 'shots': shots}, open(DATA, 'w', encoding='utf8'), indent=1, ensure_ascii=False)
+json.dump({'textures': n_textures, 'groups': groups, 'doubleSlabs': double, 'mobs': mobs, 'citizens': citizens, 'townsfolk': townsfolk, 'armor': armor, 'shots': shots}, open(DATA, 'w', encoding='utf8'), indent=1, ensure_ascii=False)
 print(n_textures, 'textures |', len(groups), 'groups', sum(len(g['items']) for g in groups), 'items |', len(double), 'double slabs |', len(mobs), 'mobs |', len(citizens), 'citizens |', len(townsfolk), 'townsfolk |', len(shots), 'shots')
