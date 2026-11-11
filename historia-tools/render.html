@@ -106,9 +106,14 @@ function cubeMesh(cube, tw, th, materialFor, inflateBone) {
     const r = uvs[face];
     const shade = SHADE[face];
     for (let k = 0; k < 4; k++) colors.push(shade, shade, shade);
-    if (!r) { geo.addGroup(i * 6, 6, mats.push(null) - 1); return; }
+    // faces with no area (the edges of flat planes like plumes and feathers) are not drawn in game
+    const [sx, sy, sz] = cube.size;
+    const flat = !inflate && { east: !sz || !sy, west: !sz || !sy, up: !sx || !sz, down: !sx || !sz, south: !sx || !sy, north: !sx || !sy }[face];
+    if (!r || flat) { geo.addGroup(i * 6, 6, mats.push(null) - 1); return; }
     const [u0, v0, u1, v1] = r;
-    const pts = [[u0, v0], [u1, v0], [u0, v1], [u1, v1]];
+    // pull the uv rectangle in by a hair so faces seen edge-on can't sample the neighbouring texels
+    const eu = Math.sign(u1 - u0) * Math.min(0.01, Math.abs(u1 - u0) / 4), ev = Math.sign(v1 - v0) * Math.min(0.01, Math.abs(v1 - v0) / 4);
+    const pts = [[u0 + eu, v0 + ev], [u1 - eu, v0 + ev], [u0 + eu, v1 - ev], [u1 - eu, v1 - ev]];
     pts.forEach(([u, v], k) => uvAttr.setXY(i * 4 + k, u / tw, 1 - v / th));
     geo.addGroup(i * 6, 6, mats.push(materialFor(r.mat || null, face)) - 1);
   });
@@ -330,8 +335,22 @@ async function runJob(job) {
         const trimTex = await loadTexture(job.base, pattern.texture);
         const raw = new THREE.MeshBasicMaterial({ map: trimTex, transparent: false, alphaTest: 0.5, side: THREE.DoubleSide });
         const lit = texMaterial(trimTex, 'alpha_test');
+        // mask texture: white where the trim texel is one of the 8 key greys (recoloured in game), black elsewhere
+        const src = trimTex.image;
+        const mc = document.createElement('canvas'); mc.width = src.width; mc.height = src.height;
+        const mx = mc.getContext('2d'); mx.drawImage(src, 0, 0);
+        const md = mx.getImageData(0, 0, mc.width, mc.height);
+        for (let i = 0; i < md.data.length; i += 4) {
+          const r = md.data[i], g = md.data[i + 1], bl = md.data[i + 2];
+          const key = r === g && g === bl && r % 32 === 0 && r <= 224;
+          md.data[i] = md.data[i + 1] = md.data[i + 2] = key ? 255 : 0;
+        }
+        mx.putImageData(md, 0, 0);
+        const maskTex = new THREE.CanvasTexture(mc);
+        maskTex.magFilter = maskTex.minFilter = THREE.NearestFilter; maskTex.generateMipmaps = false; maskTex.flipY = trimTex.flipY;
+        const maskMat = new THREE.MeshBasicMaterial({ map: maskTex, alphaTest: 0.5, side: THREE.DoubleSide });
         const passes = [];
-        for (const mat of [raw, lit]) {
+        for (const mat of [raw, lit, maskMat]) {
           const root = new THREE.Group();
           const occluder = new THREE.Group();
           occluder.add(piece(depthMat)); occluder.add(mannequin(hidden));
@@ -342,15 +361,14 @@ async function runJob(job) {
           shoot(stage(root, view), box, 1.06);
           passes.push(grab());
         }
-        const [a, b] = passes;
+        const [a, b, mk] = passes;
         // the game only recolours pixels painted in the 8 vanilla key greys (224,192,...,0); anything else keeps its colour
         const tint = new ImageData(a.width, a.height), fix = new ImageData(a.width, a.height);
         let nt = 0, nf = 0;
         for (let i = 0; i < a.data.length; i += 4) {
           if (a.data[i + 3] < 8) continue;
-          const r = a.data[i], g = a.data[i + 1], bl = a.data[i + 2];
-          const grey = Math.abs(r - g) <= 2 && Math.abs(g - bl) <= 2;
-          const key = grey && Math.abs(r - Math.round(r / 32) * 32) <= 2 && r <= 226;
+          const r = 0.299 * a.data[i] + 0.587 * a.data[i + 1] + 0.114 * a.data[i + 2];
+          const key = mk.data[i] >= 128; // decided per texel by the mask pass, so antialiased edges don't flip
           if (key) {
             const pos = Math.min(7, Math.max(0, (224 - r) / 32));
             const shade = r < 16 ? 0.8 : Math.max(b.data[i], b.data[i + 1], b.data[i + 2]) / r;

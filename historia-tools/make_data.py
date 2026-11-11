@@ -97,6 +97,79 @@ def anim_webp(frames_dir, dest, size, fps, out_fps=None, max_s=None, quality=62)
     return True
 
 
+def build_armor():
+    """Armoury: custom armour pieces x trim patterns (recoloured in the browser per trim material)."""
+    ARMOR_OUT = os.path.join(OUT, 'armor')
+    SLOT_ORDER = {'helmet': 0, 'chestplate': 1, 'leggings': 2, 'boots': 3}
+    MAT_ORDER = ['leather', 'chainmail', 'copper', 'iron', 'golden', 'diamond', 'netherite', 'turtle']
+    MAT_LABEL = {'golden': 'Gold', 'chainmail': 'Chainmail', 'turtle': 'Turtle Shell'}
+    TRIM_MATERIALS = ['iron', 'copper', 'gold', 'lapis', 'emerald', 'diamond', 'netherite', 'redstone', 'amethyst', 'quartz', 'resin']
+    DARKER = {'iron': 'iron', 'golden': 'gold', 'copper': 'copper', 'diamond': 'diamond', 'netherite': 'netherite'}  # armour -> trim material that uses the darker palette on it
+    armor = None
+    if os.path.isdir(ARMOR_OUT):
+        pal = json.load(open(os.path.join(HERE, 'vanilla-trim-palettes.json'), encoding='utf8'))['palettes']
+        pack_pal = os.path.join(CONTENT, 'resource_packs/RP_hrmn/textures/trims/color_palettes')
+        for f in os.listdir(pack_pal):  # the pack's own palettes win
+            if f.endswith('.png'):
+                pal[f[:-4]] = ['#%02x%02x%02x' % c for c in Image.open(os.path.join(pack_pal, f)).convert('RGB').getdata()]
+        pieces, patterns = [], None
+        dirs = sorted(os.listdir(ARMOR_OUT), key=lambda d: (SLOT_ORDER.get(d.rsplit('_', 1)[1], 9), MAT_ORDER.index(d.rsplit('_', 1)[0]) if d.rsplit('_', 1)[0] in MAT_ORDER else 99))
+        for d in dirs:
+            mat, slot = d.rsplit('_', 1)
+            piece = {'id': d, 'material': mat, 'slot': slot, 'name': f"{MAT_LABEL.get(mat, mat.title())} {slot.title()}", 'darker': DARKER.get(mat), 'views': {}}
+            for view in ('front', 'back'):
+                vd = os.path.join(ARMOR_OUT, d, view)
+                # trim-X: recolourable (key-grey) pixels, fix-X: pixels the trim paints in fixed colours
+                layers = sorted(f for f in os.listdir(vd) if f.startswith(('trim-', 'fix-')))
+                ims = {'base': Image.open(os.path.join(vd, 'base.png')).convert('RGBA')}
+                for f in layers:
+                    ims[f[:-4].replace('trim-', '', 1)] = Image.open(os.path.join(vd, f)).convert('RGBA')
+                bb = None
+                for im in ims.values():
+                    b = im.getbbox()
+                    if b:
+                        bb = b if not bb else (min(bb[0], b[0]), min(bb[1], b[1]), max(bb[2], b[2]), max(bb[3], b[3]))
+                side = max(bb[2] - bb[0], bb[3] - bb[1])
+                cx, cy = (bb[0] + bb[2]) // 2, (bb[1] + bb[3]) // 2
+                box = (cx - side // 2, cy - side // 2, cx - side // 2 + side, cy - side // 2 + side)
+                SIZE = 420
+                files = {}
+                for name, im in ims.items():
+                    c = Image.new('RGBA', (side, side), (0, 0, 0, 0))
+                    c.alpha_composite(im.crop(box), (0, 0))  # crop may run past the edge; PIL pads with transparency
+                    # NEAREST keeps the encoded palette positions in the trim layers exact
+                    lossy = name == 'base' or name.startswith('fix-')
+                    c = c.resize((SIZE, SIZE), Image.LANCZOS if lossy else Image.NEAREST)
+                    rel = f'/assets/historia/armor/{d}/{view}-{name}.webp'
+                    dest = os.path.join(SITE, 'src' + rel)
+                    os.makedirs(os.path.dirname(dest), exist_ok=True)
+                    if lossy and c.getbbox():
+                        c.save(dest, 'WEBP', quality=88, method=6)
+                    elif c.getbbox():
+                        c.save(dest, 'WEBP', lossless=True, method=4)
+                    else:
+                        continue  # this trim adds nothing visible from this side
+                    files[name] = rel
+                piece['views'][view] = files
+                patterns = sorted(set(patterns or []) | {f[:-4].split('-', 1)[1] for f in layers})
+            pieces.append(piece)
+        armor = {
+            'pieces': pieces,
+            'patterns': patterns or [],
+            'materials': [{'id': m, 'name': m.title(), 'palette': pal[m], 'darker': pal.get(m + '_darker')} for m in TRIM_MATERIALS if m in pal],
+        }
+    return armor
+
+
+# python make_data.py armor  -> only rebuild the armoury (everything else in historia.json is kept)
+if len(sys.argv) > 1 and sys.argv[1] == 'armor':
+    data = json.load(open(DATA, encoding='utf8'))
+    data['armor'] = build_armor()
+    json.dump(data, open(DATA, 'w', encoding='utf8'), indent=1, ensure_ascii=False)
+    print(len(data['armor']['pieces']), 'armour pieces')
+    sys.exit()
+
+
 GROUP_LABELS = {
     'statues': 'Statues', 'arches': 'Arches', 'columns': 'Columns & Capitals', 'entablature': 'Cornices & Entablature',
     'arena_seats': 'Arena Seating', 'balustrade': 'Balustrades', 'imbrex_and_tegulae': 'Roof Tiles', 'wooden': 'Woodwork',
@@ -248,66 +321,7 @@ for f in sorted(os.listdir(mk)):
         c.save(dest, 'WEBP', quality=82, method=6)
     shots.append(stem)
 
-# ---- armoury: custom armour pieces x trim patterns (recoloured in the browser per trim material)
-ARMOR_OUT = os.path.join(OUT, 'armor')
-SLOT_ORDER = {'helmet': 0, 'chestplate': 1, 'leggings': 2, 'boots': 3}
-MAT_ORDER = ['leather', 'chainmail', 'copper', 'iron', 'golden', 'diamond', 'netherite', 'turtle']
-MAT_LABEL = {'golden': 'Gold', 'chainmail': 'Chainmail', 'turtle': 'Turtle Shell'}
-TRIM_MATERIALS = ['iron', 'copper', 'gold', 'lapis', 'emerald', 'diamond', 'netherite', 'redstone', 'amethyst', 'quartz', 'resin']
-DARKER = {'iron': 'iron', 'golden': 'gold', 'copper': 'copper', 'diamond': 'diamond', 'netherite': 'netherite'}  # armour -> trim material that uses the darker palette on it
-armor = None
-if os.path.isdir(ARMOR_OUT):
-    pal = json.load(open(os.path.join(HERE, 'vanilla-trim-palettes.json'), encoding='utf8'))['palettes']
-    pack_pal = os.path.join(CONTENT, 'resource_packs/RP_hrmn/textures/trims/color_palettes')
-    for f in os.listdir(pack_pal):  # the pack's own palettes win
-        if f.endswith('.png'):
-            pal[f[:-4]] = ['#%02x%02x%02x' % c for c in Image.open(os.path.join(pack_pal, f)).convert('RGB').getdata()]
-    pieces, patterns = [], None
-    dirs = sorted(os.listdir(ARMOR_OUT), key=lambda d: (SLOT_ORDER.get(d.rsplit('_', 1)[1], 9), MAT_ORDER.index(d.rsplit('_', 1)[0]) if d.rsplit('_', 1)[0] in MAT_ORDER else 99))
-    for d in dirs:
-        mat, slot = d.rsplit('_', 1)
-        piece = {'id': d, 'material': mat, 'slot': slot, 'name': f"{MAT_LABEL.get(mat, mat.title())} {slot.title()}", 'darker': DARKER.get(mat), 'views': {}}
-        for view in ('front', 'back'):
-            vd = os.path.join(ARMOR_OUT, d, view)
-            # trim-X: recolourable (key-grey) pixels, fix-X: pixels the trim paints in fixed colours
-            layers = sorted(f for f in os.listdir(vd) if f.startswith(('trim-', 'fix-')))
-            ims = {'base': Image.open(os.path.join(vd, 'base.png')).convert('RGBA')}
-            for f in layers:
-                ims[f[:-4].replace('trim-', '', 1)] = Image.open(os.path.join(vd, f)).convert('RGBA')
-            bb = None
-            for im in ims.values():
-                b = im.getbbox()
-                if b:
-                    bb = b if not bb else (min(bb[0], b[0]), min(bb[1], b[1]), max(bb[2], b[2]), max(bb[3], b[3]))
-            side = max(bb[2] - bb[0], bb[3] - bb[1])
-            cx, cy = (bb[0] + bb[2]) // 2, (bb[1] + bb[3]) // 2
-            box = (cx - side // 2, cy - side // 2, cx - side // 2 + side, cy - side // 2 + side)
-            SIZE = 420
-            files = {}
-            for name, im in ims.items():
-                c = Image.new('RGBA', (side, side), (0, 0, 0, 0))
-                c.alpha_composite(im.crop(box), (0, 0))  # crop may run past the edge; PIL pads with transparency
-                # NEAREST keeps the encoded palette positions in the trim layers exact
-                lossy = name == 'base' or name.startswith('fix-')
-                c = c.resize((SIZE, SIZE), Image.LANCZOS if lossy else Image.NEAREST)
-                rel = f'/assets/historia/armor/{d}/{view}-{name}.webp'
-                dest = os.path.join(SITE, 'src' + rel)
-                os.makedirs(os.path.dirname(dest), exist_ok=True)
-                if lossy and c.getbbox():
-                    c.save(dest, 'WEBP', quality=88, method=6)
-                elif c.getbbox():
-                    c.save(dest, 'WEBP', lossless=True, method=6)
-                else:
-                    continue  # this trim adds nothing visible from this side
-                files[name] = rel
-            piece['views'][view] = files
-            patterns = sorted(set(patterns or []) | {f[:-4].split('-', 1)[1] for f in layers})
-        pieces.append(piece)
-    armor = {
-        'pieces': pieces,
-        'patterns': patterns or [],
-        'materials': [{'id': m, 'name': m.title(), 'palette': pal[m], 'darker': pal.get(m + '_darker')} for m in TRIM_MATERIALS if m in pal],
-    }
+armor = build_armor()
 
 # ---- colour textures across both resource packs (PBR helper maps and UI excluded)
 SKIP_TEX = re.compile(r'(_mer|_normal|_heightmap)\.|[\\/](mers|normals?|heightmaps?|ui|gui|font|particles?|environment|colormap|misc|map)[\\/]', re.I)
