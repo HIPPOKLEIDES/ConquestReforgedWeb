@@ -396,8 +396,24 @@ if (mode === 'armor') {
       type: 'armor', base: 'rp', geoFile: idx[geoId], geoId, texture: d.textures.default,
       trims: patterns.map((p) => ({ name: p, texture: `textures/trims/${p}${legs ? '_leggings' : ''}` })),
       scale: scaleOf[item] || 1, material: m[1], slot: m[2], out: `armor/${m[1]}_${m[2]}`,
-      ...(m[1] === 'leather' ? { leatherTint: [160, 101, 64] } : {}), // vanilla undyed leather colour
+      ...(m[1] === 'leather' ? { leatherTint: [255, 255, 255] } : {}), // shown undyed (white)
     });
+  }
+  // every other piece uses the pack's generic armour models with the material's layer texture
+  const GENERIC = { chestplate: ['models/entity/humanoid_chest_humanoid.geo.json', '_1'], leggings: ['models/entity/leggings.geo.json', '_2'], boots: ['models/entity/boots.geo.json', '_1'] };
+  const TEX = { leather: 'leather', chainmail: 'chain', copper: 'copper', iron: 'iron', golden: 'gold', diamond: 'diamond', netherite: 'netherite' };
+  for (const [mat, tex] of Object.entries(TEX)) {
+    for (const [slot, [geoFile, layer]] of Object.entries(GENERIC)) {
+      if (jobs.some((j) => j.material === mat && j.slot === slot)) continue; // has its own model
+      const geoJson = readJSON(path.join(RP, geoFile));
+      const geoId = geoJson['minecraft:geometry'][0].description.identifier;
+      jobs.push({
+        type: 'armor', base: 'rp', geoFile, geoId, texture: `textures/models/armor/${tex}${layer}`, scale: 1,
+        trims: patterns.map((p) => ({ name: p, texture: `textures/trims/${p}${slot === 'leggings' ? '_leggings' : ''}` })),
+        material: mat, slot, out: `armor/${mat}_${slot}`,
+        ...(mat === 'leather' ? { leatherTint: [255, 255, 255] } : {}),
+      });
+    }
   }
   console.log(jobs.map((j) => `${j.material} ${j.slot}`).join(', '));
 }

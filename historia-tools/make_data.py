@@ -269,10 +269,11 @@ if os.path.isdir(ARMOR_OUT):
         piece = {'id': d, 'material': mat, 'slot': slot, 'name': f"{MAT_LABEL.get(mat, mat.title())} {slot.title()}", 'darker': DARKER.get(mat), 'views': {}}
         for view in ('front', 'back'):
             vd = os.path.join(ARMOR_OUT, d, view)
-            layers = sorted(f for f in os.listdir(vd) if f.startswith('trim-'))
+            # trim-X: recolourable (key-grey) pixels, fix-X: pixels the trim paints in fixed colours
+            layers = sorted(f for f in os.listdir(vd) if f.startswith(('trim-', 'fix-')))
             ims = {'base': Image.open(os.path.join(vd, 'base.png')).convert('RGBA')}
             for f in layers:
-                ims[f[5:-4]] = Image.open(os.path.join(vd, f)).convert('RGBA')
+                ims[f[:-4].replace('trim-', '', 1)] = Image.open(os.path.join(vd, f)).convert('RGBA')
             bb = None
             for im in ims.values():
                 b = im.getbbox()
@@ -287,11 +288,12 @@ if os.path.isdir(ARMOR_OUT):
                 c = Image.new('RGBA', (side, side), (0, 0, 0, 0))
                 c.alpha_composite(im.crop(box), (0, 0))  # crop may run past the edge; PIL pads with transparency
                 # NEAREST keeps the encoded palette positions in the trim layers exact
-                c = c.resize((SIZE, SIZE), Image.LANCZOS if name == 'base' else Image.NEAREST)
+                lossy = name == 'base' or name.startswith('fix-')
+                c = c.resize((SIZE, SIZE), Image.LANCZOS if lossy else Image.NEAREST)
                 rel = f'/assets/historia/armor/{d}/{view}-{name}.webp'
                 dest = os.path.join(SITE, 'src' + rel)
                 os.makedirs(os.path.dirname(dest), exist_ok=True)
-                if name == 'base':
+                if lossy and c.getbbox():
                     c.save(dest, 'WEBP', quality=88, method=6)
                 elif c.getbbox():
                     c.save(dest, 'WEBP', lossless=True, method=6)
@@ -299,8 +301,7 @@ if os.path.isdir(ARMOR_OUT):
                     continue  # this trim adds nothing visible from this side
                 files[name] = rel
             piece['views'][view] = files
-            if patterns is None:
-                patterns = [f[5:-4] for f in layers]
+            patterns = sorted(set(patterns or []) | {f[:-4].split('-', 1)[1] for f in layers})
         pieces.append(piece)
     armor = {
         'pieces': pieces,

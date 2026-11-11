@@ -134,7 +134,7 @@
     var hex = function (h) { return [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)]; };
     var mats = {}; A.materials.forEach(function (m) { mats[m.id] = { name: m.name, pal: m.palette.map(hex), dark: m.darker ? m.darker.map(hex) : null }; });
     var pieces = {}; A.pieces.forEach(function (p) { pieces[p.id] = p; });
-    var state = { piece: pieces.iron_helmet ? 'iron_helmet' : A.pieces[0].id, trim: A.patterns.indexOf('ward') >= 0 ? 'ward' : '', mat: 'gold', view: 'front' };
+    var state = { piece: pieces.iron_helmet ? 'iron_helmet' : A.pieces[0].id, trim: A.patterns.indexOf('ward') >= 0 ? 'ward' : '', mat: 'redstone', view: 'front' };
     var imgs = {}, layers = {};
     function img(src) {
       if (!imgs[src]) imgs[src] = new Promise(function (ok, bad) { var i = new Image(); i.onload = function () { ok(i); }; i.onerror = bad; i.src = src; });
@@ -153,14 +153,16 @@
       var t = ++ticket;
       var p = pieces[state.piece], v = p.views[state.view] || p.views.front;
       var trimSrc = state.trim && v[state.trim];
+      var fixSrc = state.trim && v['fix-' + state.trim];
       var m = mats[state.mat];
       var pal = (p.darker === state.mat && m.dark) ? m.dark : m.pal;
-      Promise.all([img(v.base), trimSrc ? layer(trimSrc) : null]).then(function (r) {
+      Promise.all([img(v.base), trimSrc ? layer(trimSrc) : null, fixSrc ? img(fixSrc) : null]).then(function (r) {
         if (t !== ticket) return;
         var base = r[0], L = r[1];
         canvas.width = base.naturalWidth; canvas.height = base.naturalHeight;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(base, 0, 0);
+        if (r[2]) ctx.drawImage(r[2], 0, 0); // parts of the trim painted in fixed colours
         if (L) {
           var out = new ImageData(L.width, L.height), s = L.data, o = out.data;
           for (var i = 0; i < s.length; i += 4) {
