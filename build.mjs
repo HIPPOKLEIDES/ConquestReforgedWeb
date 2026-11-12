@@ -577,10 +577,30 @@ function bedrockPage(body) {
   const roadmap = `<section class="bx-sec bx-road"><h2>This is only the beginning!</h2><p class="bx-lead">We have plans for future updates to the pack, to give you the best tools to build the world of your dreams. Potential updates include, but are not limited to:</p>`
     + `<ol class="bx-steps-cards"><li><b>Latest versions</b>Releases for the latest Minecraft versions</li><li><b>Mobs</b>Custom mob models and animations</li><li><b>Custom models</b>Not supported by resource packs for technical reasons yet, but we keep an eye out for updates that could make them possible</li></ol>`
     + `<div class="bx-cta"><p>To stay up to date with what we add next, or if you have questions about the pack, join us on Discord.</p><a class="bx-btn" href="https://discord.gg/ZagrZvn" target="_blank" rel="noopener">Join the Discord</a></div></section>`;
+  // Armoury: the Conquest pack's own armour and trim textures, drawn in the browser (bedrock.js). Data from
+  // src/data/bedrock-armoury.json (fetch-bedrock-textures.mjs); the script loads it as /assets/bedrock/armoury.json
+  // when the section comes near the screen.
+  const armoury = (() => {
+    if (!exists('data', 'bedrock-armoury.json')) return '';
+    const A = readJSON('data', 'bedrock-armoury.json');
+    if (!A.pieces || !A.pieces.length) return '';
+    emitRaw('assets/bedrock/armoury.json', JSON.stringify(A));
+    const slotLabel = { helmet: 'Helmets', chestplate: 'Chestplates', leggings: 'Leggings', boots: 'Boots' };
+    const pieces = [...new Set(A.pieces.map((p) => p.slot))].map((slot) => `<div class="arm-slot"><span>${slotLabel[slot] || slot}</span><div>${A.pieces.filter((p) => p.slot === slot).map((p) => `<button type="button" data-piece="${p.id}" title="${esc(p.name)}" aria-label="${esc(p.name)}"><canvas width="96" height="96"></canvas></button>`).join('')}</div></div>`).join('');
+    const trims = `<button type="button" data-trim="">None</button>` + A.patterns.map((t) => `<button type="button" data-trim="${t}">${esc(t[0].toUpperCase() + t.slice(1))}</button>`).join('');
+    const mats = A.materials.map((m) => `<button type="button" data-mat="${m.id}" title="${esc(m.name)}" style="--c1:${m.palette[43]};--c2:${m.palette[27]}"><i></i><span>${esc(m.name)}</span></button>`).join('');
+    return `<section class="bx-sec bx-armoury" id="armoury"><h2>The Armoury</h2>`
+      + `<p class="bx-lead">Conquest dresses every armour piece in its own look, and the smithing table does more than recolour it: each trim adds its own design, tinted by the material you pick. Choose a piece, a trim and a material, and drag the statue to turn it.</p>`
+      + `<div class="arm-grid" data-armoury="/assets/bedrock/armoury.json"><figure class="arm-stage"><canvas width="520" height="520" aria-label="Armour preview"></canvas><figcaption class="arm-caption"></figcaption>`
+      + `<div class="arm-views" role="group" aria-label="View"><button type="button" class="on" data-view="front">Front</button><button type="button" data-view="back">Back</button></div></figure>`
+      + `<div class="arm-controls"><h3>Armour</h3><div class="arm-pieces">${pieces}</div><h3>Trim pattern</h3><div class="arm-trims">${trims}</div><h3>Trim material</h3><div class="arm-mats">${mats}</div></div></div>`
+      + `<div class="arm-grid arm-set"><figure class="arm-stage"><canvas width="520" height="520" aria-label="Full figure"></canvas><figcaption class="arm-caption"></figcaption></figure>`
+      + `<div class="arm-controls"><h3>Full figure</h3><p class="arm-set-lead">The last piece you picked for each body part, each with the trim and material you chose for it. Pick a piece again to change its trim.</p><form class="arm-skin" novalidate><label for="arm-skin-name">Minecraft username</label><div class="arm-skin-row"><input id="arm-skin-name" type="text" maxlength="16" placeholder="e.g. Notch" autocomplete="off" autocapitalize="off" spellcheck="false"><button type="submit">Apply skin</button><button type="button" class="arm-skin-reset">Reset</button></div><p class="arm-skin-msg" role="status" aria-live="polite"></p><p class="arm-skin-note">Java Edition names only. The name is sent to playerdb.co and mc-heads.net to find the skin.</p></form><div class="arm-worn">${['helmet', 'chestplate', 'leggings', 'boots'].map((s) => `<div class="arm-wornrow" data-slot="${s}"><span>${{ helmet: 'Helmet', chestplate: 'Chestplate', leggings: 'Leggings', boots: 'Boots' }[s]}</span><b>Nothing<small></small></b><button type="button" aria-label="Clear ${slotLabel[s].toLowerCase()}">Clear</button></div>`).join('')}<button type="button" class="arm-worn-clear">Clear all</button></div></div></div></section>`;
+  })();
   const swaps = [
     [/<h1 id="w-node-_200723a1[\s\S]*?(?=<div id="w-node-_438870b2)/, intro],
     [/<div id="w-node-a674d597-98a8-e9eb-3e08-8822c0ae7dbe-6607f461" class="div-block-34 w-clearfix">/, (m) => lookOpen + m],
-    [/<p id="w-node-f9e95c0d[^>]*>[\s\S]*?<\/p>/, '</div></section>'],
+    [/<p id="w-node-f9e95c0d[^>]*>[\s\S]*?<\/p>/, () => '</div></section>' + armoury],
     [/<h1 id="w-node-_672c4e65[\s\S]*?join us on <a href="https:\/\/discord\.gg\/ZagrZvn">Discord<\/a><\/p>/, roadmap],
   ];
   let out = body.replace(BEDROCK_REGION, html);
