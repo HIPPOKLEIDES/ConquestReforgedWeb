@@ -107,6 +107,37 @@
       "size": 130
     }
   ],
+  "bedrockCard": {
+    "title": "Our Bedrock Content",
+    "subtitle": "Resourcepack, Mashup pack, Persona Items.",
+    "headLogo": "/assets/conquest_logo.png",
+    "interval": 7000,
+    "entries": [
+      {
+        "title": "Conquest_",
+        "subtitle": "Resourcepack",
+        "href": "/conquest-bedrock",
+        "bg": "/assets/6707fee45d825fbcf3a0c90f_bedrock_preview.webp",
+        "logo": "/assets/64b03b7eef60996503cc3bb0_bedrock_logo.webp"
+      },
+      {
+        "title": "Historia Rome",
+        "subtitle": "Mashup Pack",
+        "href": "/historia-rome",
+        "bg": "/assets/historia/shots/marketingscreenshot_0-800.webp",
+        "logo": "/assets/historia/title.webp",
+        "badge": "/assets/assets.png"
+      },
+      {
+        "title": "Minecraft Fashion",
+        "subtitle": "Persona Items",
+        "href": "",
+        "soon": "Page coming soon",
+        "bg": "/assets/persona.png",
+        "pos": "center 22%"
+      }
+    ]
+  },
   "newsCategories": [
     {
       "label": "Hot from the Press",
