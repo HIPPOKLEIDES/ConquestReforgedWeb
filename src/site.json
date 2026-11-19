@@ -131,8 +131,7 @@
       {
         "title": "Minecraft Fashion",
         "subtitle": "Persona Items",
-        "href": "",
-        "soon": "Page coming soon",
+        "href": "/persona",
         "bg": "/assets/persona.png",
         "pos": "center 22%"
       }

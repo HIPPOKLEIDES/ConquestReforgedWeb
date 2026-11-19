@@ -7,3 +7,4 @@ node_modules/
 
 # Historia render tool output (regenerate with historia-tools/)
 historia-tools/out/
+persona-tools/out/

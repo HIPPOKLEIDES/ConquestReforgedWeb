@@ -738,6 +738,52 @@ function buildHistoria() {
   if (h.published) emit('/historia-rome', html); else emitRaw('historia-rome/index.html', html);
 }
 
+// /persona: our Character Creator items on the Marketplace (snapshot from persona-tools/fetch-persona.mjs)
+function buildPersona() {
+  if (!exists('persona', 'persona.css') || !exists('data', 'persona.json')) return;
+  const d = readJSON('data', 'persona.json');
+  const css = readText('persona', 'persona.css'), js = readText('persona', 'persona.js');
+  const v = (s) => crypto.createHash('md5').update(s).digest('hex').slice(0, 8);
+  emitRaw('assets/persona/persona.css', css);
+  emitRaw('assets/persona/persona.js', js);
+  const monthName = new Date(`${d.month}-01T00:00:00Z`).toLocaleString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+  const items = d.items.filter((i) => i.img || i.thumb);
+  const sale = items.filter((i) => i.purchasable);
+  const card = (i, { badge = false } = {}) => {
+    const pic = i.img
+      ? `<img src="${i.img}" data-still="${i.img}"${i.spin ? ` data-spin="${i.spin}"` : ''} alt="${esc(i.name)}" width="360" height="360" loading="lazy">`
+      : `<img class="thumb" src="${i.thumb}" alt="${esc(i.name)}" width="256" height="256" loading="lazy">`;
+    const meta = [`<span>${esc(i.slot)}</span>`, i.rarity ? `<span class="pz-rar" data-r="${esc(i.rarity.toLowerCase())}">${esc(i.rarity)}</span>` : '', badge && i.price ? `<span class="pz-price">${i.price} Minecoins</span>` : ''].filter(Boolean).join('');
+    return `<figure class="pz-card${i.purchasable ? ' on-sale' : ''}" data-slot="${esc(i.slot)}">${i.purchasable ? `<span class="pz-badge">${badge ? 'In the Dressing Room' : 'On sale'}</span>` : ''}<div class="pz-img">${pic}</div><figcaption><b>${esc(i.name)}</b><span class="pz-meta">${meta}</span></figcaption></figure>`;
+  };
+  const slots = [...new Set(items.map((i) => i.slot))];
+  const tabs = `<button type="button" class="on" data-slot="" role="tab" aria-selected="true">All <small>${items.length}</small></button>`
+    + slots.map((s) => `<button type="button" data-slot="${esc(s)}" role="tab" aria-selected="false">${esc(s)} <small>${items.filter((i) => i.slot === s).length}</small></button>`).join('');
+  const where = `<p class="pz-where"><span>Open <b>Dressing Room</b> in Minecraft (Bedrock Edition)</span><span>Search <b>Conquest Studios</b> in the Character Creator</span></p>`;
+  const saleSec = sale.length
+    ? `<section class="pz-sec" id="this-month"><h2 data-stale-title="Last month's selection">In the Dressing Room this month</h2><p class="pz-sub" data-stale-sub="These were for sale in &lt;b&gt;${esc(monthName)}&lt;/b&gt;. Mojang changes the selection on the 1st of each month.">For sale in <b>${esc(monthName)}</b>. Mojang changes the selection on the 1st of each month.</p><div class="pz-sale">${sale.map((i) => card(i, { badge: true })).join('')}</div>${where}</section>`
+    : `<section class="pz-sec" id="this-month"><h2>In the Dressing Room this month</h2><p class="pz-sub">None of our items are for sale in <b>${esc(monthName)}</b>. Mojang changes the selection on the 1st of each month, so check back soon.</p></section>`;
+  const emotes = (d.emotes || []).length
+    ? `<section class="pz-sec" id="emotes"><h2>Emotes</h2><div class="pz-grid">${d.emotes.map((e) => card(e)).join('')}</div></section>` : '';
+  const body = `<link rel="stylesheet" href="/assets/persona/persona.css?v=${v(css)}">
+<main class="page pz" data-month="${esc(d.month)}">
+<h1 class="heading">Minecraft Fashion</h1>
+<p class="pz-intro">Helmets, hats, robes, wings and more: our Character Creator items for Minecraft Bedrock Edition, made by Conquest Studios for the Minecraft Marketplace.</p>
+<p class="pz-intro">A few of them are for sale each month. Hover or tap an item to turn it around.</p>
+${saleSec}
+<section class="pz-sec" id="collection"><h2>The collection</h2><p class="pz-sub">All ${items.length} of our Character Creator items. The ones that aren't for sale this month come back in later months.</p><div class="pz-tabs" role="tablist">${tabs}</div><div class="pz-grid">${items.map((i) => card(i)).join('')}</div></section>
+${emotes}
+</main>
+<script src="/assets/persona/persona.js?v=${v(js)}" defer></script>`;
+  // assets are cached as immutable: version item pictures by content
+  const html = body.replace(/\/assets\/persona\/[\w.-]+\.(?:webp|png)/g, (u) => {
+    const f = path.join(SRC, u);
+    return fs.existsSync(f) ? `${u}?v=${crypto.createHash('md5').update(fs.readFileSync(f)).digest('hex').slice(0, 8)}` : u;
+  });
+  const og = sale[0]?.img || items[0]?.img;
+  emit('/persona', layout({ title: 'Minecraft Fashion: Character Creator items', description: 'Conquest Studios’ Character Creator items for Minecraft Bedrock Edition: helmets, hats, robes, wings and more, and which ones are in the Dressing Room this month.', urlPath: '/persona', ogImage: og && site.url + og, body: html }));
+}
+
 // ---------- run ----------
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
@@ -752,6 +798,7 @@ buildMarkdownPage('downloads.md', '/downloads');
 buildMarkdownPage('faq.md', '/faq');
 buildClones();
 buildHistoria();
+buildPersona();
 buildChromeClones();
 buildNews(posts);
 buildShowcases();

@@ -1,0 +1,75 @@
+/* /persona: Conquest Studios' Character Creator items (markup from build.mjs buildPersona(), data from
+   src/data/persona.json made by persona-tools/fetch-persona.mjs). Items are shown on their own, without the
+   mannequin; a still image turns into a slow turntable on hover/tap (always turning in the "this month" row). */
+body.ws main.page.pz { max-width: 1100px; }
+.pz > * { grid-column: 1 / -1; min-width: 0; }
+.pz {
+  --gold: #c7741b; --gold-hi: #e9a64a; --wood: #241b14; --wood-hi: #3c2d20; --ink: #f1e4cc; --dim: #b9a383;
+  --rare: #4f8fe0; --epic: #b05ce6; --legendary: #e8a02c; --common: #9aa3a8; --uncommon: #5fb85f;
+}
+.pz .pz-intro { max-width: 680px; margin: 0 auto 8px; text-align: center; font-size: 1.15rem; line-height: 1.5; color: #333; }
+.pz .pz-intro + .pz-intro { color: #6f5a43; font-size: 1.02rem; }
+.pz-sec { margin-top: 70px; }
+.pz-sec > h2 { margin: 0 0 6px; text-align: center; }
+.pz .pz-sub { margin: 0 0 24px; text-align: center; color: #7a6650; font-size: 1.02rem; letter-spacing: .02em; }
+.pz-sub b { color: var(--gold); font-weight: 400; }
+
+/* ---------- cards ---------- */
+.pz-card {
+  position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; margin: 0;
+  padding: 14px 12px 14px; color: var(--ink); border-radius: 6px; border: 1px solid #120d09; cursor: default;
+  background: radial-gradient(90% 70% at 50% 38%, rgba(233, 166, 74, .16), transparent 70%), linear-gradient(180deg, var(--wood-hi), var(--wood) 62%, #1a130e);
+  box-shadow: inset 0 0 0 3px #1a130e, inset 0 0 0 4px rgba(199, 116, 27, .35), 0 8px 20px rgba(30, 20, 10, .25);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.pz-card:hover { transform: translateY(-3px); box-shadow: inset 0 0 0 3px #1a130e, inset 0 0 0 4px rgba(233, 166, 74, .7), 0 12px 26px rgba(30, 20, 10, .35); }
+.pz-img { position: relative; width: 100%; aspect-ratio: 1; display: grid; place-items: center; }
+.pz-img img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .45)); }
+.pz-img img.thumb { width: 86%; height: 86%; image-rendering: auto; border-radius: 4px; filter: none; opacity: .92; }
+.pz-card b { display: block; margin-top: 8px; font-weight: 400; font-size: 1.22rem; line-height: 1.15; color: var(--ink); }
+.pz-meta { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 10px; margin-top: 6px; font-size: .92rem; color: var(--dim); letter-spacing: .03em; }
+.pz-rar { padding: 1px 8px 0; border-radius: 3px; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: var(--r, var(--common)); }
+.pz-rar[data-r="rare"] { --r: var(--rare); } .pz-rar[data-r="epic"] { --r: var(--epic); } .pz-rar[data-r="legendary"] { --r: var(--legendary); } .pz-rar[data-r="uncommon"] { --r: var(--uncommon); }
+.pz-price { color: var(--gold-hi); }
+.pz-badge {
+  position: absolute; top: -10px; left: 50%; transform: translateX(-50%); z-index: 2; white-space: nowrap;
+  padding: 4px 12px 3px; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: #fff7e8;
+  background: #8e2f1c; border: 1px solid #4a160b; border-radius: 3px; box-shadow: 0 4px 10px rgba(0, 0, 0, .35);
+}
+
+/* ---------- this month ---------- */
+.pz-sale { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 26px 18px; }
+.pz-sale .pz-card { padding: 22px 14px 18px; }
+.pz-sale .pz-card b { font-size: 1.4rem; }
+.pz .pz-where {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; margin: 26px auto 0; max-width: 760px;
+  padding: 12px 18px; border-radius: 5px; background: rgba(199, 116, 27, .1); border: 1px solid rgba(199, 116, 27, .35);
+  color: #5b4630; font-size: 1rem; line-height: 1.4; text-align: center;
+}
+.pz-stale .pz-sale .pz-badge { display: none; }
+.pz-grid .pz-badge { font-size: .68rem; letter-spacing: .1em; padding: 3px 9px 2px; }
+
+/* ---------- collection ---------- */
+.pz-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 22px; }
+.pz-tabs button {
+  padding: 7px 16px 6px; cursor: pointer; font: 1.05rem/1 "Nyala 0", "Times New Roman", serif; letter-spacing: .03em;
+  color: #4a3826; background: #f4ece0; border: 1px solid #c8b394; border-radius: 4px;
+}
+.pz-tabs button small { color: #9a8467; font-size: .85em; }
+.pz-tabs button.on { color: #fff7e8; background: linear-gradient(180deg, #d98a2c, var(--gold) 55%, #a85e12); border-color: #6e3d0b; }
+.pz-tabs button.on small { color: #ffe3bd; }
+.pz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 22px 14px; }
+.pz-grid .pz-card[hidden] { display: none; }
+.pz-grid .pz-card.on-sale { box-shadow: inset 0 0 0 3px #1a130e, inset 0 0 0 4px rgba(233, 166, 74, .85), 0 8px 20px rgba(30, 20, 10, .25); }
+.pz-note { margin: 22px auto 0; max-width: 680px; text-align: center; font-size: .95rem; color: #7a6650; }
+
+@media (max-width: 560px) {
+  .pz-sale { grid-template-columns: repeat(2, 1fr); gap: 22px 10px; }
+  .pz-grid { grid-template-columns: repeat(2, 1fr); gap: 18px 10px; }
+  .pz-card b, .pz-sale .pz-card b { font-size: 1.08rem; }
+  .pz-meta { font-size: .82rem; }
+  .pz-sec { margin-top: 54px; }
+  .pz-badge, .pz-grid .pz-badge { font-size: .62rem; letter-spacing: .06em; padding: 3px 7px 2px; }
+  .pz-sale .pz-badge { white-space: normal; width: max-content; max-width: 92%; }
+}
+@media (prefers-reduced-motion: reduce) { .pz-card, .pz-card:hover { transition: none; transform: none; } }
