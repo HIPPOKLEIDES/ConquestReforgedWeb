@@ -280,6 +280,50 @@ for (const [gi, g] of GRADIENTS.entries()) {
   gradients.push({ name: g.name, desc: g.desc, verified: g.verified, img, steps });
 }
 
+// ---- Armoury: the Conquest pack's own armour and trim textures, drawn in the browser (bedrock.js) on the standard
+// armour model. Copies the textures into src/assets/bedrock/armor and writes src/data/bedrock-armoury.json. ----
+{
+  const ARM_SRC = path.join(RP, 'textures', 'models', 'armor'), TRIM_SRC = path.join(RP, 'textures', 'trims');
+  const ARM_OUT = path.join(OUT_IMG, 'armor'), TRIM_OUT = path.join(ARM_OUT, 'trims');
+  fs.mkdirSync(TRIM_OUT, { recursive: true });
+  const url = (f) => `/assets/bedrock/armor/${f}`;
+  const grab = (f) => { fs.copyFileSync(path.join(ARM_SRC, f), path.join(ARM_OUT, f)); return url(f); };
+  // armour sets: file prefix (_1 = helmet/chestplate/boots layer, _2 = leggings layer); leather is cloth + a leather overlay;
+  // darker = the trim material that uses the "_darker" palette on this armour
+  const SETS = [
+    { id: 'leather', name: 'Leather', base: 'cloth', overlay: 'leather' },
+    { id: 'chainmail', name: 'Chainmail', base: 'chain' },
+    { id: 'copper', name: 'Copper', base: 'copper', darker: 'copper' },
+    { id: 'iron', name: 'Iron', base: 'iron', darker: 'iron' },
+    { id: 'golden', name: 'Gold', base: 'gold', darker: 'gold' },
+    { id: 'diamond', name: 'Diamond', base: 'diamond', darker: 'diamond' },
+    { id: 'netherite', name: 'Netherite', base: 'netherite', darker: 'netherite' },
+  ];
+  const SLOTS = ['helmet', 'chestplate', 'leggings', 'boots'];
+  const pieces = [];
+  for (const slot of SLOTS) {
+    for (const s of SETS) {
+      const layer = slot === 'leggings' ? 2 : 1;
+      pieces.push({ id: `${s.id}_${slot}`, slot, name: `${s.name} ${slot[0].toUpperCase() + slot.slice(1)}`, darker: s.darker || null, tex: grab(`${s.base}_${layer}.png`), overlay: s.overlay ? grab(`${s.overlay}_${layer}.png`) : null });
+    }
+    if (slot === 'helmet') pieces.push({ id: 'turtle_helmet', slot, name: 'Turtle Shell Helmet', darker: null, tex: grab('turtle_1.png'), overlay: null });
+  }
+  // trim patterns: X.png (helmet, chestplate, boots) and X_leggings.png
+  const patterns = fs.readdirSync(TRIM_SRC).filter((n) => n.endsWith('.png') && !n.endsWith('_leggings.png')).map((n) => n.replace('.png', '')).sort();
+  for (const p of patterns) for (const n of [`${p}.png`, `${p}_leggings.png`]) fs.copyFileSync(path.join(TRIM_SRC, n), path.join(TRIM_OUT, n));
+  // palettes: 49 colours each. A trim pixel's grey is looked up in trim_palette.png (the key) and takes the colour at
+  // the same position in the material's palette; pixels that aren't in the key keep their own colour.
+  const hex = (px, o) => '#' + [px[o], px[o + 1], px[o + 2]].map((v) => v.toString(16).padStart(2, '0')).join('');
+  const PAL = path.join(TRIM_SRC, 'color_palettes');
+  const row = (f) => { const im = texture(path.join(PAL, f)); return Array.from({ length: im.w }, (_, i) => hex(im.px, i * 4)); };
+  const MATS = ['iron', 'copper', 'gold', 'lapis', 'emerald', 'diamond', 'netherite', 'redstone', 'amethyst', 'quartz', 'resin'];
+  const materials = MATS.filter((m) => fs.existsSync(path.join(PAL, m + '.png'))).map((m) => ({
+    id: m, name: m[0].toUpperCase() + m.slice(1), palette: row(m + '.png'), darker: fs.existsSync(path.join(PAL, m + '_darker.png')) ? row(m + '_darker.png') : null,
+  }));
+  fs.writeFileSync(path.join(ROOT, 'src', 'data', 'bedrock-armoury.json'), JSON.stringify({ key: row('trim_palette.png'), trims: url('trims/'), pieces, patterns, materials }) + '\n');
+  console.log(`armoury: ${pieces.length} pieces, ${patterns.length} trim patterns, ${materials.length} trim materials`);
+}
+
 fs.writeFileSync(OUT_DATA, JSON.stringify({ doubleSlabs: out, gradients }, null, 1) + '\n');
 const total = fs.readdirSync(OUT_IMG).reduce((s, f) => s + fs.statSync(path.join(OUT_IMG, f)).size, 0);
 console.log(`${out.length} double slabs, ${gradients.length} gradients: ${rendered} pictures rendered (${(bytes / 1048576).toFixed(2)} MB), ${copied.size} icon textures; src/assets/bedrock is ${(total / 1048576).toFixed(2)} MB`);
