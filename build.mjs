@@ -788,6 +788,20 @@ emitRaw('_headers', `/assets/*\n  Cache-Control: public, max-age=31536000, immut
 // src/webstudio/. Its files are copied over dist/, so any page it contains replaces ours.
 const WS = path.join(SRC, 'webstudio');
 const wsPages = [];
+function landingCard() {
+  const c = site.bedrockCard;
+  if (!c || !exists('landing', 'bedrock-card.js')) return { head: '', body: '' };
+  const css = readText('landing', 'bedrock-card.css'), js = readText('landing', 'bedrock-card.js');
+  const v = (s) => crypto.createHash('md5').update(s).digest('hex').slice(0, 8);
+  for (const e of c.entries) for (const u of [e.bg, e.logo, e.badge, c.headLogo]) if (u && !exists(u.slice(1))) warnings.push(`bedrockCard: missing image ${u}`);
+  fs.mkdirSync(path.join(DIST, 'assets', 'landing'), { recursive: true });
+  fs.writeFileSync(path.join(DIST, 'assets', 'landing', 'bedrock-card.css'), css);
+  fs.writeFileSync(path.join(DIST, 'assets', 'landing', 'bedrock-card.js'), js);
+  return {
+    head: `<link rel="stylesheet" href="/assets/landing/bedrock-card.css?v=${v(css)}">`,
+    body: `<script>window.BX_CARD=${JSON.stringify(c).replace(/</g, '\\u003c')};</script><script src="/assets/landing/bedrock-card.js?v=${v(js)}"></script>`,
+  };
+}
 const wsSkip = (p) => CHROME_CLONES.includes(path.relative(WS, p).split(path.sep)[0]);
 if (fs.existsSync(WS)) {
   fs.cpSync(WS, DIST, { recursive: true, filter: (src) => !wsSkip(src) });
@@ -811,8 +825,10 @@ if (fs.existsSync(WS)) {
       const out = path.join(DIST, path.relative(WS, p));
       const html = fs.readFileSync(out, 'utf8');
       if (!/<script>/.test(html)) continue;
+      // landing page: the Bedrock card cycles through our Bedrock content and opens a menu (src/landing/)
+      const card = path.relative(WS, p) === 'index.html' ? landingCard() : { head: '', body: '' };
       // header (holds the fixed search button) must sit above the fixed footer bar
-      fs.writeFileSync(out, html.replace(/<script>/g, '<script type="text/plain">').replace('</head>', FIX_CSS + '</head>').replace('</body>', RUN_EMBEDS + FIX_JS + '</body>'));
+      fs.writeFileSync(out, html.replace(/<script>/g, '<script type="text/plain">').replace('</head>', FIX_CSS + card.head + '</head>').replace('</body>', RUN_EMBEDS + FIX_JS + card.body + '</body>'));
     }
   })(WS);
   // Images pasted into Webstudio as HTML keep editor URLs like /cgi/asset/<name>_<21-char id>.webp.
