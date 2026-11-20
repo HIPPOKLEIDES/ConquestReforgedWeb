@@ -131,15 +131,19 @@ thread staff pick for the contest. The website gets their Discord name and ID wi
 website with a key of its own (`CONTEST_BOT_KEY`), **not** with its bot token. Do these in this order:
 
 1. **New database columns**, before the code that uses them goes live (safe for the current site: they're only
-   added, nothing changes for it). In a checkout of the branch:
+   added, nothing changes for it). In an up-to-date checkout of the branch that has
+   `migrations/0002_submissions.sql`, with a clean `wrangler.jsonc`:
 
    ```powershell
    npx wrangler d1 migrations apply conquest-contests --remote
    ```
 
-   It should list `0002_submissions.sql` and apply it.
+   It must list `0002_submissions.sql` and apply it. **If it says "No migrations to apply" the first time, stop:**
+   that checkout doesn't have the new file, and deploying now would break creating and editing contests.
 
-2. **Deploy**: merge the branch into `main` and push, as in step 5.
+2. **Deploy**: merge the branch into `main` and push, as in step 5. Afterwards
+   `https://www.conquestreforged.com/api/bot/lookup` (a POST without a key) answers 503 "not set up" until step
+   3, then 401: either means the new Worker is live.
 
 3. **A key for the bot**. Make a long random one:
 
@@ -227,8 +231,10 @@ pick a test account ("Hippo (staff)" is on the staff list). After changing anyth
 - `npm test`: Worker tests in Node (needs Node 22.13+, no installs): ballot validation, 3/2/1 tally and
   tie-breaks, staff-only access, hidden tallies and anonymity, CSV, images, Discord sign-in with Discord mocked,
   and the bot API (key, entry window and channel, one entry each, replace/withdraw, own-entry rule).
-- The bot locally: run it with `CONTEST_SITE` in `index.js` set to `http://localhost:8787` and the key from
-  `.dev.vars` (`CONTEST_BOT_KEY`), or drive `contest-entries.js` directly with fake interactions.
+- The bot's `/submit` locally: don't start a second copy of the live bot for this (it would also run the trap
+  channel and re-register the commands). Call `contest-entries.js` directly instead: `configure({ site:
+  'http://localhost:8787', key: <CONTEST_BOT_KEY from .dev.vars> })`, then `handleInteraction()` with a fake
+  interaction object.
 - `npm run contests:e2e` (with `contests:dev` running): the same flows against the real local runtime
   (workerd, local D1 and R2), through the real sign-in callback. `node contest-tools/e2e-local.mjs --demo`
   also leaves two sample contests (one open, one with results) to click through.

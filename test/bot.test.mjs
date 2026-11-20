@@ -165,6 +165,14 @@ test('/submit: one entry per person, sent again replaces it, /withdraw removes i
   assert.equal(env.IMAGES.store.size, 4, 'the old pictures are deleted');
   assert.ok(oldKeys.filter((k) => !env.IMAGES.store.has(k)).length === 2);
 
+  // a hidden entry can't be withdrawn (and sent again as a fresh, visible one)
+  const refused = await bot(env, 'withdraw', { body: { channelId: CHANNEL, userId: ENTRANT } });
+  assert.equal(refused.status, 409);
+  assert.equal(refused.data.code, 'hidden-by-staff');
+  assert.equal(env.IMAGES.store.size, 4);
+  assert.equal((await bot(env, 'submit', { form: entryForm({ title: 'Try again' }) })).data.entry.hidden, true, 'still hidden after sending again');
+  await api.patch(`/api/staff/entries/${e1.id}`, { hidden: false }, { token: staff });
+
   const w = await bot(env, 'withdraw', { body: { channelId: CHANNEL, userId: ENTRANT } });
   assert.equal(w.status, 200);
   assert.equal(w.data.withdrawn.number, 1);

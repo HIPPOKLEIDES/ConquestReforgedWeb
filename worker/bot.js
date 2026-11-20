@@ -163,13 +163,18 @@ async function withdraw(request, env, url) {
   const now = Date.now();
   const c = await findContest(env, channelId, parentId, now);
   if (!c) noContest();
+  // An entry staff hid stays (hidden): withdrawing and sending it again must not bring it back.
   const [del] = await env.DB.batch([
-    env.DB.prepare(`DELETE FROM entries WHERE contest_id = ?1 AND submitted_by = ?2 AND EXISTS (SELECT 1 FROM contests WHERE id = ?1 AND ${OPEN}) RETURNING *`)
+    env.DB.prepare(`DELETE FROM entries WHERE contest_id = ?1 AND submitted_by = ?2 AND hidden = 0 AND EXISTS (SELECT 1 FROM contests WHERE id = ?1 AND ${OPEN}) RETURNING *`)
       .bind(c.id, userId, now),
     env.DB.prepare('UPDATE contests SET updated_at = ?1, results_cache = NULL WHERE id = ?2').bind(now, c.id),
   ]);
   const e = del.results[0];
-  if (!e) fail(404, `You haven’t sent an entry to ${c.title}.`, 'no-entry');
+  if (!e) {
+    const kept = await env.DB.prepare('SELECT hidden FROM entries WHERE contest_id = ? AND submitted_by = ?').bind(c.id, userId).first();
+    if (kept && kept.hidden) fail(409, 'Staff have taken your entry out of this contest, so it can’t be withdrawn. Ask them if you think that’s a mistake.', 'hidden-by-staff');
+    fail(404, `You haven’t sent an entry to ${c.title}.`, 'no-entry');
+  }
   await Promise.all([e.image_key, e.preview_key].filter(Boolean).map((k) => env.IMAGES.delete(k)));
   return json({ contest: botContest(c, url), withdrawn: botEntry(e) });
 }
