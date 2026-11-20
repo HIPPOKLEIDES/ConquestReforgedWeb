@@ -29,6 +29,11 @@
 }
 .bx-dl-card img { width: 132px; height: 132px; image-rendering: pixelated; border-radius: 4px; box-shadow: 0 0 0 1px #120d09, 0 0 0 3px rgba(199, 116, 27, .5), 0 8px 18px rgba(0, 0, 0, .5); }
 .bx-ribbon { position: absolute; top: -12px; left: 22px; padding: 5px 14px 4px; font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: #fff7e8; background: #8e2f1c; border: 1px solid #4a160b; border-radius: 3px; box-shadow: 0 4px 10px rgba(0, 0, 0, .35); }
+.bx-ribbon-out { background: #3f6b1f; border-color: #1f3a0d; }
+.bx-dl-notice { margin: 0 0 12px; padding: 10px 14px; border-left: 4px solid #6aa531; background: rgba(106, 165, 49, .14); border-radius: 3px; }
+.bx-dl-notice b { display: block; margin-bottom: 2px; }
+.bx-hero-notice { margin: 16px 0 0; text-align: left; }
+.bx-dl-notice a { color: inherit; text-decoration: underline; white-space: nowrap; }
 .bx-dl-card h3 { margin: 0 0 6px; font-size: 1.7rem; line-height: 1.1; font-weight: 400; color: var(--ink); }
 .bx-dl-card p { margin: 0 0 14px; font-size: 1.08rem; line-height: 1.45; color: #e3d3b6; }
 .bx-dl-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }

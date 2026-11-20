@@ -77,9 +77,14 @@ a.bx-entry:focus-visible { box-shadow: inset 0 0 0 2px #d6ff00; }
 }
 .bx-soon:hover em, .bx-soon:focus em { max-height: 20px; opacity: 1; }
 
-/* "New!" sticks out over the card's left edge */
+/* "New!" sticks out over the card's left edge, on top of everything (the card's frame included) */
+.bx-badgebox {
+  position: absolute; left: 0; right: 0; z-index: 8; pointer-events: none;
+  opacity: 0; transition: opacity .3s ease;
+}
+.bx-card:hover .bx-badgebox, .bx-card:focus-within .bx-badgebox, .bx-card.open .bx-badgebox { opacity: 1; }
 .bx-badge {
-  position: absolute; left: -14%; top: -9%; width: 42%; max-width: 150px; margin: 0; z-index: 2; pointer-events: none;
+  position: absolute; left: -14%; top: -9%; width: 42%; max-width: 150px; margin: 0; pointer-events: none;
   filter: drop-shadow(0 3px 5px rgba(0, 0, 0, .6)); transform-origin: 60% 60%; animation: bxFlame 1.8s ease-in-out infinite;
 }
 @keyframes bxFlame {
