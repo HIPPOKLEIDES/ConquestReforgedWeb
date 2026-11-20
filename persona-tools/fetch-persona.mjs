@@ -251,7 +251,9 @@ async function download(url, file) {
 // ---------- main ----------
 
 const raw = await fetchCatalog();
-const items = raw.filter((r) => r.ContentType === 'PersonaDurable').map(toItem);
+// Items we've delisted for good and don't want on the page, even if the catalog still returns them.
+const HIDDEN = new Set(['dark-blue-chaperone']);
+const items = raw.filter((r) => r.ContentType === 'PersonaDurable').map(toItem).filter((i) => !HIDDEN.has(i.slug));
 console.log(`${items.length} Character Creator items, ${items.filter((i) => i.purchasable).length} for sale`);
 
 const previous = fs.existsSync(OUT_DATA) ? JSON.parse(fs.readFileSync(OUT_DATA, 'utf8')) : { items: [] };

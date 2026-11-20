@@ -228,21 +228,6 @@
       "spin": null
     },
     {
-      "id": "54bb0139-4b8d-4e52-8c95-fa7d17fb418e",
-      "name": "Dark Blue Chaperone",
-      "slug": "dark-blue-chaperone",
-      "kind": "persona",
-      "type": "persona_hood",
-      "slot": "Hood",
-      "rarity": "Rare",
-      "price": 280,
-      "purchasable": false,
-      "released": "2024-12-01T00:00:00Z",
-      "thumb": "/assets/persona/dark-blue-chaperone-thumb.png",
-      "img": "/assets/persona/dark-blue-chaperone.webp",
-      "spin": "/assets/persona/dark-blue-chaperone-spin.webp"
-    },
-    {
       "id": "f0f3d49e-3065-48a6-8682-ff69b7fb034c",
       "name": "Wayfarer's Robes",
       "slug": "wayfarers-robes",
