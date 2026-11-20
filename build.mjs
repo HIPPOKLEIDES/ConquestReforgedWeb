@@ -738,6 +738,83 @@ function buildHistoria() {
   if (h.published) emit('/historia-rome', html); else emitRaw('historia-rome/index.html', html);
 }
 
+// /persona: our Character Creator items on the Marketplace (snapshot from persona-tools/fetch-persona.mjs).
+// Styled like /conquest-bedrock: same page shell (pack-webflow.css: dark frame, parchment column) and the shared
+// bedrock.css pieces (hero card, wood frames, buttons); persona.css only adds the item cards.
+function buildPersona() {
+  if (!exists('persona', 'persona.css') || !exists('data', 'persona.json') || !exists('bedrock', 'bedrock.css')) return;
+  const d = readJSON('data', 'persona.json');
+  const css = readText('persona', 'persona.css'), js = readText('persona', 'persona.js'), bx = readText('bedrock', 'bedrock.css');
+  const v = (s) => crypto.createHash('md5').update(s).digest('hex').slice(0, 8);
+  emitRaw('assets/persona/persona.css', css);
+  emitRaw('assets/persona/persona.js', js);
+  emitRaw('assets/bedrock/bedrock.css', bx);
+  const monthName = new Date(`${d.month}-01T00:00:00Z`).toLocaleString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+  const items = d.items.filter((i) => i.img || i.thumb);
+  const sale = items.filter((i) => i.purchasable);
+  const rar = (i) => (i.rarity ? `<span class="pz-rar" data-r="${esc(i.rarity.toLowerCase())}">${esc(i.rarity)}</span>` : '');
+  const card = (i, { big = false } = {}) => {
+    const pic = i.img
+      ? `<img src="${i.img}" data-still="${i.img}"${i.spin ? ` data-spin="${i.spin}"` : ''} alt="" width="360" height="360" loading="lazy">`
+      : `<img class="thumb" src="${i.thumb}" alt="" width="256" height="256" loading="lazy">`;
+    const badge = !big && i.purchasable ? '<span class="pz-badge">For sale</span>' : '';
+    const price = big && i.price ? `<span class="pz-price">${i.price} Minecoins</span>` : '';
+    return `<li class="pz-card${i.purchasable ? ' on-sale' : ''}" data-slot="${esc(i.slot)}">${badge}<h3 class="pz-name">${esc(i.name)}</h3><div class="pz-img">${pic}</div><p class="pz-tag"><span>${esc(i.slot)}</span>${rar(i)}</p>${price}</li>`;
+  };
+  const slots = [...new Set(items.map((i) => i.slot))];
+  const tabs = `<button type="button" class="on" data-slot="" role="tab" aria-selected="true">All <small>${items.length}</small></button>`
+    + slots.map((s) => `<button type="button" data-slot="${esc(s)}" role="tab" aria-selected="false">${esc(s)} <small>${items.filter((i) => i.slot === s).length}</small></button>`).join('');
+  const where = 'In Minecraft (Bedrock Edition), open the <b>Dressing Room</b> and search <b>Conquest Studios</b> in the Character Creator';
+  const saleSec = sale.length
+    ? `<section class="bx-sec pz-sec" id="for-sale"><h2>For sale in ${esc(monthName)}</h2><p class="bx-hint">${where}</p><ul class="pz-list pz-sale">${sale.map((i) => card(i, { big: true })).join('')}</ul></section>`
+    : '';
+  const emotes = (d.emotes || []).length
+    ? `<section class="bx-sec pz-sec" id="emotes"><h2>Emotes</h2><ul class="pz-list pz-grid">${d.emotes.map((e) => card(e)).join('')}</ul></section>` : '';
+  // hero: a shelf of items, the ones for sale in the middle
+  const shelfItems = [...items.filter((i) => i.img && !i.purchasable).slice(0, 4), ...sale.filter((i) => i.img), ...items.filter((i) => i.img && !i.purchasable).slice(4, 8)].slice(0, 9);
+  const shelf = shelfItems.map((i, n) => `<img src="${i.img}" alt="" width="360" height="360" style="--d:${Math.min(Math.abs(n - (shelfItems.length - 1) / 2), 4)}">`).join('');
+  const hero = `<section class="bx-sec bx-hero"><div class="bx-hero-logo"><img src="/assets/64b03b7eef60996503cc3bb0_bedrock_logo.webp" alt="Conquest_ Bedrock Edition" width="300" height="300"></div><div class="bx-hero-text"><span class="bx-kicker">Bedrock Edition · Character Creator</span><h1>Minecraft Fashion</h1><p>Helmets, hats, robes, wings and more: our Character Creator items, made by Conquest Studios for the Minecraft Marketplace.</p><div class="bx-dl-row">${sale.length ? `<a class="bx-btn" href="#for-sale">For sale now</a>` : ''}<a class="bx-btn bx-btn-ghost" href="#collection">The collection</a></div></div></section>`;
+  const title = 'Minecraft Fashion: Character Creator items | ' + site.name;
+  const description = 'Conquest Studios’ Character Creator items for Minecraft Bedrock Edition: helmets, hats, robes, wings and more, and which ones are for sale right now.';
+  const og = sale[0]?.img || items[0]?.img;
+  const page = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(description)}">
+<link rel="canonical" href="${site.url}/persona">
+<link rel="icon" href="${site.logo}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(description)}">
+<meta property="og:image" content="${og ? site.url + og : site.logo}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/pack-webflow.css">
+<link rel="stylesheet" href="/assets/bedrock/bedrock.css?v=${v(bx)}">
+<link rel="stylesheet" href="/assets/persona/persona.css?v=${v(css)}">
+</head>
+<body class="body-6 bx-page pz-page">
+<header class="pz-shelf"><a class="pz-home" href="/"><img src="${site.logo}" alt="" width="44" height="44">Conquest Reforged</a><div class="pz-shelf-row" aria-hidden="true">${shelf}</div></header>
+<div class="div-block-234"><div class="div-block-235 pz" data-month="${esc(d.month)}">
+${hero}
+${saleSec}
+<section class="bx-sec pz-sec" id="collection"><h2>The collection</h2><p class="bx-lead">All ${items.length} of our Character Creator items.</p><p class="bx-hint"><b>Hover</b> or tap an item to turn it around</p><div class="pz-tabs" role="tablist">${tabs}</div><ul class="pz-list pz-grid">${items.map((i) => card(i)).join('')}</ul></section>
+${emotes}
+</div></div>
+<div class="w-layout-blockcontainer container-3 w-container"><a href="https://x.com/conreforged" target="_blank" class="socials w-inline-block"><img src="/assets/66f2db0cb85b91ce0b41c83b_X.webp" loading="lazy" alt="X"></a><a href="https://www.instagram.com/conquest_studios/" target="_blank" class="socials w-inline-block"><img src="/assets/66f2db0ce40da138632ad1f3_instagram.webp" loading="lazy" alt="Instagram"></a><a href="https://t.co/bE0dNvNgWQ" target="_blank" class="socials w-inline-block"><img src="/assets/66f2db0c5660057f1be44606_discord.webp" loading="lazy" alt="Discord"></a></div>
+<script src="/assets/persona/persona.js?v=${v(js)}" defer></script>
+</body>
+</html>`;
+  // assets are cached as immutable: version item pictures by content
+  const html = page.replace(/\/assets\/persona\/[\w.-]+\.(?:webp|png)/g, (u) => {
+    const f = path.join(SRC, u);
+    return fs.existsSync(f) ? `${u}?v=${crypto.createHash('md5').update(fs.readFileSync(f)).digest('hex').slice(0, 8)}` : u;
+  });
+  emit('/persona', html);
+}
+
 // ---------- run ----------
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
@@ -752,6 +829,7 @@ buildMarkdownPage('downloads.md', '/downloads');
 buildMarkdownPage('faq.md', '/faq');
 buildClones();
 buildHistoria();
+buildPersona();
 buildChromeClones();
 buildNews(posts);
 buildShowcases();
@@ -794,12 +872,15 @@ function landingCard() {
   const css = readText('landing', 'bedrock-card.css'), js = readText('landing', 'bedrock-card.js');
   const v = (s) => crypto.createHash('md5').update(s).digest('hex').slice(0, 8);
   for (const e of c.entries) for (const u of [e.bg, e.logo, e.badge, c.headLogo]) if (u && !exists(u.slice(1))) warnings.push(`bedrockCard: missing image ${u}`);
+  // images are cached as immutable: version them by content so a replaced picture (e.g. persona/landing.webp) shows up
+  const ver = (u) => (u && exists(u.slice(1)) ? `${u}?v=${crypto.createHash('md5').update(fs.readFileSync(path.join(SRC, u))).digest('hex').slice(0, 8)}` : u);
+  const cv = { ...c, headLogo: ver(c.headLogo), entries: c.entries.map((e) => ({ ...e, bg: ver(e.bg), logo: ver(e.logo), badge: ver(e.badge) })) };
   fs.mkdirSync(path.join(DIST, 'assets', 'landing'), { recursive: true });
   fs.writeFileSync(path.join(DIST, 'assets', 'landing', 'bedrock-card.css'), css);
   fs.writeFileSync(path.join(DIST, 'assets', 'landing', 'bedrock-card.js'), js);
   return {
     head: `<link rel="stylesheet" href="/assets/landing/bedrock-card.css?v=${v(css)}">`,
-    body: `<script>window.BX_CARD=${JSON.stringify(c).replace(/</g, '\\u003c')};</script><script src="/assets/landing/bedrock-card.js?v=${v(js)}"></script>`,
+    body: `<script>window.BX_CARD=${JSON.stringify(cv).replace(/</g, '\\u003c')};</script><script src="/assets/landing/bedrock-card.js?v=${v(js)}"></script>`,
   };
 }
 const wsSkip = (p) => CHROME_CLONES.includes(path.relative(WS, p).split(path.sep)[0]);

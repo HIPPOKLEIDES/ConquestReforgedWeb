@@ -1,0 +1,96 @@
+/* /persona: Conquest Studios' Character Creator items (markup from build.mjs buildPersona(), data from
+   src/data/persona.json made by persona-tools/fetch-persona.mjs). The page uses the /conquest-bedrock shell
+   (pack-webflow.css) and bedrock.css (hero card, wood frames, buttons); this file adds the shelf and item cards.
+   Items are shown on their own, without the mannequin; a still image turns into a slow turntable on hover/tap
+   (always turning in the "for sale" row). */
+.pz-page { --gold: #c7741b; --gold-hi: #e9a64a; --wood: #241b14; --wood-hi: #3c2d20; --ink: #f1e4cc; --dim: #b9a383;
+  --rare: #4f8fe0; --epic: #b05ce6; --legendary: #e8a02c; --common: #9aa3a8; --uncommon: #5fb85f; }
+.pz-page .div-block-235 { width: 100%; max-width: 900px; }
+/* the column is a block, so centre the sections in it (bedrock.css only sets justify-self, which needs a grid) */
+.pz-page .bx-sec { margin-left: auto; margin-right: auto; }
+
+/* ---------- top: a shelf of items in place of the bedrock page's hero picture ---------- */
+.pz-shelf {
+  position: relative; height: min(56vh, 520px); min-height: 340px; overflow: hidden; display: grid; place-items: end center;
+  background: radial-gradient(60% 75% at 50% 70%, rgba(233, 166, 74, .28), transparent 70%), radial-gradient(120% 90% at 50% 120%, #3c2d20, #0d0906 70%);
+  box-shadow: inset 0 -60px 80px -20px #000;
+}
+.pz-shelf::after { /* the shelf board */
+  content: ""; position: absolute; left: 50%; bottom: 74px; width: min(1180px, 96%); height: 14px; transform: translateX(-50%);
+  background: linear-gradient(180deg, #6b4a2b, #3c2a19 60%, #1a120b); border-radius: 2px; box-shadow: 0 18px 30px rgba(0, 0, 0, .7), 0 -1px 0 rgba(233, 166, 74, .35);
+}
+.pz-shelf-row { position: relative; z-index: 1; display: flex; justify-content: center; align-items: flex-end; margin-bottom: 78px; width: 100%; }
+.pz-shelf-row img {
+  width: calc(230px - var(--d) * 26px); height: auto; margin: 0 -14px; image-rendering: pixelated;
+  filter: drop-shadow(0 10px 8px rgba(0, 0, 0, .6)) brightness(calc(1 - var(--d) * .1));
+}
+.pz-home {
+  position: absolute; top: 18px; left: 22px; z-index: 2; display: flex; align-items: center; gap: 10px; text-decoration: none;
+  font: 1.15rem/1 "Nyala 0", "Times New Roman", serif; letter-spacing: .04em; color: var(--ink); text-shadow: 0 1px 0 #000;
+}
+.pz-home img { width: 44px; height: 44px; }
+.pz-home:hover { color: var(--gold-hi); }
+
+/* ---------- item cards (frame as the bedrock showcase cards) ---------- */
+.pz-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+.pz-sale { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.pz-sale .pz-card { grid-column: span 2; }
+/* five items: three on top, two centred below */
+.pz-sale .pz-card:nth-last-child(2):nth-child(4) { grid-column: 2 / span 2; }
+.pz-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.pz-card {
+  position: relative; display: flex; flex-direction: column; align-items: center; padding: 16px 14px 14px; text-align: center; cursor: default;
+  color: var(--ink); border-radius: 6px; border: 1px solid #120d09;
+  background: radial-gradient(90% 70% at 50% 45%, rgba(233, 166, 74, .14), transparent 70%), linear-gradient(180deg, var(--wood-hi), var(--wood) 60%, #1a130e);
+  box-shadow: inset 0 0 0 3px #1a130e, inset 0 0 0 4px rgba(199, 116, 27, .55), inset 0 0 26px rgba(0, 0, 0, .55), 0 10px 26px rgba(30, 20, 10, .3);
+  transition: transform .25s, box-shadow .25s;
+}
+.pz-card::before, .pz-card::after { content: ""; position: absolute; top: 9px; width: 7px; height: 7px; background: var(--gold); transform: rotate(45deg); box-shadow: 0 0 6px rgba(233, 166, 74, .6); }
+.pz-card::before { left: 9px; }
+.pz-card::after { right: 9px; }
+.pz-card:hover { transform: translateY(-3px); box-shadow: inset 0 0 0 3px #1a130e, inset 0 0 0 4px rgba(233, 166, 74, .9), inset 0 0 26px rgba(0, 0, 0, .55), 0 14px 30px rgba(30, 20, 10, .4); }
+.pz-name { margin: 2px 14px 0; min-height: 2.2em; display: grid; place-items: center; font-size: 1.25rem; line-height: 1.1; font-weight: 400; letter-spacing: .03em; color: var(--ink); text-shadow: 0 1px 0 #000; }
+.pz-img { width: 100%; aspect-ratio: 1; display: grid; place-items: center; }
+.pz-img img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .45)); }
+.pz-img img.thumb { width: 82%; height: 82%; image-rendering: auto; border-radius: 4px; filter: none; opacity: .9; }
+.pz-tag { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 10px; margin: 2px 0 0; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+.pz-rar { color: var(--r, var(--common)); }
+.pz-rar[data-r="rare"] { --r: var(--rare); } .pz-rar[data-r="epic"] { --r: var(--epic); } .pz-rar[data-r="legendary"] { --r: var(--legendary); } .pz-rar[data-r="uncommon"] { --r: var(--uncommon); }
+.pz-price { display: block; margin-top: 6px; font-size: 1.05rem; letter-spacing: .04em; color: var(--gold-hi); }
+.pz-sale .pz-name { font-size: 1.4rem; }
+.pz-badge {
+  position: absolute; top: -11px; left: 50%; transform: translateX(-50%); z-index: 2; white-space: nowrap;
+  padding: 4px 12px 3px; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: #fff7e8;
+  background: #8e2f1c; border: 1px solid #4a160b; border-radius: 3px; box-shadow: 0 4px 10px rgba(0, 0, 0, .35);
+}
+.pz-grid .pz-card.on-sale { box-shadow: inset 0 0 0 3px #1a130e, inset 0 0 0 4px rgba(233, 166, 74, .95), inset 0 0 26px rgba(0, 0, 0, .55), 0 10px 26px rgba(30, 20, 10, .3); }
+.pz-grid .pz-card { padding-top: 22px; }
+.pz-grid .pz-card[hidden] { display: none; }
+
+/* ---------- collection filter ---------- */
+.pz-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 24px; }
+.pz-tabs button {
+  padding: 8px 16px 7px; cursor: pointer; font: 1.05rem/1 "Nyala 0", "Times New Roman", serif; letter-spacing: .04em;
+  color: #4a3826; background: rgba(255, 250, 240, .6); border: 1px solid #c8b394; border-radius: 4px; transition: background .2s, border-color .2s;
+}
+.pz-tabs button:hover { border-color: var(--gold); }
+.pz-tabs button small { color: #9a8467; font-size: .85em; }
+.pz-tabs button.on { color: #fff7e8; background: linear-gradient(180deg, #d98a2c, var(--gold) 55%, #a85e12); border-color: #6e3d0b; text-shadow: 0 1px 0 rgba(0, 0, 0, .35); }
+.pz-tabs button.on small { color: #ffe3bd; }
+.pz-page .bx-sec:last-child { margin-bottom: 40px; }
+
+@media (max-width: 991px) { .pz-page .div-block-235 { max-width: 100%; } }
+@media (max-width: 860px) { .pz-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 700px) {
+  .pz-shelf { height: 300px; min-height: 0; }
+  .pz-shelf-row img { width: calc(120px - var(--d) * 14px); margin: 0 -8px; }
+  .pz-shelf-row img:nth-child(-n+2), .pz-shelf-row img:nth-last-child(-n+2) { display: none; }
+  .pz-sale, .pz-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .pz-sale .pz-card, .pz-sale .pz-card:nth-last-child(2):nth-child(4) { grid-column: auto; }
+  .pz-sale .pz-card:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 6px); }
+  .pz-name, .pz-sale .pz-name { font-size: 1.08rem; margin: 2px 6px 0; }
+  .pz-tag { font-size: .68rem; letter-spacing: .1em; }
+  .pz-card { padding: 14px 8px 12px; }
+  .pz-badge { font-size: .62rem; letter-spacing: .08em; padding: 3px 8px 2px; }
+}
+@media (prefers-reduced-motion: reduce) { .pz-card, .pz-card:hover { transition: none; transform: none; } }
