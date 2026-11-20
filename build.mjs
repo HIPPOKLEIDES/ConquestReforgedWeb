@@ -815,6 +815,82 @@ ${emotes}
   emit('/persona', html);
 }
 
+// ---------- community contests (/contests) ----------
+// The pages are shells in the /persona style (pack-webflow.css frame, bedrock.css wood cards); the data
+// lives in D1/R2 behind the Worker in worker/, and src/contests/contests.js draws the pages from /api/*.
+//   /contests          list of contests (in the sitemap)
+//   /contests/view     template the Worker serves for /contests/<id>, filling in the %%CT_*%% fields
+//   /contests/staff    staff tools (staff.js), noindex
+function buildContests() {
+  if (!exists('contests', 'contests.css') || !exists('bedrock', 'bedrock.css')) return;
+  const v = (s) => crypto.createHash('md5').update(s).digest('hex').slice(0, 8);
+  const css = readText('contests', 'contests.css'), js = readText('contests', 'contests.js'), sjs = readText('contests', 'staff.js'), bx = readText('bedrock', 'bedrock.css');
+  emitRaw('assets/contests/contests.css', css);
+  emitRaw('assets/contests/contests.js', js);
+  emitRaw('assets/contests/staff.js', sjs);
+  emitRaw('assets/bedrock/bedrock.css', bx);
+  const cfg = site.contests || {};
+  const hero = cfg.heroImage && exists(cfg.heroImage.slice(1)) ? cfg.heroImage : '';
+  const ogDefault = site.url + (hero || site.logo);
+  const shell = ({ kind, title, description, canonical, heroInner, main, robots = '', scripts = ['contests.js'] }) => `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${title}</title>
+<meta name="description" content="${description}">
+${robots}<link rel="canonical" href="${canonical}">
+<link rel="icon" href="${site.logo}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="${esc(site.name)}">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${description}">
+<meta property="og:url" content="${canonical}">
+<meta property="og:image" content="${ogDefault}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#120d09">
+<link rel="stylesheet" href="/assets/pack-webflow.css">
+<link rel="stylesheet" href="/assets/bedrock/bedrock.css?v=${v(bx)}">
+<link rel="stylesheet" href="/assets/contests/contests.css?v=${v(css)}">
+</head>
+<body class="body-6 bx-page ct-page ct-${kind}" data-contest="${kind === 'view' ? '%%CT_ID%%' : ''}" data-hero="${hero}" data-discord="${esc(cfg.discord || '')}">
+<header class="ct-hero">
+<div class="ct-hero-bg" aria-hidden="true"></div>
+<nav class="ct-top" aria-label="Site"><a class="ct-home" href="/"><img src="${site.logo}" alt="" width="44" height="44"><span>${esc(site.name)}</span></a><a class="ct-toplink" href="/contests">All contests</a><div class="ct-user" data-user></div></nav>
+<div class="ct-hero-in">${heroInner}</div>
+</header>
+<div class="div-block-234"><main class="div-block-235 ct-col" id="main">
+${main}
+<noscript><section class="bx-sec ct-narrow"><div class="ct-card"><p>The contest pages need JavaScript to show the entries and the voting.</p></div></section></noscript>
+</main></div>
+<div class="w-layout-blockcontainer container-3 w-container"><a href="https://x.com/conreforged" target="_blank" rel="noopener" class="socials w-inline-block"><img src="/assets/66f2db0cb85b91ce0b41c83b_X.webp" loading="lazy" alt="X"></a><a href="https://www.instagram.com/conquest_studios/" target="_blank" rel="noopener" class="socials w-inline-block"><img src="/assets/66f2db0ce40da138632ad1f3_instagram.webp" loading="lazy" alt="Instagram"></a><a href="https://t.co/bE0dNvNgWQ" target="_blank" rel="noopener" class="socials w-inline-block"><img src="/assets/66f2db0c5660057f1be44606_discord.webp" loading="lazy" alt="Discord"></a></div>
+${scripts.map((s) => `<script src="/assets/contests/${s}?v=${v(s === 'staff.js' ? sjs : js)}" defer></script>`).join('\n')}
+</body>
+</html>`;
+  const loading = '<div class="ct-loading" data-loading><span></span><span></span><span></span></div>';
+
+  const listTitle = esc(`Community contests | ${site.name}`);
+  const listDesc = esc('Build and art contests from the Conquest Reforged community. Browse the entries, vote for your top 3 with your Discord account and see the winners.');
+  emit('/contests', shell({
+    kind: 'list', title: listTitle, description: listDesc, canonical: `${site.url}/contests`,
+    heroInner: '<span class="ct-kicker">Conquest Reforged community</span><h1 class="ct-title ct-title-xl">Contests</h1><p class="ct-lead">Build and art contests for the community. Browse the entries, vote for your favourite three with your Discord account, and see who takes the crown.</p>',
+    main: `<div class="ct-app" data-app>${loading}</div>`,
+  }));
+  // %%CT_*%% are filled in per contest by the Worker (worker/contests.js contestPage)
+  emitRaw('contests/view/index.html', shell({
+    kind: 'view', title: '%%CT_TITLE%%', description: '%%CT_DESC%%', canonical: '%%CT_URL%%',
+    heroInner: '<span class="ct-kicker">Community contest</span><h1 class="ct-title">%%CT_HEADING%%</h1><p class="ct-theme">%%CT_THEME%%</p><div class="ct-status" data-status></div>',
+    main: `<div class="ct-app" data-app>${loading}</div>`,
+  }));
+  emitRaw('contests/staff/index.html', shell({
+    kind: 'staff', title: esc(`Contest staff | ${site.name}`), description: esc('Contest tools for the Conquest Reforged staff.'), canonical: `${site.url}/contests/staff`,
+    robots: '<meta name="robots" content="noindex, nofollow">\n',
+    heroInner: '<span class="ct-kicker">Staff only</span><h1 class="ct-title ct-title-xl">Contest desk</h1><p class="ct-lead">Create contests, add the entries and keep an eye on the vote.</p>',
+    main: `<div class="ct-app" data-staff>${loading}</div>`,
+    scripts: ['contests.js', 'staff.js'],
+  }));
+}
+
 // ---------- run ----------
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
@@ -830,6 +906,7 @@ buildMarkdownPage('faq.md', '/faq');
 buildClones();
 buildHistoria();
 buildPersona();
+buildContests();
 buildChromeClones();
 buildNews(posts);
 buildShowcases();

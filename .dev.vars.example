@@ -1,0 +1,12 @@
+# Local settings for `npx wrangler dev` (copy to .dev.vars, which git ignores; never used for the live site).
+# Out of the box this signs in through contest-tools/fake-discord.mjs (start it with `node contest-tools/fake-discord.mjs`).
+DISCORD_CLIENT_ID=local-client
+DISCORD_CLIENT_SECRET=local-secret
+DISCORD_AUTHORIZE_URL=http://127.0.0.1:8788/oauth2/authorize
+DISCORD_API_BASE=http://127.0.0.1:8788/api
+# Discord user IDs allowed into /contests/staff (comma separated). This one is the fake "Hippo (staff)" account.
+STAFF_IDS=80351110224678912
+
+# To sign in with the real Discord instead: put your app's client ID/secret above, delete the two
+# DISCORD_*_URL/BASE lines, and add http://localhost:8787/auth/discord/callback as a redirect in the
+# Discord Developer Portal (open the site at http://localhost:8787, not 127.0.0.1).

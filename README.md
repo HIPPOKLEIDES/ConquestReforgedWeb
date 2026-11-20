@@ -27,6 +27,13 @@ to download them into `src/assets` and rewrite references, then commit.
 - Bedrock page Armoury: the pack's own armour + trim textures are drawn in the browser (bedrock.js) from `src/data/bedrock-armoury.json` and `src/assets/bedrock/armor`, both written by `node fetch-bedrock-textures.mjs`
 - Bedrock page showcases (/conquest-bedrock): `node fetch-bedrock-textures.mjs` renders the double slabs and gradient walls from the Bedrock resource pack into transparent PNGs (`bedrock-render.mjs`, no dependencies; one strip per double slab with its random-texture frames) (lists and order in that script; gradients with `verified: false` show a Test badge) into `src/assets/bedrock` + `src/data/bedrock-showcase.json`; styles/script in `src/bedrock/`. The overlay pack download is configured in `src/site.json` → `bedrockOverlay` (put the file at that path under `src/`)
 
+## Community contests (/contests)
+Build/art contests with Discord sign-in voting (top 3, 3/2/1 points). The pages are shells from `build.mjs`
+(`buildContests()`, styles/scripts in `src/contests/`, same frame as /persona); the data lives in Cloudflare D1
+and R2 behind a small Worker (`worker/`), which runs only for `/api/*`, `/auth/*` and `/contests/<id>`
+(`wrangler.jsonc`). Staff run contests on `/contests/staff`. One-time Cloudflare/Discord setup, local
+development (`npm run contests:dev`, `npm test`) and how a contest works: see CONTESTS-SETUP.md.
+
 ## Webstudio (visual page design)
 Pages designed in Webstudio are exported as static files and dropped into `src/webstudio/`;
 `node build.mjs` copies them over `dist/`, so a Webstudio page replaces a generated page at the same path.

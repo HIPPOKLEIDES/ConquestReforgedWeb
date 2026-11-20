@@ -1,9 +1,34 @@
 {
   "name": "conquestreforgedweb",
   "compatibility_date": "2026-10-01",
+  // Community contests (worker/, see CONTESTS-SETUP.md). The Worker only runs for /api/*, /auth/* and
+  // /contests/<id>; every other path is served straight from dist/ without invoking it (static asset
+  // requests are free and don't count against the Workers daily request limit).
+  "main": "worker/index.js",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     "html_handling": "drop-trailing-slash",
-    "not_found_handling": "404-page"
-  }
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*", "/auth/*", "/contests/*"]
+  },
+  // `npx wrangler d1 create conquest-contests` prints the database_id to paste here.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "conquest-contests",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  // `npx wrangler r2 bucket create conquest-contest-images`
+  "r2_buckets": [
+    {
+      "binding": "IMAGES",
+      "bucket_name": "conquest-contest-images"
+    }
+  ],
+  "observability": { "enabled": true }
+  // Secrets are never committed: DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, STAFF_IDS
+  // (`npx wrangler secret put <NAME>`; for local dev copy .dev.vars.example to .dev.vars).
 }

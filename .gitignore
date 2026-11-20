@@ -8,3 +8,7 @@ node_modules/
 # Historia render tool output (regenerate with historia-tools/)
 historia-tools/out/
 persona-tools/out/
+
+# Contests Worker: local D1/R2 data from `wrangler dev`, local secrets
+.wrangler/
+.dev.vars

@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Static site for conquestreforged.com. No dependencies; needs Node 18+.",
+  "description": "Static site for conquestreforged.com. No dependencies; needs Node 18+. The contests Worker (worker/) is deployed with wrangler; its tests need Node 22.13+.",
   "scripts": {
     "build": "node build.mjs",
     "serve": "node build.mjs && node serve.mjs",
     "dev": "node dev.mjs",
-    "fetch-assets": "node fetch-assets.mjs"
+    "fetch-assets": "node fetch-assets.mjs",
+    "test": "node --test \"test/*.test.mjs\"",
+    "contests:dev": "node build.mjs && npx wrangler d1 migrations apply conquest-contests --local && npx wrangler dev",
+    "contests:fake-discord": "node contest-tools/fake-discord.mjs",
+    "contests:e2e": "node contest-tools/e2e-local.mjs"
   }
 }

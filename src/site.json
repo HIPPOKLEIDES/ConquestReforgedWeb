@@ -161,6 +161,10 @@
   ],
   "discordWidget": "https://discordapp.com/widget?id=164052674637987840&theme=light",
   "fallbackThumb": "/assets/66f3135090de1709247c39a8_logo_small.avif",
+  "contests": {
+    "heroImage": "/assets/66f6cf4b618990253c412de4_showcase_medvsky_1.webp",
+    "discord": "https://discord.gg/ZagrZvn"
+  },
   "guideCategories": [
     {
       "slug": "building-guides",
