@@ -17,7 +17,7 @@
     {
       "binding": "DB",
       "database_name": "conquest-contests",
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "837023ed-5f3a-4d29-8fb8-42e7885bb7fa",
       "migrations_dir": "migrations"
     }
   ],
