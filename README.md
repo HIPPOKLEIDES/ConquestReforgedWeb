@@ -31,7 +31,8 @@ to download them into `src/assets` and rewrite references, then commit.
 Build/art contests with Discord sign-in voting (top 3, 3/2/1 points). The pages are shells from `build.mjs`
 (`buildContests()`, styles/scripts in `src/contests/`, same frame as /persona); the data lives in Cloudflare D1
 and R2 behind a small Worker (`worker/`), which runs only for `/api/*`, `/auth/*` and `/contests/<id>`
-(`wrangler.jsonc`). Staff run contests on `/contests/staff`. One-time Cloudflare/Discord setup, local
+(`wrangler.jsonc`). Staff run contests on `/contests/staff`; entrants can also send their own entry with the
+community Discord bot's `/submit` (`worker/bot.js`). One-time Cloudflare/Discord setup, local
 development (`npm run contests:dev`, `npm test`) and how a contest works: see CONTESTS-SETUP.md.
 
 ## Webstudio (visual page design)

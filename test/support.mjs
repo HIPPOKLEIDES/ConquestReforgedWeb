@@ -13,6 +13,7 @@ export const ORIGIN = 'https://www.example.test';
 export const STAFF_ID = '80351110224678912';      // a 2015 account
 export const VOTER_IDS = ['111111111111111111', '222222222222222222', '333333333333333333', '444444444444444444', '555555555555555555'];
 export const ARTIST_ID = '666666666666666666';
+export const BOT_KEY = 'test-bot-key-that-is-long-enough';
 export const snowflakeFor = (ms) => ((BigInt(ms) - 1420070400000n) << 22n).toString();
 
 class Stmt {
@@ -79,7 +80,7 @@ export function makeAssets() {
 }
 
 export function makeEnv(extra = {}) {
-  return { DB: makeD1(), IMAGES: makeR2(), ASSETS: makeAssets(), DISCORD_CLIENT_ID: 'test-client', DISCORD_CLIENT_SECRET: 'test-secret', STAFF_IDS: `${STAFF_ID}, 999`, ...extra };
+  return { DB: makeD1(), IMAGES: makeR2(), ASSETS: makeAssets(), DISCORD_CLIENT_ID: 'test-client', DISCORD_CLIENT_SECRET: 'test-secret', STAFF_IDS: `${STAFF_ID}, 999`, CONTEST_BOT_KEY: BOT_KEY, ...extra };
 }
 
 // Calls the Worker like a browser on our own site would (same-origin requests carry Origin).

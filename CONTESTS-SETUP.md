@@ -124,15 +124,66 @@ Secrets live on Cloudflare only and survive every deploy; never commit them. (If
 4. Link the contests from the site: the header and footer come from Webstudio, so add a `/contests` link there
    (or anywhere else you like).
 
+## 8. Entries by `/submit` on Discord (one-time, after 1–7)
+
+Entrants can send their own entry with the community bot: `/submit` with a picture and a title, in the channel or
+thread staff pick for the contest. The website gets their Discord name and ID with it. The bot talks to the
+website with a key of its own (`CONTEST_BOT_KEY`), **not** with its bot token. Do these in this order:
+
+1. **New database columns**, before the code that uses them goes live (safe for the current site: they're only
+   added, nothing changes for it). In a checkout of the branch:
+
+   ```powershell
+   npx wrangler d1 migrations apply conquest-contests --remote
+   ```
+
+   It should list `0002_submissions.sql` and apply it.
+
+2. **Deploy**: merge the branch into `main` and push, as in step 5.
+
+3. **A key for the bot**. Make a long random one:
+
+   ```powershell
+   node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+   ```
+
+   Give it to the website (paste it when asked):
+
+   ```powershell
+   npx wrangler secret put CONTEST_BOT_KEY
+   ```
+
+4. **The bot** (the `Community Discord Bot` folder, wherever the bot runs): `npm install` there (it adds
+   `sharp`, which the bot uses to turn pictures into WebP and drop their metadata), then put the same key in
+   `index.js` between the quotes of `const CONTEST_BOT_KEY = process.env.CONTEST_BOT_KEY || ""` (or set a
+   `CONTEST_BOT_KEY` environment variable), and restart the bot. It logs
+   `Contest entries (/submit, /withdraw) go to https://www.conquestreforged.com` and registers the two new
+   commands (they can take a minute to show up in Discord).
+
+5. **Check it**: create a contest on the desk with "Entries open" a minute ago, "Entries close" later, the link of
+   a staff-only channel, and "Visible on the site" on (drafts take no entries). Use `/submit` in that channel; the
+   entry appears on the desk marked "via /submit". Afterwards switch the test contest back to a draft.
+
+If `/submit` answers "aren't set up properly", the key in the bot and the `CONTEST_BOT_KEY` secret differ.
+
 ---
 
 ## Running a contest
 
 - **Create** it on `/contests/staff`: title, theme, description, voting opens/closes (your local time),
   minimum Discord account age (0 = any account; e.g. 30 keeps fresh alt accounts out).
-- **Entries**: drop the pictures on the desk, fill in the artist name(s) and, ideally, their Discord IDs (then
-  they can't rank their own entry). Pictures are re-saved in your browser (strips hidden metadata such as an
-  artist name in the file) and a small WebP preview is made for the gallery. File names are not uploaded.
+- **Entries by the entrants** (`/submit` on Discord, see step 8): give the contest "Entries open" / "Entries
+  close" times (closing at the latest when voting opens) and paste the link of the Discord channel or thread
+  (right-click it, Copy Link; a channel also covers the threads in it). In that window, `/submit` there with a
+  picture and a title adds the person's entry, or replaces it if they send again (one entry each); `/withdraw`
+  takes it out. Their Discord name becomes the artist name and their ID is filled in, so they can't rank their
+  own entry. The bot's replies are visible only to them, so nobody else learns who sent what. Entries go
+  straight in, marked "via /submit" on the desk: check them before voting opens, and hide or delete any that
+  break the rules (hiding sticks if they send again). The contest page shows how to enter and a countdown.
+- **Entries by staff**: drop the pictures on the desk, fill in the artist name(s) and, ideally, their Discord IDs
+  (then they can't rank their own entry). Pictures are re-saved in your browser (strips hidden metadata such as an
+  artist name in the file) and a small WebP preview is made for the gallery. File names are not uploaded. Both
+  ways can be mixed in one contest.
 - **Voting**: from the opening time anyone with a Discord account (old enough) ranks a top 3, 3/2/1 points,
   one ballot per account, changeable until the close. Entries appear as "Entry 7" in a shuffled order per voter;
   no scores are shown anywhere until voting closes.
@@ -174,7 +225,10 @@ pick a test account ("Hippo (staff)" is on the staff list). After changing anyth
 `node build.mjs` and restart `wrangler dev` (the build recreates `dist/`, which `wrangler dev` stops watching).
 
 - `npm test`: Worker tests in Node (needs Node 22.13+, no installs): ballot validation, 3/2/1 tally and
-  tie-breaks, staff-only access, hidden tallies and anonymity, CSV, images, Discord sign-in with Discord mocked.
+  tie-breaks, staff-only access, hidden tallies and anonymity, CSV, images, Discord sign-in with Discord mocked,
+  and the bot API (key, entry window and channel, one entry each, replace/withdraw, own-entry rule).
+- The bot locally: run it with `CONTEST_SITE` in `index.js` set to `http://localhost:8787` and the key from
+  `.dev.vars` (`CONTEST_BOT_KEY`), or drive `contest-entries.js` directly with fake interactions.
 - `npm run contests:e2e` (with `contests:dev` running): the same flows against the real local runtime
   (workerd, local D1 and R2), through the real sign-in callback. `node contest-tools/e2e-local.mjs --demo`
   also leaves two sample contests (one open, one with results) to click through.
@@ -184,7 +238,8 @@ pick a test account ("Hippo (staff)" is on the staff list). After changing anyth
 | Path | What |
 | --- | --- |
 | `wrangler.jsonc` | Worker `main`, `assets.run_worker_first` for `/api/*`, `/auth/*`, `/contests/*`, D1 and R2 bindings |
-| `worker/` | the Worker: `auth.js` (Discord OAuth, sessions), `contests.js` (public API, pictures, `/contests/<id>`), `staff.js` (staff API), `voting.js` (rules, tally) |
+| `worker/` | the Worker: `auth.js` (Discord OAuth, sessions), `contests.js` (public API, pictures, `/contests/<id>`), `staff.js` (staff API), `bot.js` (API for the bot's `/submit`), `voting.js` (rules, tally) |
+| `Community Discord Bot/contest-entries.js` | (other folder) the bot's `/submit` and `/withdraw`: re-encodes the picture with sharp, sends it with the key |
 | `migrations/` | D1 schema |
 | `src/contests/` | page styles and scripts; `build.mjs` → `buildContests()` writes the page shells |
 | `test/` | `node --test` tests with D1/R2 stand-ins |

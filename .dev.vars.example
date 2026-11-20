@@ -6,6 +6,8 @@ DISCORD_AUTHORIZE_URL=http://127.0.0.1:8788/oauth2/authorize
 DISCORD_API_BASE=http://127.0.0.1:8788/api
 # Discord user IDs allowed into /contests/staff (comma separated). This one is the fake "Hippo (staff)" account.
 STAFF_IDS=80351110224678912
+# The key the Discord bot's /submit uses (Community Discord Bot/contest-entries.js). Any long random text locally.
+CONTEST_BOT_KEY=local-dev-bot-key-not-a-secret
 
 # To sign in with the real Discord instead: put your app's client ID/secret above, delete the two
 # DISCORD_*_URL/BASE lines, and add http://localhost:8787/auth/discord/callback as a redirect in the

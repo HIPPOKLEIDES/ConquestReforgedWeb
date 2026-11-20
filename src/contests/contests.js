@@ -30,6 +30,7 @@
     next: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>',
     x: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
     zoom: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3M11 8v6M8 11h6"/></svg>',
+    send: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4z"/></svg>',
   };
 
   async function api(path, opts = {}) {
@@ -68,8 +69,12 @@
     timers.add(id);
     return box;
   }
-  const PHASE = { voting: 'Voting open', upcoming: 'Opens soon', closed: 'Results are in', draft: 'Draft · staff only' };
+  const PHASE = { voting: 'Voting open', submitting: 'Taking entries', upcoming: 'Opens soon', closed: 'Results are in', draft: 'Draft · staff only' };
   const pill = (phase, text) => h('span', { class: 'ct-pill', 'data-phase': phase }, h('i'), text || PHASE[phase] || phase);
+  // entries by /submit on Discord: 'soon' | 'open' | 'closed', or null when staff add the entries
+  const entering = (c) => (c.phase === 'upcoming' && c.submissions ? c.submissions.state : null);
+  const shownPhase = (c) => (entering(c) === 'open' ? 'submitting' : c.phase);
+  const cmd = (name) => h('code', { class: 'ct-cmd' }, name);
 
   // ---------- who is signed in ----------
   let me = { user: null, signInReady: true };
@@ -136,13 +141,15 @@
     skew = data.now - Date.now();
     const cs = data.contests;
     const voting = cs.filter((c) => c.phase === 'voting').sort((a, b) => a.closesAt - b.closesAt);
-    const upcoming = cs.filter((c) => c.phase === 'upcoming').sort((a, b) => a.opensAt - b.opensAt);
+    const open = cs.filter((c) => entering(c) === 'open').sort((a, b) => a.submissions.closesAt - b.submissions.closesAt);
+    const upcoming = cs.filter((c) => c.phase === 'upcoming' && entering(c) !== 'open').sort((a, b) => a.opensAt - b.opensAt);
     const closed = cs.filter((c) => c.phase === 'closed');
     const pics = [...closed.map((c) => c.cover && c.cover.preview), ...voting.flatMap((c) => (c.collage || []).map((x) => x.preview))].filter(Boolean);
     if (pics.length >= 3) heroMosaic(pics); else heroDefault();
 
     const out = [];
     if (voting.length) out.push(section('Voting now', voting.length > 1 ? 'Pick your top 3 in each one.' : 'Pick your top 3 before the clock runs out.', voting.map(featureCard)));
+    if (open.length) out.push(section('Taking entries', h('span', null, 'Send yours with ', cmd('/submit'), ' on our Discord.'), open.map(featureCard)));
     if (upcoming.length) out.push(section('Coming up', null, upcoming.map(featureCard)));
     if (closed.length) out.push(section('Past contests', 'The winners, as voted by the community.', h('ul', { class: 'ct-past' }, closed.map(pastCard))));
     if (!cs.length) {
@@ -161,16 +168,21 @@
       for (const x of c.collage.slice(0, 4)) { const t = h('i'); t.style.backgroundImage = cssUrl(x.preview); box.append(t); }
       return box;
     }
-    return h('div', { class: 'ct-art blank' }, pill(c.phase));
+    return h('div', { class: 'ct-art blank' }, pill(shownPhase(c), entering(c) === 'soon' ? 'Entries open soon' : null));
   }
   function featureCard(c) {
-    const voting = c.phase === 'voting';
+    const voting = c.phase === 'voting', sub = entering(c), s = c.submissions;
+    const [when, target, label, button] = voting
+      ? [`${plural(c.entryCount, 'entry', 'entries')} · voting closes ${fmtWhen(c.closesAt)}`, c.closesAt, 'Time left to vote', 'See the entries & vote']
+      : sub === 'open' ? [`${plural(c.entryCount, 'entry', 'entries')} so far · entries close ${fmtWhen(s.closesAt)}`, s.closesAt, 'Time left to send an entry', 'How to enter']
+        : sub === 'soon' ? [`Entries open ${fmtWhen(s.opensAt)}`, s.opensAt, 'Time until entries open', 'See the contest']
+          : [`Voting opens ${fmtWhen(c.opensAt)}`, c.opensAt, 'Time until voting opens', 'See the contest'];
     return h('a', { class: 'ct-card ct-feature', href: `/contests/${encodeURIComponent(c.id)}` }, art(c),
       h('div', { class: 'ct-feature-t' },
         h('h3', null, c.title), c.theme ? h('span', { class: 'ct-theme-s' }, c.theme) : null,
-        h('span', { class: 'ct-when' }, voting ? `${plural(c.entryCount, 'entry', 'entries')} · voting closes ${fmtWhen(c.closesAt)}` : `Voting opens ${fmtWhen(c.opensAt)}`),
-        countdown(voting ? c.closesAt : c.opensAt, voting ? 'Time left to vote' : 'Time until voting opens', () => location.reload()),
-        h('span', null, h('span', { class: 'bx-btn' }, voting ? 'See the entries & vote' : 'See the contest'))));
+        h('span', { class: 'ct-when' }, when),
+        countdown(target, label, () => location.reload()),
+        h('span', null, h('span', { class: 'bx-btn' }, button))));
   }
   function pastCard(c) {
     const w = c.cover && c.cover.winners || [];
@@ -235,8 +247,11 @@
     const box = $('[data-status]');
     if (!box) return;
     const reload = () => contestPage($('[data-app]'));
-    box.replaceChildren(pill(c.phase));
+    const sub = entering(c), s = c.submissions;
+    box.replaceChildren(pill(shownPhase(c), sub === 'soon' ? 'Entries open soon' : null));
     if (c.phase === 'voting') box.append(countdown(c.closesAt, 'Time left to vote', reload), h('span', { class: 'ct-count-label' }, `Voting closes ${fmtWhen(c.closesAt)}`));
+    else if (sub === 'open') box.append(countdown(s.closesAt, 'Time left to send an entry', reload), h('span', { class: 'ct-count-label' }, `Entries close ${fmtWhen(s.closesAt)}`));
+    else if (sub === 'soon') box.append(countdown(s.opensAt, 'Time until entries open', reload), h('span', { class: 'ct-count-label' }, `Entries open ${fmtWhen(s.opensAt)}`));
     else if (c.phase === 'upcoming' || c.phase === 'draft') box.append(countdown(c.opensAt, 'Time until voting opens', reload), h('span', { class: 'ct-count-label' }, `Voting opens ${fmtWhen(c.opensAt)}`));
     else box.append(h('span', { class: 'ct-count-label' }, `Voting closed ${fmtDay(c.closesAt)}`));
   }
@@ -245,12 +260,16 @@
     const fact = (icon, label, value) => h('div', null, svg(ICON[icon]), h('dt', null, label), h('dd', null, value));
     const who = c.minAccountAgeDays > 0 ? `Anyone with a Discord account at least ${plural(c.minAccountAgeDays, 'day')} old` : 'Anyone with a Discord account';
     const count = c.phase === 'closed' ? data.results.entries.length : data.entries.length;
+    const sub = entering(c), s = c.submissions;
     return h('section', { class: 'bx-sec ct-info' },
       h('div', { class: 'ct-card ct-desc' }, paragraphs(c.description)),
       h('div', { class: 'ct-card' }, h('dl', { class: 'ct-facts' },
+        sub ? fact('send', sub === 'closed' ? 'Entries closed' : 'Entries close', fmtWhen(s.closesAt)) : null,
+        sub === 'soon' ? fact('open', 'Entries open', fmtWhen(s.opensAt)) : null,
         fact('open', 'Voting opens', fmtWhen(c.opensAt)),
         fact('close', c.phase === 'closed' ? 'Voting closed' : 'Voting closes', fmtWhen(c.closesAt)),
-        c.phase !== 'upcoming' || data.preview ? fact('entries', 'Entries', String(count)) : null,
+        c.phase !== 'upcoming' || data.preview ? fact('entries', 'Entries', String(count))
+          : sub && sub !== 'soon' && data.entryCount != null ? fact('entries', sub === 'open' ? 'Entries so far' : 'Entries', String(data.entryCount)) : null,
         fact('voters', 'Who can vote', who))));
   }
 
@@ -412,10 +431,23 @@
   // ---------- before voting opens ----------
   function upcomingSections(c, data) {
     const discord = body.dataset.discord;
-    const card = h('section', { class: 'bx-sec ct-narrow' }, h('div', { class: 'ct-card', style: 'text-align:center' },
-      h('h3', null, 'The entries are on their way'),
-      h('p', null, `Voting opens ${fmtWhen(c.opensAt)}. Then every entry appears here, anonymous, and you can pick your top 3 with your Discord account.`),
-      discord ? h('a', { class: 'bx-btn', href: discord, target: '_blank', rel: 'noopener' }, 'Get notified on Discord') : null));
+    const sub = entering(c), s = c.submissions;
+    const ext = (href, text, cls = 'bx-btn') => (href ? h('a', { class: cls, href, target: '_blank', rel: 'noopener' }, text) : null);
+    const card = sub === 'open' || sub === 'soon'
+      ? h('section', { class: 'bx-sec ct-narrow' }, h('div', { class: 'ct-card ct-enter' },
+        h('h3', null, sub === 'open' ? 'Send in your entry' : 'Entries open soon'),
+        h('ol', { class: 'ct-steps' },
+          h('li', null, h('b', null, 'Go to the contest channel'), h('span', null, 'on the Conquest Reforged Discord', s.channelUrl ? ' (button below).' : '.')),
+          h('li', null, h('b', null, 'Type ', cmd('/submit')), h('span', null, 'attach your picture (PNG, JPEG or WebP) and give it a title.')),
+          h('li', null, h('b', null, 'That’s it'), h('span', null, 'Only you see the bot’s reply, and your entry stays anonymous until the results.'))),
+        h('p', { class: 'ct-enter-when' }, sub === 'open' ? `Entries close ${fmtWhen(s.closesAt)}. Changed your mind? Use /submit again to replace your entry, or /withdraw to take it out.`
+          : `Entries open ${fmtWhen(s.opensAt)} and close ${fmtWhen(s.closesAt)}.`),
+        h('div', { class: 'ct-enter-a' }, sub === 'open' ? ext(s.channelUrl, 'Open the channel on Discord') : null,
+          ext(discord, sub === 'open' && s.channelUrl ? 'Not on our Discord yet? Join' : 'Join the Discord', sub === 'open' && s.channelUrl ? 'bx-btn bx-btn-ghost' : 'bx-btn'))))
+      : h('section', { class: 'bx-sec ct-narrow' }, h('div', { class: 'ct-card', style: 'text-align:center' },
+        h('h3', null, 'The entries are on their way'),
+        h('p', null, `Voting opens ${fmtWhen(c.opensAt)}. Then every entry appears here, anonymous, and you can pick your top 3 with your Discord account.`),
+        ext(discord, 'Get notified on Discord')));
     if (!data.preview) return [card];
     const n = data.entries.length;
     return [card, h('section', { class: 'bx-sec' }, h('h2', null, 'Staff preview'),
@@ -544,6 +576,6 @@
     }
     return me;
   }
-  window.CT = { h, svg, ICON, api, fmtWhen, fmtDay, pill, plural, signInButton, avatarUrl, heroDefault, errorBox, medal, me: () => me, ready: null };
+  window.CT = { h, svg, ICON, api, fmtWhen, fmtDay, pill, plural, cmd, signInButton, avatarUrl, heroDefault, errorBox, medal, me: () => me, ready: null };
   window.CT.ready = init();
 })();

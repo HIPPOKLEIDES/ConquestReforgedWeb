@@ -6,7 +6,7 @@
 (async () => {
   'use strict';
   const CT = window.CT;
-  const { h, api, pill, plural, fmtWhen, errorBox } = CT;
+  const { h, api, pill, plural, fmtWhen, errorBox, cmd } = CT;
   const app = document.querySelector('[data-staff]');
   CT.heroDefault();
   const me = await CT.ready;
@@ -43,7 +43,7 @@
     nav.replaceChildren(
       h('li', { class: 'st-new' }, h('button', { type: 'button', class: current === '' ? 'on' : '', onclick: () => open('') }, '+ New contest')),
       ...contests.map((c) => h('li', null, h('button', { type: 'button', class: c.id === current ? 'on' : '', onclick: () => open(c.id) },
-        h('b', null, c.title), h('small', null, `${c.published ? { voting: 'Voting open', upcoming: 'Upcoming', closed: 'Closed' }[c.phase] : 'Draft'} · ${plural(c.entryCount, 'entry', 'entries')}`)))));
+        h('b', null, c.title), h('small', null, `${!c.published ? 'Draft' : c.phase === 'upcoming' && c.submissions === 'open' ? 'Taking entries' : { voting: 'Voting open', upcoming: 'Upcoming', closed: 'Closed' }[c.phase]} · ${plural(c.entryCount, 'entry', 'entries')}`)))));
   }
 
   async function open(id) {
@@ -69,11 +69,18 @@
       if (!confirm(`Close voting for “${c.title}” now? The results become public straight away.`)) return;
       try { renderContest(await api(`/api/staff/contests/${encodeURIComponent(c.id)}/close`, { method: 'POST', json: {} })); loadList(); } catch (e) { msg(out, e.message, 'err'); }
     };
+    const taking = c.phase === 'upcoming' && c.submissions === 'open';
+    const where = c.submitChannel ? (/^https:/.test(c.submitChannel) ? h('a', { href: c.submitChannel, target: '_blank', rel: 'noopener' }, 'the contest channel') : `channel ${c.submitChannel}`) : null;
     return h('div', { class: 'ct-card' },
-      h('div', { class: 'st-badges' }, pill(c.published ? c.phase : 'draft'), h('span', { class: 'ct-pill' }, plural(c.entryCount, 'entry', 'entries')), h('span', { class: 'ct-pill' }, plural(c.ballotCount, 'ballot'))),
+      h('div', { class: 'st-badges' }, pill(!c.published ? 'draft' : taking ? 'submitting' : c.phase), h('span', { class: 'ct-pill' }, plural(c.entryCount, 'entry', 'entries')), h('span', { class: 'ct-pill' }, plural(c.ballotCount, 'ballot'))),
       h('h3', null, c.title),
       h('p', null, c.phase === 'voting' ? `Voting closes ${fmtWhen(c.closesAt)}.` : c.phase === 'closed' ? `Voting closed ${fmtWhen(c.closesAt)}. Results are public.` : `Voting opens ${fmtWhen(c.opensAt)}.`,
         c.published ? '' : ' This contest is a draft: only staff can see it.'),
+      c.submissions && c.phase !== 'closed' ? h('p', null,
+        c.submissions === 'open' ? ['Entries by ', cmd('/submit'), ' are open in ', where, ` until ${fmtWhen(c.submitClosesAt)}.`]
+          : c.submissions === 'soon' ? ['Entries by ', cmd('/submit'), ' open in ', where, ` on ${fmtWhen(c.submitOpensAt)}.`]
+            : ['Entries by ', cmd('/submit'), ` closed ${fmtWhen(c.submitClosesAt)}. Check them below before voting opens.`],
+        c.published || c.submissions === 'closed' ? '' : ' (Only once the contest is visible on the site.)') : null,
       h('div', { class: 'st-row' },
         h('a', { class: 'bx-btn bx-btn-sm', href: `/contests/${encodeURIComponent(c.id)}`, target: '_blank', rel: 'noopener' }, 'Open the page'),
         h('a', { class: 'bx-btn bx-btn-sm bx-btn-ghost', href: `/api/staff/contests/${encodeURIComponent(c.id)}/ballots.csv`, download: `${c.id}-ballots.csv` }, 'Export ballots (CSV)'),
@@ -96,6 +103,12 @@
       f('opensAt', 'Voting opens', inp('opensAt', { type: 'datetime-local', required: true, value: toInput(c ? c.opensAt : soon) }), `Your time zone (${tz}).`),
       f('closesAt', 'Voting closes', inp('closesAt', { type: 'datetime-local', required: true, value: toInput(c ? c.closesAt : soon + 7 * day) })),
       f('minAccountAgeDays', 'Minimum Discord account age (days)', inp('minAccountAgeDays', { type: 'number', min: 0, max: 3650, step: 1, value: c ? c.minAccountAgeDays : 0 }), 'Keeps brand-new alt accounts out. 0 = any account. Worked out from the Discord ID.'),
+      h('div', { class: 'st-group' },
+        h('h4', null, 'Entries by ', cmd('/submit'), ' on Discord'),
+        h('p', null, 'Between these times, entrants send their own entry with the bot: /submit in the channel below, with their picture and a title. Their Discord name and ID are filled in for them, so they can’t rank their own entry. Leave the times empty to add every entry yourself.'),
+        f('submitOpensAt', 'Entries open', inp('submitOpensAt', { type: 'datetime-local', value: toInput(c ? c.submitOpensAt : NaN) }), `Your time zone (${tz}).`),
+        f('submitClosesAt', 'Entries close', inp('submitClosesAt', { type: 'datetime-local', value: toInput(c ? c.submitClosesAt : NaN) }), 'At the latest when voting opens.'),
+        f('submitChannel', 'Discord channel or thread', inp('submitChannel', { value: c ? c.submitChannel : '', placeholder: 'https://discord.com/channels/…', autocomplete: 'off', maxlength: 200 }), 'Right-click the channel or thread in Discord, Copy Link, and paste it here. A channel also covers the threads in it.', true)),
       h('label', { class: 'st-check' }, inp('published', { type: 'checkbox', checked: c ? c.published : false }), 'Visible on the site (otherwise a draft only staff can see)'),
       h('div', { class: 'st-row wide' }, h('button', { type: 'submit', class: 'bx-btn' }, isNew ? 'Create contest' : 'Save changes'), status));
     form.addEventListener('submit', async (ev) => {
@@ -105,6 +118,9 @@
         title: v('title'), theme: v('theme'), description: v('description'),
         opensAt: fromInput(v('opensAt')), closesAt: fromInput(v('closesAt')),
         minAccountAgeDays: Number(v('minAccountAgeDays') || 0), published: form.elements.published.checked,
+        submitOpensAt: v('submitOpensAt') ? fromInput(v('submitOpensAt')) : null,
+        submitClosesAt: v('submitClosesAt') ? fromInput(v('submitClosesAt')) : null,
+        submitChannel: v('submitChannel').trim(),
       };
       if (isNew) body.id = v('id').trim().toLowerCase();
       msg(status, 'Saving…');
@@ -174,6 +190,7 @@
     return h('div', { class: 'ct-card' },
       h('h3', null, 'Entries'),
       h('p', null, c.phase === 'voting' ? 'Voting is open: new entries show up for voters straight away. Hide an entry to take it out of the vote and the results.' : 'Entries become public when voting opens, anonymous and shuffled. Artists are shown with the results.'),
+      c.submissions ? h('p', null, 'Entries sent with ', cmd('/submit'), ' appear here by themselves, marked “via /submit”. Hide or delete any that break the rules before voting opens.') : null,
       drop, fileInput,
       h('p', { class: 'st-note' }, 'Pictures are re-saved in your browser before upload: that removes hidden metadata (such as an artist name in the file) so entries stay anonymous, and makes the gallery preview. The file name is never uploaded. Add the artists’ Discord IDs (right-click them in Discord, Copy User ID) so they can’t rank their own entry.'),
       pending, h('div', { class: 'st-row', style: 'margin-top:12px' }, allBtn),
@@ -243,7 +260,9 @@
     const thumb = h('div', { class: 'st-thumb' }, e.preview ? h('a', { href: e.full || e.preview, target: '_blank', rel: 'noopener' }, h('img', { src: e.preview, alt: '', loading: 'lazy' })) : null);
     const file = h('input', { type: 'file', accept: 'image/png,image/jpeg,image/webp', hidden: true });
     const li = h('li', { class: `st-entry${e.hidden ? ' is-hidden' : ''}` }, thumb,
-      h('div', { class: 'st-entry-f' }, h('div', { class: 'st-entry-h' }, `Entry ${e.number}`, h('small', null, e.w ? `${e.w}×${e.h}` : '')), ...f.el, h('div', { style: 'grid-column:1/-1' }, status)),
+      h('div', { class: 'st-entry-f' }, h('div', { class: 'st-entry-h' }, `Entry ${e.number}`,
+        e.submittedBy ? h('small', { class: 'st-by', title: `Sent with /submit by Discord user ${e.submittedBy}, last changed ${fmtWhen(e.updatedAt)}` }, 'via /submit') : null,
+        h('small', null, e.w ? `${e.w}×${e.h}` : '')), ...f.el, h('div', { style: 'grid-column:1/-1' }, status)),
       h('div', { class: 'st-entry-a' },
         h('button', { type: 'button', class: 'bx-btn', onclick: () => save(f.value()) }, 'Save'),
         h('button', { type: 'button', class: 'bx-btn bx-btn-ghost', onclick: () => save({ hidden: !e.hidden }) }, e.hidden ? 'Unhide' : 'Hide'),

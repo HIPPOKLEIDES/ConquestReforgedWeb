@@ -7,6 +7,11 @@ const DISCORD_EPOCH = 1420070400000n;
 export const contestPhase = (c, now) =>
   !c.published ? 'draft' : now < c.vote_opens_at ? 'upcoming' : now < c.vote_closes_at ? 'voting' : 'closed';
 
+// Entries sent with the Discord bot's /submit: null when the contest has no entry window (staff add the entries)
+export const submissionState = (c, now) =>
+  c.submit_opens_at == null || c.submit_closes_at == null ? null
+    : now < c.submit_opens_at ? 'soon' : now < c.submit_closes_at ? 'open' : 'closed';
+
 // When a Discord account was created, from its ID (a "snowflake": the top bits are ms since 2015).
 export function discordCreatedAt(id) {
   if (!/^\d{15,21}$/.test(String(id))) return NaN;

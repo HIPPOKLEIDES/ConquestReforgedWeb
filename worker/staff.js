@@ -1,6 +1,6 @@
 // Staff API (Discord IDs in the STAFF_IDS secret only).
 //   GET    /api/staff/contests                     every contest, drafts too, with entry and ballot counts
-//   POST   /api/staff/contests                     create
+//   POST   /api/staff/contests                     create (optional /submit window: submitOpensAt, submitClosesAt, submitChannel)
 //   GET    /api/staff/contests/<id>                contest + all entries with artists
 //   PATCH  /api/staff/contests/<id>                edit
 //   POST   /api/staff/contests/<id>/close          close voting now
@@ -10,8 +10,8 @@
 //   DELETE /api/staff/entries/<id>                 only while nobody has voted for it
 //   PUT    /api/staff/entries/<id>/image?kind=full|preview&w=&h=   raw image body (made in the browser)
 import { requireStaff } from './auth.js';
-import { contestPhase, discordCreatedAt } from './voting.js';
-import { ID_RE, IMAGE_TYPES, RESERVED_IDS, imageUrl, loadContest } from './contests.js';
+import { contestPhase, discordCreatedAt, submissionState } from './voting.js';
+import { ID_RE, IMAGE_TYPES, RESERVED_IDS, channelUrl, imageUrl, loadContest } from './contests.js';
 import { fail, json, randomToken, readJson, requireSameOrigin } from './http.js';
 
 const MAX_BYTES = { full: 25 * 1024 * 1024, preview: 4 * 1024 * 1024 };
@@ -45,6 +45,21 @@ function discordIds(v) {
   return out;
 }
 
+const optTime = (v, name) => (v == null || v === '' ? null : time(v, name));
+
+// Where /submit works: a pasted channel/thread link (right-click, Copy Link) or a bare channel ID.
+// The link also gives the server ID, which the contest page needs to link to the channel.
+function channelRef(v, existing) {
+  if (v == null) v = '';
+  if (typeof v !== 'string') fail(400, 'Discord channel must be text.', 'invalid');
+  v = v.trim();
+  if (!v) return { channel: null, guild: null };
+  const link = /^https:\/\/(?:(?:ptb|canary)\.)?discord(?:app)?\.com\/channels\/(\d{15,21})\/(\d{15,21})(?:\/\d{15,21})?\/?$/.exec(v);
+  if (link) return { guild: link[1], channel: link[2] };
+  if (/^\d{15,21}$/.test(v)) return { channel: v, guild: existing?.submit_channel_id === v ? existing.submit_guild_id : null };
+  fail(400, 'Discord channel: paste the channel’s or thread’s link (right-click it in Discord, Copy Link), or its ID.', 'invalid');
+}
+
 function contestFields(body, existing) {
   const f = {};
   if (!existing || 'title' in body) f.title = text(body.title, 'Title', 120, { required: true });
@@ -58,8 +73,24 @@ function contestFields(body, existing) {
     f.min_account_age_days = d;
   }
   if (!existing || 'published' in body) f.published = body.published ? 1 : 0;
-  const opens = f.vote_opens_at ?? existing?.vote_opens_at, closes = f.vote_closes_at ?? existing?.vote_closes_at;
+  if (!existing || 'submitOpensAt' in body) f.submit_opens_at = optTime(body.submitOpensAt, 'Entries open');
+  if (!existing || 'submitClosesAt' in body) f.submit_closes_at = optTime(body.submitClosesAt, 'Entries close');
+  if (!existing || 'submitChannel' in body) {
+    const r = channelRef(body.submitChannel, existing);
+    f.submit_channel_id = r.channel;
+    f.submit_guild_id = r.guild;
+  }
+  // checked on the values the contest ends up with, so changing only one of them can't break the order
+  const val = (k) => (k in f ? f[k] : existing?.[k] ?? null);
+  const opens = val('vote_opens_at'), closes = val('vote_closes_at');
   if (!(opens < closes)) fail(400, 'Voting must close after it opens.', 'invalid');
+  const so = val('submit_opens_at'), sc = val('submit_closes_at');
+  if ((so == null) !== (sc == null)) fail(400, 'Entries by /submit need both times (when they open and close), or neither.', 'invalid');
+  if (so != null) {
+    if (!(so < sc)) fail(400, 'Entries must close after they open.', 'invalid');
+    if (sc > opens) fail(400, 'Entries must close before voting opens (or at the same moment).', 'invalid');
+    if (!val('submit_channel_id')) fail(400, 'Add the Discord channel or thread where people use /submit.', 'invalid');
+  }
   return f;
 }
 
@@ -67,11 +98,14 @@ const staffContest = (c, now) => ({
   id: c.id, title: c.title, theme: c.theme, description: c.description, opensAt: c.vote_opens_at, closesAt: c.vote_closes_at,
   minAccountAgeDays: c.min_account_age_days, published: !!c.published, phase: contestPhase(c, now), updatedAt: c.updated_at,
   entryCount: c.entry_count, ballotCount: c.ballot_count,
+  submitOpensAt: c.submit_opens_at, submitClosesAt: c.submit_closes_at, submissions: submissionState(c, now),
+  submitChannel: channelUrl(c) || c.submit_channel_id || '', submitChannelId: c.submit_channel_id,
 });
 const parseList = (s) => { try { const v = JSON.parse(s || '[]'); return Array.isArray(v) ? v.map(String) : []; } catch { return []; } };
 const staffEntry = (e) => ({
   id: e.id, number: e.number, title: e.title, artistNames: parseList(e.artist_names), artistIds: parseList(e.artist_ids),
   hidden: !!e.hidden, w: e.width, h: e.height, preview: imageUrl(e, 'preview'), full: imageUrl(e, 'full'), complete: !!(e.image_key && e.preview_key),
+  submittedBy: e.submitted_by || null, createdAt: e.created_at, updatedAt: e.updated_at,
 });
 
 const COUNTS = `(SELECT COUNT(*) FROM entries e WHERE e.contest_id = c.id) AS entry_count, (SELECT COUNT(*) FROM ballots b WHERE b.contest_id = c.id) AS ballot_count`;
@@ -158,9 +192,11 @@ export async function handleStaffApi(request, env, url, parts) {
       if (!ID_RE.test(id) || RESERVED_IDS.has(id)) fail(400, 'The contest ID becomes its web address: lowercase letters, numbers and dashes (e.g. castles-2027).', 'invalid');
       const f = contestFields(body, null);
       const res = await env.DB.prepare(
-        `INSERT INTO contests (id, title, theme, description, vote_opens_at, vote_closes_at, min_account_age_days, published, created_at, updated_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (id) DO NOTHING`)
-        .bind(id, f.title, f.theme, f.description, f.vote_opens_at, f.vote_closes_at, f.min_account_age_days, f.published, now, now).run();
+        `INSERT INTO contests (id, title, theme, description, vote_opens_at, vote_closes_at, min_account_age_days, published,
+           submit_opens_at, submit_closes_at, submit_channel_id, submit_guild_id, created_at, updated_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (id) DO NOTHING`)
+        .bind(id, f.title, f.theme, f.description, f.vote_opens_at, f.vote_closes_at, f.min_account_age_days, f.published,
+          f.submit_opens_at, f.submit_closes_at, f.submit_channel_id, f.submit_guild_id, now, now).run();
       if (!res.meta.changes) fail(409, `A contest with the ID “${id}” already exists.`, 'exists');
       return json(await contestDetail(env, id), 201);
     }
