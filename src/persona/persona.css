@@ -6,6 +6,8 @@
 .pz-page { --gold: #c7741b; --gold-hi: #e9a64a; --wood: #241b14; --wood-hi: #3c2d20; --ink: #f1e4cc; --dim: #b9a383;
   --rare: #4f8fe0; --epic: #b05ce6; --legendary: #e8a02c; --common: #9aa3a8; --uncommon: #5fb85f; }
 .pz-page .div-block-235 { width: 100%; max-width: 900px; }
+/* the column is a block, so centre the sections in it (bedrock.css only sets justify-self, which needs a grid) */
+.pz-page .bx-sec { margin-left: auto; margin-right: auto; }
 
 /* ---------- top: a shelf of items in place of the bedrock page's hero picture ---------- */
 .pz-shelf {
