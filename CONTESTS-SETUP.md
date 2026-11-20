@@ -9,6 +9,10 @@ Run the commands in a checkout of the **`contests` branch** (it has `wrangler.js
 the `migrations/` folder; a checkout of `main` doesn't yet). `npx wrangler login` first if wrangler isn't
 signed in to the Cloudflare account that hosts conquestreforged.com.
 
+When `d1 create` or `r2 bucket create` asks whether wrangler should add the binding to `wrangler.jsonc` for you,
+answer **No**: the file already has both bindings under the names the Worker uses (`DB` and `IMAGES`), so
+letting wrangler add one only leaves a duplicate under another name. Only the database ID needs pasting (step 1).
+
 > **Redirect URI:** the brief named `https://conquestreforged.com/auth/discord/callback`, but
 > `conquestreforged.com` redirects to `https://www.conquestreforged.com` before the Worker runs. The Worker
 > builds the redirect URI from the address the visitor is on, so the live site sends
@@ -41,6 +45,9 @@ pictures are served through the Worker, which hides them until voting opens and 
 ```powershell
 npx wrangler d1 migrations apply conquest-contests --remote
 ```
+
+If it says `The database 00000000-0000-0000-0000-000000000000 could not be found [code: 7404]`, step 1 hasn't
+been done (or its ID isn't in `wrangler.jsonc` yet).
 
 Later schema changes come as new files in `migrations/`; run the same command after merging them.
 
