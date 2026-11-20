@@ -425,12 +425,12 @@ function buildGuides() {
 // Client-side search: a JSON index of every generated page + a /search page that filters it.
 function buildSearch() {
   const docs = [];
-  for (const u of generated) {
+  for (const u of new Set(generated)) {
     if (u.endsWith('.html') || u === '/search') continue;
     const file = path.join(DIST, u === '/' ? 'index.html' : path.join(u.slice(1), 'index.html'));
     if (!fs.existsSync(file)) continue;
     const html = fs.readFileSync(file, 'utf8');
-    const main = (html.match(/<main class="page">([\s\S]*?)<\/main>/) || html.match(/<div class="wfs wfs-page">([\s\S]*?)<footer/) || [])[1];
+    const main = (html.match(/<main class="page(?: [^"]*)?">([\s\S]*?)<\/main>/) || html.match(/<div class="wfs wfs-page">([\s\S]*?)<footer/) || [])[1];
     if (!main) continue;
     const title = stripTags((html.match(/<title>([^<]*)<\/title>/) || [])[1] || u).replace(/ \| Conquest Reforged$/, '');
     docs.push({ u, t: title, x: stripTags(main.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ')).replace(/\s+/g, ' ').trim().slice(0, 4000) });
@@ -961,7 +961,7 @@ function buildDownloads() {
 <section class="dl-sec" id="more"><h2>More downloads</h2>
 <div class="dl-cards">
 <article class="dl-card"><h3>Conquest Reforged Resource Pack</h3><p>Connected textures, a custom sky and biome colours for the mod. It's already in the modpack: only add it if you install the mod on its own. It is not a standalone pack.</p><div class="dl-chips">${rpList}</div><a class="dl-more" href="${mpage('resourcePack')}" target="_blank" rel="noopener">All versions on Modrinth →</a></article>
-<article class="dl-card"><h3>Conquest_ resource pack</h3><p>The original Conquest_ resource pack for vanilla Minecraft: no mods needed.</p><a class="dl-btn" href="/conquest-pack">Conquest_ for Java</a><a class="dl-btn" href="/conquest-bedrock">Conquest_ for Bedrock</a></article>
+<article class="dl-card"><h3>Conquest_ resource pack</h3><p>The original Conquest_ resource pack. Conquest Reforged is its spiritual successor.</p><a class="dl-btn" href="/conquest-pack">Conquest_ for Java</a><a class="dl-btn" href="/conquest-bedrock">Conquest_ for Bedrock</a></article>
 <article class="dl-card dl-conv"><h3>World converters <em class="dl-tag">Legacy</em></h3><p>${esc(conv.note || '')}</p><div class="dl-btns">${conv.items.map((c) => `<a class="dl-btn" href="${esc(c.url)}" target="_blank" rel="noopener" title="${esc(c.label)}">${esc(c.from)} → ${esc(c.to)}</a>`).join('')}</div><details><summary>Read this before converting</summary><ul>${conv.tips.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></details></article>
 </div>
 </section>
@@ -969,7 +969,7 @@ function buildDownloads() {
 <section class="dl-sec dl-help"><h2>Stuck?</h2><p>Most problems are answered in the <a href="/faq">FAQ</a> and the <a href="/guides">guides</a>. Still stuck? Ask in the <a href="https://discord.gg/ZagrZvn" target="_blank" rel="noopener">#support channel on our Discord</a>.</p></section>
 </main>
 <script type="application/json" id="dl-data">${json(snap)}</script>
-<script type="application/json" id="dl-config">${json({ memoryGB: cfg.memoryGB, optifineUpTo: cfg.optifineUpTo, legacyBefore: cfg.legacyBefore, launchers: cfg.launchers, modSteps: cfg.modSteps })}</script>
+<script type="application/json" id="dl-config">${json({ memoryGB: cfg.memoryGB, optifineUpTo: cfg.optifineUpTo, launchers: cfg.launchers, modSteps: cfg.modSteps })}</script>
 <script src="/assets/downloads/downloads.js?v=${v(js)}" defer></script>`;
   emit('/downloads', layout({ title: 'Downloads', description: 'Download Conquest Reforged: the modpack or the mod for every Minecraft version, with install steps for your launcher.', urlPath: '/downloads', body }));
 }

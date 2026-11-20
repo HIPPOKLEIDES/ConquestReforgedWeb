@@ -37,6 +37,8 @@
     data.versions.mod.forEach(function (v) { v.mc.forEach(function (m) { seen[m] = 1; }); });
     return Object.keys(seen).sort(cmp).reverse();
   }
+  // mods in a modpack: its dependencies that are mods (it also lists resource packs)
+  function modCount(v) { return v.deps.filter(function (d) { var l = data.libs[d.id]; return !l || l.type === 'mod'; }).length; }
   function packKey(loader) { return loader === 'forge' ? 'packForge' : 'packFabric'; }
   function loadersFor(mc, how) {
     return ['fabric', 'forge'].filter(function (l) { return how === 'pack' ? !!newest(data.versions[packKey(l)], mc) : !!newest(data.versions.mod, mc, l); });
@@ -76,8 +78,7 @@
     var main = [], older = [];
     mcs.forEach(function (mc) {
       var v = newest(data.versions.mod, mc);
-      var legacy = cmp(mc, cfg.legacyBefore) < 0;
-      var inner = '<b>Minecraft ' + esc(mc) + '</b>' + (mc === latest ? tag('Latest', 'gold') : legacy ? tag('No longer updated') : '')
+      var inner = '<b>Minecraft ' + esc(mc) + '</b>' + (mc === latest ? tag('Latest', 'gold') : '')
         + '<small>Conquest Reforged ' + esc(ver(v)) + ' · ' + day(v.date) + '</small>';
       (mc === latest ? main : older).push(opt('mc', mc, mc === state.mc, inner, mc === latest ? ' big' : ''));
     });
@@ -87,7 +88,7 @@
 
     var packLoaders = loadersFor(state.mc, 'pack'), modLoaders = loadersFor(state.mc, 'mod');
     var pv = packLoaders.length ? newest(data.versions[packKey(packLoaders[0])], state.mc) : null;
-    var nMods = pv ? pv.deps.length + 1 : 0;
+    var nMods = pv ? modCount(pv) : 0;
     var hows = opt('how', 'pack', state.how === 'pack', '<b>Modpack</b>' + (packLoaders.length ? tag('Recommended', 'gold') : tag('Not for ' + esc(state.mc)))
       + '<small>' + (packLoaders.length ? 'Conquest Reforged, its resource pack and about ' + nMods + ' mods for performance, shaders and connected textures, all set up. Installs through a launcher.' : 'There is no modpack for this Minecraft version. Install the mod on its own.') + '</small>', packLoaders.length ? '' : ' off')
       + opt('how', 'mod', state.how === 'mod', '<b>Just the mod</b><small>The Conquest Reforged .jar, for your own modpack or a server. You add the required mods yourself.</small>', modLoaders.length ? '' : ' off');
@@ -97,7 +98,7 @@
     root.querySelector('[data-step="loader"] .dl-opts').innerHTML = ['fabric', 'forge'].map(function (l) {
       var ok = loaders.indexOf(l) >= 0;
       var v = ok ? (state.how === 'pack' ? newest(data.versions[packKey(l)], state.mc) : newest(data.versions.mod, state.mc, l)) : null;
-      var sub = !ok ? 'Not available for ' + esc(state.mc) : state.how === 'pack' ? (v.deps.length + 1) + ' mods · ' + esc(v.version) : esc(ver(v)) + ' · ' + size(primary(v).size);
+      var sub = !ok ? 'Not available for ' + esc(state.mc) : state.how === 'pack' ? modCount(v) + ' mods · ' + esc(v.version) : esc(ver(v)) + ' · ' + size(primary(v).size);
       return opt('loader', l, ok && state.loader === l, '<b>' + LOADER[l] + '</b><small>' + sub + '</small>', ok ? '' : ' off');
     }).join('');
 
@@ -139,7 +140,7 @@
       var req = v.deps.filter(function (d) { return d.type === 'required' && data.libs[d.id]; });
       var unknown = v.deps.filter(function (d) { return d.type === 'required' && !data.libs[d.id]; }).length;
       if (req.length || unknown) {
-        deps = '<div class="dl-deps"><h4>Also needs</h4><ul>' + req.map(function (d) {
+        deps = '<div class="dl-deps"><h4>Required mods (from Modrinth)</h4><ul>' + req.map(function (d) {
           var l = data.libs[d.id];
           return '<li><a href="https://modrinth.com/' + l.type + '/' + l.slug + '" target="_blank" rel="noopener">' + esc(l.title) + '</a></li>';
         }).join('') + (unknown ? '<li>and ' + unknown + ' more (see Modrinth)</li>' : '') + '</ul></div>';
@@ -159,10 +160,15 @@
     var steps = pack ? launcher.steps : cfg.modSteps;
     root.querySelector('.dl-how h3').textContent = pack ? 'Installing with ' + launcher.name : 'Installing the mod by hand';
     root.querySelector('.dl-how ol').innerHTML = steps.map(function (s) { return '<li>' + fill(s, vars) + '</li>'; }).join('');
-    root.querySelector('.dl-how .dl-how-foot').innerHTML = pack ? '' : 'Not sure? The modpack does all of this for you, and is the easiest way to play.';
+    root.querySelector('.dl-how .dl-how-foot').innerHTML = pack ? '' : 'Making your own modpack? Start from the Conquest Reforged modpack, or copy its mod list for your Minecraft version and loader from <a href="' + page(packKey(state.loader)) + '" target="_blank" rel="noopener">its Modrinth page</a>. Not sure? The modpack does all of this for you.';
   }
 
-  function render() { renderSteps(); renderPanel(); writeHash(); }
+  // the box follows the scroll only if it fits between the header (92px) and the fixed footer (~130px)
+  var panel = root.querySelector('.dl-panel');
+  function fitSticky() { panel.classList.toggle('stuck', innerWidth > 980 && panel.offsetHeight + 92 + 130 < innerHeight); }
+  window.addEventListener('resize', fitSticky);
+
+  function render() { renderSteps(); renderPanel(); writeHash(); fitSticky(); }
 
   root.addEventListener('click', function (e) {
     var b = e.target.closest('.dl-opt');

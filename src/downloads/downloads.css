@@ -60,7 +60,9 @@ body.ws main.page.dl { max-width: 1120px; }
 .dl-grid .dl-tag { display: block; width: max-content; margin: 4px 0 0; }
 
 /* ---------- "Your download": the chest frame ---------- */
-.dl-panel { grid-area: panel; position: sticky; top: 92px; width: 352px; }
+.dl-panel { grid-area: panel; width: 352px; }
+/* follows the scroll only when it fits between the header and the fixed footer (downloads.js) */
+.dl-panel.stuck { position: sticky; top: 92px; }
 .dl-panel-top { position: relative; height: 36px; }
 .dl-panel-top img { display: block; width: 352px; height: 36px; image-rendering: pixelated; }
 .dl-panel-top span { position: absolute; left: 14px; top: 11px; width: 136px; text-align: center; font: 400 1rem/1 "Nyala 0", "Times New Roman", serif; color: #2b2112; letter-spacing: .03em; }

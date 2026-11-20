@@ -2,10 +2,11 @@
   "_about": "Settings for /downloads (build.mjs buildDownloads(), src/downloads/). Version data comes from Modrinth: src/data/downloads.json (downloads-tools/fetch-downloads.mjs), refreshed live in the browser.",
   "memoryGB": 8,
   "optifineUpTo": "1.18.2",
-  "legacyBefore": "1.19.2",
   "launchers": [
     {
-      "id": "modrinth", "name": "Modrinth App", "url": "https://modrinth.com/app",
+      "id": "modrinth",
+      "name": "Modrinth App",
+      "url": "https://modrinth.com/app",
       "icon": "/assets/66f30e1d82a6e082cd6e471a_modrinth_logo.avif",
       "blurb": "Modrinth's own launcher. Installs the modpack in one click.",
       "steps": [
@@ -15,7 +16,10 @@
       ]
     },
     {
-      "id": "prism", "name": "Prism Launcher", "url": "https://prismlauncher.org/download/", "recommended": true,
+      "id": "prism",
+      "name": "Prism Launcher",
+      "url": "https://prismlauncher.org/download/",
+      "recommended": true,
       "icon": "/assets/64c9a8e6d1684380f8aa341f_prism_launcher.avif",
       "blurb": "Free, open source, and keeps each version in its own instance.",
       "steps": [
@@ -25,7 +29,10 @@
       ]
     },
     {
-      "id": "atlauncher", "name": "ATLauncher", "url": "https://atlauncher.com/downloads", "recommended": true,
+      "id": "atlauncher",
+      "name": "ATLauncher",
+      "url": "https://atlauncher.com/downloads",
+      "recommended": true,
       "icon": "/assets/64c9a8e5191d9bc9548877d1_at_launcher.avif",
       "blurb": "A launcher built around modpacks.",
       "steps": [
@@ -46,9 +53,28 @@
     "placeholder": true,
     "intro": "[Placeholder: one or two sentences on what Patreon support gives people, e.g. early access builds. To be filled in by the team.]",
     "tiers": [
-      { "name": "[Tier name]", "price": "[$ / month]", "perks": ["[What this tier unlocks]", "[Where patrons get the files]"] },
-      { "name": "[Tier name]", "price": "[$ / month]", "perks": ["[What this tier unlocks]"] },
-      { "name": "[Tier name]", "price": "[$ / month]", "perks": ["[What this tier unlocks]"] }
+      {
+        "name": "[Tier name]",
+        "price": "[$ / month]",
+        "perks": [
+          "[What this tier unlocks]",
+          "[Where patrons get the files]"
+        ]
+      },
+      {
+        "name": "[Tier name]",
+        "price": "[$ / month]",
+        "perks": [
+          "[What this tier unlocks]"
+        ]
+      },
+      {
+        "name": "[Tier name]",
+        "price": "[$ / month]",
+        "perks": [
+          "[What this tier unlocks]"
+        ]
+      }
     ]
   },
   "converters": {
@@ -59,9 +85,24 @@
       "Map makers: please convert and re-publish your map yourselves rather than having every player convert it."
     ],
     "items": [
-      { "from": "1.7.10", "to": "Mod", "label": "Conquest 1.7.10 → Conquest Reforged", "url": "http://bit.ly/2zjVXYQ" },
-      { "from": "1.10", "to": "1.12", "label": "Conquest Reforged 1.10 → 1.12", "url": "https://github.com/Conquest-Reforged/WorldConverter/releases/tag/v0.0.1" },
-      { "from": "1.12", "to": "1.15", "label": "Conquest Reforged 1.12 → 1.15", "url": "https://github.com/Conquest-Reforged/WorldConverter/releases/tag/v.2.0.1" }
+      {
+        "from": "1.7.10",
+        "to": "Mod",
+        "label": "Conquest 1.7.10 → Conquest Reforged",
+        "url": "http://bit.ly/2zjVXYQ"
+      },
+      {
+        "from": "1.10",
+        "to": "1.12",
+        "label": "Conquest Reforged 1.10 → 1.12",
+        "url": "https://github.com/Conquest-Reforged/WorldConverter/releases/tag/v0.0.1"
+      },
+      {
+        "from": "1.12",
+        "to": "1.15",
+        "label": "Conquest Reforged 1.12 → 1.15",
+        "url": "https://github.com/Conquest-Reforged/WorldConverter/releases/tag/v.2.0.1"
+      }
     ]
   }
 }
