@@ -1,0 +1,67 @@
+{
+  "_about": "Settings for /downloads (build.mjs buildDownloads(), src/downloads/). Version data comes from Modrinth: src/data/downloads.json (downloads-tools/fetch-downloads.mjs), refreshed live in the browser.",
+  "memoryGB": 8,
+  "optifineUpTo": "1.18.2",
+  "legacyBefore": "1.19.2",
+  "launchers": [
+    {
+      "id": "modrinth", "name": "Modrinth App", "url": "https://modrinth.com/app",
+      "icon": "/assets/66f30e1d82a6e082cd6e471a_modrinth_logo.avif",
+      "blurb": "Modrinth's own launcher. Installs the modpack in one click.",
+      "steps": [
+        "Install and open the <a href=\"https://modrinth.com/app\" target=\"_blank\" rel=\"noopener\">Modrinth App</a>.",
+        "Open the <a href=\"{packPage}\" target=\"_blank\" rel=\"noopener\">{packTitle}</a> page and click <b>Install</b>, or search for <b>Conquest Reforged</b> in the app.",
+        "Before you play, set the memory to about <b>{memory} GB</b> in the instance's Java settings."
+      ]
+    },
+    {
+      "id": "prism", "name": "Prism Launcher", "url": "https://prismlauncher.org/download/", "recommended": true,
+      "icon": "/assets/64c9a8e6d1684380f8aa341f_prism_launcher.avif",
+      "blurb": "Free, open source, and keeps each version in its own instance.",
+      "steps": [
+        "Install and open <a href=\"https://prismlauncher.org/download/\" target=\"_blank\" rel=\"noopener\">Prism Launcher</a>.",
+        "Click <b>Add Instance</b>, open the <b>Modrinth</b> tab, search for <b>Conquest Reforged</b> and install the <b>{loaderName}</b> modpack. Or choose <b>Import</b> and pick the .mrpack file from the download box.",
+        "Go to <b>Settings → Java</b> and set the maximum memory to about <b>{memory} GB</b>."
+      ]
+    },
+    {
+      "id": "atlauncher", "name": "ATLauncher", "url": "https://atlauncher.com/downloads", "recommended": true,
+      "icon": "/assets/64c9a8e5191d9bc9548877d1_at_launcher.avif",
+      "blurb": "A launcher built around modpacks.",
+      "steps": [
+        "Install and open <a href=\"https://atlauncher.com/downloads\" target=\"_blank\" rel=\"noopener\">ATLauncher</a>.",
+        "Go to <b>Packs</b>, open the <b>Modrinth</b> tab, search for <b>Conquest Reforged</b> and install the <b>{loaderName}</b> modpack.",
+        "Go to <b>Settings → Java</b> and set the maximum memory to about <b>{memory} GB</b>."
+      ]
+    }
+  ],
+  "modSteps": [
+    "Install <b>{loaderName}</b> for Minecraft <b>{mc}</b>.",
+    "Put the Conquest Reforged .jar and the required mods listed in the download box into your <b>mods</b> folder.",
+    "For connected textures, the sky and the biome colours, add the <b>Conquest Reforged Resource Pack</b> (below){ctm}.",
+    "Give Minecraft about <b>{memory} GB</b> of memory."
+  ],
+  "patreon": {
+    "url": "https://www.patreon.com/ConquestReforged",
+    "placeholder": true,
+    "intro": "[Placeholder: one or two sentences on what Patreon support gives people, e.g. early access builds. To be filled in by the team.]",
+    "tiers": [
+      { "name": "[Tier name]", "price": "[$ / month]", "perks": ["[What this tier unlocks]", "[Where patrons get the files]"] },
+      { "name": "[Tier name]", "price": "[$ / month]", "perks": ["[What this tier unlocks]"] },
+      { "name": "[Tier name]", "price": "[$ / month]", "perks": ["[What this tier unlocks]"] }
+    ]
+  },
+  "converters": {
+    "note": "Made years ago for much older versions of Minecraft and no longer updated. From 1.15 on you don't need them: open your world in each newer version in turn (1.15 → 1.16 → 1.17 → …).",
+    "tips": [
+      "Convert a copy, never your only save.",
+      "If a conversion goes wrong, copy your builds with WorldEdit schematics or structure blocks into a fresh world that only uses Conquest Reforged, and convert that.",
+      "Map makers: please convert and re-publish your map yourselves rather than having every player convert it."
+    ],
+    "items": [
+      { "from": "1.7.10", "to": "Mod", "label": "Conquest 1.7.10 → Conquest Reforged", "url": "http://bit.ly/2zjVXYQ" },
+      { "from": "1.10", "to": "1.12", "label": "Conquest Reforged 1.10 → 1.12", "url": "https://github.com/Conquest-Reforged/WorldConverter/releases/tag/v0.0.1" },
+      { "from": "1.12", "to": "1.15", "label": "Conquest Reforged 1.12 → 1.15", "url": "https://github.com/Conquest-Reforged/WorldConverter/releases/tag/v.2.0.1" }
+    ]
+  }
+}

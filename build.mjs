@@ -618,6 +618,7 @@ function buildChromeClones() {
   if (!fs.existsSync(sf)) return;
   const scripts = JSON.parse(fs.readFileSync(sf, 'utf8'));
   for (const slug of CHROME_CLONES) {
+    if (slug === 'downloads' && exists('downloads', 'downloads.js')) continue; // built by buildDownloads()
     const f = path.join(dir, slug + '.body.html');
     if (!fs.existsSync(f)) continue;
     const meta = JSON.parse(fs.readFileSync(path.join(dir, slug + '.meta.json'), 'utf8'));
@@ -891,6 +892,88 @@ ${scripts.map((s) => `<script src="/assets/contests/${s}?v=${v(s === 'staff.js' 
   }));
 }
 
+// /downloads: step picker (Minecraft version → modpack or mod → loader → launcher) with a "Your download" box,
+// styled with the mod's own GUI textures (src/assets/downloads/gui). Data: src/data/downloads.json (Modrinth
+// snapshot, downloads-tools/fetch-downloads.mjs; the page refreshes it from the Modrinth API in the browser) and
+// src/data/downloads-config.json (launchers, install steps, Patreon, world converters). Script/styles: src/downloads/.
+function buildDownloads() {
+  if (!exists('downloads', 'downloads.js') || !exists('data', 'downloads.json')) return;
+  const d = readJSON('data', 'downloads.json'), cfg = readJSON('data', 'downloads-config.json');
+  const css = readText('downloads', 'downloads.css'), js = readText('downloads', 'downloads.js');
+  const v = (s) => crypto.createHash('md5').update(s).digest('hex').slice(0, 8);
+  emitRaw('assets/downloads/downloads.css', css);
+  emitRaw('assets/downloads/downloads.js', js);
+  // snapshot for the page: per project the newest release (and newest build) for each Minecraft version + loader
+  const versions = {};
+  for (const [k, list] of Object.entries(d.versions)) {
+    const keep = new Set();
+    for (const x of list) for (const mc of x.mc) for (const l of x.loaders) {
+      const id = `${mc} ${l}`;
+      if (!keep.has('any ' + id)) { keep.add('any ' + id); x._keep = true; }
+      if (x.type === 'release' && !keep.has('rel ' + id)) { keep.add('rel ' + id); x._keep = true; }
+    }
+    versions[k] = list.filter((x) => x._keep).map(({ _keep, ...x }) => ({ ...x, files: x.files.filter((f) => f.primary).slice(0, 1).concat(x.files.some((f) => f.primary) ? [] : x.files.slice(0, 1)) }));
+  }
+  const usedLibs = new Set(Object.values(versions).flat().flatMap((x) => x.deps.map((dd) => dd.id)));
+  const libs = Object.fromEntries(Object.entries(d.libs).filter(([id]) => usedLibs.has(id)).map(([id, l]) => [id, { slug: l.slug, title: l.title, type: l.type }]));
+  const snap = { fetchedAt: d.fetchedAt, projects: d.projects, versions, libs };
+  const json = (o) => JSON.stringify(o).replace(/</g, '\\u003c');
+  const day = (iso) => new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+  const size = (b) => (b >= 1048576 ? `${Math.round(b / 1048576)} MB` : `${Math.max(1, Math.round(b / 1024))} KB`);
+  const mpage = (k) => `https://modrinth.com/${d.projects[k].type}/${d.projects[k].slug}`;
+  const g = (n) => `/assets/downloads/gui/${n}`;
+
+  // resource pack: newest per Minecraft version
+  const rp = [];
+  for (const x of d.versions.resourcePack || []) {
+    const mc = x.mc[x.mc.length - 1];
+    if (!rp.some((r) => r.mc === mc)) rp.push({ mc, x });
+  }
+  const rpList = rp.map(({ mc, x }) => {
+    const f = x.files.find((ff) => ff.primary) || x.files[0];
+    return `<a class="dl-chip" href="${f.url}"><b>${esc(mc)}</b><span>${esc(x.version)} · ${size(f.size)}</span></a>`;
+  }).join('');
+  const pt = cfg.patreon || {};
+  const tiers = (pt.tiers || []).map((t) => `<li class="dl-tier"><img src="${g('lock.png')}" alt="" width="40" height="40"><h4>${esc(t.name)}</h4><p class="dl-price">${esc(t.price)}</p><ul>${t.perks.map((p) => `<li>${esc(p)}</li>`).join('')}</ul></li>`).join('');
+  const conv = cfg.converters || { items: [], tips: [] };
+  const noscript = `<noscript><p class="dl-nojs">This page needs JavaScript to pick a version. Without it, get the <a href="${mpage('packFabric')}">Fabric modpack</a> or the <a href="${mpage('packForge')}">Forge modpack</a> on Modrinth, or <a href="${mpage('mod')}">the mod itself</a>.</p></noscript>`;
+
+  const body = `<link rel="stylesheet" href="/assets/downloads/downloads.css?v=${v(css)}">
+<main class="page dl">
+<h1 class="heading">Downloads</h1>
+<p class="dl-intro">Choose your Minecraft version and how you'd like to install Conquest Reforged. The <b>Your download</b> box shows exactly what to get, and the steps below tell you how to install it.</p>
+<div class="dl-app" id="dl-app">
+<div class="dl-col">
+<section class="dl-step" data-step="mc"><h2><span class="dl-n">Step 1</span> Minecraft version</h2><div class="dl-opts"></div></section>
+<section class="dl-step" data-step="how"><h2><span class="dl-n">Step 2</span> How to install</h2><div class="dl-opts dl-two"></div></section>
+<section class="dl-step" data-step="loader"><h2><span class="dl-n">Step 3</span> Mod loader</h2><div class="dl-opts dl-two"></div></section>
+<section class="dl-step" data-step="launcher"><h2><span class="dl-n">Step 4</span> Launcher</h2><div class="dl-opts dl-rows"></div></section>
+</div>
+<aside class="dl-panel" aria-live="polite"><div class="dl-panel-top"><img src="${g('frame-top.png')}" alt="" width="352" height="36"><span>Your download</span></div><div class="dl-panel-body">${noscript}</div></aside>
+<section class="dl-how"><h3>How to install</h3><ol></ol><p class="dl-how-foot"></p></section>
+</div>
+
+<section class="dl-sec dl-patreon${pt.placeholder ? ' dl-todo' : ''}" id="patreon">
+<div class="dl-sec-head"><img src="${g('patreon.png')}" alt="" width="145" height="145"><div><h2>Support us on Patreon</h2><p>${esc(pt.intro || '')}</p><a class="dl-btn main" href="${esc(pt.url || 'https://www.patreon.com/ConquestReforged')}" target="_blank" rel="noopener">Become a patron</a></div></div>
+<ul class="dl-tiers">${tiers}</ul>
+</section>
+
+<section class="dl-sec" id="more"><h2>More downloads</h2>
+<div class="dl-cards">
+<article class="dl-card"><h3>Conquest Reforged Resource Pack</h3><p>Connected textures, a custom sky and biome colours for the mod. It's already in the modpack: only add it if you install the mod on its own. It is not a standalone pack.</p><div class="dl-chips">${rpList}</div><a class="dl-more" href="${mpage('resourcePack')}" target="_blank" rel="noopener">All versions on Modrinth →</a></article>
+<article class="dl-card"><h3>Conquest_ resource pack</h3><p>The original Conquest_ resource pack for vanilla Minecraft: no mods needed.</p><a class="dl-btn" href="/conquest-pack">Conquest_ for Java</a><a class="dl-btn" href="/conquest-bedrock">Conquest_ for Bedrock</a></article>
+<article class="dl-card dl-conv"><h3>World converters <em class="dl-tag">Legacy</em></h3><p>${esc(conv.note || '')}</p><div class="dl-btns">${conv.items.map((c) => `<a class="dl-btn" href="${esc(c.url)}" target="_blank" rel="noopener" title="${esc(c.label)}">${esc(c.from)} → ${esc(c.to)}</a>`).join('')}</div><details><summary>Read this before converting</summary><ul>${conv.tips.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></details></article>
+</div>
+</section>
+
+<section class="dl-sec dl-help"><h2>Stuck?</h2><p>Most problems are answered in the <a href="/faq">FAQ</a> and the <a href="/guides">guides</a>. Still stuck? Ask in the <a href="https://discord.gg/ZagrZvn" target="_blank" rel="noopener">#support channel on our Discord</a>.</p></section>
+</main>
+<script type="application/json" id="dl-data">${json(snap)}</script>
+<script type="application/json" id="dl-config">${json({ memoryGB: cfg.memoryGB, optifineUpTo: cfg.optifineUpTo, legacyBefore: cfg.legacyBefore, launchers: cfg.launchers, modSteps: cfg.modSteps })}</script>
+<script src="/assets/downloads/downloads.js?v=${v(js)}" defer></script>`;
+  emit('/downloads', layout({ title: 'Downloads', description: 'Download Conquest Reforged: the modpack or the mod for every Minecraft version, with install steps for your launcher.', urlPath: '/downloads', body }));
+}
+
 // ---------- run ----------
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
@@ -908,6 +991,7 @@ buildHistoria();
 buildPersona();
 buildContests();
 buildChromeClones();
+buildDownloads();
 buildNews(posts);
 buildShowcases();
 buildServers();
