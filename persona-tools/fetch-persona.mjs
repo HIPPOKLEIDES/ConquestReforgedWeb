@@ -4,8 +4,8 @@
 //   node persona-tools/fetch-persona.mjs --no-render   catalog only (refresh which items are for sale)
 //
 // 1. Reads the catalog the same way the Discord bot does (Community Discord Bot/persona-sale.js): an anonymous
-//    guest sign-in and the unofficial Catalog/Search route. Mojang changes which items are purchasable on the
-//    1st of each month, so run this again after that (the page says which month the list is from).
+//    guest sign-in and the unofficial Catalog/Search route. We opt items in and out of sale ourselves, so run this
+//    again after changing that (the page says which month the list is from).
 // 2. Finds each item's source package (folder or .zip with Content/persona) under PERSONA_DIR by the name of its
 //    Marketplace thumbnail (".../skeleton_body_Thumbnail_0.png" -> a package whose Store Art has
 //    skeleton_body_Thumbnail_0.png). Only catalog items are shown, so unpublished work in that folder never leaks.

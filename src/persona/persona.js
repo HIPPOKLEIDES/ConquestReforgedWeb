@@ -1,19 +1,13 @@
-// /persona: turntables, slot filter, and the monthly "for sale" list going stale.
+// /persona: turntables, slot filter, and the "for sale" snapshot going stale.
 (function () {
   var root = document.querySelector('.pz');
   if (!root) return;
   var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // The list of items for sale is a snapshot (data-month, UTC "YYYY-MM"). Mojang changes it on the 1st, so once
-  // the month is over the page stops claiming those items are on sale until the snapshot is refreshed.
+  // The "for sale" list is a snapshot (data-month, UTC "YYYY-MM"). Its heading names the month, so it stays true;
+  // once that month is over, the "For sale" badges in the collection are dropped until the snapshot is refreshed.
   var month = root.getAttribute('data-month');
-  var now = new Date().toISOString().slice(0, 7);
-  if (month && now > month) {
-    root.classList.add('pz-stale');
-    var h = root.querySelector('[data-stale-title]');
-    if (h) h.textContent = h.getAttribute('data-stale-title');
-    var s = root.querySelector('[data-stale-sub]');
-    if (s) s.innerHTML = s.getAttribute('data-stale-sub');
+  if (month && new Date().toISOString().slice(0, 7) > month) {
     root.querySelectorAll('.pz-grid .on-sale').forEach(function (c) {
       c.classList.remove('on-sale');
       var b = c.querySelector('.pz-badge');
@@ -21,7 +15,7 @@
     });
   }
 
-  // turntables: "this month" cards always turn; collection cards turn on hover, or on tap on touch screens
+  // turntables: "for sale" cards always turn; collection cards turn on hover, or on tap on touch screens
   function spin(card, on) {
     var img = card.querySelector('img[data-spin]');
     if (!img || still) return;
