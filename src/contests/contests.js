@@ -156,8 +156,8 @@
 
   function art(c) {
     if (c.phase === 'closed' && c.cover) return h('div', { class: 'ct-art' }, h('img', { src: c.cover.preview, alt: '', loading: 'lazy' }), pill('closed', 'Results'));
-    if (c.phase === 'voting' && c.collage && c.collage.length) {
-      const box = h('div', { class: 'ct-art collage' }, pill('voting'));
+    if (c.collage && c.collage.length) {
+      const box = h('div', { class: 'ct-art collage' }, pill(c.phase, c.phase === 'closed' ? 'Results' : null));
       for (const x of c.collage.slice(0, 4)) { const t = h('i'); t.style.backgroundImage = cssUrl(x.preview); box.append(t); }
       return box;
     }
@@ -210,14 +210,14 @@
     document.title = `${c.title} | Conquest Reforged contests`;
     renderStatus(c);
 
-    if (c.phase === 'closed' && S.list.length) heroImage(S.list[0].preview, 'winner');
-    else if (c.phase === 'voting' && S.list.length >= 3) heroMosaic(S.list.map((e) => e.preview));
+    if (c.phase === 'closed' && S.list.length && data.results.ballots > 0) heroImage(S.list[0].preview, 'winner');
+    else if ((c.phase === 'voting' || c.phase === 'closed') && S.list.length >= 3) heroMosaic(S.list.map((e) => e.preview));
     else heroDefault();
 
     const out = [infoSection(c, data)];
     if (c.phase === 'voting') out.push(votingSection(c, data));
     else if (c.phase === 'closed') out.push(...resultsSections(c, data));
-    else out.push(upcomingSection(c, data));
+    else out.push(...upcomingSections(c, data));
     app.replaceChildren(...out);
     if (c.phase === 'voting') { syncPicks(); }
     openFromHash();
@@ -410,15 +410,17 @@
   }
 
   // ---------- before voting opens ----------
-  function upcomingSection(c, data) {
+  function upcomingSections(c, data) {
     const discord = body.dataset.discord;
     const card = h('section', { class: 'bx-sec ct-narrow' }, h('div', { class: 'ct-card', style: 'text-align:center' },
       h('h3', null, 'The entries are on their way'),
       h('p', null, `Voting opens ${fmtWhen(c.opensAt)}. Then every entry appears here, anonymous, and you can pick your top 3 with your Discord account.`),
       discord ? h('a', { class: 'bx-btn', href: discord, target: '_blank', rel: 'noopener' }, 'Get notified on Discord') : null));
-    if (!data.preview) return card;
-    return h('div', null, card, h('section', { class: 'bx-sec', style: 'margin-top:64px' }, h('h2', null, 'Staff preview'),
-      h('p', { class: 'bx-lead' }, `Only staff can see these ${data.entries.length} entries until voting opens. Voters will see them in a shuffled order.`), gallery(S.list, 'preview')));
+    if (!data.preview) return [card];
+    const n = data.entries.length;
+    return [card, h('section', { class: 'bx-sec' }, h('h2', null, 'Staff preview'),
+      h('p', { class: 'bx-lead' }, n ? `Only staff can see ${n === 1 ? 'this entry' : `these ${n} entries`} until voting opens. Voters will see them in a shuffled order.` : 'No entries yet. Add them on the contest desk.'),
+      n ? gallery(S.list, 'preview') : h('p', { style: 'text-align:center' }, h('a', { class: 'bx-btn', href: `/contests/staff?c=${encodeURIComponent(c.id)}` }, 'Open the contest desk')))];
   }
 
   // =====================================================================================

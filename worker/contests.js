@@ -75,8 +75,10 @@ async function listContests(env) {
     const item = { ...publicContest(c, now), entryCount: c.entry_count, cover: null };
     if (item.phase === 'closed') {
       const r = await getResults(env, c, now);
-      const win = r.entries.filter((e) => e.place === 1);
+      // nobody voted: no winner (everyone would be "1st"), just a few of the entries
+      const win = r.ballots > 0 ? r.entries.filter((e) => e.place === 1) : [];
       if (win[0]) item.cover = { winners: win.map((e) => ({ title: e.title, artists: e.artists })), preview: win[0].preview, w: win[0].w, h: win[0].h };
+      else item.collage = r.entries.slice(0, 4).map((e) => ({ preview: e.preview, w: e.w, h: e.h }));
       item.ballots = r.ballots;
     } else if (item.phase === 'voting') {
       // a few random entries for the card's collage (anonymous, a different pick on every load)
@@ -226,7 +228,8 @@ export async function contestPage(request, env, url) {
       : `Voting opens on ${when(c.vote_opens_at)}.`;
   let image = '';
   if (phase === 'closed') { // the winner makes the link preview once the results are public
-    const win = (await getResults(env, c, now)).entries[0];
+    const r = await getResults(env, c, now);
+    const win = r.ballots > 0 ? r.entries[0] : null;
     if (win?.preview) image = url.origin + win.preview;
   }
   const desc = `${c.theme ? `Theme: ${c.theme}. ` : ''}${line}`;

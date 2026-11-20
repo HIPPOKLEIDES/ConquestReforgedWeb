@@ -181,6 +181,20 @@ test('results: hidden until voting closes, then 3/2/1 with tie-breaks and artist
   assert.equal(list[0].cover.winners[0].artists[0], 'Artist 2');
 });
 
+test('a contest nobody voted in has no winner', async () => {
+  const env = makeEnv();
+  await seedContest(env, { n: 3 });
+  setWindow(env, 'castles', Date.now() - 2 * HOUR, Date.now() - HOUR);
+  const api = client(env);
+  const d = (await api.get('/api/contests/castles')).data;
+  assert.equal(d.results.ballots, 0);
+  const card = (await api.get('/api/contests')).data.contests[0];
+  assert.equal(card.cover, null, 'no "won by" on the list');
+  assert.equal(card.collage.length, 3);
+  const page = await (await worker.fetch(new Request(ORIGIN + '/contests/castles'), env)).text();
+  assert.match(page, /og:image" content="https:\/\/www\.example\.test\/default\.png"/, 'no winner in the link preview');
+});
+
 test('ballot CSV export for staff', async () => {
   const env = makeEnv();
   const { api, entries, staff } = await seedContest(env, { n: 3 });

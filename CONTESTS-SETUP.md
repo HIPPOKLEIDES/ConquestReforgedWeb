@@ -1,12 +1,13 @@
 # Community contests: one-time setup
 
 The contest pages (`/contests`, `/contests/<id>`, `/contests/staff`) need a Worker script, a D1 database, an
-R2 bucket and three secrets on Cloudflare, plus a redirect in the Discord Developer Portal. Do these steps
-**before merging the `contests` branch into `main`**: `main` deploys automatically, and the deploy fails
+R2 bucket and three secrets on Cloudflare, plus a redirect in the Discord Developer Portal. Steps 1–4 come
+**before the `contests` branch is merged into `main`**: `main` deploys automatically, and that deploy fails
 while `wrangler.jsonc` still has the placeholder database ID.
 
-Run the commands in this folder (`conquest-site`). `npx wrangler login` first if wrangler isn't signed in to
-the Cloudflare account that hosts conquestreforged.com.
+Run the commands in a checkout of the **`contests` branch** (it has `wrangler.jsonc` with the D1/R2 config and
+the `migrations/` folder; a checkout of `main` doesn't yet). `npx wrangler login` first if wrangler isn't
+signed in to the Cloudflare account that hosts conquestreforged.com.
 
 > **Redirect URI:** the brief named `https://conquestreforged.com/auth/discord/callback`, but
 > `conquestreforged.com` redirects to `https://www.conquestreforged.com` before the Worker runs. The Worker
@@ -47,16 +48,46 @@ Later schema changes come as new files in `migrations/`; run the same command af
 
 Use the community bot's application (ID `763152106970284063`) at https://discord.com/developers/applications:
 
-1. **OAuth2 → Client Secret → Reset Secret**, and copy it (it is shown once). The bot logs in with its bot
-   token, not with this secret, so the bot isn't affected. If anything else already uses a client secret of
-   this app, resetting replaces it there too. **Never put the bot token in the website.**
+1. **OAuth2 → Client Secret → Reset Secret**, and copy it (it is shown once; keep it for step 6). The bot logs
+   in with its bot token, not with this secret, so the bot isn't affected. If anything else already uses a
+   client secret of this app, resetting replaces it there too. **Never put the bot token in the website.**
 2. **OAuth2 → Redirects → Add Redirect**: `https://www.conquestreforged.com/auth/discord/callback`
    (adding `https://conquestreforged.com/auth/discord/callback` too does no harm). For signing in with the
    real Discord on your PC, also add `http://localhost:8787/auth/discord/callback`. Save.
 
 The site only asks for the `identify` scope (user ID, name and avatar), not email or servers.
 
-## 5. Secrets
+## 5. Merge and deploy
+
+Commit the database ID from step 1 on the `contests` branch, merge the branch into `main` and push; the
+Cloudflare build then runs `node build.mjs` and `npx wrangler deploy` as before, and the deploy now includes the
+Worker (`worker/`) with the D1 and R2 bindings. In the checkout of the `contests` branch:
+
+```powershell
+git commit -am "Contests: D1 database id"
+```
+
+Then in the checkout of `main` (`conquest-site`):
+
+```powershell
+git merge contests
+```
+
+```powershell
+git push
+```
+
+(Or push the branch and merge it as a pull request on GitHub.) To deploy from your PC instead, in an up-to-date
+checkout of `main`: `node build.mjs`, then `npx wrangler deploy`.
+
+Until step 6 is done, "Sign in with Discord" shows a "Sign-in isn't set up yet" page; the rest of the site is
+unaffected. If the Cloudflare build fails with a permissions error about D1 or R2, deploy once from your PC
+with the commands above, or give the build's API token D1 and R2 edit rights (Workers & Pages → the project →
+Settings → Builds).
+
+## 6. Secrets
+
+Each command asks for the value and applies it to the live Worker straight away:
 
 ```powershell
 npx wrangler secret put DISCORD_CLIENT_ID
@@ -76,18 +107,6 @@ Developer Mode, then right-click a user → Copy User ID). To change the staff l
 
 Secrets live on Cloudflare only and survive every deploy; never commit them. (If someone signs in on
 `/contests/staff` without being on the list, the page shows them their ID so they can send it to you.)
-
-## 6. Deploy
-
-Commit the `wrangler.jsonc` change from step 1 on the `contests` branch, then merge it into `main`. The
-Cloudflare build runs `node build.mjs` and `npx wrangler deploy` as before; the deploy now includes the Worker
-(`worker/`) with the D1 and R2 bindings.
-
-To deploy from your PC instead: `node build.mjs`, then `npx wrangler deploy`.
-
-If the Cloudflare build fails with a permissions error about D1 or R2, deploy once from your PC with the
-commands above, or give the build's API token D1 and R2 edit rights (Workers & Pages → the project →
-Settings → Builds).
 
 ## 7. Check it
 
@@ -143,7 +162,7 @@ npm run contests:dev
 ```
 
 `contests:dev` builds the site, applies the migrations to a local database (`.wrangler/`) and starts
-`wrangler dev` on http://127.0.0.1:8787. Sign-in then goes through a fake Discord page on port 8788 where you
+`wrangler dev` on http://localhost:8787 (wrangler prints 127.0.0.1; both work). Sign-in then goes through a fake Discord page on port 8788 where you
 pick a test account ("Hippo (staff)" is on the staff list). After changing anything in `src/`, run
 `node build.mjs` and restart `wrangler dev` (the build recreates `dist/`, which `wrangler dev` stops watching).
 
