@@ -132,8 +132,8 @@
         "title": "Minecraft Fashion",
         "subtitle": "Persona Items",
         "href": "/persona",
-        "bg": "/assets/persona.png",
-        "pos": "center 22%"
+        "bg": "/assets/persona/landing.webp",
+        "pos": "center 9%"
       }
     ]
   },

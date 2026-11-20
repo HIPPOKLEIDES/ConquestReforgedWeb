@@ -296,4 +296,18 @@ const data = {
 };
 fs.writeFileSync(OUT_DATA, JSON.stringify(data, null, 2) + '\n');
 console.log(`wrote ${path.relative(ROOT, OUT_DATA)} (${data.month})`);
+
+// landing page picture (site.json bedrockCard, "Minecraft Fashion"): the items for sale on shelves, heads first.
+// Nothing for sale: the newest items instead.
+{
+  const order = ['Head', 'Outerwear', 'Back', 'Hood', 'Legs', 'Feet'];
+  const rank = (i) => (order.includes(i.slot) ? order.indexOf(i.slot) : order.length);
+  const rendered = data.items.filter((i) => i.img);
+  const pick = (rendered.some((i) => i.purchasable) ? rendered.filter((i) => i.purchasable) : rendered.slice(0, 5)).slice(0, 7).sort((a, b) => rank(a) - rank(b));
+  if (pick.length) {
+    try {
+      execFileSync(process.platform === 'win32' ? 'python' : 'python3', ['-I', path.join(ROOT, 'persona-tools', 'landing-image.py'), path.join(OUT_IMG, 'landing.webp'), ...pick.map((i) => path.join(ROOT, 'src', i.img))], { stdio: 'inherit' });
+    } catch (e) { console.log(`landing picture not made: ${e.message}`); }
+  }
+}
 if (missing.length) console.log(`no render (catalog thumbnail used): ${missing.join(', ')}`);

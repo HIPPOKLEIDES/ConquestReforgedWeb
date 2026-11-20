@@ -872,12 +872,15 @@ function landingCard() {
   const css = readText('landing', 'bedrock-card.css'), js = readText('landing', 'bedrock-card.js');
   const v = (s) => crypto.createHash('md5').update(s).digest('hex').slice(0, 8);
   for (const e of c.entries) for (const u of [e.bg, e.logo, e.badge, c.headLogo]) if (u && !exists(u.slice(1))) warnings.push(`bedrockCard: missing image ${u}`);
+  // images are cached as immutable: version them by content so a replaced picture (e.g. persona/landing.webp) shows up
+  const ver = (u) => (u && exists(u.slice(1)) ? `${u}?v=${crypto.createHash('md5').update(fs.readFileSync(path.join(SRC, u))).digest('hex').slice(0, 8)}` : u);
+  const cv = { ...c, headLogo: ver(c.headLogo), entries: c.entries.map((e) => ({ ...e, bg: ver(e.bg), logo: ver(e.logo), badge: ver(e.badge) })) };
   fs.mkdirSync(path.join(DIST, 'assets', 'landing'), { recursive: true });
   fs.writeFileSync(path.join(DIST, 'assets', 'landing', 'bedrock-card.css'), css);
   fs.writeFileSync(path.join(DIST, 'assets', 'landing', 'bedrock-card.js'), js);
   return {
     head: `<link rel="stylesheet" href="/assets/landing/bedrock-card.css?v=${v(css)}">`,
-    body: `<script>window.BX_CARD=${JSON.stringify(c).replace(/</g, '\\u003c')};</script><script src="/assets/landing/bedrock-card.js?v=${v(js)}"></script>`,
+    body: `<script>window.BX_CARD=${JSON.stringify(cv).replace(/</g, '\\u003c')};</script><script src="/assets/landing/bedrock-card.js?v=${v(js)}"></script>`,
   };
 }
 const wsSkip = (p) => CHROME_CLONES.includes(path.relative(WS, p).split(path.sep)[0]);
