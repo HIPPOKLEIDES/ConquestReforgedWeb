@@ -1,7 +1,37 @@
 {
   "_about": "Settings for /downloads (build.mjs buildDownloads(), src/downloads/). Version data comes from Modrinth: src/data/downloads.json (downloads-tools/fetch-downloads.mjs), refreshed live in the browser.",
   "memoryGB": 8,
-  "optifineUpTo": "1.18.2",
+  "resourcePackBuiltInFrom": "1.20.1",
+  "_betas": "Shown as locked Beta tiles in the version list, for patrons on the named Patreon tier and up. A version drops out of this list on its own once Modrinth has it.",
+  "betas": [
+    {
+      "mc": "26.1.2",
+      "tier": "Footman"
+    },
+    {
+      "mc": "1.21.1",
+      "tier": "Footman"
+    }
+  ],
+  "_optifine": "Versions that need OptiFine: linked in the download box and the install steps.",
+  "optifine": {
+    "1.16.5": {
+      "name": "OptiFine 1.16.5 HD U G8",
+      "url": "https://optifine.net/adloadx?f=OptiFine_1.16.5_HD_U_G8.jar"
+    },
+    "1.15.2": {
+      "name": "OptiFine 1.15.2 HD U G6",
+      "url": "https://optifine.net/adloadx?f=OptiFine_1.15.2_HD_U_G6.jar"
+    },
+    "1.12.2": {
+      "name": "OptiFine 1.12.2 HD U G5",
+      "url": "https://optifine.net/adloadx?f=OptiFine_1.12.2_HD_U_G5.jar"
+    },
+    "1.10.2": {
+      "name": "OptiFine 1.10.2 HD U I5",
+      "url": "https://optifine.net/adloadx?f=OptiFine_1.10.2_HD_U_I5.jar"
+    }
+  },
   "launchers": [
     {
       "id": "modrinth",
@@ -13,13 +43,13 @@
         "Install and open the <a href=\"https://modrinth.com/app\" target=\"_blank\" rel=\"noopener\">Modrinth App</a>.",
         "Open the <a href=\"{packPage}\" target=\"_blank\" rel=\"noopener\">{packTitle}</a> page and click <b>Install</b>, or search for <b>Conquest Reforged</b> in the app.",
         "Before you play, set the memory to about <b>{memory} GB</b> in the instance's Java settings."
-      ]
+      ],
+      "recommended": true
     },
     {
       "id": "prism",
       "name": "Prism Launcher",
       "url": "https://prismlauncher.org/download/",
-      "recommended": true,
       "icon": "/assets/64c9a8e6d1684380f8aa341f_prism_launcher.avif",
       "blurb": "Free, open source, and keeps each version in its own instance.",
       "steps": [
@@ -32,7 +62,6 @@
       "id": "atlauncher",
       "name": "ATLauncher",
       "url": "https://atlauncher.com/downloads",
-      "recommended": true,
       "icon": "/assets/64c9a8e5191d9bc9548877d1_at_launcher.avif",
       "blurb": "A launcher built around modpacks.",
       "steps": [
@@ -45,37 +74,60 @@
   "modSteps": [
     "Install <b>{loaderName}</b> for Minecraft <b>{mc}</b>.",
     "Put the Conquest Reforged .jar and the required mods listed in the download box into your <b>mods</b> folder.",
-    "For connected textures, the sky and the biome colours, add the <b>Conquest Reforged Resource Pack</b> (below){ctm}.",
+    {
+      "when": "optifine",
+      "text": "Put <a href=\"{optifineUrl}\" target=\"_blank\" rel=\"noopener\">{optifineName}</a> in the <b>mods</b> folder too. Conquest Reforged needs it on this Minecraft version."
+    },
+    {
+      "when": "continuity",
+      "text": "Add <a href=\"https://modrinth.com/mod/continuity\" target=\"_blank\" rel=\"noopener\">Continuity</a> to the <b>mods</b> folder as well: on Fabric, the resource pack needs it for connected textures."
+    },
+    {
+      "when": "resourcePack",
+      "text": "Put the <b>Conquest Reforged Resource Pack</b> for {mc} (in the download box) in your <b>resourcepacks</b> folder and turn it on under <b>Options → Resource Packs</b>. Without it you miss the connected textures, the sky and the biome colors."
+    },
     "Give Minecraft about <b>{memory} GB</b> of memory."
   ],
   "patreon": {
     "url": "https://www.patreon.com/ConquestReforged",
-    "placeholder": true,
-    "intro": "[Placeholder: one or two sentences on what Patreon support gives people, e.g. early access builds. To be filled in by the team.]",
+    "join": "https://www.patreon.com/ConquestReforged/membership",
+    "intro": "Support the team on Patreon. Footman and Knight patrons get our development builds when they are available, including the betas for {betas}.",
     "tiers": [
       {
-        "name": "[Tier name]",
-        "price": "[$ / month]",
+        "name": "Squire",
+        "price": "$1",
+        "icon": "tier-squire.png",
+        "blurb": "Emotional support for our efforts",
         "perks": [
-          "[What this tier unlocks]",
-          "[Where patrons get the files]"
+          "Patron colors on our community Discord server",
+          "Discord access"
         ]
       },
       {
-        "name": "[Tier name]",
-        "price": "[$ / month]",
+        "name": "Footman",
+        "price": "$5",
+        "icon": "tier-footman.png",
+        "badge": "Most popular",
+        "blurb": "Soft support for our development",
         "perks": [
-          "[What this tier unlocks]"
+          "Development builds of Conquest Reforged when they are available",
+          "Patron colors on our community Discord server",
+          "Discord access"
         ]
       },
       {
-        "name": "[Tier name]",
-        "price": "[$ / month]",
+        "name": "Knight",
+        "price": "$10",
+        "icon": "tier-knight.png",
+        "blurb": "Hard support for our efforts and development",
         "perks": [
-          "[What this tier unlocks]"
+          "All of our development builds (not just Conquest Reforged) when they are available",
+          "Patron colors on our community Discord server",
+          "Discord access"
         ]
       }
-    ]
+    ],
+    "gift": "You can also gift a membership to Conquest Reforged on Patreon."
   },
   "converters": {
     "note": "Made years ago for much older versions of Minecraft and no longer updated. From 1.15 on you don't need them: open your world in each newer version in turn (1.15 → 1.16 → 1.17 → …).",

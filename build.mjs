@@ -923,18 +923,26 @@ function buildDownloads() {
   const mpage = (k) => `https://modrinth.com/${d.projects[k].type}/${d.projects[k].slug}`;
   const g = (n) => `/assets/downloads/gui/${n}`;
 
-  // resource pack: newest per Minecraft version
+  // resource pack: newest per Minecraft version, only for the versions before it was built into the mod
+  const mcNum = (s) => s.split('.').map(Number);
+  const mcBefore = (a, b) => { const x = mcNum(a), y = mcNum(b); for (let i = 0; i < 3; i++) if ((x[i] || 0) !== (y[i] || 0)) return (x[i] || 0) < (y[i] || 0); return false; };
   const rp = [];
   for (const x of d.versions.resourcePack || []) {
     const mc = x.mc[x.mc.length - 1];
+    if (cfg.resourcePackBuiltInFrom && !mcBefore(mc, cfg.resourcePackBuiltInFrom)) continue;
     if (!rp.some((r) => r.mc === mc)) rp.push({ mc, x });
   }
+  rp.sort((a, b) => (mcBefore(a.mc, b.mc) ? 1 : -1));
   const rpList = rp.map(({ mc, x }) => {
     const f = x.files.find((ff) => ff.primary) || x.files[0];
     return `<a class="dl-chip" href="${f.url}"><b>${esc(mc)}</b><span>${esc(x.version)} · ${size(f.size)}</span></a>`;
   }).join('');
   const pt = cfg.patreon || {};
-  const tiers = (pt.tiers || []).map((t) => `<li class="dl-tier"><img src="${g('lock.png')}" alt="" width="40" height="40"><h4>${esc(t.name)}</h4><p class="dl-price">${esc(t.price)}</p><ul>${t.perks.map((p) => `<li>${esc(p)}</li>`).join('')}</ul></li>`).join('');
+  const join = pt.join || pt.url;
+  const betaList = (cfg.betas || []).map((b) => b.mc);
+  const betaText = betaList.length ? `Minecraft ${betaList.slice(0, -1).join(', ')}${betaList.length > 1 ? ' and ' : ''}${betaList[betaList.length - 1]}` : '';
+  const intro = (pt.intro || '').replace(betaList.length ? '{betas}' : /,? including the betas for \{betas\}/, betaText);
+  const tiers = (pt.tiers || []).map((t) => `<li class="dl-tier${t.badge ? ' hot' : ''}">${t.badge ? `<em class="dl-tier-badge">${esc(t.badge)}</em>` : ''}<div class="dl-tier-art"><img src="${g(t.icon || 'lock.png')}" alt="" width="96" height="96"></div><h3>${esc(t.name)}</h3><p class="dl-price"><b>${esc(t.price)}</b> / month</p><p class="dl-tier-blurb">${esc(t.blurb || '')}</p><ul>${t.perks.map((p) => `<li>${esc(p)}</li>`).join('')}</ul><a class="dl-btn${t.badge ? ' main' : ''}" href="${esc(join)}" target="_blank" rel="noopener">Join</a></li>`).join('');
   const conv = cfg.converters || { items: [], tips: [] };
   const noscript = `<noscript><p class="dl-nojs">This page needs JavaScript to pick a version. Without it, get the <a href="${mpage('packFabric')}">Fabric modpack</a> or the <a href="${mpage('packForge')}">Forge modpack</a> on Modrinth, or <a href="${mpage('mod')}">the mod itself</a>.</p></noscript>`;
 
@@ -953,14 +961,15 @@ function buildDownloads() {
 <section class="dl-how"><h3>How to install</h3><ol></ol><p class="dl-how-foot"></p></section>
 </div>
 
-<section class="dl-sec dl-patreon${pt.placeholder ? ' dl-todo' : ''}" id="patreon">
-<div class="dl-sec-head"><img src="${g('patreon.png')}" alt="" width="145" height="145"><div><h2>Support us on Patreon</h2><p>${esc(pt.intro || '')}</p><a class="dl-btn main" href="${esc(pt.url || 'https://www.patreon.com/ConquestReforged')}" target="_blank" rel="noopener">Become a patron</a></div></div>
+<section class="dl-sec dl-patreon" id="patreon">
+<div class="dl-sec-head"><img src="${g('patreon.png')}" alt="" width="145" height="145"><div><h2>Support us on Patreon</h2><p>${esc(intro)}</p></div></div>
 <ul class="dl-tiers">${tiers}</ul>
+${pt.gift ? `<p class="dl-gift"><a href="${esc(pt.url)}" target="_blank" rel="noopener">${esc(pt.gift)}</a></p>` : ''}
 </section>
 
 <section class="dl-sec" id="more"><h2>More downloads</h2>
 <div class="dl-cards">
-<article class="dl-card"><h3>Conquest Reforged Resource Pack</h3><p>Connected textures, a custom sky and biome colours for the mod. It's already in the modpack: only add it if you install the mod on its own. It is not a standalone pack.</p><div class="dl-chips">${rpList}</div><a class="dl-more" href="${mpage('resourcePack')}" target="_blank" rel="noopener">All versions on Modrinth →</a></article>
+<article class="dl-card"><h3>Conquest Reforged Resource Pack</h3><p>Connected textures, a custom sky and biome colors for the mod. ${cfg.resourcePackBuiltInFrom ? `From Minecraft ${esc(cfg.resourcePackBuiltInFrom)} on it's built into the mod; for older versions you need it. ` : ''}The modpacks already include it. It is not a standalone pack.</p><div class="dl-chips">${rpList}</div><a class="dl-more" href="${mpage('resourcePack')}" target="_blank" rel="noopener">All versions on Modrinth →</a></article>
 <article class="dl-card"><h3>Conquest_ resource pack</h3><p>The original Conquest_ resource pack. Conquest Reforged is its spiritual successor.</p><a class="dl-btn" href="/conquest-pack">Conquest_ for Java</a><a class="dl-btn" href="/conquest-bedrock">Conquest_ for Bedrock</a></article>
 <article class="dl-card dl-conv"><h3>World converters <em class="dl-tag">Legacy</em></h3><p>${esc(conv.note || '')}</p><div class="dl-btns">${conv.items.map((c) => `<a class="dl-btn" href="${esc(c.url)}" target="_blank" rel="noopener" title="${esc(c.label)}">${esc(c.from)} → ${esc(c.to)}</a>`).join('')}</div><details><summary>Read this before converting</summary><ul>${conv.tips.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></details></article>
 </div>
@@ -969,7 +978,7 @@ function buildDownloads() {
 <section class="dl-sec dl-help"><h2>Stuck?</h2><p>Most problems are answered in the <a href="/faq">FAQ</a> and the <a href="/guides">guides</a>. Still stuck? Ask in the <a href="https://discord.gg/ZagrZvn" target="_blank" rel="noopener">#support channel on our Discord</a>.</p></section>
 </main>
 <script type="application/json" id="dl-data">${json(snap)}</script>
-<script type="application/json" id="dl-config">${json({ memoryGB: cfg.memoryGB, optifineUpTo: cfg.optifineUpTo, launchers: cfg.launchers, modSteps: cfg.modSteps })}</script>
+<script type="application/json" id="dl-config">${json({ memoryGB: cfg.memoryGB, resourcePackBuiltInFrom: cfg.resourcePackBuiltInFrom, betas: cfg.betas || [], optifine: cfg.optifine || {}, tiers: (pt.tiers || []).map((t) => ({ name: t.name, price: t.price })), patreonJoin: join, launchers: cfg.launchers, modSteps: cfg.modSteps })}</script>
 <script src="/assets/downloads/downloads.js?v=${v(js)}" defer></script>`;
   emit('/downloads', layout({ title: 'Downloads', description: 'Download Conquest Reforged: the modpack or the mod for every Minecraft version, with install steps for your launcher.', urlPath: '/downloads', body }));
 }

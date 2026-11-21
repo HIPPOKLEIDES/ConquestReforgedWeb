@@ -51,6 +51,12 @@ body.ws main.page.dl { max-width: 1120px; }
 .dl-opt.big b { font-size: 1.5rem; }
 .dl-tag { display: inline-block; margin-left: 8px; padding: 2px 7px 1px; vertical-align: 3px; font: 600 .66rem/1.3 system-ui, sans-serif; font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); border: 1px solid rgba(179, 165, 133, .5); border-radius: 2px; }
 .dl-tag.gold { color: #1b1408; background: var(--gold); border-color: #7a5512; }
+.dl-tag.beta { color: #fff3e0; background: #8c2a1a; border-color: #3d0f08; }
+/* Patreon betas: locked entries above the latest release */
+.dl-betas { margin-bottom: 10px; }
+.dl-opt.beta { min-height: 0; }
+.dl-opt.beta small { display: flex; align-items: center; gap: 6px; color: #d9a48f; }
+.dl-opt.beta small img { float: none; flex: none; width: 20px; height: 20px; margin: 0; border-radius: 0; }
 .dl-older { margin-top: 10px; }
 .dl-older summary { cursor: pointer; padding: 4px 2px; font-size: .98rem; color: var(--dim); }
 .dl-older summary:hover { color: var(--ink); }
@@ -90,6 +96,16 @@ body.ws main.page.dl { max-width: 1120px; }
 .dl-btn.main:hover { filter: drop-shadow(0 0 14px rgba(255, 216, 138, .6)) brightness(1.1); }
 .dl-log { display: block; margin-top: 10px; font-size: .92rem; color: var(--gold); }
 .dl-panel h4 { margin: 16px 0 6px; font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.dl-extra ul { display: grid; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.dl-extra li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 6px 6px 6px 10px; background: rgba(0, 0, 0, .35); border: 1px solid #000; }
+.dl-extra li span { min-width: 0; }
+.dl-extra li b { display: block; font-size: .92rem; font-weight: 600; line-height: 1.25; color: var(--ink); }
+.dl-extra li small { display: block; font-size: .78rem; color: var(--dim); }
+.dl-btn.sm { flex: none; min-height: 34px; padding: 0 2px; font-size: .95rem; border-width: 6px 14px; border-image-width: 6px 14px; }
+.dl-locked { display: flex; align-items: flex-start; gap: 12px; margin: 12px 0; padding: 10px 12px; background: rgba(0, 0, 0, .35); border: 1px solid #000; }
+.dl-locked img { flex: none; width: 40px; height: 40px; image-rendering: pixelated; }
+.dl-locked p { margin: 0; font-size: .95rem; line-height: 1.45; color: var(--ink); }
+.dl-locked b { color: var(--gold-hi); }
 .dl-deps ul { display: flex; flex-wrap: wrap; gap: 4px 6px; list-style: none; margin: 0; padding: 0; }
 .dl-deps li { font-size: .86rem; }
 .dl-deps a { display: inline-block; padding: 2px 7px; color: var(--ink); background: rgba(0, 0, 0, .35); border: 1px solid #000; border-radius: 2px; text-decoration: none; }
@@ -121,18 +137,26 @@ body.ws main.page.dl { max-width: 1120px; }
 .dl-sec-head img { flex: none; width: 145px; height: 145px; image-rendering: pixelated; }
 .dl-sec-head p { margin: 0 0 14px; font-size: 1.05rem; line-height: 1.5; color: #333; }
 .dl-sec-head .dl-btn { display: inline-flex; min-width: 220px; }
-.dl-tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; list-style: none; margin: 0; padding: 0; }
+.dl-patreon { scroll-margin-top: 100px; }
+.dl-tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; list-style: none; margin: 0; padding: 14px 0 0; }
 .dl-tier {
-  position: relative; padding: 18px 18px 16px; color: var(--ink); background: linear-gradient(180deg, #2a2721, #1b1a16);
+  position: relative; display: flex; flex-direction: column; padding: 5px 5px 18px; color: var(--ink); background: linear-gradient(180deg, #2a2721, #1b1a16);
   box-shadow: inset 0 0 0 2px #000, inset 0 0 0 3px var(--iron), inset 0 0 0 5px #111, 0 8px 20px rgba(0, 0, 0, .25);
 }
-.dl-tier img { float: right; width: 40px; height: 40px; image-rendering: pixelated; }
-.dl-tier h4 { margin: 0; font: 400 1.35rem/1.1 "Nyala 0", "Times New Roman", serif; color: var(--gold-hi); }
-.dl-price { margin: 2px 0 10px; color: var(--dim); }
-.dl-tier ul { margin: 0; padding-left: 1.1em; font-size: .95rem; line-height: 1.45; }
-/* placeholder content (the team still has to fill it in) */
-.dl-todo { position: relative; outline: 2px dashed #c0392b; outline-offset: 10px; }
-.dl-todo::before { content: "Placeholder: needs real Patreon details"; position: absolute; top: -26px; right: 0; padding: 2px 8px; font: 600 .72rem/1.4 system-ui, sans-serif; color: #fff; background: #c0392b; border-radius: 2px; }
+.dl-tier.hot { box-shadow: inset 0 0 0 2px #000, inset 0 0 0 3px var(--gold), inset 0 0 0 5px #111, 0 0 0 1px #7a5512, 0 10px 26px rgba(122, 85, 18, .35); }
+.dl-tier-badge { position: absolute; z-index: 1; top: -11px; left: 50%; transform: translateX(-50%); padding: 3px 10px 2px; white-space: nowrap; font: 600 .7rem/1.3 system-ui, sans-serif; font-style: normal; letter-spacing: .14em; text-transform: uppercase; color: #1b1408; background: var(--gold); border: 1px solid #7a5512; border-radius: 2px; }
+.dl-tier-art { display: flex; align-items: center; justify-content: center; height: 132px; margin-bottom: 14px; background: linear-gradient(180deg, rgba(10, 9, 7, .35), rgba(10, 9, 7, .6)), url(/assets/downloads/gui/tile.png) 0 0 / 64px 64px; image-rendering: pixelated; }
+.dl-tier-art img { width: 96px; height: 96px; image-rendering: pixelated; filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .6)); }
+.dl-tier h3, .dl-tier p, .dl-tier ul { margin-left: 14px; margin-right: 14px; }
+.dl-tier h3 { margin-top: 0; margin-bottom: 2px; font: 400 1.6rem/1.1 "Nyala 0", "Times New Roman", serif; color: var(--gold-hi); text-shadow: 0 1px 0 #000; }
+.dl-price { margin-top: 0; margin-bottom: 10px; color: var(--dim); }
+.dl-price b { font-size: 1.6rem; font-weight: 700; color: var(--ink); }
+.dl-tier-blurb { margin-top: 0; margin-bottom: 8px; font-style: italic; color: var(--dim); }
+.dl-tier ul { margin-top: 0; margin-bottom: 16px; padding-left: 1.1em; font-size: .95rem; line-height: 1.45; }
+.dl-tier li + li { margin-top: 4px; }
+.dl-tier .dl-btn { margin: auto 14px 0; }
+.dl-gift { margin: 18px 0 0; text-align: center; font-size: 1rem; }
+.dl-gift a { color: #8a3a12; }
 
 .dl-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .dl-card {
