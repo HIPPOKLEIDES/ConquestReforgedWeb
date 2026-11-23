@@ -84,7 +84,7 @@
     var launcher = picked && avail.some(function (l) { return l.id === picked; }) ? picked : (avail.filter(function (l) { return l.recommended; })[0] || avail[0]).id;
     state = { mc: mc, how: how, loader: loader, launcher: launcher };
   }
-  // arriving on another anchor (/downloads#patreon) leaves the address alone until something is picked
+  // arriving on another anchor (/downloads#more) leaves the address alone until something is picked
   var keepHash = !!location.hash && !/(^#|&)mc=/.test(location.hash);
   function writeHash() {
     if (keepHash) return;
@@ -124,7 +124,7 @@
     var src = packLoaders.length ? packSource(state.mc, packLoaders[0]) : null;
     var pv = src === 'modrinth' ? newest(data.versions[packKey(packLoaders[0])], state.mc) : null;
     var packText = !src ? 'There is no modpack for this Minecraft version. Install the mod on its own.'
-      : src === 'curseforge' ? 'Conquest Reforged and the mods it needs, all set up. It\'s on CurseForge and installs through a launcher.'
+      : src === 'curseforge' ? 'Conquest Reforged, its resource pack and the mods it needs, all set up. It\'s on CurseForge and installs through a launcher.'
       : 'Conquest Reforged' + (rpFor(state.mc) ? ', its resource pack' : '') + ' and about ' + modCount(pv) + ' mods for performance, shaders and connected textures, all set up. Installs through a launcher.';
     var hows = opt('how', 'pack', state.how === 'pack', '<b>Modpack</b>' + (src ? tag('Recommended', 'gold') : tag('Not for ' + esc(state.mc))) + '<small>' + packText + '</small>', src ? '' : ' off')
       + opt('how', 'mod', state.how === 'mod', '<b>Just the mod</b><small>The Conquest Reforged .jar, for your own modpack or a server. You add the required mods yourself.</small>', modLoaders.length ? '' : ' off');
@@ -155,7 +155,7 @@
     root.querySelector('.dl-panel-body').innerHTML = '<ul class="dl-sum"><li><span>Conquest Reforged</span><b>Beta</b></li><li><span>Minecraft ' + esc(b.mc) + '</span><b>Patreon</b></li></ul>'
       + featList(b.mc) + '<div class="dl-locked"><img src="/assets/downloads/gui/lock.png" alt="" width="40" height="40"><p>The development builds for Minecraft ' + esc(b.mc) + ' are for patrons on the <b>' + esc(b.tier) + '</b> tier'
       + (t.price ? ' (' + esc(t.price) + ' a month)' : '') + ' or higher.</p></div>'
-      + '<div class="dl-btns"><a class="dl-btn main" href="' + esc(cfg.patreonJoin) + '" target="_blank" rel="noopener">Join on Patreon</a><a class="dl-btn" href="#patreon" data-jump="patreon">Compare the tiers</a></div>'
+      + '<div class="dl-btns"><a class="dl-btn main" href="' + esc(cfg.patreonJoin) + '" target="_blank" rel="noopener">Join on Patreon</a></div>'
       + '<div class="dl-note"><h4>It\'s a beta</h4><p>Development builds are still being worked on. Back up your worlds before you try one.</p></div>';
   }
 
@@ -241,12 +241,6 @@
   function render() { renderSteps(); renderPanel(); writeHash(); fitSticky(); }
 
   root.addEventListener('click', function (e) {
-    var j = e.target.closest('[data-jump]');
-    if (j) {
-      var to = document.getElementById(j.getAttribute('data-jump'));
-      if (to) { e.preventDefault(); to.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-      return;
-    }
     var b = e.target.closest('.dl-opt');
     if (!b || b.classList.contains('off') || !root.contains(b)) return;
     var want = Object.assign({}, state);

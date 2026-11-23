@@ -939,10 +939,6 @@ function buildDownloads() {
   }).join('');
   const pt = cfg.patreon || {};
   const join = pt.join || pt.url;
-  const betaList = (cfg.betas || []).map((b) => b.mc);
-  const betaText = betaList.length ? `Minecraft ${betaList.slice(0, -1).join(', ')}${betaList.length > 1 ? ' and ' : ''}${betaList[betaList.length - 1]}` : '';
-  const intro = (pt.intro || '').replace(betaList.length ? '{betas}' : /,? including the betas for \{betas\}/, betaText);
-  const tiers = (pt.tiers || []).map((t) => `<li class="dl-tier${t.badge ? ' hot' : ''}">${t.badge ? `<em class="dl-tier-badge">${esc(t.badge)}</em>` : ''}<div class="dl-tier-art"><img src="${g(t.icon || 'lock.png')}" alt="" width="96" height="96"></div><h3>${esc(t.name)}</h3><p class="dl-price"><b>${esc(t.price)}</b> / month</p><p class="dl-tier-blurb">${esc(t.blurb || '')}</p><ul>${t.perks.map((p) => `<li>${esc(p)}</li>`).join('')}</ul><a class="dl-btn${t.badge ? ' main' : ''}" href="${esc(join)}" target="_blank" rel="noopener">Join</a></li>`).join('');
   const conv = cfg.converters || { items: [], tips: [] };
   const noscript = `<noscript><p class="dl-nojs">This page needs JavaScript to pick a version. Without it, get the <a href="${mpage('packFabric')}">Fabric modpack</a> or the <a href="${mpage('packForge')}">Forge modpack</a> on Modrinth, or <a href="${mpage('mod')}">the mod itself</a>.</p></noscript>`;
 
@@ -960,12 +956,6 @@ function buildDownloads() {
 <aside class="dl-panel" aria-live="polite"><div class="dl-panel-top"><img src="${g('frame-top.png')}" alt="" width="352" height="36"><span>Your download</span></div><div class="dl-panel-body">${noscript}</div></aside>
 <section class="dl-how"><h3>How to install</h3><ol></ol><p class="dl-how-foot"></p></section>
 </div>
-
-<section class="dl-sec dl-patreon" id="patreon">
-<div class="dl-sec-head"><img src="${g('patreon.png')}" alt="" width="145" height="145"><div><h2>Support us on Patreon</h2><p>${esc(intro)}</p></div></div>
-<ul class="dl-tiers">${tiers}</ul>
-${pt.gift ? `<p class="dl-gift"><a href="${esc(pt.url)}" target="_blank" rel="noopener">${esc(pt.gift)}</a></p>` : ''}
-</section>
 
 <section class="dl-sec" id="more"><h2>More downloads</h2>
 <div class="dl-cards">

@@ -193,45 +193,23 @@
     "Give Minecraft about <b>{memory} GB</b> of memory."
   ],
   "patreon": {
+    "_about": "Used by the Patreon beta entries: the Join link and the price of the tier each beta names.",
     "url": "https://www.patreon.com/ConquestReforged",
     "join": "https://www.patreon.com/ConquestReforged/membership",
-    "intro": "Support the team on Patreon. Footman and Knight patrons get our development builds when they are available, including the betas for {betas}.",
     "tiers": [
       {
         "name": "Squire",
-        "price": "$1",
-        "icon": "tier-squire.png",
-        "blurb": "Emotional support for our efforts",
-        "perks": [
-          "Patron colors on our community Discord server",
-          "Discord access"
-        ]
+        "price": "$1"
       },
       {
         "name": "Footman",
-        "price": "$5",
-        "icon": "tier-footman.png",
-        "badge": "Most popular",
-        "blurb": "Soft support for our development",
-        "perks": [
-          "Development builds of Conquest Reforged when they are available",
-          "Patron colors on our community Discord server",
-          "Discord access"
-        ]
+        "price": "$5"
       },
       {
         "name": "Knight",
-        "price": "$10",
-        "icon": "tier-knight.png",
-        "blurb": "Hard support for our efforts and development",
-        "perks": [
-          "All of our development builds (not just Conquest Reforged) when they are available",
-          "Patron colors on our community Discord server",
-          "Discord access"
-        ]
+        "price": "$10"
       }
-    ],
-    "gift": "You can also gift a membership to Conquest Reforged on Patreon."
+    ]
   },
   "converters": {
     "note": "Made years ago for much older versions of Minecraft and no longer updated. From 1.15 on you don't need them: open your world in each newer version in turn (1.15 → 1.16 → 1.17 → …).",
