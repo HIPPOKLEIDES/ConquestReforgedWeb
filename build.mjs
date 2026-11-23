@@ -978,7 +978,7 @@ ${pt.gift ? `<p class="dl-gift"><a href="${esc(pt.url)}" target="_blank" rel="no
 <section class="dl-sec dl-help"><h2>Stuck?</h2><p>Most problems are answered in the <a href="/faq">FAQ</a> and the <a href="/guides">guides</a>. Still stuck? Ask in the <a href="https://discord.gg/ZagrZvn" target="_blank" rel="noopener">#support channel on our Discord</a>.</p></section>
 </main>
 <script type="application/json" id="dl-data">${json(snap)}</script>
-<script type="application/json" id="dl-config">${json({ memoryGB: cfg.memoryGB, resourcePackBuiltInFrom: cfg.resourcePackBuiltInFrom, betas: cfg.betas || [], optifine: cfg.optifine || {}, tiers: (pt.tiers || []).map((t) => ({ name: t.name, price: t.price })), patreonJoin: join, launchers: cfg.launchers, modSteps: cfg.modSteps })}</script>
+<script type="application/json" id="dl-config">${json({ memoryGB: cfg.memoryGB, resourcePackBuiltInFrom: cfg.resourcePackBuiltInFrom, betas: cfg.betas || [], optifine: cfg.optifine || {}, features: cfg.features || {}, curseforge: cfg.curseforge || null, tiers: (pt.tiers || []).map((t) => ({ name: t.name, price: t.price })), patreonJoin: join, launchers: cfg.launchers, modSteps: cfg.modSteps })}</script>
 <script src="/assets/downloads/downloads.js?v=${v(js)}" defer></script>`;
   emit('/downloads', layout({ title: 'Downloads', description: 'Download Conquest Reforged: the modpack or the mod for every Minecraft version, with install steps for your launcher.', urlPath: '/downloads', body }));
 }

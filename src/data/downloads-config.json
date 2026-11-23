@@ -13,8 +13,12 @@
       "tier": "Footman"
     }
   ],
-  "_optifine": "Versions that need OptiFine: linked in the download box and the install steps.",
+  "_optifine": "Versions that need OptiFine (everything before 1.19; from 1.19 on the mod is on Fabric and uses Continuity). Linked in the download box and the install steps, for the mod and for the CurseForge modpacks (OptiFine is not on CurseForge).",
   "optifine": {
+    "1.18.2": {
+      "name": "OptiFine 1.18.2 HD U H9",
+      "url": "https://optifine.net/adloadx?f=OptiFine_1.18.2_HD_U_H9.jar"
+    },
     "1.16.5": {
       "name": "OptiFine 1.16.5 HD U G8",
       "url": "https://optifine.net/adloadx?f=OptiFine_1.16.5_HD_U_G8.jar"
@@ -32,6 +36,77 @@
       "url": "https://optifine.net/adloadx?f=OptiFine_1.10.2_HD_U_I5.jar"
     }
   },
+  "_features": "What each Minecraft version offers beyond building: \"tag\" is the short label on the version tile, \"text\" the line in the download box.",
+  "features": {
+    "26.1.2": [
+      {
+        "tag": "Survival",
+        "text": "Survival recipes and mechanics"
+      },
+      {
+        "tag": "Enhanced world gen",
+        "text": "Enhanced world generation"
+      },
+      {
+        "tag": "More animals",
+        "text": "More animals"
+      }
+    ],
+    "1.20.1": [
+      {
+        "tag": "Basic survival",
+        "text": "Basic survival recipes, in the stonecutter"
+      }
+    ],
+    "1.12.2": [
+      {
+        "tag": "Survival",
+        "text": "Survival mechanics and recipes"
+      },
+      {
+        "tag": "Custom world gen",
+        "text": "The old custom world generation"
+      }
+    ]
+  },
+  "_curseforge": "Older modpacks that are only on CurseForge (Forge). Used when Modrinth has no modpack for that Minecraft version.",
+  "curseforge": {
+    "project": "https://www.curseforge.com/minecraft/modpacks/conquest-reforged-official-modpack",
+    "packs": {
+      "1.18.2": {
+        "loader": "forge",
+        "version": "1.0.4",
+        "id": 4048649,
+        "file": "Conquest Reforged Modpack-1.18.2 v1.0.4.zip",
+        "size": "418 KB",
+        "date": "2022-10-24"
+      },
+      "1.16.5": {
+        "loader": "forge",
+        "version": "1.0.7",
+        "id": 3899772,
+        "file": "Conquest Reforged Modpack-1.16.5 v1.0.7.zip",
+        "size": "2 MB",
+        "date": "2022-07-25"
+      },
+      "1.15.2": {
+        "loader": "forge",
+        "version": "1.1.5",
+        "id": 3632675,
+        "file": "Conquest Reforged Modpack 1.15.2 -v.1.1.5.zip",
+        "size": "2 MB",
+        "date": "2022-02-01"
+      },
+      "1.12.2": {
+        "loader": "forge",
+        "version": "3.0.4",
+        "id": 4719065,
+        "file": "Conquest Reforged Modpack 1.12.2-v3.0.4.zip",
+        "size": "3 MB",
+        "date": "2023-08-23"
+      }
+    }
+  },
   "launchers": [
     {
       "id": "modrinth",
@@ -44,7 +119,10 @@
         "Open the <a href=\"{packPage}\" target=\"_blank\" rel=\"noopener\">{packTitle}</a> page and click <b>Install</b>, or search for <b>Conquest Reforged</b> in the app.",
         "Before you play, set the memory to about <b>{memory} GB</b> in the instance's Java settings."
       ],
-      "recommended": true
+      "recommended": true,
+      "sources": [
+        "modrinth"
+      ]
     },
     {
       "id": "prism",
@@ -55,6 +133,19 @@
       "steps": [
         "Install and open <a href=\"https://prismlauncher.org/download/\" target=\"_blank\" rel=\"noopener\">Prism Launcher</a>.",
         "Click <b>Add Instance</b>, open the <b>Modrinth</b> tab, search for <b>Conquest Reforged</b> and install the <b>{loaderName}</b> modpack. Or choose <b>Import</b> and pick the .mrpack file from the download box.",
+        "Go to <b>Settings → Java</b> and set the maximum memory to about <b>{memory} GB</b>."
+      ],
+      "sources": [
+        "modrinth",
+        "curseforge"
+      ],
+      "cfSteps": [
+        "Install and open <a href=\"https://prismlauncher.org/download/\" target=\"_blank\" rel=\"noopener\">Prism Launcher</a>.",
+        "Click <b>Add Instance</b>, open the <b>CurseForge</b> tab, search for <b>Conquest Reforged</b> and install the modpack version for Minecraft <b>{mc}</b>. If Prism asks you to download some mods yourself, follow its links.",
+        {
+          "when": "optifine",
+          "text": "OptiFine isn't on CurseForge, so add it yourself: download <a href=\"{optifineUrl}\" target=\"_blank\" rel=\"noopener\">{optifineName}</a> and put it in the instance's <b>mods</b> folder."
+        },
         "Go to <b>Settings → Java</b> and set the maximum memory to about <b>{memory} GB</b>."
       ]
     },
@@ -67,6 +158,19 @@
       "steps": [
         "Install and open <a href=\"https://atlauncher.com/downloads\" target=\"_blank\" rel=\"noopener\">ATLauncher</a>.",
         "Go to <b>Packs</b>, open the <b>Modrinth</b> tab, search for <b>Conquest Reforged</b> and install the <b>{loaderName}</b> modpack.",
+        "Go to <b>Settings → Java</b> and set the maximum memory to about <b>{memory} GB</b>."
+      ],
+      "sources": [
+        "modrinth",
+        "curseforge"
+      ],
+      "cfSteps": [
+        "Install and open <a href=\"https://atlauncher.com/downloads\" target=\"_blank\" rel=\"noopener\">ATLauncher</a>.",
+        "Go to <b>Packs</b>, open the <b>CurseForge</b> tab, search for <b>Conquest Reforged</b> and install the version for Minecraft <b>{mc}</b>.",
+        {
+          "when": "optifine",
+          "text": "OptiFine isn't on CurseForge, so add it yourself: download <a href=\"{optifineUrl}\" target=\"_blank\" rel=\"noopener\">{optifineName}</a> and put it in the instance's <b>mods</b> folder."
+        },
         "Go to <b>Settings → Java</b> and set the maximum memory to about <b>{memory} GB</b>."
       ]
     }

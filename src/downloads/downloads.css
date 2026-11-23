@@ -25,7 +25,7 @@ body.ws main.page.dl { max-width: 1120px; }
 .dl-n { font-size: .8rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
 .dl-opts { display: grid; gap: 10px; }
 .dl-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.dl-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.dl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 /* an option: the GUI button, stretched; the selected one gets the gold flourishes and the wax seal */
 .dl-opt {
@@ -57,6 +57,9 @@ body.ws main.page.dl { max-width: 1120px; }
 .dl-opt.beta { min-height: 0; }
 .dl-opt.beta small { display: flex; align-items: center; gap: 6px; color: #d9a48f; }
 .dl-opt.beta small img { float: none; flex: none; width: 20px; height: 20px; margin: 0; border-radius: 0; }
+/* what a version offers (survival, world generation...) */
+.dl-feats { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.dl-feats em { padding: 1px 6px; font: 600 .64rem/1.4 system-ui, sans-serif; font-style: normal; letter-spacing: .08em; text-transform: uppercase; color: #cfe0b4; background: rgba(70, 100, 40, .45); border: 1px solid rgba(150, 190, 100, .45); border-radius: 2px; }
 .dl-older { margin-top: 10px; }
 .dl-older summary { cursor: pointer; padding: 4px 2px; font-size: .98rem; color: var(--dim); }
 .dl-older summary:hover { color: var(--ink); }
@@ -106,6 +109,9 @@ body.ws main.page.dl { max-width: 1120px; }
 .dl-locked img { flex: none; width: 40px; height: 40px; image-rendering: pixelated; }
 .dl-locked p { margin: 0; font-size: .95rem; line-height: 1.45; color: var(--ink); }
 .dl-locked b { color: var(--gold-hi); }
+.dl-feat-list ul { list-style: none; margin: 0 0 4px; padding: 0; }
+.dl-feat-list li { position: relative; padding: 2px 0 2px 20px; font-size: .93rem; line-height: 1.4; color: var(--ink); }
+.dl-feat-list li::before { content: ""; position: absolute; left: 2px; top: 7px; width: 9px; height: 5px; border: solid #9cc46a; border-width: 0 0 2px 2px; transform: rotate(-45deg); }
 .dl-deps ul { display: flex; flex-wrap: wrap; gap: 4px 6px; list-style: none; margin: 0; padding: 0; }
 .dl-deps li { font-size: .86rem; }
 .dl-deps a { display: inline-block; padding: 2px 7px; color: var(--ink); background: rgba(0, 0, 0, .35); border: 1px solid #000; border-radius: 2px; text-decoration: none; }
@@ -188,7 +194,7 @@ body.ws main.page.dl { max-width: 1120px; }
 @media (max-width: 620px) {
   .dl-app { padding: 14px 10px; margin: 0 -8px; }
   .dl-two { grid-template-columns: minmax(0, 1fr); }
-  .dl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dl-grid { grid-template-columns: minmax(0, 1fr); }
   .dl-step h2 { font-size: 1.3rem; }
   .dl-how { border-width: 22px 18px 22px 30px; }
   .dl-sec-head { flex-direction: column; text-align: center; }
