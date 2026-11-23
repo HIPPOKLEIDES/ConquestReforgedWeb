@@ -150,6 +150,12 @@ const wsChrome = (() => {
 })();
 
 
+// Favicon: the square logo (src/assets/favicon.ico and apple-touch-icon.png, copied to the site root)
+const ICON = `<link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png">`;
+// Background videos in Webstudio pages are hidden on phones (max-width:767px) but autoplay still downloads them.
+// The build moves their src to data-src (in the page and in the page bundle React re-renders embeds from); this
+// attaches it only on wider screens, also to the copy React renders after loading, or once the screen gets wider.
+const BG_VIDEO_JS = `<script>(function(){if(!document.querySelector("video[data-src]"))return;var mq=matchMedia("(min-width:768px)");function on(){if(!mq.matches)return;document.querySelectorAll("video[data-src]").forEach(function(v){if(v.getAttribute("src"))return;v.src=v.getAttribute("data-src");var p=v.play();if(p&&p.catch)p.catch(function(){})})}on();new MutationObserver(on).observe(document.body,{childList:true,subtree:true});if(mq.addEventListener)mq.addEventListener("change",on);else mq.addListener(on)})();</script>`;
 // Small corrections applied on top of the Webstudio chrome (footer link spacing, search button position, current-page glow)
 const FIX_CSS = `<style id="cr-fix">header{z-index:60!important;overflow-x:clip}@media(min-width:901px){footer a[href="/team"],footer a[href="/faq"],footer a[href="/guides"]{position:absolute!important;top:13px;transform:translateX(-50%);margin:0!important;text-align:center}footer a[href="/team"]{left:calc(50% - 328px)}footer a[href="/faq"]{left:calc(50% - 161.5px)}footer a[href="/guides"]{left:calc(50% + .5px)}footer a[href*="patreon.com"]{position:absolute!important;top:13px;left:calc(50% + 308.5px);margin:0!important}form.crsearch{left:calc(50% + 150px)!important;bottom:-2px!important}}body>div:not(.wfs) a[href^="https://x.com/conreforged"],body>div:not(.wfs) a[href^="https://www.instagram.com/conquest_studios"],body>div:not(.wfs) a[href^="https://discord.gg/ZagrZvn"],body>div:not(.wfs) a[href^="https://t.co/bE0dNvNgWQ"]{transition:transform .2s cubic-bezier(0,-1.309,.965,1.948)!important}body>div:not(.wfs) a[href^="https://x.com/conreforged"]:hover,body>div:not(.wfs) a[href^="https://www.instagram.com/conquest_studios"]:hover,body>div:not(.wfs) a[href^="https://discord.gg/ZagrZvn"]:hover,body>div:not(.wfs) a[href^="https://t.co/bE0dNvNgWQ"]:hover{transform:scale(1.1) rotate(9deg)!important}body>div:not(.wfs) a[href^="https://x.com/conreforged"]:active,body>div:not(.wfs) a[href^="https://www.instagram.com/conquest_studios"]:active,body>div:not(.wfs) a[href^="https://discord.gg/ZagrZvn"]:active,body>div:not(.wfs) a[href^="https://t.co/bE0dNvNgWQ"]:active{transform:rotate(18deg)!important}footer a.cr-cur{text-shadow:0 0 21px #d6ff00}@keyframes crwig{0%{transform:translateX(0)}4%{transform:translateX(-2px)}8%{transform:translateX(2px)}12%,100%{transform:translateX(0)}}footer a[href*="patreon.com"]{animation:crwig 4.6s ease-out infinite}footer a[href*="patreon.com"]:hover span{color:#c5aa1b!important}</style>`;
 const FIX_JS = `<script>(function(){function m(){var p=location.pathname.replace(/[/]$/,'')||'/';document.querySelectorAll('footer a').forEach(function(a){var h=a.getAttribute('href')||'';if(h.charAt(0)==='/'&&(p===h||p.indexOf(h+'/')===0))a.classList.add('cr-cur')})}m();addEventListener('load',function(){m();setTimeout(m,1500)});var C='/assets/64b16032f3b0772af5734936_patreon_close.webp',O='/assets/64b16571895fa3705e97f68d_patreon_open.webp';new Image().src=O;function sw(e,src){var a=e.target.closest&&e.target.closest('footer a[href*="patreon.com"]');if(!a||(e.relatedTarget&&a.contains(e.relatedTarget)))return;var i=a.querySelector('img');if(i){i.removeAttribute('srcset');i.src=src}}document.addEventListener('mouseover',function(e){sw(e,O)});document.addEventListener('mouseout',function(e){sw(e,C)})})();</script>`;
@@ -166,7 +172,7 @@ function layout({ title, description, body, urlPath, home = false, ogImage, rawT
 <title>${esc(full)}</title>
 <meta name="description" content="${esc(description || site.description)}">
 <link rel="canonical" href="${canonical}">
-<link rel="icon" href="${site.logo}">
+${ICON}
 <link rel="alternate" type="application/rss+xml" title="${esc(site.name)} News" href="/news/rss.xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="${esc(full)}">
@@ -202,7 +208,7 @@ ${FIX_JS}
 <title>${esc(full)}</title>
 <meta name="description" content="${esc(description || site.description)}">
 <link rel="canonical" href="${canonical}">
-<link rel="icon" href="${site.logo}">
+${ICON}
 <link rel="alternate" type="application/rss+xml" title="${esc(site.name)} News" href="/news/rss.xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="${esc(full)}">
@@ -648,7 +654,7 @@ function buildClones() {
     let body = body0.replace(/<\/script</g, '</script><').replace(/<\/html>\s*$/, '').replace(/<script[^>]*\ssrc="([^"]+)"[^>]*>(?:<\/script>)?/g, (m, u) => (scripts[u] ? `<script src="/assets/${scripts[u]}"></script>` : m));
     body = bedrockPage(baSwap(body.replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/')));
     body = body.includes('</body>') ? body.replace('</body>', BA_JS + '</body>') : body + BA_JS;
-    const out = `<!DOCTYPE html><html data-wf-page="${meta.wfPage}" data-wf-site="${meta.wfSite}" lang="en"><head><meta charset="utf-8"><title>${esc(meta.title)}</title><meta name="description" content="${esc(meta.description)}"><meta property="og:title" content="${esc(meta.title)}"><meta property="og:description" content="${esc(meta.description)}"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/pack-webflow.css"><script>!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link rel="icon" href="${site.logo}"><style>.truncate{white-space:nowrap;text-overflow:ellipsis}</style>${(meta.headScripts || []).map((u) => `<script async src="${u}"></script>`).join('')}</head>${body}</html>`;
+    const out = `<!DOCTYPE html><html data-wf-page="${meta.wfPage}" data-wf-site="${meta.wfSite}" lang="en"><head><meta charset="utf-8"><title>${esc(meta.title)}</title><meta name="description" content="${esc(meta.description)}"><meta property="og:title" content="${esc(meta.title)}"><meta property="og:description" content="${esc(meta.description)}"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/pack-webflow.css"><script>!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>${ICON}<style>.truncate{white-space:nowrap;text-overflow:ellipsis}</style>${(meta.headScripts || []).map((u) => `<script async src="${u}"></script>`).join('')}</head>${body}</html>`;
     if (slug === '404') emitRaw('404.html', out); else emit('/' + slug, out);
   };
   // reference pages built from data (src/data/conquest/*.json + src/content/conquest/*.shell.html)
@@ -786,7 +792,7 @@ function buildPersona() {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${site.url}/persona">
-<link rel="icon" href="${site.logo}">
+${ICON}
 <meta property="og:type" content="website">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
@@ -841,7 +847,7 @@ function buildContests() {
 <title>${title}</title>
 <meta name="description" content="${description}">
 ${robots}<link rel="canonical" href="${canonical}">
-<link rel="icon" href="${site.logo}">
+${ICON}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(site.name)}">
 <meta property="og:title" content="${title}">
@@ -979,6 +985,7 @@ fs.mkdirSync(DIST, { recursive: true });
 emitRaw('styles.css', cssHash.css);
 emitRaw('assets/wf-scoped.css', wfScoped.css);
 if (exists('assets')) fs.cpSync(path.join(SRC, 'assets'), path.join(DIST, 'assets'), { recursive: true });
+for (const f of ['favicon.ico', 'apple-touch-icon.png']) if (exists('assets/' + f)) fs.copyFileSync(path.join(SRC, 'assets', f), path.join(DIST, f));
 
 const posts = loadPosts();
 buildHome();
@@ -1069,9 +1076,16 @@ if (fs.existsSync(WS)) {
       // landing page: the Bedrock card cycles through our Bedrock content and opens a menu (src/landing/)
       const card = path.relative(WS, p) === 'index.html' ? landingCard() : { head: '', body: '' };
       // header (holds the fixed search button) must sit above the fixed footer bar
-      fs.writeFileSync(out, html.replace(/<script>/g, '<script type="text/plain">').replace('</head>', FIX_CSS + card.head + '</head>').replace('</body>', RUN_EMBEDS + FIX_JS + card.body + '</body>'));
+      fs.writeFileSync(out, html.replace(/<script>/g, '<script type="text/plain">').replace(/<video src="/g, '<video data-src="').replace('</head>', ICON + FIX_CSS + card.head + '</head>').replace('</body>', BG_VIDEO_JS + RUN_EMBEDS + FIX_JS + card.body + '</body>'));
     }
   })(WS);
+  // the page bundles hold each HTML Embed's code too: React re-renders embeds from it after loading
+  const entries = path.join(DIST, 'assets', 'entries');
+  if (fs.existsSync(entries)) for (const f of fs.readdirSync(entries)) {
+    if (!f.endsWith('.js')) continue;
+    const p = path.join(entries, f), js = fs.readFileSync(p, 'utf8');
+    if (js.includes('<video src="')) fs.writeFileSync(p, js.replace(/<video src="/g, '<video data-src="'));
+  }
   // Images pasted into Webstudio as HTML keep editor URLs like /cgi/asset/<name>_<21-char id>.webp.
   // Point them at our local copy /assets/<name>.webp when we have one.
   let rewritten = 0;
