@@ -68,6 +68,7 @@
     head.appendChild(el('b')).textContent = cfg.title;
     head.appendChild(el('small')).textContent = cfg.subtitle;
     menu.appendChild(head);
+    var badges = [];
     cfg.entries.forEach(function (e) {
       var item = e.href ? el('a', 'bx-entry', { href: e.href }) : el('div', 'bx-entry bx-soon', { 'aria-disabled': 'true', tabindex: '0' });
       var bg = el('span', 'bx-ebg');
@@ -78,17 +79,23 @@
       txt.appendChild(el('small')).textContent = e.subtitle;
       if (!e.href && e.soon) txt.appendChild(el('em')).textContent = e.soon;
       item.appendChild(txt);
-      if (e.badge) item.appendChild(img(e.badge, 'bx-badge'));
       menu.appendChild(item);
+      // badges sit in a layer above the card's frame, lined up with their entry (see place())
+      if (e.badge) { var box = el('span', 'bx-badgebox'); box.appendChild(img(e.badge, 'bx-badge')); badges.push([box, item]); }
     });
     card.appendChild(menu);
+    badges.forEach(function (b) { card.appendChild(b[0]); });
+    function place() { badges.forEach(function (b) { b[0].style.top = menu.offsetTop + b[1].offsetTop + 'px'; b[0].style.height = b[1].offsetHeight + 'px'; }); }
+    if (window.ResizeObserver) new ResizeObserver(place).observe(menu);
+    card.addEventListener('mouseenter', place);
+    card.addEventListener('focusin', place);
     a.parentNode.replaceChild(card, a);
 
     // touch screens have no hover: the first tap opens the menu, a tap elsewhere closes it
     var touch = false;
     card.addEventListener('pointerdown', function (e) { touch = e.pointerType !== 'mouse'; });
     card.addEventListener('click', function (e) {
-      if (touch && !card.classList.contains('open')) { e.preventDefault(); card.classList.add('open'); }
+      if (touch && !card.classList.contains('open')) { e.preventDefault(); card.classList.add('open'); place(); }
     });
     document.addEventListener('click', function (e) { if (!card.contains(e.target)) card.classList.remove('open'); });
 

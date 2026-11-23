@@ -218,6 +218,10 @@
   },
   "bedrockOverlay": {
     "enabled": true,
+    "released": true,
+    "releasedTitle": "The official update is out!",
+    "releasedNote": "Conquest_ on the Minecraft Marketplace now includes everything from this overlay, so you no longer need it. Update Conquest_ from the Marketplace and remove the overlay (Settings → Storage → Resource Packs), so it doesn't cover the newer textures from the store version.",
+    "heroNote": "Conquest_ on the Marketplace now has the 1.26 textures, so the temporary overlay is no longer needed. If you installed it, remove it so it doesn't cover the newer textures.",
     "title": "Conquest_ 1.26 Update Overlay",
     "file": "/downloads/conquest-1.26-update-overlay.mcpack",
     "version": "1.0.0",
