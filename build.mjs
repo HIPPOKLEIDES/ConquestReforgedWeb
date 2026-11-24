@@ -150,8 +150,16 @@ const wsChrome = (() => {
 })();
 
 
+// Favicon: the square logo (src/assets/favicon.ico and apple-touch-icon.png, copied to the site root)
+const ICON = `<link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png">`;
+// Background videos in Webstudio pages are hidden on phones (max-width:767px) but autoplay still downloads them.
+// The build moves their src to data-src (in the page and in the page bundle React re-renders embeds from); this
+// attaches it only on wider screens, once React has re-rendered the page (one download, not two), or once the
+// screen gets wider.
+// On phones it also takes the src off a copy rendered from an older, cached bundle that still has src.
+const BG_VIDEO_JS = `<script>(function(){if(!document.querySelector("video[poster]"))return;var mq=matchMedia("(min-width:768px)"),ready=0,t;function on(){var wide=mq.matches;document.querySelectorAll("video[poster]").forEach(function(v){var s=v.getAttribute("src"),d=v.getAttribute("data-src");if(wide){if(ready&&!s&&d){v.src=d;var p=v.play();if(p&&p.catch)p.catch(function(){})}}else if(s){v.setAttribute("data-src",s);v.removeAttribute("src");v.load()}})}function settle(){clearTimeout(t);t=setTimeout(function(){ready=1;on()},350)}new MutationObserver(function(){on();if(!ready)settle()}).observe(document.body,{childList:true,subtree:true});function go(){settle();setTimeout(function(){ready=1;on()},4000)}if(document.readyState==="complete")go();else addEventListener("load",go);if(mq.addEventListener)mq.addEventListener("change",on);else mq.addListener(on);on()})();</script>`;
 // Small corrections applied on top of the Webstudio chrome (footer link spacing, search button position, current-page glow)
-const FIX_CSS = `<style id="cr-fix">header{z-index:60!important}@media(min-width:901px){footer a[href="/team"],footer a[href="/faq"],footer a[href="/guides"]{position:absolute!important;top:13px;transform:translateX(-50%);margin:0!important;text-align:center}footer a[href="/team"]{left:calc(50% - 328px)}footer a[href="/faq"]{left:calc(50% - 161.5px)}footer a[href="/guides"]{left:calc(50% + .5px)}footer a[href*="patreon.com"]{position:absolute!important;top:13px;left:calc(50% + 308.5px);margin:0!important}form.crsearch{left:calc(50% + 150px)!important;bottom:-2px!important}}body>div:not(.wfs) a[href^="https://x.com/conreforged"],body>div:not(.wfs) a[href^="https://www.instagram.com/conquest_studios"],body>div:not(.wfs) a[href^="https://discord.gg/ZagrZvn"],body>div:not(.wfs) a[href^="https://t.co/bE0dNvNgWQ"]{transition:transform .2s cubic-bezier(0,-1.309,.965,1.948)!important}body>div:not(.wfs) a[href^="https://x.com/conreforged"]:hover,body>div:not(.wfs) a[href^="https://www.instagram.com/conquest_studios"]:hover,body>div:not(.wfs) a[href^="https://discord.gg/ZagrZvn"]:hover,body>div:not(.wfs) a[href^="https://t.co/bE0dNvNgWQ"]:hover{transform:scale(1.1) rotate(9deg)!important}body>div:not(.wfs) a[href^="https://x.com/conreforged"]:active,body>div:not(.wfs) a[href^="https://www.instagram.com/conquest_studios"]:active,body>div:not(.wfs) a[href^="https://discord.gg/ZagrZvn"]:active,body>div:not(.wfs) a[href^="https://t.co/bE0dNvNgWQ"]:active{transform:rotate(18deg)!important}footer a.cr-cur{text-shadow:0 0 21px #d6ff00}@keyframes crwig{0%{transform:translateX(0)}4%{transform:translateX(-2px)}8%{transform:translateX(2px)}12%,100%{transform:translateX(0)}}footer a[href*="patreon.com"]{animation:crwig 4.6s ease-out infinite}footer a[href*="patreon.com"]:hover span{color:#c5aa1b!important}</style>`;
+const FIX_CSS = `<style id="cr-fix">header{z-index:60!important;overflow-x:clip}@media(min-width:901px){footer a[href="/team"],footer a[href="/faq"],footer a[href="/guides"]{position:absolute!important;top:13px;transform:translateX(-50%);margin:0!important;text-align:center}footer a[href="/team"]{left:calc(50% - 328px)}footer a[href="/faq"]{left:calc(50% - 161.5px)}footer a[href="/guides"]{left:calc(50% + .5px)}footer a[href*="patreon.com"]{position:absolute!important;top:13px;left:calc(50% + 308.5px);margin:0!important}form.crsearch{left:calc(50% + 150px)!important;bottom:-2px!important}}body>div:not(.wfs) a[href^="https://x.com/conreforged"],body>div:not(.wfs) a[href^="https://www.instagram.com/conquest_studios"],body>div:not(.wfs) a[href^="https://discord.gg/ZagrZvn"],body>div:not(.wfs) a[href^="https://t.co/bE0dNvNgWQ"]{transition:transform .2s cubic-bezier(0,-1.309,.965,1.948)!important}body>div:not(.wfs) a[href^="https://x.com/conreforged"]:hover,body>div:not(.wfs) a[href^="https://www.instagram.com/conquest_studios"]:hover,body>div:not(.wfs) a[href^="https://discord.gg/ZagrZvn"]:hover,body>div:not(.wfs) a[href^="https://t.co/bE0dNvNgWQ"]:hover{transform:scale(1.1) rotate(9deg)!important}body>div:not(.wfs) a[href^="https://x.com/conreforged"]:active,body>div:not(.wfs) a[href^="https://www.instagram.com/conquest_studios"]:active,body>div:not(.wfs) a[href^="https://discord.gg/ZagrZvn"]:active,body>div:not(.wfs) a[href^="https://t.co/bE0dNvNgWQ"]:active{transform:rotate(18deg)!important}footer a.cr-cur{text-shadow:0 0 21px #d6ff00}@keyframes crwig{0%{transform:translateX(0)}4%{transform:translateX(-2px)}8%{transform:translateX(2px)}12%,100%{transform:translateX(0)}}footer a[href*="patreon.com"]{animation:crwig 4.6s ease-out infinite}footer a[href*="patreon.com"]:hover span{color:#c5aa1b!important}</style>`;
 const FIX_JS = `<script>(function(){function m(){var p=location.pathname.replace(/[/]$/,'')||'/';document.querySelectorAll('footer a').forEach(function(a){var h=a.getAttribute('href')||'';if(h.charAt(0)==='/'&&(p===h||p.indexOf(h+'/')===0))a.classList.add('cr-cur')})}m();addEventListener('load',function(){m();setTimeout(m,1500)});var C='/assets/64b16032f3b0772af5734936_patreon_close.webp',O='/assets/64b16571895fa3705e97f68d_patreon_open.webp';new Image().src=O;function sw(e,src){var a=e.target.closest&&e.target.closest('footer a[href*="patreon.com"]');if(!a||(e.relatedTarget&&a.contains(e.relatedTarget)))return;var i=a.querySelector('img');if(i){i.removeAttribute('srcset');i.src=src}}document.addEventListener('mouseover',function(e){sw(e,O)});document.addEventListener('mouseout',function(e){sw(e,C)})})();</script>`;
 
 function layout({ title, description, body, urlPath, home = false, ogImage, rawTitle = '', htmlAttrs = '' }) {
@@ -166,7 +174,7 @@ function layout({ title, description, body, urlPath, home = false, ogImage, rawT
 <title>${esc(full)}</title>
 <meta name="description" content="${esc(description || site.description)}">
 <link rel="canonical" href="${canonical}">
-<link rel="icon" href="${site.logo}">
+${ICON}
 <link rel="alternate" type="application/rss+xml" title="${esc(site.name)} News" href="/news/rss.xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="${esc(full)}">
@@ -202,7 +210,7 @@ ${FIX_JS}
 <title>${esc(full)}</title>
 <meta name="description" content="${esc(description || site.description)}">
 <link rel="canonical" href="${canonical}">
-<link rel="icon" href="${site.logo}">
+${ICON}
 <link rel="alternate" type="application/rss+xml" title="${esc(site.name)} News" href="/news/rss.xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="${esc(full)}">
@@ -425,12 +433,12 @@ function buildGuides() {
 // Client-side search: a JSON index of every generated page + a /search page that filters it.
 function buildSearch() {
   const docs = [];
-  for (const u of generated) {
+  for (const u of new Set(generated)) {
     if (u.endsWith('.html') || u === '/search') continue;
     const file = path.join(DIST, u === '/' ? 'index.html' : path.join(u.slice(1), 'index.html'));
     if (!fs.existsSync(file)) continue;
     const html = fs.readFileSync(file, 'utf8');
-    const main = (html.match(/<main class="page">([\s\S]*?)<\/main>/) || html.match(/<div class="wfs wfs-page">([\s\S]*?)<footer/) || [])[1];
+    const main = (html.match(/<main class="page(?: [^"]*)?">([\s\S]*?)<\/main>/) || html.match(/<div class="wfs wfs-page">([\s\S]*?)<footer/) || [])[1];
     if (!main) continue;
     const title = stripTags((html.match(/<title>([^<]*)<\/title>/) || [])[1] || u).replace(/ \| Conquest Reforged$/, '');
     docs.push({ u, t: title, x: stripTags(main.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ')).replace(/\s+/g, ' ').trim().slice(0, 4000) });
@@ -618,6 +626,7 @@ function buildChromeClones() {
   if (!fs.existsSync(sf)) return;
   const scripts = JSON.parse(fs.readFileSync(sf, 'utf8'));
   for (const slug of CHROME_CLONES) {
+    if (slug === 'downloads' && exists('downloads', 'downloads.js')) continue; // built by buildDownloads()
     const f = path.join(dir, slug + '.body.html');
     if (!fs.existsSync(f)) continue;
     const meta = JSON.parse(fs.readFileSync(path.join(dir, slug + '.meta.json'), 'utf8'));
@@ -647,7 +656,7 @@ function buildClones() {
     let body = body0.replace(/<\/script</g, '</script><').replace(/<\/html>\s*$/, '').replace(/<script[^>]*\ssrc="([^"]+)"[^>]*>(?:<\/script>)?/g, (m, u) => (scripts[u] ? `<script src="/assets/${scripts[u]}"></script>` : m));
     body = bedrockPage(baSwap(body.replace(/https?:\/\/(?:www\.)?conquestreforged\.com\//g, '/')));
     body = body.includes('</body>') ? body.replace('</body>', BA_JS + '</body>') : body + BA_JS;
-    const out = `<!DOCTYPE html><html data-wf-page="${meta.wfPage}" data-wf-site="${meta.wfSite}" lang="en"><head><meta charset="utf-8"><title>${esc(meta.title)}</title><meta name="description" content="${esc(meta.description)}"><meta property="og:title" content="${esc(meta.title)}"><meta property="og:description" content="${esc(meta.description)}"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/pack-webflow.css"><script>!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link rel="icon" href="${site.logo}"><style>.truncate{white-space:nowrap;text-overflow:ellipsis}</style>${(meta.headScripts || []).map((u) => `<script async src="${u}"></script>`).join('')}</head>${body}</html>`;
+    const out = `<!DOCTYPE html><html data-wf-page="${meta.wfPage}" data-wf-site="${meta.wfSite}" lang="en"><head><meta charset="utf-8"><title>${esc(meta.title)}</title><meta name="description" content="${esc(meta.description)}"><meta property="og:title" content="${esc(meta.title)}"><meta property="og:description" content="${esc(meta.description)}"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/assets/pack-webflow.css"><script>!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>${ICON}<style>.truncate{white-space:nowrap;text-overflow:ellipsis}</style>${(meta.headScripts || []).map((u) => `<script async src="${u}"></script>`).join('')}</head>${body}</html>`;
     if (slug === '404') emitRaw('404.html', out); else emit('/' + slug, out);
   };
   // reference pages built from data (src/data/conquest/*.json + src/content/conquest/*.shell.html)
@@ -785,7 +794,7 @@ function buildPersona() {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${site.url}/persona">
-<link rel="icon" href="${site.logo}">
+${ICON}
 <meta property="og:type" content="website">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
@@ -840,7 +849,7 @@ function buildContests() {
 <title>${title}</title>
 <meta name="description" content="${description}">
 ${robots}<link rel="canonical" href="${canonical}">
-<link rel="icon" href="${site.logo}">
+${ICON}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(site.name)}">
 <meta property="og:title" content="${title}">
@@ -891,12 +900,94 @@ ${scripts.map((s) => `<script src="/assets/contests/${s}?v=${v(s === 'staff.js' 
   }));
 }
 
+// /downloads: step picker (Minecraft version → modpack or mod → loader → launcher) with a "Your download" box,
+// styled with the mod's own GUI textures (src/assets/downloads/gui). Data: src/data/downloads.json (Modrinth
+// snapshot, downloads-tools/fetch-downloads.mjs; the page refreshes it from the Modrinth API in the browser) and
+// src/data/downloads-config.json (launchers, install steps, Patreon, world converters). Script/styles: src/downloads/.
+function buildDownloads() {
+  if (!exists('downloads', 'downloads.js') || !exists('data', 'downloads.json')) return;
+  const d = readJSON('data', 'downloads.json'), cfg = readJSON('data', 'downloads-config.json');
+  const css = readText('downloads', 'downloads.css'), js = readText('downloads', 'downloads.js');
+  const v = (s) => crypto.createHash('md5').update(s).digest('hex').slice(0, 8);
+  emitRaw('assets/downloads/downloads.css', css);
+  emitRaw('assets/downloads/downloads.js', js);
+  // snapshot for the page: per project the newest release (and newest build) for each Minecraft version + loader
+  const versions = {};
+  for (const [k, list] of Object.entries(d.versions)) {
+    const keep = new Set();
+    for (const x of list) for (const mc of x.mc) for (const l of x.loaders) {
+      const id = `${mc} ${l}`;
+      if (!keep.has('any ' + id)) { keep.add('any ' + id); x._keep = true; }
+      if (x.type === 'release' && !keep.has('rel ' + id)) { keep.add('rel ' + id); x._keep = true; }
+    }
+    versions[k] = list.filter((x) => x._keep).map(({ _keep, ...x }) => ({ ...x, files: x.files.filter((f) => f.primary).slice(0, 1).concat(x.files.some((f) => f.primary) ? [] : x.files.slice(0, 1)) }));
+  }
+  const usedLibs = new Set(Object.values(versions).flat().flatMap((x) => x.deps.map((dd) => dd.id)));
+  const libs = Object.fromEntries(Object.entries(d.libs).filter(([id]) => usedLibs.has(id)).map(([id, l]) => [id, { slug: l.slug, title: l.title, type: l.type }]));
+  const snap = { fetchedAt: d.fetchedAt, projects: d.projects, versions, libs };
+  const json = (o) => JSON.stringify(o).replace(/</g, '\\u003c');
+  const day = (iso) => new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+  const size = (b) => (b >= 1048576 ? `${Math.round(b / 1048576)} MB` : `${Math.max(1, Math.round(b / 1024))} KB`);
+  const mpage = (k) => `https://modrinth.com/${d.projects[k].type}/${d.projects[k].slug}`;
+  const g = (n) => `/assets/downloads/gui/${n}`;
+
+  // resource pack: newest per Minecraft version, only for the versions before it was built into the mod
+  const mcNum = (s) => s.split('.').map(Number);
+  const mcBefore = (a, b) => { const x = mcNum(a), y = mcNum(b); for (let i = 0; i < 3; i++) if ((x[i] || 0) !== (y[i] || 0)) return (x[i] || 0) < (y[i] || 0); return false; };
+  const rp = [];
+  for (const x of d.versions.resourcePack || []) {
+    const mc = x.mc[x.mc.length - 1];
+    if (cfg.resourcePackBuiltInFrom && !mcBefore(mc, cfg.resourcePackBuiltInFrom)) continue;
+    if (!rp.some((r) => r.mc === mc)) rp.push({ mc, x });
+  }
+  rp.sort((a, b) => (mcBefore(a.mc, b.mc) ? 1 : -1));
+  const rpList = rp.map(({ mc, x }) => {
+    const f = x.files.find((ff) => ff.primary) || x.files[0];
+    return `<a class="dl-chip" href="${f.url}"><b>${esc(mc)}</b><span>${esc(x.version)} · ${size(f.size)}</span></a>`;
+  }).join('');
+  const pt = cfg.patreon || {};
+  const join = pt.join || pt.url;
+  const conv = cfg.converters || { items: [], tips: [] };
+  const noscript = `<noscript><p class="dl-nojs">This page needs JavaScript to pick a version. Without it, get the <a href="${mpage('packFabric')}">Fabric modpack</a> or the <a href="${mpage('packForge')}">Forge modpack</a> on Modrinth, or <a href="${mpage('mod')}">the mod itself</a>.</p></noscript>`;
+
+  const body = `<link rel="stylesheet" href="/assets/downloads/downloads.css?v=${v(css)}">
+<main class="page dl">
+<h1 class="heading">Downloads</h1>
+<p class="dl-intro">Choose your Minecraft version and how you'd like to install Conquest Reforged. The <b>Your download</b> box shows exactly what to get, and the steps below tell you how to install it.</p>
+<div class="dl-app" id="dl-app">
+<div class="dl-col">
+<section class="dl-step" data-step="mc"><h2><span class="dl-n">Step 1</span> Minecraft version</h2><div class="dl-opts"></div></section>
+<section class="dl-step" data-step="how"><h2><span class="dl-n">Step 2</span> How to install</h2><div class="dl-opts dl-two"></div></section>
+<section class="dl-step" data-step="loader"><h2><span class="dl-n">Step 3</span> Mod loader</h2><div class="dl-opts dl-two"></div></section>
+<section class="dl-step" data-step="launcher"><h2><span class="dl-n">Step 4</span> Launcher</h2><div class="dl-opts dl-rows"></div></section>
+</div>
+<aside class="dl-panel" aria-live="polite"><div class="dl-panel-top"><img src="${g('frame-top.png')}" alt="" width="352" height="36"><span>Your download</span></div><div class="dl-panel-body">${noscript}</div></aside>
+<section class="dl-how"><h3>How to install</h3><ol></ol><p class="dl-how-foot"></p></section>
+</div>
+
+<section class="dl-sec" id="more"><h2>More downloads</h2>
+<div class="dl-cards">
+<article class="dl-card"><h3>Conquest Reforged Resource Pack</h3><p>Connected textures, a custom sky and biome colors for the mod. ${cfg.resourcePackBuiltInFrom ? `From Minecraft ${esc(cfg.resourcePackBuiltInFrom)} on it's built into the mod; for older versions you need it. ` : ''}The modpacks already include it. It is not a standalone pack.</p><div class="dl-chips">${rpList}</div><a class="dl-more" href="${mpage('resourcePack')}" target="_blank" rel="noopener">All versions on Modrinth →</a></article>
+<article class="dl-card"><h3>Conquest_ resource pack</h3><p>The original Conquest_ resource pack. Conquest Reforged is its spiritual successor.</p><a class="dl-btn" href="/conquest-pack">Conquest_ for Java</a><a class="dl-btn" href="/conquest-bedrock">Conquest_ for Bedrock</a></article>
+<article class="dl-card dl-conv"><h3>World converters <em class="dl-tag">Legacy</em></h3><p>${esc(conv.note || '')}</p><div class="dl-btns">${conv.items.map((c) => `<a class="dl-btn" href="${esc(c.url)}" target="_blank" rel="noopener" title="${esc(c.label)}">${esc(c.from)} → ${esc(c.to)}</a>`).join('')}</div><details><summary>Read this before converting</summary><ul>${conv.tips.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></details></article>
+</div>
+</section>
+
+<section class="dl-sec dl-help"><h2>Stuck?</h2><p>Most problems are answered in the <a href="/faq">FAQ</a> and the <a href="/guides">guides</a>. Still stuck? Ask in the <a href="https://discord.gg/ZagrZvn" target="_blank" rel="noopener">#support channel on our Discord</a>.</p></section>
+</main>
+<script type="application/json" id="dl-data">${json(snap)}</script>
+<script type="application/json" id="dl-config">${json({ memoryGB: cfg.memoryGB, resourcePackBuiltInFrom: cfg.resourcePackBuiltInFrom, betas: cfg.betas || [], optifine: cfg.optifine || {}, features: cfg.features || {}, curseforge: cfg.curseforge || null, tiers: (pt.tiers || []).map((t) => ({ name: t.name, price: t.price })), patreonJoin: join, launchers: cfg.launchers, modSteps: cfg.modSteps })}</script>
+<script src="/assets/downloads/downloads.js?v=${v(js)}" defer></script>`;
+  emit('/downloads', layout({ title: 'Downloads', description: 'Download Conquest Reforged: the modpack or the mod for every Minecraft version, with install steps for your launcher.', urlPath: '/downloads', body }));
+}
+
 // ---------- run ----------
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
 emitRaw('styles.css', cssHash.css);
 emitRaw('assets/wf-scoped.css', wfScoped.css);
 if (exists('assets')) fs.cpSync(path.join(SRC, 'assets'), path.join(DIST, 'assets'), { recursive: true });
+for (const f of ['favicon.ico', 'apple-touch-icon.png']) if (exists('assets/' + f)) fs.copyFileSync(path.join(SRC, 'assets', f), path.join(DIST, f));
 
 const posts = loadPosts();
 buildHome();
@@ -908,6 +999,7 @@ buildHistoria();
 buildPersona();
 buildContests();
 buildChromeClones();
+buildDownloads();
 buildNews(posts);
 buildShowcases();
 buildServers();
@@ -986,9 +1078,16 @@ if (fs.existsSync(WS)) {
       // landing page: the Bedrock card cycles through our Bedrock content and opens a menu (src/landing/)
       const card = path.relative(WS, p) === 'index.html' ? landingCard() : { head: '', body: '' };
       // header (holds the fixed search button) must sit above the fixed footer bar
-      fs.writeFileSync(out, html.replace(/<script>/g, '<script type="text/plain">').replace('</head>', FIX_CSS + card.head + '</head>').replace('</body>', RUN_EMBEDS + FIX_JS + card.body + '</body>'));
+      fs.writeFileSync(out, html.replace(/<script>/g, '<script type="text/plain">').replace(/<video src="([^"]*)" poster=/g, '<video data-src="$1" poster=').replace('</head>', ICON + FIX_CSS + card.head + '</head>').replace('</body>', BG_VIDEO_JS + RUN_EMBEDS + FIX_JS + card.body + '</body>'));
     }
   })(WS);
+  // the page bundles hold each HTML Embed's code too: React re-renders embeds from it after loading
+  const entries = path.join(DIST, 'assets', 'entries');
+  if (fs.existsSync(entries)) for (const f of fs.readdirSync(entries)) {
+    if (!f.endsWith('.js')) continue;
+    const p = path.join(entries, f), js = fs.readFileSync(p, 'utf8');
+    if (/<video src="[^"]*" poster=/.test(js)) fs.writeFileSync(p, js.replace(/<video src="([^"]*)" poster=/g, '<video data-src="$1" poster='));
+  }
   // Images pasted into Webstudio as HTML keep editor URLs like /cgi/asset/<name>_<21-char id>.webp.
   // Point them at our local copy /assets/<name>.webp when we have one.
   let rewritten = 0;

@@ -1,0 +1,175 @@
+/* /downloads (markup: build.mjs buildDownloads(); behaviour: downloads.js). Dressed in the mod's own GUI textures
+   (src/assets/downloads/gui, from the Conquest Reforged resource files): the ornate button for options and
+   buttons, the parchment checkbox with its wax seal for the selected option, the chest frame for the download
+   box, the book page for the install steps and the padlock for the Patreon betas. */
+body.ws main.page.dl { max-width: 1120px; }
+.dl > * { grid-column: 1 / -1; min-width: 0; }
+.dl {
+  --ink: #efe3c6; --dim: #b3a585; --gold: #e3b552; --gold-hi: #ffd88a; --iron: #6d6d6d; --night: #171612; --panel: #201e19;
+  --gui: url(/assets/downloads/gui/button.png); --gui-hi: url(/assets/downloads/gui/button-hi.png); --gui-off: url(/assets/downloads/gui/button-off.png);
+}
+.dl .dl-intro { max-width: 720px; margin: 0 auto 22px; text-align: center; font-size: 1.12rem; line-height: 1.5; color: #333; }
+
+/* ---------- the picker: an in-game menu ---------- */
+.dl-app {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 352px; grid-template-areas: "steps panel" "how panel";
+  gap: 22px 26px; align-items: start; padding: 26px; color: var(--ink); border-radius: 4px;
+  background: linear-gradient(180deg, rgba(10, 9, 7, .55), rgba(10, 9, 7, .78)), url(/assets/downloads/gui/tile.png) 0 0 / 64px 64px;
+  image-rendering: pixelated;
+  box-shadow: 0 0 0 2px #0b0a08, 0 0 0 4px var(--iron), 0 0 0 6px #23221f, 0 14px 34px rgba(0, 0, 0, .35);
+}
+.dl-app > * { image-rendering: auto; }
+.dl-col { grid-area: steps; min-width: 0; }
+.dl-step + .dl-step { margin-top: 24px; }
+.dl-step h2 { display: flex; align-items: baseline; gap: 12px; margin: 0 0 10px; font: 400 1.5rem/1.1 "Nyala 0", "Times New Roman", serif; color: var(--ink); letter-spacing: .02em; text-shadow: 0 2px 0 #000; }
+.dl-n { font-size: .8rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+.dl-opts { display: grid; gap: 10px; }
+.dl-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.dl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* an option: the GUI button, stretched; the selected one gets the gold flourishes and the wax seal */
+.dl-opt {
+  position: relative; display: flex; align-items: flex-start; gap: 12px; width: 100%; min-height: 64px; margin: 0; padding: 4px 14px; cursor: pointer;
+  text-align: left; font: inherit; color: var(--ink); background: none;
+  border: solid transparent; border-width: 8px 22px; border-image: var(--gui) 8 40 8 40 fill / 8px 22px stretch; image-rendering: pixelated;
+  transition: filter .15s, transform .15s;
+}
+.dl-opt:hover { filter: brightness(1.18); }
+.dl-opt:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 3px; }
+.dl-opt.on { border-image-source: var(--gui-hi); filter: none; }
+.dl-opt.off { cursor: not-allowed; border-image-source: var(--gui-off); opacity: .55; filter: grayscale(.6); }
+.dl-check { flex: none; width: 30px; height: 30px; margin-top: 2px; background: url(/assets/downloads/gui/check.png) 0 0 / 100% 100%; image-rendering: pixelated; }
+.dl-opt.on .dl-check { background-image: url(/assets/downloads/gui/check-on.png); }
+.dl-opt-body { display: block; min-width: 0; image-rendering: auto; }
+.dl-opt b { font: 400 1.22rem/1.15 "Nyala 0", "Times New Roman", serif; letter-spacing: .02em; color: var(--ink); text-shadow: 0 1px 0 #000; }
+.dl-opt.on b { color: var(--gold-hi); }
+.dl-opt small { display: block; margin-top: 3px; font-size: .9rem; line-height: 1.35; color: var(--dim); }
+.dl-opt.has-icon .dl-opt-body { flex: 1; }
+.dl-opt img { float: right; width: 40px; height: 40px; margin: 0 0 0 12px; border-radius: 6px; }
+.dl-rows .dl-opt { min-height: 58px; }
+.dl-opt.big { min-height: 76px; padding-top: 8px; }
+.dl-opt.big b { font-size: 1.5rem; }
+.dl-tag { display: inline-block; margin-left: 8px; padding: 2px 7px 1px; vertical-align: 3px; font: 600 .66rem/1.3 system-ui, sans-serif; font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); border: 1px solid rgba(179, 165, 133, .5); border-radius: 2px; }
+.dl-tag.gold { color: #1b1408; background: var(--gold); border-color: #7a5512; }
+.dl-tag.beta { color: #fff3e0; background: #8c2a1a; border-color: #3d0f08; }
+/* Patreon betas: locked entries above the latest release */
+.dl-betas { margin-bottom: 10px; }
+.dl-opt.beta { min-height: 0; }
+.dl-opt.beta small { display: flex; align-items: center; gap: 6px; color: #d9a48f; }
+.dl-opt.beta small img { float: none; flex: none; width: 20px; height: 20px; margin: 0; border-radius: 0; }
+/* what a version offers (survival, world generation...) */
+.dl-feats { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.dl-feats em { padding: 1px 6px; font: 600 .64rem/1.4 system-ui, sans-serif; font-style: normal; letter-spacing: .08em; text-transform: uppercase; color: #cfe0b4; background: rgba(70, 100, 40, .45); border: 1px solid rgba(150, 190, 100, .45); border-radius: 2px; }
+.dl-older { margin-top: 10px; }
+.dl-older summary { cursor: pointer; padding: 4px 2px; font-size: .98rem; color: var(--dim); }
+.dl-older summary:hover { color: var(--ink); }
+.dl-older[open] summary { margin-bottom: 8px; }
+.dl-grid .dl-opt { min-height: 0; }
+.dl-grid .dl-opt b { font-size: 1.08rem; }
+.dl-grid .dl-tag { display: block; width: max-content; margin: 4px 0 0; }
+
+/* ---------- "Your download": the chest frame ---------- */
+.dl-panel { grid-area: panel; width: 352px; }
+/* follows the scroll only when it fits between the header and the fixed footer (downloads.js) */
+.dl-panel.stuck { position: sticky; top: 92px; }
+.dl-panel-top { position: relative; height: 36px; }
+.dl-panel-top img { display: block; width: 352px; height: 36px; image-rendering: pixelated; }
+.dl-panel-top span { position: absolute; left: 14px; top: 11px; width: 136px; text-align: center; font: 400 1rem/1 "Nyala 0", "Times New Roman", serif; color: #2b2112; letter-spacing: .03em; }
+.dl-panel-body {
+  margin-top: -3px; padding: 16px 18px 18px; background: linear-gradient(180deg, #24221d, #1a1915);
+  box-shadow: inset 0 0 0 2px #000, inset 0 0 0 3px var(--iron), inset 0 0 0 5px #111, 0 10px 24px rgba(0, 0, 0, .45);
+}
+.dl-sum { list-style: none; margin: 0; padding: 0; }
+.dl-sum li { display: flex; justify-content: space-between; gap: 10px; padding: 5px 0; border-bottom: 1px solid rgba(179, 165, 133, .16); }
+.dl-sum li:first-child span { font: 400 1.3rem/1.1 "Nyala 0", "Times New Roman", serif; color: var(--ink); }
+.dl-sum li:first-child b { color: var(--gold-hi); font-size: 1.1rem; }
+.dl-sum span { color: var(--dim); }
+.dl-sum b { font-weight: 600; color: var(--ink); text-align: right; }
+.dl-file { display: flex; justify-content: space-between; gap: 10px; margin: 12px 0; padding: 8px 10px; font: .8rem/1.3 ui-monospace, Consolas, monospace; color: var(--dim); background: rgba(0, 0, 0, .35); border: 1px solid #000; }
+.dl-file span { overflow-wrap: anywhere; }
+.dl-file b { flex: none; color: var(--ink); }
+.dl-btns { display: grid; gap: 8px; }
+.dl-btn {
+  display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 2px 10px; text-align: center; text-decoration: none;
+  font: 400 1.08rem/1.1 "Nyala 0", "Times New Roman", serif; letter-spacing: .03em; color: var(--ink); text-shadow: 0 1px 0 #000;
+  border: solid transparent; border-width: 8px 24px; border-image: var(--gui) 8 40 8 40 fill / 8px 24px stretch; image-rendering: pixelated; transition: filter .15s;
+}
+.dl-btn:hover, .dl-btn:focus-visible { color: var(--gold-hi); border-image-source: var(--gui-hi); text-decoration: none; }
+.dl-btn.main { min-height: 52px; font-size: 1.3rem; color: var(--gold-hi); border-image-source: var(--gui-hi); filter: drop-shadow(0 0 10px rgba(227, 181, 82, .35)); }
+.dl-btn.main:hover { filter: drop-shadow(0 0 14px rgba(255, 216, 138, .6)) brightness(1.1); }
+.dl-log { display: block; margin-top: 10px; font-size: .92rem; color: var(--gold); }
+.dl-panel h4 { margin: 16px 0 6px; font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.dl-extra ul { display: grid; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.dl-extra li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 6px 6px 6px 10px; background: rgba(0, 0, 0, .35); border: 1px solid #000; }
+.dl-extra li span { min-width: 0; }
+.dl-extra li b { display: block; font-size: .92rem; font-weight: 600; line-height: 1.25; color: var(--ink); }
+.dl-extra li small { display: block; font-size: .78rem; color: var(--dim); }
+.dl-btn.sm { flex: none; min-height: 34px; padding: 0 2px; font-size: .95rem; border-width: 6px 14px; border-image-width: 6px 14px; }
+.dl-locked { display: flex; align-items: flex-start; gap: 12px; margin: 12px 0; padding: 10px 12px; background: rgba(0, 0, 0, .35); border: 1px solid #000; }
+.dl-locked img { flex: none; width: 40px; height: 40px; image-rendering: pixelated; }
+.dl-locked p { margin: 0; font-size: .95rem; line-height: 1.45; color: var(--ink); }
+.dl-locked b { color: var(--gold-hi); }
+.dl-feat-list ul { list-style: none; margin: 0 0 4px; padding: 0; }
+.dl-feat-list li { position: relative; padding: 2px 0 2px 20px; font-size: .93rem; line-height: 1.4; color: var(--ink); }
+.dl-feat-list li::before { content: ""; position: absolute; left: 2px; top: 7px; width: 9px; height: 5px; border: solid #9cc46a; border-width: 0 0 2px 2px; transform: rotate(-45deg); }
+.dl-deps ul { display: flex; flex-wrap: wrap; gap: 4px 6px; list-style: none; margin: 0; padding: 0; }
+.dl-deps li { font-size: .86rem; }
+.dl-deps a { display: inline-block; padding: 2px 7px; color: var(--ink); background: rgba(0, 0, 0, .35); border: 1px solid #000; border-radius: 2px; text-decoration: none; }
+.dl-deps a:hover { color: var(--gold-hi); }
+.dl-note { margin-top: 16px; padding: 10px 12px; background: rgba(227, 181, 82, .08); border-left: 3px solid var(--gold); }
+.dl-note h4 { margin-top: 0; }
+.dl-note p { margin: 0; font-size: .93rem; line-height: 1.45; color: var(--ink); }
+.dl-nojs { margin: 0; color: var(--ink); }
+.dl-nojs a { color: var(--gold-hi); }
+
+/* ---------- install steps: a page from the book ---------- */
+.dl-how {
+  grid-area: how; position: relative; margin: -6px 0 0; padding: 0 8px; color: #2f2414;
+  border: solid transparent; border-width: 26px 26px 26px 40px; border-image: url(/assets/downloads/gui/book.png) 26 26 26 40 fill / 26px 26px 26px 40px stretch;
+}
+.dl-how h3 { margin: 0 0 8px; font: 400 1.55rem/1.1 "Nyala 0", "Times New Roman", serif; color: #3a2a12; }
+.dl-how ol { margin: 0; padding-left: 1.4em; }
+.dl-how li { margin: 6px 0; font-size: 1.04rem; line-height: 1.5; }
+.dl-how li::marker { font-family: "Nyala 0", serif; font-weight: 700; color: #8a3a12; }
+.dl-how a { color: #8a3a12; }
+.dl-how-foot { margin: 8px 0 0; font-size: .95rem; font-style: italic; color: #5b4527; }
+.dl-how-foot:empty { display: none; }
+
+/* ---------- below the picker ---------- */
+.dl-sec { margin-top: 64px; }
+.dl-sec > h2 { margin: 0 0 14px; font: 400 2rem/1.1 "Nyala 0", "Times New Roman", serif; color: #2a2a2a; }
+.dl-sec > h2 { text-align: center; }
+.dl-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.dl-card {
+  display: flex; flex-direction: column; gap: 10px; padding: 20px 20px 18px; color: var(--ink); background: linear-gradient(180deg, #2a2721, #1b1a16);
+  box-shadow: inset 0 0 0 2px #000, inset 0 0 0 3px var(--iron), inset 0 0 0 5px #111, 0 8px 20px rgba(0, 0, 0, .25);
+}
+.dl-card h3 { margin: 0; font: 400 1.4rem/1.1 "Nyala 0", "Times New Roman", serif; color: var(--ink); }
+.dl-card p { margin: 0; font-size: .96rem; line-height: 1.45; color: var(--dim); }
+.dl-card .dl-btn { font-size: 1rem; }
+.dl-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.dl-chip { display: flex; flex-direction: column; padding: 5px 9px; color: var(--ink); text-decoration: none; background: rgba(0, 0, 0, .35); border: 1px solid #000; box-shadow: inset 0 0 0 1px rgba(109, 109, 109, .6); }
+.dl-chip:hover { color: var(--gold-hi); }
+.dl-chip b { font-weight: 600; }
+.dl-chip span { font-size: .76rem; color: var(--dim); }
+.dl-more { margin-top: auto; font-size: .92rem; color: var(--gold); }
+.dl-conv .dl-btns { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.dl-conv .dl-btn { min-height: 40px; padding: 0; border-width: 8px 12px; font-size: .95rem; }
+.dl-conv details { font-size: .9rem; color: var(--dim); }
+.dl-conv summary { cursor: pointer; color: var(--gold); }
+.dl-conv ul { margin: 8px 0 0; padding-left: 1.1em; line-height: 1.45; }
+.dl-help { max-width: 720px; margin-left: auto; margin-right: auto; text-align: center; }
+.dl-help p { font-size: 1.05rem; line-height: 1.5; color: #333; }
+
+@media (max-width: 980px) {
+  .dl-app { grid-template-columns: minmax(0, 1fr); grid-template-areas: "steps" "panel" "how"; padding: 18px; }
+  .dl-panel { position: static; width: 100%; max-width: 352px; justify-self: center; }
+  .dl-cards { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 620px) {
+  .dl-app { padding: 14px 10px; margin: 0 -8px; }
+  .dl-two { grid-template-columns: minmax(0, 1fr); }
+  .dl-grid { grid-template-columns: minmax(0, 1fr); }
+  .dl-step h2 { font-size: 1.3rem; }
+  .dl-how { border-width: 22px 18px 22px 30px; }
+}
