@@ -111,12 +111,12 @@ export async function sessionFor(env, userId, username = `user${userId.slice(-3)
 
 const HOUR = 3600000;
 // A contest with `n` entries (pictures already uploaded) through the staff API.
-export async function seedContest(env, { id = 'castles', n = 5, phase = 'voting', minAccountAgeDays = 0, artistOf = {} } = {}) {
+export async function seedContest(env, { id = 'castles', n = 5, phase = 'voting', minAccountAgeDays = 0, artistOf = {}, anonymous = false } = {}) {
   const api = client(env);
   const staff = await sessionFor(env, STAFF_ID, 'staffer');
   const now = Date.now();
   const times = { upcoming: [now + HOUR, now + 48 * HOUR], voting: [now - HOUR, now + 48 * HOUR], closed: [now - 48 * HOUR, now - HOUR] }[phase];
-  const created = await api.post('/api/staff/contests', { id, title: `Contest ${id}`, theme: 'Castles', description: 'Build a castle.', opensAt: times[0], closesAt: times[1], minAccountAgeDays, published: true }, { token: staff });
+  const created = await api.post('/api/staff/contests', { id, title: `Contest ${id}`, theme: 'Castles', description: 'Build a castle.', opensAt: times[0], closesAt: times[1], minAccountAgeDays, published: true, anonymous }, { token: staff });
   if (created.status !== 201) throw new Error(`seed: ${created.status} ${JSON.stringify(created.data)}`);
   const entries = [];
   for (let i = 1; i <= n; i++) {

@@ -46,9 +46,9 @@ test('staff routes need a staff Discord ID', async () => {
   assert.equal((await api.get('/contests/x1')).status, 404);
 });
 
-test('while voting is open: anonymous entries, shuffled per voter, no tallies anywhere', async () => {
+test('while voting is open in an anonymous contest: anonymous entries, shuffled per voter, no tallies anywhere', async () => {
   const env = makeEnv();
-  const { api } = await seedContest(env, { n: 8, artistOf: { 3: ARTIST_ID } });
+  const { api } = await seedContest(env, { n: 8, artistOf: { 3: ARTIST_ID }, anonymous: true });
   const t1 = await sessionFor(env, V1), t2 = await sessionFor(env, V2), artist = await sessionFor(env, ARTIST_ID);
   // some votes are in
   const first = (await api.get('/api/contests/castles', { token: t1 })).data;
@@ -79,6 +79,38 @@ test('while voting is open: anonymous entries, shuffled per voter, no tallies an
   const mine = (await api.get('/api/contests/castles', { token: artist })).data.entries.filter((e) => e.own);
   assert.equal(mine.length, 1);
   assert.equal((await api.get('/api/contests/castles', { token: t1 })).data.entries.filter((e) => e.own).length, 0);
+});
+
+test('contests aren’t anonymous unless staff say so: titles and artists while voting, still no tallies', async () => {
+  const env = makeEnv();
+  const { api, staff } = await seedContest(env, { n: 4, artistOf: { 2: ARTIST_ID } });
+  const detail = (await api.get('/api/staff/contests/castles', { token: staff })).data;
+  assert.equal(detail.contest.anonymous, false, 'off by default');
+
+  const t1 = await sessionFor(env, V1), artist = await sessionFor(env, ARTIST_ID);
+  const ids = (await api.get('/api/contests/castles', { token: t1 })).data.entries.map((e) => e.id);
+  assert.equal((await api.put('/api/contests/castles/ballot', { picks: ids.slice(0, 3) }, { token: t1 })).status, 200);
+  const r = await api.get('/api/contests/castles', { token: t1 });
+  assert.equal(r.data.contest.anonymous, false);
+  assert.deepEqual(r.data.entries.map((e) => e.title).sort(), ['Title 1', 'Title 2', 'Title 3', 'Title 4']);
+  assert.deepEqual(r.data.entries.find((e) => e.title === 'Title 2').artists, ['Artist 2']);
+  assert.deepEqual(r.data.entries.map((e) => e.id), ids, 'still shuffled per voter, the same order each time');
+  const text = JSON.stringify(r.data) + JSON.stringify((await api.get('/api/contests')).data);
+  for (const w of ['"points"', '"firsts"', '"seconds"', '"thirds"', '"place"', '"ballots"', 'image_key', 'preview_key', 'artist_ids', ARTIST_ID]) assert.ok(!text.includes(w), `leaks ${w}`);
+  // the artist still can't rank their own entry
+  const own = (await api.get('/api/contests/castles', { token: artist })).data.entries.find((e) => e.own);
+  assert.equal(own.title, 'Title 2');
+  const others = ids.filter((x) => x !== own.id);
+  assert.equal((await api.put('/api/contests/castles/ballot', { picks: [own.id, others[0], others[1]] }, { token: artist })).data.code, 'own-entry');
+
+  // switched to anonymous: the names are gone again
+  const on = await api.patch('/api/staff/contests/castles', { anonymous: true }, { token: staff });
+  assert.equal(on.data.contest.anonymous, true);
+  const anon = (await api.get('/api/contests/castles', { token: t1 })).data;
+  assert.equal(anon.contest.anonymous, true);
+  for (const e of anon.entries) assert.deepEqual(Object.keys(e).sort(), ['full', 'h', 'id', 'number', 'preview', 'w']);
+  // other edits leave the setting alone
+  assert.equal((await api.patch('/api/staff/contests/castles', { title: 'Renamed' }, { token: staff })).data.contest.anonymous, true);
 });
 
 test('ballots: validated on the server, one per account, changeable until voting closes', async () => {
@@ -136,7 +168,7 @@ test('minimum account age is enforced', async () => {
 
 test('results: hidden until voting closes, then 3/2/1 with tie-breaks and artists revealed', async () => {
   const env = makeEnv();
-  const { api, entries, staff } = await seedContest(env, { n: 4 });
+  const { api, entries, staff } = await seedContest(env, { n: 4, anonymous: true });
   const [a, b, c, d] = entries.map((e) => e.id);
   const tokens = await Promise.all(VOTER_IDS.map((id) => sessionFor(env, id)));
   const ballots = [[a, b, c], [a, c, d], [b, d, a], [c, b, d]];

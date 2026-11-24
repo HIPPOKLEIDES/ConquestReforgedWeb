@@ -1,6 +1,7 @@
 // Staff API (Discord IDs in the STAFF_IDS secret only).
 //   GET    /api/staff/contests                     every contest, drafts too, with entry and ballot counts
-//   POST   /api/staff/contests                     create (optional /submit window: submitOpensAt, submitClosesAt, submitChannel)
+//   POST   /api/staff/contests                     create (anonymous: hide titles/artists while voting; optional /submit
+//                                                  window: submitOpensAt, submitClosesAt, submitChannel)
 //   GET    /api/staff/contests/<id>                contest + all entries with artists
 //   PATCH  /api/staff/contests/<id>                edit
 //   POST   /api/staff/contests/<id>/close          close voting now
@@ -73,6 +74,7 @@ function contestFields(body, existing) {
     f.min_account_age_days = d;
   }
   if (!existing || 'published' in body) f.published = body.published ? 1 : 0;
+  if (!existing || 'anonymous' in body) f.anonymous = body.anonymous ? 1 : 0;
   if (!existing || 'submitOpensAt' in body) f.submit_opens_at = optTime(body.submitOpensAt, 'Entries open');
   if (!existing || 'submitClosesAt' in body) f.submit_closes_at = optTime(body.submitClosesAt, 'Entries close');
   if (!existing || 'submitChannel' in body) {
@@ -96,7 +98,7 @@ function contestFields(body, existing) {
 
 const staffContest = (c, now) => ({
   id: c.id, title: c.title, theme: c.theme, description: c.description, opensAt: c.vote_opens_at, closesAt: c.vote_closes_at,
-  minAccountAgeDays: c.min_account_age_days, published: !!c.published, phase: contestPhase(c, now), updatedAt: c.updated_at,
+  minAccountAgeDays: c.min_account_age_days, published: !!c.published, anonymous: !!c.anonymous, phase: contestPhase(c, now), updatedAt: c.updated_at,
   entryCount: c.entry_count, ballotCount: c.ballot_count,
   submitOpensAt: c.submit_opens_at, submitClosesAt: c.submit_closes_at, submissions: submissionState(c, now),
   submitChannel: channelUrl(c) || c.submit_channel_id || '', submitChannelId: c.submit_channel_id,
@@ -192,10 +194,10 @@ export async function handleStaffApi(request, env, url, parts) {
       if (!ID_RE.test(id) || RESERVED_IDS.has(id)) fail(400, 'The contest ID becomes its web address: lowercase letters, numbers and dashes (e.g. castles-2027).', 'invalid');
       const f = contestFields(body, null);
       const res = await env.DB.prepare(
-        `INSERT INTO contests (id, title, theme, description, vote_opens_at, vote_closes_at, min_account_age_days, published,
+        `INSERT INTO contests (id, title, theme, description, vote_opens_at, vote_closes_at, min_account_age_days, published, anonymous,
            submit_opens_at, submit_closes_at, submit_channel_id, submit_guild_id, created_at, updated_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (id) DO NOTHING`)
-        .bind(id, f.title, f.theme, f.description, f.vote_opens_at, f.vote_closes_at, f.min_account_age_days, f.published,
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (id) DO NOTHING`)
+        .bind(id, f.title, f.theme, f.description, f.vote_opens_at, f.vote_closes_at, f.min_account_age_days, f.published, f.anonymous,
           f.submit_opens_at, f.submit_closes_at, f.submit_channel_id, f.submit_guild_id, now, now).run();
       if (!res.meta.changes) fail(409, `A contest with the ID “${id}” already exists.`, 'exists');
       return json(await contestDetail(env, id), 201);

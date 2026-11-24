@@ -77,9 +77,9 @@ function showcasePictures(n) {
   return out;
 }
 
-async function createContest(staff, id, { title, theme, description, minAccountAgeDays = 0, pictures, artists }) {
+async function createContest(staff, id, { title, theme, description, minAccountAgeDays = 0, anonymous = false, pictures, artists }) {
   const now = Date.now();
-  const r = await staff.req('POST', '/api/staff/contests', { json: { id, title, theme, description, opensAt: now - 60000, closesAt: now + 7 * 86400000, minAccountAgeDays, published: true } });
+  const r = await staff.req('POST', '/api/staff/contests', { json: { id, title, theme, description, opensAt: now - 60000, closesAt: now + 7 * 86400000, minAccountAgeDays, anonymous, published: true } });
   assert.equal(r.status, 201, JSON.stringify(r.data));
   const entries = [];
   for (let i = 0; i < pictures.length; i++) {
@@ -137,7 +137,7 @@ try {
   await step('staff create a contest and upload pictures (streamed into R2)', async () => {
     const pics = showcasePictures(4);
     entries = await createContest(staff, id, {
-      title: 'E2E contest', theme: 'Testing', description: 'Created by contest-tools/e2e-local.mjs', minAccountAgeDays: 7, pictures: pics,
+      title: 'E2E contest', theme: 'Testing', description: 'Created by contest-tools/e2e-local.mjs', minAccountAgeDays: 7, anonymous: true, pictures: pics,
       artists: pics.map((_, i) => ({ title: `E2E ${i + 1}`, names: [`E2E Artist ${i + 1}`], ids: i === 1 ? [ARTIST] : [] })),
     });
     assert.equal(entries.length, 4);

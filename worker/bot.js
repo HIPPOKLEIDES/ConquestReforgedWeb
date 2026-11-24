@@ -48,7 +48,7 @@ const findContest = (env, channelId, parentId, now) =>
     .bind(channelId, parentId || channelId, now).first();
 
 const botContest = (c, url) => ({
-  id: c.id, title: c.title, theme: c.theme, url: `${url.origin}/contests/${c.id}`,
+  id: c.id, title: c.title, theme: c.theme, url: `${url.origin}/contests/${c.id}`, anonymous: !!c.anonymous,
   submitOpensAt: c.submit_opens_at, submitClosesAt: c.submit_closes_at, voteOpensAt: c.vote_opens_at,
 });
 const botEntry = (e) => ({ number: e.number, title: e.title, hidden: !!e.hidden });

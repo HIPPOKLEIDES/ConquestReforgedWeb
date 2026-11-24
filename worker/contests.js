@@ -1,8 +1,9 @@
 // Public contest API, entry images and the /contests/<id> page.
 //   GET /api/me
 //   GET /api/contests                 published contests for the list page
-//   GET /api/contests/<id>            one contest; entries are anonymous and shuffled per voter while voting
-//                                     is open, ranked with artists once it has closed; never any tallies before
+//   GET /api/contests/<id>            one contest; while voting is open, entries are shuffled per voter, with their
+//                                     title and artists unless the contest is anonymous; ranked with artists once
+//                                     it has closed; never any tallies before
 //   PUT /api/contests/<id>/ballot     { picks: [1st, 2nd, 3rd] } (entry IDs)
 //   GET /api/img/<entry>/<full|preview>?v=<key>
 import { accountTooNew, checkBallot, contestPhase, parsePicks, shuffled, submissionState, tally } from './voting.js';
@@ -38,6 +39,7 @@ export const publicContest = (c, now) => {
     opensAt: c.vote_opens_at,
     closesAt: c.vote_closes_at,
     minAccountAgeDays: c.min_account_age_days,
+    anonymous: !!c.anonymous, // titles and artists hidden until voting closes
     phase: contestPhase(c, now),
     // entries by /submit on Discord (null when staff add them)
     submissions: state ? { opensAt: c.submit_opens_at, closesAt: c.submit_closes_at, state, channelUrl: channelUrl(c) } : null,
@@ -115,15 +117,20 @@ async function getContest(request, env, id) {
 
   // voting (everyone) or a staff preview of a contest that hasn't opened yet
   if (contest.phase === 'voting' || viewer?.staff) {
-    const reads = [env.DB.prepare(`SELECT id, number, width, height, image_key, preview_key FROM entries WHERE contest_id = ? AND ${ready}`).bind(c.id)];
+    const reads = [env.DB.prepare(`SELECT id, number, title, artist_names, width, height, image_key, preview_key FROM entries WHERE contest_id = ? AND ${ready}`).bind(c.id)];
     if (viewer) {
       reads.push(env.DB.prepare('SELECT e.id FROM entries e WHERE e.contest_id = ?1 AND (e.submitted_by = ?2 OR EXISTS (SELECT 1 FROM json_each(e.artist_ids) j WHERE j.value = ?2))').bind(c.id, viewer.id));
       reads.push(env.DB.prepare('SELECT first_entry, second_entry, third_entry, updated_at FROM ballots WHERE contest_id = ? AND voter_id = ?').bind(c.id, viewer.id));
     }
     const [entries, own, ballot] = await env.DB.batch(reads);
     const mine = new Set((own?.results || []).map((r) => r.id));
-    // Nothing here says who made an entry or how it is doing: number, size and pictures only.
-    const list = entries.results.map((e) => ({ id: e.id, number: e.number, w: e.width, h: e.height, preview: imageUrl(e, 'preview'), full: imageUrl(e, 'full'), ...(mine.has(e.id) ? { own: true } : {}) }));
+    // Nothing here says how an entry is doing. In an anonymous contest nothing says who made it either:
+    // number, size and pictures only. Otherwise the title and artists come too.
+    const list = entries.results.map((e) => ({
+      id: e.id, number: e.number, w: e.width, h: e.height, preview: imageUrl(e, 'preview'), full: imageUrl(e, 'full'),
+      ...(c.anonymous ? {} : { title: e.title, artists: parseList(e.artist_names) }),
+      ...(mine.has(e.id) ? { own: true } : {}),
+    }));
     out.entries = shuffled(list, viewer ? `${viewer.id}:${c.id}` : crypto.getRandomValues(new Uint32Array(1))[0]);
     const b = ballot?.results?.[0];
     if (b) out.ballot = { picks: [b.first_entry, b.second_entry, b.third_entry], savedAt: b.updated_at };

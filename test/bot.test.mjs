@@ -31,12 +31,12 @@ function entryForm({ channelId = CHANNEL, parentId, user = { id: ENTRANT, name: 
 }
 
 // a published contest taking entries in CHANNEL now; voting opens after entries close
-async function entryContest(env, { id = 'keeps', published = true, submitOpensAt, submitClosesAt, opensAt, channel = `https://discord.com/channels/${GUILD}/${CHANNEL}` } = {}) {
+async function entryContest(env, { id = 'keeps', published = true, anonymous = false, submitOpensAt, submitClosesAt, opensAt, channel = `https://discord.com/channels/${GUILD}/${CHANNEL}` } = {}) {
   const api = client(env);
   const staff = await sessionFor(env, STAFF_ID, 'staffer');
   const now = Date.now();
   const so = submitOpensAt ?? now - HOUR, sc = submitClosesAt ?? now + 24 * HOUR, vo = opensAt ?? sc + HOUR;
-  const r = await api.post('/api/staff/contests', { id, title: `Contest ${id}`, theme: 'Keeps', opensAt: vo, closesAt: vo + 48 * HOUR, published, submitOpensAt: so, submitClosesAt: sc, submitChannel: channel }, { token: staff });
+  const r = await api.post('/api/staff/contests', { id, title: `Contest ${id}`, theme: 'Keeps', opensAt: vo, closesAt: vo + 48 * HOUR, published, anonymous, submitOpensAt: so, submitClosesAt: sc, submitChannel: channel }, { token: staff });
   assert.equal(r.status, 201, JSON.stringify(r.data));
   return { api, staff, contest: r.data.contest };
 }
@@ -231,9 +231,10 @@ test('the bot key can’t touch entries staff added, even for the same person', 
   assert.equal(d.entries.find((e) => e.id === added.data.entry.id).title, 'Staff-added');
 });
 
-test('entrants stay anonymous, and can’t rank their own entry even if staff edit its artists', async () => {
+test('in an anonymous contest entrants stay anonymous, and can’t rank their own entry even if staff edit its artists', async () => {
   const env = makeEnv();
-  const { api, staff } = await entryContest(env);
+  const { api, staff } = await entryContest(env, { anonymous: true });
+  assert.equal((await bot(env, 'lookup', { body: { channelId: CHANNEL, userId: ENTRANT } })).data.contest.anonymous, true);
   const names = ['Ser Builder', 'Mason', 'Quarry'], ids = [ENTRANT, ENTRANT2, V3];
   for (let i = 0; i < 3; i++) await bot(env, 'submit', { form: entryForm({ user: { id: ids[i], name: names[i] }, title: `Secret title ${i}` }) });
   await bot(env, 'submit', { form: entryForm({ user: { id: V2, name: 'Fourth' }, title: 'Secret title 3' }) });

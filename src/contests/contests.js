@@ -132,6 +132,9 @@
   const byLine = (artists) => (artists && artists.length ? 'by ' + (artists.length > 1 ? artists.slice(0, -1).join(', ') + ' & ' + artists[artists.length - 1] : artists[0]) : '');
   const entryLabel = (e) => `Entry ${e.number}`;
   const entryName = (e) => e.title || entryLabel(e);
+  // titles and artists come with the entries unless the contest is anonymous (then only after voting closes)
+  const named = (e) => Array.isArray(e.artists);
+  const label = (e) => (named(e) ? entryName(e) : entryLabel(e));
 
   // =====================================================================================
   // list page
@@ -290,7 +293,7 @@
       h('li', null, medal(3), h('div', null, h('b', null, 'Save your ballot'), h('span', null, 'Change it as often as you like until voting closes.'))));
     const sec = h('section', { class: 'bx-sec ct-vote' },
       h('h2', null, 'The entries'),
-      h('p', { class: 'bx-lead' }, `${n} entries, in a shuffled order of your own. Artists stay anonymous until voting closes.`),
+      h('p', { class: 'bx-lead' }, `${n} entries, in a shuffled order of your own.${c.anonymous ? ' Artists stay anonymous until voting closes.' : ''}`),
       how, h('div', { style: 'height:26px' }), gallery(S.list, 'vote'), S.dock);
     renderDock();
     return sec;
@@ -298,7 +301,7 @@
 
   const canPick = () => S.data && S.data.contest.phase === 'voting' && S.data.canVote !== false;
   function rankButtons(e) {
-    const box = h('div', { class: 'ct-picks', role: 'group', 'aria-label': `Rank ${entryLabel(e)}` });
+    const box = h('div', { class: 'ct-picks', role: 'group', 'aria-label': `Rank ${label(e)}` });
     RANKS.forEach((r, i) => box.append(h('button', {
       type: 'button', class: 'ct-rank', 'data-r': i + 1, 'aria-pressed': 'false', disabled: e.own || !canPick(),
       title: e.own ? 'You can’t rank your own entry' : `${r} place (${POINTS[i]} points)`, 'aria-label': `${r} place`,
@@ -329,10 +332,10 @@
     const slots = h('ol', { class: 'ct-slots' }, [0, 1, 2].map((i) => {
       const e = S.byId.get(S.picks[i]);
       const li = h('li', { class: `ct-slot${e ? ' full' : ''}${i === bumped ? ' bump' : ''}` }, medal(i + 1),
-        h('button', { type: 'button', class: 'ct-slot-img', 'aria-label': e ? `View ${entryLabel(e)}` : `${RANKS[i]} place: pick an entry`, onclick: () => (e ? openLightbox(S.list.indexOf(e)) : $('.ct-gallery').scrollIntoView({ behavior: 'smooth', block: 'start' })) },
+        h('button', { type: 'button', class: 'ct-slot-img', 'aria-label': e ? `View ${label(e)}` : `${RANKS[i]} place: pick an entry`, onclick: () => (e ? openLightbox(S.list.indexOf(e)) : $('.ct-gallery').scrollIntoView({ behavior: 'smooth', block: 'start' })) },
           e ? h('img', { src: e.preview, alt: '' }) : h('span', { 'aria-hidden': 'true', style: 'color:#b9a383;font-size:1.4rem' }, '+')),
-        h('span', { class: 'ct-slot-txt' }, h('b', null, `${RANKS[i]} place`), h('small', null, e ? entryLabel(e) : plural(POINTS[i], 'point'))),
-        e ? h('button', { type: 'button', class: 'ct-slot-x', 'aria-label': `Remove ${entryLabel(e)} from ${RANKS[i]} place`, onclick: () => setPick(e.id, i) }, '×') : null);
+        h('span', { class: 'ct-slot-txt' }, h('b', null, `${RANKS[i]} place`), h('small', { title: e ? label(e) : null }, e ? label(e) : plural(POINTS[i], 'point'))),
+        e ? h('button', { type: 'button', class: 'ct-slot-x', 'aria-label': `Remove ${label(e)} from ${RANKS[i]} place`, onclick: () => setPick(e.id, i) }, '×') : null);
       return li;
     }));
     const missing = S.picks.filter((p) => p == null).length;
@@ -386,11 +389,13 @@
   function tile(e, i, mode) {
     const ar = e.w && e.h ? e.w / e.h : 16 / 9;
     const li = h('li', { class: 'ct-tile', style: `--ar:${Math.min(Math.max(ar, .4), 4).toFixed(4)}`, 'data-id': e.id });
-    li.append(shot(e, i, mode === 'results' ? entryName(e) : entryLabel(e), i < 6));
+    li.append(shot(e, i, label(e), i < 6));
     if (mode === 'results') {
       li.append(h('div', { class: 'ct-cap' }, medal(e.place), h('div', { class: 'ct-cap-t' }, h('b', null, entryName(e)), h('span', null, byLine(e.artists))), h('div', { class: 'ct-pts' }, String(e.points), h('small', null, e.points === 1 ? 'point' : 'points'))));
     } else {
-      li.append(h('span', { class: 'ct-num' }, entryLabel(e)));
+      // named entries get a caption like the results (no place or points); anonymous ones only their number
+      if (named(e)) li.append(h('div', { class: 'ct-cap' }, h('div', { class: 'ct-cap-t' }, h('b', { title: entryName(e) }, entryName(e)), h('span', null, byLine(e.artists)))));
+      else li.append(h('span', { class: 'ct-num' }, entryLabel(e)));
       if (e.own) li.append(h('span', { class: 'ct-own' }, 'Your entry'));
       if (mode === 'vote') li.append(rankButtons(e), h('span', { class: 'ct-ribbon', 'aria-hidden': 'true' }));
     }
@@ -439,14 +444,15 @@
         h('ol', { class: 'ct-steps' },
           h('li', null, h('b', null, 'Go to the contest channel'), h('span', null, 'on the Conquest Reforged Discord', s.channelUrl ? ' (button below).' : '.')),
           h('li', null, h('b', null, 'Type ', cmd('/submit')), h('span', null, 'attach your picture (PNG, JPEG or WebP) and give it a title.')),
-          h('li', null, h('b', null, 'That’s it'), h('span', null, 'Only you see the bot’s reply, and your entry stays anonymous until the results.'))),
+          h('li', null, h('b', null, 'That’s it'), h('span', null, c.anonymous ? 'Only you see the bot’s reply, and your entry stays anonymous until the results.'
+            : 'Only you see the bot’s reply. Your entry appears here with its title and your name when voting opens.'))),
         h('p', { class: 'ct-enter-when' }, sub === 'open' ? `Entries close ${fmtWhen(s.closesAt)}. Changed your mind? Use /submit again to replace your entry, or /withdraw to take it out.`
           : `Entries open ${fmtWhen(s.opensAt)} and close ${fmtWhen(s.closesAt)}.`),
         h('div', { class: 'ct-enter-a' }, sub === 'open' ? ext(s.channelUrl, 'Open the channel on Discord') : null,
           ext(discord, sub === 'open' && s.channelUrl ? 'Not on our Discord yet? Join' : 'Join the Discord', sub === 'open' && s.channelUrl ? 'bx-btn bx-btn-ghost' : 'bx-btn'))))
       : h('section', { class: 'bx-sec ct-narrow' }, h('div', { class: 'ct-card', style: 'text-align:center' },
         h('h3', null, 'The entries are on their way'),
-        h('p', null, `Voting opens ${fmtWhen(c.opensAt)}. Then every entry appears here, anonymous, and you can pick your top 3 with your Discord account.`),
+        h('p', null, `Voting opens ${fmtWhen(c.opensAt)}. Then every entry appears here${c.anonymous ? ', anonymous,' : ''} and you can pick your top 3 with your Discord account.`),
         ext(discord, 'Get notified on Discord')));
     if (!data.preview) return [card];
     const n = data.entries.length;
@@ -545,9 +551,9 @@
       for (const d of [1, -1]) { const n = S.list[(LB.i + d + S.list.length) % S.list.length]; if (n) new Image().src = n.full; }
     }
     const phase = S.data.contest.phase;
-    hi.alt = phase === 'closed' ? `${entryName(e)} ${byLine(e.artists)}` : entryLabel(e);
-    $('.ct-lb-cap b', el).textContent = phase === 'closed' ? entryName(e) : entryLabel(e);
-    $('.ct-lb-cap span', el).textContent = phase === 'closed' ? byLine(e.artists) : e.own ? 'Your entry' : e.w ? `${e.w} × ${e.h}` : '';
+    hi.alt = named(e) ? `${entryName(e)} ${byLine(e.artists)}` : entryLabel(e);
+    $('.ct-lb-cap b', el).textContent = label(e);
+    $('.ct-lb-cap span', el).textContent = named(e) ? byLine(e.artists) : e.own ? 'Your entry' : e.w ? `${e.w} × ${e.h}` : '';
     $('.ct-lb-n', el).textContent = `${LB.i + 1} / ${S.list.length}`;
     const extra = $('.ct-lb-extra', el);
     extra.replaceChildren();

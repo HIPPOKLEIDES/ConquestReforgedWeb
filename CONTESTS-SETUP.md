@@ -49,7 +49,9 @@ npx wrangler d1 migrations apply conquest-contests --remote
 If it says `The database 00000000-0000-0000-0000-000000000000 could not be found [code: 7404]`, step 1 hasn't
 been done (or its ID isn't in `wrangler.jsonc` yet).
 
-Later schema changes come as new files in `migrations/`; run the same command after merging them.
+Later schema changes come as new files in `migrations/` (e.g. `0002_submissions.sql`, `0003_anonymous.sql`). Run the
+same command from a checkout that has them **before** pushing them to `main`: the new code expects the new columns.
+New migrations only add columns, so the site that is live at that moment keeps working.
 
 ## 4. Discord application
 
@@ -175,13 +177,16 @@ If `/submit` answers "aren't set up properly", the key in the bot and the `CONTE
 ## Running a contest
 
 - **Create** it on `/contests/staff`: title, theme, description, voting opens/closes (your local time),
-  minimum Discord account age (0 = any account; e.g. 30 keeps fresh alt accounts out).
+  minimum Discord account age (0 = any account; e.g. 30 keeps fresh alt accounts out), and **Anonymous**
+  (off by default: voters see each entry's title and artists; on: entries show as "Entry 7" and the artists are
+  revealed with the results. Set it before voting opens).
 - **Entries by the entrants** (`/submit` on Discord, see step 8): give the contest "Entries open" / "Entries
   close" times (closing at the latest when voting opens) and paste the link of the Discord channel or thread
   (right-click it, Copy Link; a channel also covers the threads in it). In that window, `/submit` there with a
   picture and a title adds the person's entry, or replaces it if they send again (one entry each); `/withdraw`
   takes it out. Their Discord name becomes the artist name and their ID is filled in, so they can't rank their
-  own entry. The bot's replies are visible only to them, so nobody else learns who sent what. Entries go
+  own entry. The bot's replies are visible only to them (in an anonymous contest, nobody else learns who sent
+  what). Entries go
   straight in, marked "via /submit" on the desk: check them before voting opens, and hide or delete any that
   break the rules (hiding sticks if they send again). The contest page shows how to enter and a countdown.
 - **Entries by staff**: drop the pictures on the desk, fill in the artist name(s) and, ideally, their Discord IDs
@@ -189,8 +194,9 @@ If `/submit` answers "aren't set up properly", the key in the bot and the `CONTE
   artist name in the file) and a small WebP preview is made for the gallery. File names are not uploaded. Both
   ways can be mixed in one contest.
 - **Voting**: from the opening time anyone with a Discord account (old enough) ranks a top 3, 3/2/1 points,
-  one ballot per account, changeable until the close. Entries appear as "Entry 7" in a shuffled order per voter;
-  no scores are shown anywhere until voting closes.
+  one ballot per account, changeable until the close. Entries appear in a shuffled order per voter, with their
+  title and artists (or as "Entry 7" in an anonymous contest); no scores are shown anywhere until voting closes.
+  Nobody can rank their own entry either way.
 - **Hide** an entry to take it out of the vote and the results (votes for it then count for nothing; the
   voter's other picks still count, and they are asked to pick a replacement if voting is still open).
   Entries without votes can also be deleted.

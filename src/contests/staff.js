@@ -72,7 +72,8 @@
     const taking = c.phase === 'upcoming' && c.submissions === 'open';
     const where = c.submitChannel ? (/^https:/.test(c.submitChannel) ? h('a', { href: c.submitChannel, target: '_blank', rel: 'noopener' }, 'the contest channel') : `channel ${c.submitChannel}`) : null;
     return h('div', { class: 'ct-card' },
-      h('div', { class: 'st-badges' }, pill(!c.published ? 'draft' : taking ? 'submitting' : c.phase), h('span', { class: 'ct-pill' }, plural(c.entryCount, 'entry', 'entries')), h('span', { class: 'ct-pill' }, plural(c.ballotCount, 'ballot'))),
+      h('div', { class: 'st-badges' }, pill(!c.published ? 'draft' : taking ? 'submitting' : c.phase), h('span', { class: 'ct-pill' }, plural(c.entryCount, 'entry', 'entries')), h('span', { class: 'ct-pill' }, plural(c.ballotCount, 'ballot')),
+        c.anonymous ? h('span', { class: 'ct-pill', title: 'Titles and artists stay hidden until voting closes' }, 'Anonymous') : null),
       h('h3', null, c.title),
       h('p', null, c.phase === 'voting' ? `Voting closes ${fmtWhen(c.closesAt)}.` : c.phase === 'closed' ? `Voting closed ${fmtWhen(c.closesAt)}. Results are public.` : `Voting opens ${fmtWhen(c.opensAt)}.`,
         c.published ? '' : ' This contest is a draft: only staff can see it.'),
@@ -103,6 +104,9 @@
       f('opensAt', 'Voting opens', inp('opensAt', { type: 'datetime-local', required: true, value: toInput(c ? c.opensAt : soon) }), `Your time zone (${tz}).`),
       f('closesAt', 'Voting closes', inp('closesAt', { type: 'datetime-local', required: true, value: toInput(c ? c.closesAt : soon + 7 * day) })),
       f('minAccountAgeDays', 'Minimum Discord account age (days)', inp('minAccountAgeDays', { type: 'number', min: 0, max: 3650, step: 1, value: c ? c.minAccountAgeDays : 0 }), 'Keeps brand-new alt accounts out. 0 = any account. Worked out from the Discord ID.'),
+      h('div', { class: 'st-opt' },
+        h('label', { class: 'st-check' }, inp('anonymous', { type: 'checkbox', checked: c ? c.anonymous : false }), 'Anonymous'),
+        h('small', null, 'Off: voters see each entry’s title and artists. On: entries show as “Entry 1, Entry 2…” and the artists are revealed with the results. Set it before voting opens.')),
       h('div', { class: 'st-group' },
         h('h4', null, 'Entries by ', cmd('/submit'), ' on Discord'),
         h('p', null, 'Between these times, entrants send their own entry with the bot: /submit in the channel below, with their picture and a title. Their Discord name and ID are filled in for them, so they can’t rank their own entry. Leave the times empty to add every entry yourself.'),
@@ -118,6 +122,7 @@
         title: v('title'), theme: v('theme'), description: v('description'),
         opensAt: fromInput(v('opensAt')), closesAt: fromInput(v('closesAt')),
         minAccountAgeDays: Number(v('minAccountAgeDays') || 0), published: form.elements.published.checked,
+        anonymous: form.elements.anonymous.checked,
         submitOpensAt: v('submitOpensAt') ? fromInput(v('submitOpensAt')) : null,
         submitClosesAt: v('submitClosesAt') ? fromInput(v('submitClosesAt')) : null,
         submitChannel: v('submitChannel').trim(),
@@ -189,10 +194,12 @@
     drop.addEventListener('drop', (e) => { e.preventDefault(); drop.classList.remove('over'); add([...e.dataTransfer.files].filter((f) => /^image\//.test(f.type))); });
     return h('div', { class: 'ct-card' },
       h('h3', null, 'Entries'),
-      h('p', null, c.phase === 'voting' ? 'Voting is open: new entries show up for voters straight away. Hide an entry to take it out of the vote and the results.' : 'Entries become public when voting opens, anonymous and shuffled. Artists are shown with the results.'),
+      h('p', null, c.phase === 'voting' ? 'Voting is open: new entries show up for voters straight away. Hide an entry to take it out of the vote and the results.'
+        : c.anonymous ? 'Entries become public when voting opens, anonymous and shuffled. Artists are shown with the results.'
+          : 'Entries become public when voting opens, shuffled, with their titles and artists.'),
       c.submissions ? h('p', null, 'Entries sent with ', cmd('/submit'), ' appear here by themselves, marked “via /submit”. Hide or delete any that break the rules before voting opens.') : null,
       drop, fileInput,
-      h('p', { class: 'st-note' }, 'Pictures are re-saved in your browser before upload: that removes hidden metadata (such as an artist name in the file) so entries stay anonymous, and makes the gallery preview. The file name is never uploaded. Add the artists’ Discord IDs (right-click them in Discord, Copy User ID) so they can’t rank their own entry.'),
+      h('p', { class: 'st-note' }, 'Pictures are re-saved in your browser before upload: that removes hidden metadata (camera, location, or an artist name that would give an anonymous entry away), and makes the gallery preview. The file name is never uploaded. Add the artists’ Discord IDs (right-click them in Discord, Copy User ID) so they can’t rank their own entry.'),
       pending, h('div', { class: 'st-row', style: 'margin-top:12px' }, allBtn),
       h('div', { style: 'height:16px' }),
       entries.length ? null : h('p', { class: 'st-hint' }, 'No entries yet.'),
