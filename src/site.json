@@ -194,9 +194,9 @@
     "rss": "/assets/rss-icon.webp"
   },
   "historia": {
-    "published": false,
+    "published": true,
     "releaseLine": "Coming to the Minecraft Marketplace · November 24",
-    "marketplaceUrl": "",
+    "marketplaceUrl": "https://www.minecraft.net/en-us/marketplace/pdp/conquest-studios/historia:-roman-mash--up/fb8c3f5d-bdb9-47d0-a07a-7b6b1e1429f9",
     "ctaComing": "Coming November 24",
     "ctaLive": "Get it on the Marketplace",
     "bpFile": "/downloads/historia-rome-addon.mcaddon",
